@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Classical Cross Section — Interactive Visualization</title>
+<style>
+  body { margin: 0; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #111; color: #ddd; }
+  #info { position: absolute; top: 10px; left: 10px; padding: 12px 16px; background: rgba(0,0,0,0.7); border-radius: 6px; max-width: 360px; line-height: 1.4; }
+  #info h3 { margin: 0 0 8px 0; }
+  #info p { margin: 6px 0; font-size: 13px; }
+  #info code { display: block; padding: 6px 8px; background: rgba(255,255,255,0.07); border-radius: 4px; font-size: 12px; line-height: 1.5; margin-top: 6px; }
+  #controls { position: absolute; top: 10px; right: 10px; padding: 12px; background: rgba(0,0,0,0.7); border-radius: 6px; min-width: 240px; }
+  #controls .row { margin: 6px 0; }
+  #controls label { font-size: 13px; }
+  #controls button { margin: 2px; padding: 5px 10px; background: #333; color: #ddd; border: 1px solid #555; border-radius: 3px; cursor: pointer; font-size: 12px; }
+  #controls button:hover { background: #444; }
+  #controls button.active { background: #2a6; border-color: #4d8; }
+  #controls input[type=range] { width: 100%; margin-top: 4px; }
+  #controls .value { float: right; color: #aaa; font-size: 11px; }
+  #legend { position: absolute; bottom: 10px; left: 10px; padding: 8px 12px; background: rgba(0,0,0,0.7); border-radius: 4px; font-size: 12px; }
+  .axis-label { display: inline-block; width: 12px; height: 12px; vertical-align: middle; margin-right: 4px; }
+  .x { background: #f44; }
+  .y { background: #4f4; }
+  .z { background: #44f; }
+</style>
+</head>
+<body>
+
+<div id="info">
+  <h3>Classical Cross Section — 3D Demo</h3>
+  <p id="description">A beam of point particles incident on a target. Each trajectory has a different impact parameter b.</p>
+  <div id="formula"></div>
+  <p style="margin-top:10px;font-size:11px;color:#aaa">Drag to rotate · scroll to zoom · right-drag to pan</p>
+</div>
+
+<div id="controls">
+  <div class="row">
+    <label><b>Mode:</b></label><br>
+    <button id="btn-sphere" onclick="setMode('sphere')">Hard sphere</button>
+    <button id="btn-repel" onclick="setMode('coulomb_repel')">Coulomb (repel)</button>
+    <button id="btn-attract" onclick="setMode('coulomb_attract')">Coulomb (attract)</button>
+  </div>
+  <div class="row">
+    <label>Number of particles <span class="value" id="numPartsVal">40</span></label>
+    <input id="numParts" type="range" min="5" max="200" value="40">
+  </div>
+  <div class="row">
+    <label>Max impact parameter b <span class="value" id="maxBVal">20</span></label>
+    <input id="maxB" type="range" min="1" max="50" value="20" step="1">
+  </div>
+  <div class="row">
+    <label>Energy E (Coulomb) <span class="value" id="energyVal">30</span></label>
+    <input id="energy" type="range" min="3" max="200" value="30">
+  </div>
+  <div class="row">
+    <button onclick="reshoot()">↻ Reshoot</button>
+    <button id="btn-cone" onclick="toggleCone()">▢ Geometric cross section</button>
+    <button id="btn-axes" onclick="toggleAxes()">⊥ Axes</button>
+  </div>
+</div>
+
+<div id="legend">
+  <span class="axis-label x"></span>x (beam)
+  <span class="axis-label y"></span>y
+  <span class="axis-label z"></span>z &nbsp;·&nbsp; trajectory color = impact parameter (red small → blue large)
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ===== Scene =====
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x111111);
+
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera.position.set(80, 50, 100);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0);
+controls.update();
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
+dirLight.position.set(60, 60, 60);
+scene.add(dirLight);
+
+// ===== Beam axis indicator (faint cylinder along +x) =====
+const beamGeom = new THREE.CylinderGeometry(0.15, 0.15, 240, 8);
+const beamMat = new THREE.MeshBasicMaterial({ color: 0x666666, transparent: true, opacity: 0.35 });
+const beamMesh = new THREE.Mesh(beamGeom, beamMat);
+beamMesh.rotation.z = Math.PI / 2;
+scene.add(beamMesh);
+
+// ===== Axes =====
+const axesHelper = new THREE.AxesHelper(40);
+scene.add(axesHelper);
+let axesVisible = true;
+
+// ===== State =====
+let mode = 'sphere';
+let trajectories = [];
+let target = null;
+let cone = null;
+let coneVisible = false;
+
+const SPHERE_R = 15;
+
+function clearScene() {
+  trajectories.forEach(t => {
+    scene.remove(t);
+    t.geometry.dispose();
+    t.material.dispose();
+  });
+  trajectories = [];
+  if (target) {
+    scene.remove(target);
+    target.geometry.dispose();
+    target.material.dispose();
+    target = null;
+  }
+  if (cone) {
+    scene.remove(cone);
+    cone.geometry.dispose();
+    cone.material.dispose();
+    cone = null;
+  }
+}
+
+function makeTarget() {
+  if (mode === 'sphere') {
+    const g = new THREE.SphereGeometry(SPHERE_R, 48, 48);
+    const m = new THREE.MeshPhongMaterial({
+      color: 0x4488ff,
+      transparent: true,
+      opacity: 0.55,
+      shininess: 80
+    });
+    target = new THREE.Mesh(g, m);
+  } else {
+    const g = new THREE.SphereGeometry(2.5, 24, 24);
+    const isAttract = mode === 'coulomb_attract';
+    const m = new THREE.MeshPhongMaterial({
+      color: isAttract ? 0x4488ff : 0xff4444,
+      emissive: isAttract ? 0x002255 : 0x551100,
+      emissiveIntensity: 0.6
+    });
+    target = new THREE.Mesh(g, m);
+  }
+  scene.add(target);
+}
+
+// ===== Trajectory: hard-sphere reflection =====
+function trajectoryHardSphere(b, phi) {
+  const startX = -100;
+  const offY = b * Math.cos(phi);
+  const offZ = b * Math.sin(phi);
+  const start = new THREE.Vector3(startX, offY, offZ);
+
+  if (b >= SPHERE_R) {
+    // Misses
+    return [start, new THREE.Vector3(200, offY, offZ)];
+  }
+  const xHit = -Math.sqrt(SPHERE_R * SPHERE_R - b * b);
+  const hit = new THREE.Vector3(xHit, offY, offZ);
+  const normal = hit.clone().normalize();
+  const dir = new THREE.Vector3(1, 0, 0);
+  const dDotN = dir.dot(normal);
+  const reflected = dir.clone().addScaledVector(normal, -2 * dDotN);
+  const out = hit.clone().addScaledVector(reflected, 240);
+  return [start, hit, out];
+}
+
+// ===== Trajectory: Coulomb (numerical leapfrog integration) =====
+function trajectoryCoulomb(b, phi, energy, attractive) {
+  // Force F = k * r̂ / r²;  k > 0 repulsive, k < 0 attractive
+  const k = attractive ? -150 : 150;
+  const offY = b * Math.cos(phi);
+  const offZ = b * Math.sin(phi);
+  const pos = new THREE.Vector3(-100, offY, offZ);
+  const v0 = Math.sqrt(2 * energy); // m = 1, KE = 1/2 v²
+  const vel = new THREE.Vector3(v0, 0, 0);
+
+  const points = [pos.clone()];
+  const dt = 0.04;
+  const maxSteps = 4000;
+  let stepsSinceSave = 0;
+
+  // Half-step kick for leapfrog
+  const r0 = pos.length();
+  const a0 = pos.clone().multiplyScalar(k / (r0 * r0 * r0));
+  vel.addScaledVector(a0, dt / 2);
+
+  for (let i = 0; i < maxSteps; i++) {
+    pos.addScaledVector(vel, dt);
+    const r = pos.length();
+    if (r < 0.6) break;        // crashed into target
+    if (r > 220) break;         // escaped
+    const a = pos.clone().multiplyScalar(k / (r * r * r));
+    vel.addScaledVector(a, dt);
+    stepsSinceSave++;
+    if (stepsSinceSave >= 2) {
+      points.push(pos.clone());
+      stepsSinceSave = 0;
+    }
+  }
+  return points;
+}
+
+// ===== Shoot a beam =====
+function shoot() {
+  clearScene();
+  makeTarget();
+
+  const N = parseInt(document.getElementById('numParts').value);
+  const maxB = parseFloat(document.getElementById('maxB').value);
+  const energy = parseFloat(document.getElementById('energy').value);
+
+  for (let i = 0; i < N; i++) {
+    // Distribute b uniformly; phi via golden angle (avoids visual clustering)
+    const b = ((i + 0.5) / N) * maxB;
+    const phi = (i * 137.508 * Math.PI / 180) % (2 * Math.PI);
+
+    let pts;
+    if (mode === 'sphere') {
+      pts = trajectoryHardSphere(b, phi);
+    } else {
+      pts = trajectoryCoulomb(b, phi, energy, mode === 'coulomb_attract');
+    }
+
+    const geom = new THREE.BufferGeometry().setFromPoints(pts);
+    const hue = (b / maxB) * 0.7;          // 0 (red) → 0.7 (blue)
+    const color = new THREE.Color().setHSL(hue, 0.9, 0.6);
+    const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.85 });
+    const line = new THREE.Line(geom, mat);
+    scene.add(line);
+    trajectories.push(line);
+  }
+
+  if (coneVisible) drawCone();
+  updateInfo();
+  highlightModeButton();
+}
+
+// ===== Geometric "cross section" disk =====
+function drawCone() {
+  if (cone) {
+    scene.remove(cone);
+    cone.geometry.dispose();
+    cone.material.dispose();
+    cone = null;
+  }
+  if (mode !== 'sphere') return;
+  const g = new THREE.RingGeometry(0, SPHERE_R, 64);
+  const m = new THREE.MeshBasicMaterial({
+    color: 0x44ff66,
+    transparent: true,
+    opacity: 0.35,
+    side: THREE.DoubleSide
+  });
+  cone = new THREE.Mesh(g, m);
+  cone.rotation.y = Math.PI / 2; // face +x beam
+  cone.position.x = -60;
+  scene.add(cone);
+}
+
+// ===== UI =====
+function updateInfo() {
+  const d = document.getElementById('description');
+  const f = document.getElementById('formula');
+  if (mode === 'sphere') {
+    d.innerHTML = 'A beam of point particles hits a hard sphere of radius <i>R</i>. Each particle reflects via angle of incidence = angle of reflection. Particles with <i>b &gt; R</i> miss completely.';
+    f.innerHTML = '<code>b = R cos(θ/2)<br>dσ/dΩ = R² / 4<br>σ_tot = πR²</code>';
+  } else if (mode === 'coulomb_repel') {
+    d.innerHTML = 'Repulsive Coulomb scattering: hyperbolic trajectories deflected away from the central charge. Small <i>b</i> → large deflection; large <i>b</i> → almost straight through.';
+    f.innerHTML = '<code>cot(θ/2) = 2Eb / (Z₁Z₂e²)<br>dσ/dΩ = (Z₁Z₂e² / 4E sin²(θ/2))²</code>';
+  } else {
+    d.innerHTML = 'Attractive Coulomb scattering: hyperbolic trajectories deflected <i>toward</i> the central charge. The Rutherford cross-section formula has the same form (squared coupling); the deflection direction differs.';
+    f.innerHTML = '<code>(Same Rutherford formula)<br>For low E and small b, particles can spiral.</code>';
+  }
+}
+
+function highlightModeButton() {
+  document.getElementById('btn-sphere').classList.toggle('active', mode === 'sphere');
+  document.getElementById('btn-repel').classList.toggle('active', mode === 'coulomb_repel');
+  document.getElementById('btn-attract').classList.toggle('active', mode === 'coulomb_attract');
+  document.getElementById('btn-cone').classList.toggle('active', coneVisible);
+  document.getElementById('btn-axes').classList.toggle('active', axesVisible);
+}
+
+window.setMode = function (m) { mode = m; shoot(); };
+window.reshoot = function () { shoot(); };
+window.toggleCone = function () {
+  coneVisible = !coneVisible;
+  if (coneVisible) drawCone();
+  else if (cone) {
+    scene.remove(cone);
+    cone.geometry.dispose();
+    cone.material.dispose();
+    cone = null;
+  }
+  highlightModeButton();
+};
+window.toggleAxes = function () {
+  axesVisible = !axesVisible;
+  axesHelper.visible = axesVisible;
+  highlightModeButton();
+};
+
+// Live slider value displays
+['numParts', 'maxB', 'energy'].forEach(id => {
+  const slider = document.getElementById(id);
+  const valEl = document.getElementById(id + 'Val');
+  slider.addEventListener('input', () => {
+    valEl.textContent = slider.value;
+  });
+  slider.addEventListener('change', () => {
+    shoot();
+  });
+});
+
+// Resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Initial
+shoot();
+
+// Animate
+(function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+})();
+</script>
+</body>
+</html>
