@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Justifies Con(ZFC)? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/logic/remarks/justifying-con-zfc.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-justifies-conzfc"><a class="header" href="#what-justifies-conzfc">What Justifies Con(ZFC)?</a></h1>
+<p>The <a href="./metalanguage-hierarchy.html">metalanguage-hierarchy</a> remark observed that asserting "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">ZFC</span></span></span></span></span> has a model" tacitly assumes <strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span></strong> — the consistency of <a href="../set-theory-zfc.html">ZFC</a> — and that this assumption cannot be discharged from within ZFC itself (<a href="../first-order-logic.html">Gödel's second incompleteness theorem</a>). So what <em>does</em> justify it? This remark takes up that epistemological question.</p>
+<p>The headline: <strong>nothing proves it, and nothing can non-circularly.</strong> The justification is necessarily <em>extra-deductive</em> — a convergence of intuitive, empirical, structural, and (for some) metaphysical considerations.</p>
+<hr />
+<h2 id="why-it-cannot-be-a-proof"><a class="header" href="#why-it-cannot-be-a-proof">Why it cannot be a proof</a></h2>
+<p>Any justification of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> runs into a wall:</p>
+<ul>
+<li><strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⊬</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span></strong> by <a href="../first-order-logic.html">Gödel's second incompleteness theorem</a> (assuming ZFC is consistent). The theory cannot certify its own consistency.</li>
+<li><strong>Stronger theories prove it, but only relocate the question.</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mord">+</span></span></span></span> "there is an inaccessible cardinal <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span>" proves <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span>, because <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">κ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is then a <em>set</em> model (see <a href="./metalanguage-hierarchy.html">the metalanguage hierarchy</a> on strictly stronger metatheories). But this just pushes the burden up: why believe the stronger theory? The regress does not bottom out in a self-justifying proof.</li>
+<li><strong>No ordinal-analytic rescue (unlike PA).</strong> For <strong>Peano arithmetic</strong>, Gentzen's consistency proof reduces <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">PA</span></span><span class="mclose">)</span></span></span></span> to transfinite induction up to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">ε</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> — arguably <em>more</em> evident than PA itself. Full ZFC is <strong>far beyond current ordinal analysis</strong>; there is no comparable reduction of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> to a "more obvious" principle. So even the proof-theorist's partial route is unavailable here, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> rests on weaker ground than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">PA</span></span><span class="mclose">)</span></span></span></span>.</li>
+</ul>
+<p>Whatever justifies <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> is therefore <strong>non-mathematical in the strict deductive sense</strong> — a blend of the following.</p>
+<h2 id="the-four-pillars"><a class="header" href="#the-four-pillars">The four pillars</a></h2>
+<h3 id="1-intrinsic--the-iterative-conception-usually-taken-as-primary"><a class="header" href="#1-intrinsic--the-iterative-conception-usually-taken-as-primary">1. Intrinsic — the iterative conception (usually taken as primary)</a></h3>
+<p>The ZFC axioms are not an arbitrary list; they describe a single coherent picture, the <strong>cumulative hierarchy</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0497em;vertical-align:-0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">⋃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.0017em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> of sets built in well-founded stages (see <a href="../set-theory-zfc.html">Axiomatic Set Theory (ZFC)</a>). On this <strong>iterative conception</strong>, each axiom is <em>seen to hold of the intended structure</em>, and a structure that coheres as a conception is <em>a fortiori</em> consistent. This is Gödel's sense that the axioms "force themselves upon us as being true," and Boolos's defence of the iterative conception. The warrant here is <strong>conceptual/intuitive</strong> and is prior to any track record.</p>
+<h3 id="2-quasi-empirical--the-track-record-of-practice"><a class="header" href="#2-quasi-empirical--the-track-record-of-practice">2. Quasi-empirical — the track record of practice</a></h3>
+<p>A century of intense, adversarial use — thousands of mathematicians deriving an enormous body of consequences — has turned up <strong>no contradiction</strong>. This is the <strong>inductive / naturalist</strong> pillar (Lakatos's <em>quasi-empiricism</em>, Maddy's naturalism): consistency is treated like a well-corroborated empirical hypothesis. It is genuine evidence — but <strong>corroboration, not ground</strong> (see the cautionary tale below).</p>
+<h3 id="3-structural--the-coherence-of-consistency-strength"><a class="header" href="#3-structural--the-coherence-of-consistency-strength">3. Structural — the coherence of consistency strength</a></h3>
+<p>The <strong>large-cardinal axioms</strong> line up in a startlingly <strong>linear, well-ordered hierarchy of consistency strength</strong>, and natural statements from across mathematics slot into that hierarchy at definite points. This unanticipated coherence (Steel, Maddy) is itself evidence: a latent inconsistency in ZFC would be a strange thing to cohere so neatly with everything calibrated above and below it.</p>
+<h3 id="4-metaphysical--realism"><a class="header" href="#4-metaphysical--realism">4. Metaphysical — realism</a></h3>
+<p>For the set-theoretic <strong>platonist</strong>, the sets simply <em>exist</em>, the axioms are <em>true</em> of them, and truth entails consistency. Clean — but it trades the consistency question for the existence question, and so persuades only those already inclined to realism.</p>
+<h2 id="the-empirical-pillar-and-its-cautionary-tale"><a class="header" href="#the-empirical-pillar-and-its-cautionary-tale">The empirical pillar and its cautionary tale</a></h2>
+<p>The appeal to practice is load-bearing but <strong>fallible</strong>, and set theory carries the scar that proves it. <strong>Frege's system</strong> — naive unrestricted comprehension — was used and believed until <strong>Russell's paradox</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord vbox"><span class="thinbox"><span class="llap"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:0.0556em;"></span></span></span><span class="fix"></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">}</span></span></span></span>) detonated it (see <a href="../set-theory-zfc.html">ZFC § Russell's paradox</a>). The pre-1901 "track record" was clean and meant nothing. That history is exactly why most philosophers do not rest on the empirical pillar alone: the <strong>iterative conception</strong> matters because it explains <em>why</em> ZFC avoids the paradoxes in a principled way (no universal set; Separation only carves subsets out of existing sets), rather than merely "we have not tripped over a contradiction yet." Empirical success <strong>confirms</strong> the intuitive picture; it does not <strong>replace</strong> it.</p>
+<h2 id="revisability-would-we-just-patch-it"><a class="header" href="#revisability-would-we-just-patch-it">Revisability: would we just patch it?</a></h2>
+<p>A natural reaction to all this: <em>if ZFC turned out inconsistent, we would simply adjust it back to consistency</em> — as the discovery of Russell's paradox led not to despair but to <strong>repair</strong> (Zermelo's Separation trimmed the paradoxical sets while keeping Cantor's useful core). This is the <strong>fallibilist / Lakatosian</strong> picture — axioms as revisable conjectures, foundations as self-correcting — and it is largely healthy. Our deepest commitment is arguably not to "<strong>ZFC specifically</strong> is consistent" but to "<strong>some consistent theory in the vicinity</strong> captures the iterative conception and preserves ordinary mathematics," with ZFC as a swappable scaffold. Four caveats keep "we'd just patch it" from proving too much.</p>
+<ul>
+<li><strong>Shallow vs. deep inconsistency.</strong> Russell's paradox was a <em>local</em> flaw in one axiom (unrestricted comprehension) with a principled fix consonant with a <em>better</em> picture. The confidence that we "could always adjust" relies on any future inconsistency being similarly <strong>peripheral</strong>. A contradiction derivable from the <em>core</em> — Separation + Power Set + Infinity in a way implicating the iterative conception itself — might admit <strong>no graceful trim</strong>, threatening the conception rather than just the syntax.</li>
+<li><strong>The patched theory faces the same problem.</strong> "Adjust until consistent" presumes a consistent neighbour <em>exists</em> and can be <em>found</em> — but the repaired theory's own <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord"><span class="mord mathrm">Con</span></span></span></span></span> is again unprovable from within and not guaranteed (Gödel 2 is indifferent to which theory you pick). You land one rung over, in exactly this remark's situation.</li>
+<li><strong>Optimistic induction, not evidence of consistency.</strong> "It would be adjusted" describes the <em>process</em> and reflects a <strong>survivorship effect</strong>: the surviving theories are merely those <em>not yet</em> refuted. Each repair answers a failure; none guarantees against the next. So this is a reason not to <em>panic</em>, not a reason to <em>believe</em> any current theory consistent.</li>
+<li><strong>Classical explosion makes a contradiction catastrophic but localizable.</strong> In classical ZFC an inconsistency proves <em>everything</em> (<em>ex contradictione quodlibet</em> — see <a href="../paraconsistent-logic.html">paraconsistent logic</a>), so it would be disastrous yet <strong>immediately visible</strong>: one could trace the offending derivation and see which axiom to cut. That traceability is <em>why</em> repair is feasible. The alternative response — keep the axioms but weaken the <em>logic</em> to a paraconsistent one that tolerates the contradiction — is the branch the <a href="../paraconsistent-logic.html">paraconsistent</a> program explores.</li>
+</ul>
+<p>So "we would just patch it" is the right fallibilist instinct, but it presupposes the flaw is <em>shallow</em>, a consistent neighbour <em>exists</em>, and we would <em>recognize</em> it — none guaranteed — and the patched theory would need the same non-deductive justification all over again.</p>
+<h2 id="bottom-line"><a class="header" href="#bottom-line">Bottom line</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Pillar</th><th>Kind of warrant</th><th>Status</th></tr></thead><tbody>
+<tr><td>Iterative conception</td><td>intuitive / conceptual</td><td>usually taken as primary</td></tr>
+<tr><td>Track record of practice</td><td>inductive / quasi-empirical</td><td>corroboration; fallible (cf. Frege)</td></tr>
+<tr><td>Consistency-strength coherence</td><td>structural</td><td>growing weight in modern set theory</td></tr>
+<tr><td>Platonism</td><td>metaphysical</td><td>decisive <em>only if</em> accepted</td></tr>
+</tbody></table>
+</div>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> is justified by a <strong>convergence</strong> of these strands, not by proof. Empirical practice is one real strand, but the dominant view is that it <strong>confirms the iterative conception</strong> rather than standing on its own. The buck genuinely stops at <strong>informal, fallibilist mathematical judgment</strong> — the same "the buck stops at informal reasoning" terminus reached in <a href="./metalanguage-hierarchy.html">the metalanguage hierarchy</a>, now cashed out for consistency itself.</p>
+<p>Related discussions: <a href="./metalanguage-hierarchy.html">The Metalanguage Hierarchy and Semantics in Mathematics</a> (where the tacit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm">ZFC</span></span><span class="mclose">)</span></span></span></span> assumption arises), <a href="../set-theory-zfc.html">Axiomatic Set Theory (ZFC)</a> (the axioms, the cumulative hierarchy, Russell's paradox), and <a href="../first-order-logic.html">First-Order Logic</a> (Gödel's incompleteness theorems).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../logic/remarks/metalanguage-hierarchy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../logic/remarks/metatheory-of-first-order-logic.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../logic/remarks/metalanguage-hierarchy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../logic/remarks/metatheory-of-first-order-logic.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

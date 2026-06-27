@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Semantics and the Theory of Meaning - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/remarks/semantics-and-meaning.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="semantics-and-the-theory-of-meaning"><a class="header" href="#semantics-and-the-theory-of-meaning">Semantics and the Theory of Meaning</a></h1>
+<p><strong>Semantics</strong> is the study of <em>meaning</em> — what it is for a word, sentence, or symbol to mean something, and how the meaning of a complex expression depends on its parts. A <strong>theory of meaning</strong> is a philosophical account of what meaning <em>is</em>: what fact about a person, a community, or the world makes it the case that an expression has the content it does. This remark surveys the main answers and connects them to the <strong>formal, <a href="../../logic/model-theory.html">model-theoretic semantics</a></strong> used in logic and mathematics, where "semantics" has a precise technical sense.</p>
+<p>The guiding tension: in logic, "semantics" means <strong>interpretation in a structure</strong> (assigning set-theoretic denotations and truth values — see <a href="../../logic/remarks/models-truth-and-metalanguage.html">Models, Truth, and Metalanguage</a>); in the philosophy of language, "meaning" is a richer, partly <em>normative</em> and <em>social</em> phenomenon that formal semantics models only in part.</p>
+<hr />
+<h2 id="what-a-theory-of-meaning-must-explain"><a class="header" href="#what-a-theory-of-meaning-must-explain">What a theory of meaning must explain</a></h2>
+<p>Any adequate account is constrained by several robust facts about meaning:</p>
+<ul>
+<li><strong>Compositionality.</strong> The meaning of a complex expression is determined by the meanings of its parts and how they are combined. This is what lets us understand sentences we have never heard before, and it is the feature that formal semantics captures best (Tarski's recursive satisfaction clause is compositionality made precise).</li>
+<li><strong>Productivity / systematicity.</strong> Finite speakers command an unbounded range of meaningful sentences; meaning must be generated by finite rules.</li>
+<li><strong>The relation to truth.</strong> To understand a declarative sentence is, at least, to know <em>what the world would have to be like</em> for it to be true.</li>
+<li><strong>The relation to use.</strong> Meaning guides and is manifested in <em>use</em> — assertion, inference, instruction-following — and is publicly learnable and shareable.</li>
+<li><strong>Reference and aboutness.</strong> Words latch onto things in the world; a theory must explain this intentional directedness.</li>
+</ul>
+<p>The major theories differ on which of these is taken as <em>fundamental</em> and which as <em>derived</em>.</p>
+<h2 id="reference-and-truth-conditions"><a class="header" href="#reference-and-truth-conditions">Reference and truth-conditions</a></h2>
+<h3 id="frege-sense-and-reference"><a class="header" href="#frege-sense-and-reference">Frege: sense and reference</a></h3>
+<p>The modern subject begins with <strong>Frege's</strong> distinction between <strong>reference</strong> (<em>Bedeutung</em> — what an expression stands for: an object for a name, a truth value for a sentence) and <strong>sense</strong> (<em>Sinn</em> — the "mode of presentation," the way the referent is given). "The morning star" and "the evening star" share a referent (Venus) but differ in sense, which is why "the morning star is the evening star" is informative rather than trivial. Sense explains the <strong>cognitive significance</strong> of identity statements and the behaviour of expressions in belief contexts. Frege's principle of <strong>compositionality</strong> — and his <strong>context principle</strong> ("only in the context of a sentence does a word have meaning") — set the agenda for everything after.</p>
+<h3 id="truth-conditional-semantics"><a class="header" href="#truth-conditional-semantics">Truth-conditional semantics</a></h3>
+<p>The dominant program in formal semantics identifies the meaning of a (declarative) sentence with its <strong>truth-conditions</strong> — the conditions under which it would be true. To know the meaning of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span> is to know what it is for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span> to be true. <strong>Davidson</strong> proposed that a theory of meaning for a natural language could take the form of a <strong>Tarski-style truth theory</strong>: a finite set of axioms generating, for each sentence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>, a <strong>T-sentence</strong></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6919em;vertical-align:-0.024em;"></span><span class="mord mathnormal">s</span><span class="mord text"><span class="mord"> is true</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟺</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span></p>
+<p>(e.g. "'snow is white' is true iff snow is white"). The recursive structure delivers compositionality and productivity automatically. This is the point of closest contact with logic: the <a href="../../logic/model-theory.html">model-theoretic semantics</a> of a formal language <em>is</em> a truth-conditional theory, with "true" relativized to a <a href="../../logic/model-theory.html">structure</a>.</p>
+<p>A standard objection: truth-conditions are too <em>coarse-grained</em>. Necessarily-equivalent sentences (all mathematical truths, say) share truth-conditions but plainly differ in meaning — the <strong>hyperintensionality</strong> problem, which pushes toward sense, structured propositions, or finer notions of content.</p>
+<h2 id="truth-and-meaning-which-explains-which"><a class="header" href="#truth-and-meaning-which-explains-which">Truth and meaning: which explains which?</a></h2>
+<p><em>Truth</em> and <em>meaning</em> are distinct but coupled. <strong>Meaning</strong> is <em>what a sentence says</em> — its content, independent of how the world is ("snow is black" is meaningful yet false); a sentence must already mean something <em>before</em> its truth can even arise. <strong>Truth</strong> is whether <em>what is said obtains</em> — a relation between content and world (or, formally, between a sentence and a <a href="../../logic/model-theory.html">structure</a>). Meaning is trivially prior in that a truth-value presupposes a content; the substantive dispute is the <strong>direction of explanation</strong> — which notion is conceptually <em>basic</em>.</p>
+<ul>
+<li><strong>Truth-first</strong> (Frege → Tarski → <strong>Davidson</strong>): take truth as the better-understood notion and <em>define meaning as truth-conditions</em>. A Tarskian truth theory doubles as a theory of meaning, since in a T-sentence the used right-hand side <em>gives the meaning</em> while the mentioned left-hand side <em>ascribes truth</em>. Truth grounds meaning.</li>
+<li><strong>Meaning-first</strong> (verificationism, <strong>Dummett</strong>, inferentialism): reverse it. Verification-transcendent classical truth is the suspect notion; start from <em>use / assertibility / proof</em> — epistemically accessible and <em>manifestable</em> — and let truth be derived or dispensable. Dummett's manifestation argument (truth-conditions for undecidable sentences may not be manifestable in use) is precisely the meaning-theoretic case for <a href="../../logic/intuitionistic-logic.html">intuitionistic over classical logic</a>, and dovetails with the <a href="../../logic/intuitionistic-logic.html">BHK reading</a> on which a statement's meaning just <em>is</em> what counts as a proof.</li>
+</ul>
+<p>Three things sharpen the coupling:</p>
+<ul>
+<li><strong>Tarski presupposes meaning to define truth.</strong> Tarski's satisfaction definition fixes truth only <em>relative to an already-interpreted language</em> — the object language's meaning is supplied in the <a href="../../logic/remarks/metalanguage-hierarchy.html">metalanguage</a>. So the formalism does not show truth is prior to meaning; it shows truth is definable <em>once meaning is fixed</em>. The truth-first program is a philosophical bet run on top of that machinery, not a consequence of it.</li>
+<li><strong>Your theory of truth constrains your theory of meaning (deflationism).</strong> If truth is <strong>deflationary</strong> — "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is true" says no more than "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>" — it is too thin to <em>explain</em> anything, so a truth-conditional theory of meaning loses its ground and meaning must come from <strong>use</strong>. A substantive truth-conditional semantics therefore needs an <em>inflationary</em> notion of truth: the two theories cannot be chosen independently.</li>
+<li><strong>In formal/model-theoretic semantics, meaning comes first.</strong> There, "truth" always means truth-in-a-structure, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span>, and the structure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span></span></span></span> — the interpretation of the symbols — <em>is</em> the meaning. One must supply the interpretation <em>before</em> any sentence has a truth-value, so pure <a href="../../logic/model-theory.html">model theory</a> realizes the <strong>interpretation-first</strong> order (interpretation → truth-value). The Davidsonian truth-first picture is thus a claim about natural-language <em>epistemology</em> (recovering meanings from observed truth-judgments), not about the formal order of definition.</li>
+</ul>
+<p>Both notions are equally <strong>metalinguistic</strong>: just as truth-in-<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> cannot be defined object-internally (<a href="../../logic/remarks/models-truth-and-metalanguage.html">Tarski undefinability</a>), the interpretation that confers meaning is supplied from the <a href="../../logic/remarks/metalanguage-hierarchy.html">metalanguage</a> — and <a href="../../logic/set-theory-zfc.html">Skolem / Löwenheim–Skolem</a> shows the formalism <em>underdetermines</em> which structure is the intended one. That underdetermination is exactly the gap a formal truth-definition cannot close, and is what gets handed back to the philosophy of language below.</p>
+<h2 id="use-inference-and-the-social-dimension"><a class="header" href="#use-inference-and-the-social-dimension">Use, inference, and the social dimension</a></h2>
+<p>A rival tradition locates meaning not in word–world reference but in <strong>use</strong>.</p>
+<ul>
+<li><strong>Later Wittgenstein:</strong> "the meaning of a word is its use in the language." Meaning is constituted by the <strong>practice</strong> of a linguistic community — the <em>language game</em> — and there is no private, use-transcendent fact of meaning (the <strong>private language</strong> and <strong>rule-following</strong> considerations). This stresses the <strong>normative</strong> and <strong>social</strong> character of meaning that truth-conditional theories underplay.</li>
+<li><strong>Inferential-role (conceptual-role) semantics:</strong> the meaning of an expression is its role in inference — the conditions under which one is entitled to assert it and what may be inferred from it. For the logical connectives this is the <strong>proof-theoretic</strong> account (introduction and elimination rules <em>fix</em> the meaning of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∧</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∨</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span>), the natural-language cousin of <a href="../../logic/intuitionistic-logic.html">intuitionistic logic</a>'s <a href="../../logic/intuitionistic-logic.html">Curry–Howard</a> reading. <strong>Brandom's inferentialism</strong> generalizes this into a full theory of conceptual content.</li>
+<li><strong>Verificationism:</strong> the meaning of a sentence is its <em>method of verification</em> (logical positivism; and, for mathematics, the <a href="../../logic/intuitionistic-logic.html">intuitionistic / BHK</a> reading, where a statement's meaning is what counts as a <em>proof</em> of it). <strong>Dummett</strong> turned this into a sustained argument that meaning must be <strong>manifestable</strong> in use, hence given by <em>assertibility-conditions</em> rather than potentially-verification-transcendent truth-conditions — a meaning-theoretic case for <a href="../../logic/intuitionistic-logic.html">intuitionistic over classical logic</a>.</li>
+</ul>
+<h2 id="reference-fixed-by-the-world-and-the-community"><a class="header" href="#reference-fixed-by-the-world-and-the-community">Reference fixed by the world and the community</a></h2>
+<p>A third cluster concerns <em>how</em> words connect to things — and argues the connection is not purely descriptive:</p>
+<ul>
+<li><strong>Causal–historical theory of reference (Kripke, Putnam):</strong> names and natural-kind terms refer via a causal chain back to an initial "baptism," not via descriptions a speaker associates. "Gödel" would still refer to Gödel even if everything you believe about him were false. Hence <strong>rigid designation</strong> and the possibility of <em>necessary a posteriori</em> truths ("water is H₂O").</li>
+<li><strong>Externalism / "meaning ain't in the head" (Putnam's Twin Earth):</strong> the contents of our terms depend partly on the environment and on the <strong>division of linguistic labour</strong> (deference to experts). Meaning is not fully fixed by individual psychology.</li>
+</ul>
+<h2 id="how-formalmathematical-semantics-relates"><a class="header" href="#how-formalmathematical-semantics-relates">How formal/mathematical semantics relates</a></h2>
+<p>Formal semantics is a <strong>precise model</strong> of one strand of meaning — the truth-conditional, compositional strand — and deliberately brackets the rest:</p>
+<ul>
+<li><strong>What it captures well.</strong> Compositionality, productivity, truth-conditions, entailment (as model-theoretic <a href="../../logic/first-order-logic.html">consequence</a>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord">Γ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span>), scope, quantification, and the logical vocabulary. Montague's slogan that there is "no important theoretical difference between natural languages and the artificial languages of logicians" is the high-water mark of this approach.</li>
+<li><strong>What it brackets.</strong> The <em>constitutive</em> question — what makes a structure the <em>intended</em> one, why these symbols mean <em>these</em> things — is pushed into the <a href="../../logic/remarks/metalanguage-hierarchy.html">metalanguage</a> and ultimately into use and community practice. As the <a href="../../logic/remarks/models-truth-and-metalanguage.html">logic remarks</a> stress, an interpretation is <em>conferred from outside</em>; the formalism does not fix its own meaning. This is the philosophical residue of <a href="../../logic/set-theory-zfc.html">Skolem's paradox</a> and the <a href="../../logic/first-order-logic.html">Löwenheim–Skolem</a> phenomenon: the formal theory underdetermines its intended interpretation, so "meaning" must come from somewhere the formal semantics does not supply.</li>
+<li><strong>A division of labour.</strong> Model-theoretic semantics answers <em>"given an interpretation, what are the truth-conditions and entailments?"</em>; a philosophical theory of meaning must answer the prior question <em>"in virtue of what does the expression have that interpretation at all?"</em> The former is mathematics; the latter is irreducibly about minds, use, and the world.</li>
+</ul>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Meaning is fundamentally…</th><th>Captures</th><th>Strains on</th></tr></thead><tbody>
+<tr><td><strong>Fregean sense/reference</strong></td><td>mode of presentation + referent</td><td>identity statements, belief contexts</td><td>naturalizing <em>sense</em></td></tr>
+<tr><td><strong>Truth-conditional (Davidson)</strong></td><td>conditions for truth (T-sentences)</td><td>compositionality, entailment</td><td>hyperintensionality</td></tr>
+<tr><td><strong>Use / Wittgenstein</strong></td><td>role in a communal practice</td><td>normativity, learnability</td><td>systematic theory-building</td></tr>
+<tr><td><strong>Inferential-role / verificationist</strong></td><td>inferential / assertibility conditions</td><td>logical vocabulary, <a href="../../logic/intuitionistic-logic.html">constructive</a> content</td><td>word–world reference</td></tr>
+<tr><td><strong>Causal–historical / externalist</strong></td><td>causal links + community</td><td>proper names, natural kinds</td><td>descriptive/cognitive content</td></tr>
+</tbody></table>
+</div>
+<p>There is no settled winner; the live options pair a <strong>truth-conditional core</strong> (which formal/<a href="../../logic/model-theory.html">model-theoretic semantics</a> makes rigorous) with a <strong>use-based and externalist account of how interpretations get fixed</strong> (which the formalism presupposes but cannot supply). Mathematical semantics is thus best read not as a complete theory of meaning but as an exact treatment of its compositional, truth-conditional skeleton — with the question of <em>whence the interpretation</em> handed back to the philosophy of language.</p>
+<p>Related discussions: <a href="../../logic/remarks/models-truth-and-metalanguage.html">Models, Truth, and Metalanguage</a> and <a href="../../logic/remarks/metalanguage-hierarchy.html">The Metalanguage Hierarchy and Semantics in Mathematics</a> (the technical sense of "semantics"), <a href="../../logic/model-theory.html">Model Theory</a> (interpretation in a structure), and <a href="../../logic/intuitionistic-logic.html">Intuitionistic Logic</a> (meaning-as-proof / verificationism).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/remarks/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../logic/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/remarks/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../logic/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
