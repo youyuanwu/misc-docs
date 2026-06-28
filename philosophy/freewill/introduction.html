@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Free Will Problem - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-free-will-problem"><a class="header" href="#the-free-will-problem">The Free Will Problem</a></h1>
+<p><strong>Free will</strong> is the capacity an agent is supposed to have to <em>genuinely choose</em> and <em>control</em> its own actions — to be the author of what it does in a way that makes the agent, rather than something outside it, the ultimate source of the deed. The <strong>free will problem</strong> is the question of whether any such capacity actually exists, and in particular whether it can be reconciled with what we know (or suspect) about the causal structure of the world. The difficulty is that free will appears to be threatened from <em>both</em> directions at once: if our actions are causally fixed by the past, they seem not to be up to us; but if they are not fixed, they seem to be matters of chance — which is no better. Articulating this dilemma precisely requires the twin notions of <strong>determinism</strong> and <strong>indeterminism</strong>, and a clear statement of what free will is supposed to be in the first place.</p>
+<p>This page sets up the problem and the vocabulary needed to state it, then surveys the main positions; the later pages take up each position and argument in detail.</p>
+<hr />
+<h2 id="what-free-will-is-supposed-to-be"><a class="header" href="#what-free-will-is-supposed-to-be">What free will is supposed to be</a></h2>
+<p>Most discussions agree, at least roughly, that free will involves two ingredients:</p>
+<ul>
+<li><strong>Alternative possibilities (the "could have done otherwise" condition).</strong> When an agent acts freely, more than one course of action was genuinely open: having done <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, the agent <em>could have</em> done <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> instead, holding the past and the laws fixed (or holding <em>something</em> relevant fixed — exactly what is the crux of the debate).</li>
+<li><strong>Sourcehood (the "up to me" condition).</strong> The action issues from the agent in the right way — from its own deliberation, reasons, and will — rather than being imposed by coercion, compulsion, manipulation, or mere external force. The agent is the <em>origin</em> or <em>author</em> of the act.</li>
+</ul>
+<p>These two conditions can come apart, and different theories make one or the other fundamental. A great deal of the debate turns on whether "could have done otherwise" should be read <strong>categorically</strong> (a genuinely open branching of the future) or <strong>conditionally</strong> ("would have done otherwise <em>if</em> one had chosen to"), and on how strong the sourcehood requirement must be.</p>
+<p>Why the question matters: free will is standardly taken to be a <strong>precondition of moral responsibility</strong> — of praise and blame, desert, guilt, and the reactive attitudes (resentment, gratitude, indignation). If no one is ever free in the relevant sense, it is unclear that anyone is ever truly responsible. This normative stake is what makes the metaphysics urgent rather than idle.</p>
+<h2 id="determinism"><a class="header" href="#determinism">Determinism</a></h2>
+<p><strong>Determinism</strong> is the thesis that the complete state of the world at any one time, together with the laws of nature, <em>fixes</em> a unique state at every other time. Equivalently:</p>
+<blockquote>
+<p>Given the way things are now and the laws of nature, only one future is physically possible.</p>
+</blockquote>
+<p>A useful precise formulation (van Inwagen): let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> be a proposition giving the complete state of the world at some past instant, and let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> be the conjunction of the laws of nature. Determinism is the claim that</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></span></p>
+<p>for <strong>every</strong> truth <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> about any later time — the past together with the laws <em>entails</em> the entire future.</p>
+<p>Several distinctions matter:</p>
+<ul>
+<li><strong>Causal determinism</strong> — every event is necessitated by prior events plus the laws. This is the version most directly relevant to action.</li>
+<li><strong>Logical / theological determinism</strong> — fixity of the future due to facts about truth ("future contingents") or an omniscient foreknower, rather than physical law. Related but separate threats.</li>
+<li><strong>Determinism is not fatalism.</strong> <em>Fatalism</em> says the outcome will occur <em>no matter what you do</em> — your deliberation is causally irrelevant. Determinism says the opposite: your deliberation and choice are part of the causal chain and genuinely make a difference to the outcome; it is just that the deliberation is <em>itself</em> determined. Conflating the two is a common error.</li>
+<li><strong>Determinism is not predictability.</strong> A world can be deterministic yet practically unpredictable (sensitive dependence on initial conditions, chaos) — and predictability is epistemic, while determinism is metaphysical.</li>
+</ul>
+<p>The classic image is <strong>Laplace's demon</strong>: an intellect that knew the exact positions and momenta of all particles and all the forces, and was powerful enough to compute, would find "nothing uncertain, and the future, as the past, would be present to its eyes."</p>
+<h2 id="indeterminism"><a class="header" href="#indeterminism">Indeterminism</a></h2>
+<p><strong>Indeterminism</strong> is simply the <em>denial</em> of determinism: the past and the laws do <em>not</em> fix a unique future. At least some events are not necessitated by what precedes them; given the same complete prior state, more than one continuation is consistent with the laws. The laws may then be at best <strong>probabilistic</strong> (chancy), assigning objective probabilities to alternative outcomes rather than dictating one.</p>
+<p>The leading scientific reason to take indeterminism seriously is <strong><a href="../../general/quantum-mechanics.html">quantum mechanics</a></strong>. On the standard (textbook / Copenhagen) reading, measurement outcomes are objectively chancy: the theory predicts only probabilities (via the Born rule), and identical initial states can yield different results. But this is interpretation-dependent and <strong>not</strong> a settled deliverance of physics:</p>
+<ul>
+<li><strong>Indeterministic interpretations:</strong> Copenhagen, objective-collapse theories (e.g. GRW).</li>
+<li><strong>Deterministic interpretations:</strong> Bohmian mechanics (hidden variables; the apparent randomness is epistemic) and the Everett / many-worlds interpretation (the unitary evolution is fully deterministic; the <em>branching</em> only looks chancy from inside a branch).</li>
+</ul>
+<p>So physics does not hand us a verdict. And — crucially for the free-will debate — even if the world <em>is</em> indeterministic, it is far from obvious that this <em>helps</em>. A choice that happens because of an undetermined quantum fluctuation looks like a matter of <strong>luck or randomness</strong>, not of <em>control</em>, which seems to undercut rather than secure responsibility. This is the <strong>luck objection</strong>, and it is why indeterminism is not a straightforward friend of free will.</p>
+<h2 id="the-two-horns-why-both-threaten-free-will"><a class="header" href="#the-two-horns-why-both-threaten-free-will">The two horns: why both threaten free will</a></h2>
+<p>The deep difficulty is that free will seems threatened <em>whichever</em> way the world turns out — a structure sometimes called the <strong>dilemma of determinism</strong> (Hume; sharpened by William James, who named the positions "hard" and "soft" determinism).</p>
+<ul>
+<li>
+<p><strong>If determinism is true,</strong> then given the distant past (long before the agent was born) and the laws, the agent's every action was already fixed. The agent could not have done otherwise without either the past or the laws having been different — and neither is up to the agent. So no one is the ultimate source of anything. This intuition is regimented in the <strong>Consequence Argument</strong> (van Inwagen):</p>
+<blockquote>
+<p>If determinism is true, our acts are the consequences of the laws of nature and events in the remote past. But it is not up to us what went on before we were born, and neither is it up to us what the laws of nature are. Therefore the consequences of these things (including our present acts) are not up to us.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>If indeterminism is true,</strong> then some actions are not fixed by the past — but an <em>undetermined</em> event is one that the agent does not control either. If which choice I make is a brute chance event, it is not clear that <em>I</em> made it freely rather than it merely <em>happening</em> to me. This is the <strong>luck / randomness objection</strong>.</p>
+</li>
+</ul>
+<p>Putting these together yields the master dilemma:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1647em;vertical-align:-1.4702em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-1.6659em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">no alternatives, no ultimate sourcehood</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span class="svg-align" style="top:-2.352em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13  35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688  0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7 -331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214 c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14  53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3  11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0 -5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">determinism</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.648em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4702em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">or</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-1.6659em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">mere luck, still no control</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span class="svg-align" style="top:-2.352em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13  35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688  0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7 -331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214 c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14  53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3  11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0 -5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">indeterminism</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.648em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4702em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>Free will is threatened on <strong>both</strong> horns. The positions below are, in effect, different responses to this dilemma.</p>
+<h2 id="the-main-positions"><a class="header" href="#the-main-positions">The main positions</a></h2>
+<p>The terrain is organized by two questions: (1) Is free will <strong>compatible</strong> with determinism? (2) Do we <strong>in fact</strong> have free will?</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Compatible with determinism?</th><th>Do we have free will?</th><th>Core commitment</th></tr></thead><tbody>
+<tr><td><strong>Hard determinism</strong></td><td>No (incompatibilist)</td><td>No</td><td>Determinism is true, so there is no free will.</td></tr>
+<tr><td><strong>Libertarianism</strong></td><td>No (incompatibilist)</td><td>Yes</td><td>We have free will, so determinism is false (and indeterminism is harnessed, not mere luck).</td></tr>
+<tr><td><strong>Compatibilism</strong> ("soft determinism")</td><td>Yes</td><td>Yes</td><td>Free will is a kind of control that determinism does not remove.</td></tr>
+<tr><td><strong>Hard incompatibilism</strong></td><td>No</td><td>No</td><td>Free will is incompatible with determinism <em>and</em> with indeterminism — so we lack it either way.</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>
+<p><strong>Incompatibilism</strong> is the thesis that genuine free will <em>cannot</em> coexist with determinism. Its two main forms disagree about which premise to keep: <strong>hard determinists</strong> accept determinism and conclude we are unfree; <strong>libertarians</strong> affirm free will and conclude the world must be (suitably) indeterministic. Libertarians then owe an account of how undetermined choices avoid the luck objection — e.g. <strong>agent-causation</strong> (the agent, as a substance, causes the choice without itself being caused to do so), <strong>event-causal</strong> libertarianism, or <strong>non-causal</strong> views.</p>
+</li>
+<li>
+<p><strong>Compatibilism</strong> denies the incompatibilist's key inference. It holds that "free" does not require categorical alternative possibilities or ultimate sourcehood, but rather the right <em>kind</em> of causal connection between the action and the agent's own desires, values, and reasoning. On a <strong>conditional analysis</strong>, "could have done otherwise" means "would have, had one chosen otherwise"; on <strong>hierarchical</strong> views (Frankfurt), one acts freely when one's effective desires accord with one's higher-order desires; on <strong>reasons-responsiveness</strong> views, freedom is the agent's sensitivity to reasons. Frankfurt-style cases also attack the alternative-possibilities condition directly, arguing responsibility can survive even when one <em>could not</em> have done otherwise.</p>
+</li>
+<li>
+<p><strong>Hard incompatibilism</strong> (Pereboom) grants the incompatibilist that determinism rules out free will, but adds that indeterminism does too (luck) — so we should give up free will in the desert-grounding sense while reconstructing as much of moral life as we can without it. <strong>Revisionism</strong> and various <strong>illusionist</strong> or <strong>skeptical</strong> views occupy nearby territory.</p>
+</li>
+</ul>
+<p>A separate, deflationary current — <strong>P. F. Strawson's "Freedom and Resentment"</strong> — sidesteps the metaphysics: the <strong>reactive attitudes</strong> that constitute holding-responsible are so deeply woven into human relationships that no theoretical thesis about determinism could (or should) lead us to abandon them wholesale.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The basic geography, then, is set by three theses that pull apart:</p>
+<ol>
+<li><strong>Free will exists.</strong></li>
+<li><strong>Determinism is (or may well be) true.</strong></li>
+<li><strong>Free will is incompatible with determinism.</strong></li>
+</ol>
+<p>One cannot hold all three. Hard determinists drop (1); libertarians drop (2); compatibilists drop (3); hard incompatibilists drop (1) while arguing that <em>indeterminism would not have rescued it anyway</em>. Subsequent pages take up each of these moves in turn — beginning with the incompatibilist arguments (the Consequence and manipulation arguments), then the compatibilist replies, the libertarian models of undetermined agency, and finally the bearing of physics and <a href="../../general/quantum-mechanics.html">quantum mechanics</a> on the whole dispute.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/compatibilism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/compatibilism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

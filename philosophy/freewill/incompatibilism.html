@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Incompatibilism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/incompatibilism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="incompatibilism"><a class="header" href="#incompatibilism">Incompatibilism</a></h1>
+<p><strong>Incompatibilism</strong> is the thesis that <strong>free will is incompatible with determinism</strong> — that if every event (including every human choice) is necessitated by the past together with the laws of nature, then no one ever acts freely or is morally responsible in the desert-grounding sense. It is not, by itself, a view about whether we <em>have</em> free will, nor about whether determinism is <em>true</em>: it is a claim about an <em>incompatibility</em>. As such, incompatibilism is the <strong>genus</strong> under which several first-order positions fall, distinguished by what they go on to say about those further questions. This page treats incompatibilism in its own right — the master arguments that support it, its varieties, the replies it faces from <a href="./compatibilism.html">compatibilists</a>, and the misconceptions that surround it.</p>
+<p>It is the direct denial of <a href="./compatibilism.html">compatibilism</a>, and it supplies the shared premise on which both <a href="./libertarianism.html">libertarianism</a> and hard determinism rest.</p>
+<hr />
+<h2 id="what-incompatibilism-claims-and-what-it-does-not"><a class="header" href="#what-incompatibilism-claims-and-what-it-does-not">What incompatibilism claims (and what it does not)</a></h2>
+<p>Incompatibilism asserts a single conditional-strength claim:</p>
+<blockquote>
+<p>Necessarily, if determinism is true, then no one has free will (in the sense required for moral responsibility).</p>
+</blockquote>
+<p>Three clarifications fix its scope:</p>
+<ul>
+<li><strong>It is neutral on the truth of determinism.</strong> An incompatibilist may think the world is determined (and conclude we are <em>unfree</em>) or undetermined (and hope we are <em>free</em>). The incompatibility itself is asserted either way.</li>
+<li><strong>It is neutral on whether we have free will.</strong> That further question is what divides the <em>species</em> below.</li>
+<li><strong>It targets the <em>responsibility-relevant</em> sense of freedom.</strong> Incompatibilists grant that there are weaker senses of "free" (uncoerced, unconstrained) that determinism leaves untouched; their claim is that these are not the sense that grounds <strong>basic desert</strong>, praise, and blame.</li>
+</ul>
+<p>The whole dispute with compatibilism is therefore a disagreement about <em>which</em> freedom matters and <em>what it requires</em> — concentrated in two ideas the incompatibilist takes to be essential: <strong>leeway</strong> (genuinely open alternatives) and <strong>sourcehood</strong> (ultimate origination).</p>
+<h2 id="the-two-roads-to-incompatibilism"><a class="header" href="#the-two-roads-to-incompatibilism">The two roads to incompatibilism</a></h2>
+<p>Incompatibilist arguments come in two broad families, corresponding to the two ingredients of freedom. A given incompatibilist may rely on one or both.</p>
+<ul>
+<li><strong>Leeway incompatibilism</strong> — freedom requires the <strong>ability to do otherwise</strong> in a <em>categorical</em> sense: holding the <em>entire actual past and the laws fixed</em>, the agent could still have done something else. Determinism leaves exactly one possible future, so it removes leeway. The flagship argument here is the <strong>Consequence Argument</strong>.</li>
+<li><strong>Source incompatibilism</strong> — freedom requires the agent to be the <strong>ultimate source or originator</strong> of the action: the buck must stop with the agent, not with causes tracing back before her birth. Determinism hands ultimate authorship to the remote past plus the laws, so it removes sourcehood. The flagship arguments here are the <strong>Origination/Ultimacy argument</strong> and the <strong>Manipulation arguments</strong>. This road is important because it survives even if <a href="./compatibilism.html">Frankfurt cases</a> succeed in showing responsibility does <em>not</em> require alternative possibilities — many contemporary incompatibilists are <em>source</em> incompatibilists for exactly this reason.</li>
+</ul>
+<h2 id="the-consequence-argument-leeway"><a class="header" href="#the-consequence-argument-leeway">The Consequence Argument (leeway)</a></h2>
+<p>The most rigorous incompatibilist argument, developed by <strong>Carl Ginet</strong>, <strong>David Wiggins</strong>, and above all <strong>Peter van Inwagen</strong> (<em>An Essay on Free Will</em>, 1983). Its intuitive statement:</p>
+<blockquote>
+<p>If determinism is true, then our acts are the consequences of the laws of nature and events in the remote past. But it is not up to us what went on before we were born, and neither is it up to us what the laws of nature are. Therefore the consequences of these things — including our present acts — are <strong>not up to us</strong>.</p>
+</blockquote>
+<p>The force is that freedom is "transferred away" from us: we have no choice about the remote past <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, no choice about the laws <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span>, and (if determinism holds) no choice about the fact that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> <strong>entails</strong> every present act — so we have no choice about our present acts. (The summary below gives the essentials; for the full formal treatment — the derivation, the agglomeration failure, Lewis's local-miracle reply, and the companion Mind argument — see the dedicated page on <a href="./arguments/consequence-argument.html">the Consequence Argument</a>.)</p>
+<h3 id="the-formal-core"><a class="header" href="#the-formal-core">The formal core</a></h3>
+<p>Van Inwagen regiments this with a modal operator <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Np</span></span></span></span> read "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, and no one has, or ever had, any choice about whether <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>." Two inference rules drive the argument:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.3074em;vertical-align:-0.8804em;"></span><span class="mord text"><span class="mord textbf">(α)</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.352em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Np</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord amsrm">□</span><span class="mord mathnormal">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:2em;"></span><span class="mord text"><span class="mord textbf">(β)</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">Nq</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Np</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Rule <strong>(α)</strong>: if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is <em>necessarily</em> true, no one has a choice about it. Rule <strong>(β)</strong> — the crucial <strong>transfer of powerlessness</strong> — says: if no one has a choice about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, and no one has a choice about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>, then no one has a choice about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>. Letting <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> be the remote past, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> the laws, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> a present act, determinism gives <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mopen">((</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>; feeding the fixity of the past and laws through repeated application of (β) yields <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">NP</span></span></span></span> — our acts are not up to us.</p>
+<h3 id="compatibilist-replies-to-the-consequence-argument"><a class="header" href="#compatibilist-replies-to-the-consequence-argument">Compatibilist replies to the Consequence Argument</a></h3>
+<ul>
+<li><strong>Reject Rule (β).</strong> <strong>Thomas McKay and David Johnson</strong> (1996) showed (β) is <strong>invalid</strong>: it fails <em>agglomeration</em> (from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Np</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">Nq</span></span></span></span> one cannot in general infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span>), and counterexamples involving probabilistic "no choice" cases break the rule. Van Inwagen's response is to seek a repaired principle; the dialectic continues.</li>
+<li><strong>The local-miracle / conditional reply (Lewis).</strong> "Could have done otherwise" requires only that <em>had</em> the agent done otherwise, <em>either</em> the past or a law would have been (counterfactually) slightly different. To be <em>able</em> to act such that a law <em>would have been</em> broken is <strong>not</strong> the incredible power to <em>break</em> a law. The agent's ability is a "weak" ability, and that is all freedom needs.</li>
+<li><strong>Deny the categorical reading of "can."</strong> Many compatibilists (dispositionalists such as <strong>Vihvelin</strong>, <strong>Fara</strong>) analyze "could have done otherwise" as a <em>bundle of dispositions</em> the agent retains in a determined world, dissolving the transfer argument's premise that the agent lacks the relevant ability.</li>
+<li><strong>Concede leeway, save responsibility (semicompatibilism).</strong> <strong>Fischer</strong> grants the Consequence Argument's conclusion about <em>alternatives</em> but denies it touches <em>responsibility</em>, which rests on <strong>guidance control</strong>, not regulative control. This is why the <em>source</em> road below matters.</li>
+</ul>
+<h2 id="the-origination--ultimacy-argument-source"><a class="header" href="#the-origination--ultimacy-argument-source">The Origination / Ultimacy argument (source)</a></h2>
+<p>Independently of alternatives, the incompatibilist presses: to be <em>truly</em> responsible for an action, one must be responsible for the <strong>sufficient causes</strong> of the action; in a determined world those causes trace back through one's character to heredity and environment one did not originate; so the regress of responsibility never terminates in the agent. <strong>Galen Strawson's "Basic Argument"</strong> is the sharpest form:</p>
+<ol>
+<li>You do what you do, in any situation, because of the way you are.</li>
+<li>To be <em>ultimately</em> responsible for what you do, you must be ultimately responsible for the way you are — at least in relevant respects.</li>
+<li>But to be ultimately responsible for the way you are, you would have had to bring it about that you are that way — and to do <em>that</em> on the basis of some <em>prior</em> way you already were, regressing infinitely.</li>
+<li>Such ultimate self-creation (being <em>causa sui</em>) is impossible.</li>
+<li>Therefore <strong>ultimate responsibility is impossible.</strong></li>
+</ol>
+<p>Note the sting in the tail: Strawson's argument is <em>more radical</em> than standard incompatibilism, because it concludes that <strong>no one is ultimately responsible whether determinism is true or not</strong> — indeterminism cannot supply self-creation either. Source incompatibilists who stop short of this (e.g. <strong>Kane</strong>) argue that ultimacy requires only a finite history of <em>undetermined self-forming actions</em>, not literal <em>causa sui</em> — the move that keeps <a href="./libertarianism.html">libertarianism</a> alive against the Basic Argument.</p>
+<h2 id="the-manipulation-arguments-source"><a class="header" href="#the-manipulation-arguments-source">The Manipulation arguments (source)</a></h2>
+<p>The most persuasive <em>intuitive</em> engine of source incompatibilism. The strategy: exhibit an agent who is <strong>covertly manipulated</strong> into satisfying <em>every</em> condition compatibilists offer for free, responsible action, yet who intuitively is <strong>not</strong> responsible — then argue there is <strong>no relevant difference</strong> between this agent and any ordinary determined agent.</p>
+<ul>
+<li><strong>Pereboom's four-case argument.</strong> Professor <strong>Plum</strong> murders White. In Case 1 he is created moments before by neuroscientists who directly manipulate his brain in real time; in Case 2 he is programmed at the start of life; in Case 3 he is rigorously trained by his community; in Case 4 he is simply an ordinary agent in a <em>normal deterministic universe</em>. At each step the manipulation becomes less direct, but — Pereboom argues — there is <em>no principled difference</em> in responsibility between adjacent cases. Since Plum is plainly not responsible in Case 1, and nothing relevant changes down the line, he is not responsible in Case 4 either. Hence <em>ordinary determinism</em> defeats responsibility.</li>
+<li><strong>Mele's Zygote Argument.</strong> The goddess <strong>Diana</strong> creates a zygote, <strong>Ernie</strong>, designing it precisely so that, given the actual laws and world, Ernie will perform a particular murder thirty years later. Ernie satisfies every compatibilist condition (reasons-responsiveness, mesh, real-self expression) — yet seems a mere instrument of Diana's design. And there is <em>no relevant difference</em> between Ernie's deterministic causal history and that of any ordinary determined agent; so if Ernie is not responsible, neither is anyone in a determined world.</li>
+</ul>
+<h3 id="compatibilist-replies-to-manipulation"><a class="header" href="#compatibilist-replies-to-manipulation">Compatibilist replies to manipulation</a></h3>
+<ul>
+<li><strong>Hard-line reply</strong> (<strong>McKenna</strong>): bite the bullet — the manipulated agent <strong>is</strong> responsible (or our contrary intuition is an unreliable artifact of the spooky manipulator). If the compatibilist conditions are genuinely met, that <em>just is</em> what responsibility consists in.</li>
+<li><strong>Soft-line reply</strong> (<strong>Fischer</strong>, <strong>Mele</strong>, <strong>Haji</strong>): identify a <strong>relevant difference</strong> — typically a <em>historical / ownership</em> condition that manipulation violates and ordinary determinism does not. The manipulated agent's deliberative mechanism was <em>installed by bypassing her own prior agency</em>; ordinary agents acquire theirs through a normal developmental history in which they "take responsibility" for their mechanism over time. (Incompatibilists rejoin that any such history is itself just a longer deterministic chain the agent didn't originate, so the difference is not <em>responsibility-relevant</em>.)</li>
+</ul>
+<h2 id="the-varieties-of-incompatibilism"><a class="header" href="#the-varieties-of-incompatibilism">The varieties of incompatibilism</a></h2>
+<p>Once the incompatibility is granted, three positions diverge on the further questions:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Determinism true?</th><th>Free will exists?</th><th>Resolution</th></tr></thead><tbody>
+<tr><td><strong><a href="./libertarianism.html">Libertarianism</a></strong></td><td>No</td><td><strong>Yes</strong></td><td>Affirm freedom; deny determinism; locate freedom in indeterministic origination.</td></tr>
+<tr><td><strong>Hard determinism</strong></td><td><strong>Yes</strong></td><td>No</td><td>Accept determinism; conclude we are unfree and not responsible.</td></tr>
+<tr><td><strong>Hard incompatibilism</strong></td><td><em>Either</em></td><td>No</td><td>Freedom is incompatible with determinism <em>and</em> undermined by indeterminism (luck); so we lack it whichever way the world is.</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li><strong>Hard determinism</strong> (the classical "no-free-will" position — <strong>d'Holbach</strong>, <strong>Spinoza</strong> read deterministically, <strong>Clarence Darrow</strong> in forensic practice) accepts both incompatibilism and the truth of determinism, and bites the bullet: no one is ever truly responsible.</li>
+<li><strong>Hard incompatibilism</strong> (<strong>Derk Pereboom</strong>, <em>Living Without Free Will</em>; <strong>Galen Strawson</strong>) is the modern refinement: it does <strong>not</strong> need determinism to be true. It argues freedom is incompatible with determinism (via the above) <strong>and</strong> that indeterminism would only add <em>luck</em> (the objection that haunts <a href="./libertarianism.html">libertarianism</a>) — so on <em>every</em> hypothesis about the causal order, desert-grounding free will is absent. This is <strong>free-will skepticism</strong>, and it typically pairs with a <em>forward-looking</em> reconstruction of moral life (protection, reconciliation, moral formation) that abandons <em>basic desert</em> while keeping much else.</li>
+</ul>
+<p>What unites all three against compatibilism is the conviction that the freedom worth wanting requires either categorical leeway or ultimate sourcehood — something determinism cannot supply.</p>
+<h2 id="a-short-history"><a class="header" href="#a-short-history">A short history</a></h2>
+<ul>
+<li><strong>Ancient roots.</strong> The <strong>Epicureans</strong> held determinism (Democritean atomic necessity) incompatible with agency and posited the atomic <strong>swerve</strong> to escape it — an early <em>libertarian</em> incompatibilism. The <strong>Stoic</strong>–Epicurean debate over fate is the origin of the whole dispute.</li>
+<li><strong>Medieval.</strong> Worries about <strong>divine foreknowledge</strong> (if God infallibly knows tomorrow's act, is it not already fixed?) are a <em>theological</em> incompatibilism, addressed by Boethius, Aquinas, and Ockham.</li>
+<li><strong>Early modern.</strong> <strong>d'Holbach</strong> (<em>System of Nature</em>, 1770) gives the canonical <strong>hard determinist</strong> statement: man is "a being purely physical," a link in nature's chain, and free will an illusion. <strong>Kant</strong>, by contrast, is an incompatibilist who rescues freedom <em>transcendentally</em>, placing it in the noumenal self outside the deterministic phenomenal order.</li>
+<li><strong>William James</strong> (1884) coins "<strong>hard</strong>" and "<strong>soft</strong>" determinism, and frames the <strong>dilemma of determinism</strong> that organizes the modern debate.</li>
+<li><strong>C. D. Broad</strong> (1934) sharpens the "could have done otherwise" analysis that the Consequence Argument later formalizes.</li>
+<li><strong>Roderick Chisholm</strong> (1964) revives <em>agent-causal</em> libertarian incompatibilism.</li>
+<li><strong>Peter van Inwagen</strong> (1983) gives incompatibilism its rigorous modern form in the <strong>Consequence Argument</strong>, making incompatibilism respectable as a <em>conclusion of argument</em> rather than a mere intuition.</li>
+<li><strong>Galen Strawson</strong> (1986, 1994) presses the <strong>Basic Argument</strong> for the impossibility of ultimate responsibility.</li>
+<li><strong>Derk Pereboom</strong> (2001, 2014) and <strong>Saul Smilansky</strong>, <strong>Bruce Waller</strong>, <strong>Gregg Caruso</strong> develop contemporary <strong>hard incompatibilism / free-will skepticism</strong> and its practical implications (notably for <strong>retributive punishment</strong>).</li>
+</ul>
+<h2 id="arguments-for-incompatibilism-summary"><a class="header" href="#arguments-for-incompatibilism-summary">Arguments for incompatibilism (summary)</a></h2>
+<ol>
+<li><strong>The Consequence Argument</strong> — freedom requires leeway; determinism, via the fixity of the past and laws and the transfer principle (β), removes it.</li>
+<li><strong>The Origination/Ultimacy argument</strong> — responsibility requires ultimate sourcehood; a determined causal chain locates the ultimate source in the remote past, never in the agent.</li>
+<li><strong>The Manipulation/Zygote arguments</strong> — a covertly determined agent who meets all compatibilist conditions is intuitively not responsible, and there is no relevant difference between such an agent and any determined agent.</li>
+<li><strong>The intuition of openness</strong> — deliberation presents the future as genuinely open and the choice as up to us <em>now</em>; incompatibilists take this categorical openness, which determinism contradicts, to be a datum compatibilism cannot honor.</li>
+</ol>
+<h2 id="objections-to-incompatibilism-and-replies"><a class="header" href="#objections-to-incompatibilism-and-replies">Objections to incompatibilism (and replies)</a></h2>
+<ul>
+<li><strong>The conditional-analysis / dispositional objection.</strong> Compatibilists argue "could have done otherwise" is best read <em>hypothetically</em> or <em>dispositionally</em>, so determinism does not remove the relevant ability. <strong>Incompatibilist reply:</strong> the hypothetical reading captures only a <em>weak</em> ability and smuggles an unanalyzed "ability to choose otherwise" into its antecedent; it does not deliver the <em>categorical</em> openness freedom requires (the Chisholm/Austin point).</li>
+<li><strong>Frankfurt cases against leeway.</strong> If responsibility does not require alternative possibilities (PAP is false), the Consequence Argument's leeway requirement is moot. <strong>Incompatibilist reply:</strong> retreat to <strong>source incompatibilism</strong>, which never needed PAP — Frankfurt cases at most refute the <em>leeway</em> road, leaving the <em>origination</em> and <em>manipulation</em> arguments untouched. (Plus the <strong>"flicker of freedom"</strong> and <strong>Kane–Widerker dilemma</strong> replies that question whether Frankfurt cases work in a genuinely indeterministic setting.)</li>
+<li><strong>The "verbal dispute" charge</strong> (Hume). The whole disagreement is merely about how to <em>define</em> "free." <strong>Incompatibilist reply:</strong> it is substantive, not verbal — it concerns whether <em>basic desert</em> (the fairness of blame and punishment) is genuinely secured by a chain the agent did not originate. That is a real question with real stakes (punishment, the reactive attitudes), not a choice of words.</li>
+<li><strong>The pragmatic / Strawsonian objection.</strong> The reactive-attitude practice is not, and need not be, hostage to any metaphysical thesis; demanding ultimacy is a philosopher's overreach. <strong>Incompatibilist reply</strong> (Pereboom, Waller): we <em>can</em> and arguably <em>should</em> revise the practice — abandoning <em>basic desert</em> and retributive punishment while keeping forward-looking forms of moral concern; the practice's mere entrenchment does not show it is <em>justified</em>.</li>
+<li><strong>The self-refutation / "you can't help believing it" objection.</strong> <strong>Incompatibilist reply:</strong> the psychological inevitability of feeling free is precisely what a determinist would predict, and says nothing about whether the feeling is <em>veridical</em>.</li>
+</ul>
+<h2 id="common-misconceptions"><a class="header" href="#common-misconceptions">Common misconceptions</a></h2>
+<ul>
+<li><strong>"Incompatibilism says we have no free will."</strong> No — incompatibilism is <em>only</em> the incompatibility claim. The libertarian is an incompatibilist who <strong>affirms</strong> free will. Denying free will is the further step taken by <em>hard</em> determinists and hard incompatibilists.</li>
+<li><strong>"Incompatibilism says determinism is true."</strong> It is <em>neutral</em> on that. Some incompatibilists (libertarians) deny determinism precisely <em>because</em> they accept the incompatibility and affirm freedom.</li>
+<li><strong>"Incompatibilism is the same as fatalism."</strong> No — like determinism, incompatibilism does not say outcomes occur <em>regardless of your choices</em>; it says that <em>if</em> your choices are determined, they are not <em>up to you</em> in the freedom-grounding sense. Deliberation can still be causally efficacious (see <a href="./introduction.html">the introduction</a>).</li>
+<li><strong>"Incompatibilism requires belief in a soul or agent-causation."</strong> Only <em>some</em> libertarian versions invoke agent-causation. Hard determinists and hard incompatibilists are typically thoroughgoing naturalists; the Consequence and Basic Arguments make no supernatural assumptions.</li>
+<li><strong>"The Consequence Argument has been refuted."</strong> It is <em>contested</em> — (β) and the local-miracle reply are live disputes — but it remains the central reason incompatibilism is taken seriously, and source incompatibilism does not depend on it at all.</li>
+<li><strong>"Incompatibilists must think no one should ever be blamed or punished."</strong> Only the <em>skeptical</em> species draw that conclusion, and even they typically endorse <em>forward-looking</em> (deterrence, protection, reform) rather than <em>retributive</em> justification — they reject <em>basic desert</em>, not all social response.</li>
+</ul>
+<h2 id="where-incompatibilism-sits"><a class="header" href="#where-incompatibilism-sits">Where incompatibilism sits</a></h2>
+<p>Against the <a href="./introduction.html">master dilemma</a>, incompatibilism is the affirmation of premise (3) — <em>free will is incompatible with determinism</em> — which <a href="./compatibilism.html">compatibilism</a> denies. It leaves premises (1) <em>free will exists</em> and (2) <em>determinism is true</em> open, and the way a given incompatibilist settles them fixes whether they end up a <a href="./libertarianism.html">libertarian</a> (keep 1, drop 2), a hard determinist (keep 2, drop 1), or a hard incompatibilist (drop 1 on grounds that hold <em>whatever</em> the status of 2). Its strength is the intuitive grip of the <strong>leeway</strong> and <strong>sourcehood</strong> requirements — the sense that a choice fixed before one's birth is not, in the deepest sense, <em>one's own</em>. Its burden is to show those requirements are genuine conditions on responsibility rather than an inflated, perhaps incoherent, demand for <em>causa sui</em> — exactly the charge the <a href="./compatibilism.html">compatibilist</a> presses in reply.</p>
+<p>The next pages take up <strong>hard incompatibilism / free-will skepticism</strong> as a position in its own right, and the bearing of physics and <a href="../../general/quantum-mechanics.html">quantum mechanics</a> on whether the indeterminism the libertarian incompatibilist needs is real and usable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/compatibilism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/libertarianism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/compatibilism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/libertarianism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

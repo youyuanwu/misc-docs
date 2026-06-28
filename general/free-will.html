@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Free Will? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/general/free-will.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-free-will"><a class="header" href="#what-is-free-will">What Is Free Will?</a></h1>
+<p><em>A plain-language introduction for the curious reader. No philosophy
+background is needed — only a willingness to look hard at something you
+use every single day without thinking about it.</em></p>
+<hr />
+<h2 id="the-puzzle-in-30-seconds"><a class="header" href="#the-puzzle-in-30-seconds">The puzzle in 30 seconds</a></h2>
+<p>Free will is the sense, which almost everyone has, that <em>you</em> are genuinely in charge of what you do. When you choose tea over coffee, or tell the truth instead of lying, the decision feels really <em>yours</em> — and it feels as if you <em>could have done otherwise</em>.</p>
+<p>That seems obvious. But once you try to fit this feeling into a physical world governed by cause and effect, the trouble begins. If your choices are fixed in advance by the past and the laws of nature, they were settled before you were born. How, then, are they really <em>up to you</em>?</p>
+<p>Hoping for the opposite does not immediately help. If your choices are <em>not</em> fixed, then perhaps they happen partly by chance — but a random dice roll is not freedom either. So free will seems threatened from both sides: determined choices look unavoidable, while undetermined choices look lucky.</p>
+<p>That is why this ancient puzzle still matters. It touches criminal justice, praise and blame, guilt and pride, gratitude and resentment — and the everyday feeling that there is someone in here making the choice.</p>
+<h2 id="what-we-mean-by-free-will"><a class="header" href="#what-we-mean-by-free-will">What we mean by "free will"</a></h2>
+<p>Strip away the jargon and the everyday idea has two pieces:</p>
+<ul>
+<li><strong>You could have done otherwise.</strong> When you made the choice, more than one option was <em>really</em> open to you. Nothing forced your hand; the door to the other choice was genuinely unlocked.</li>
+<li><strong>It was up to you.</strong> The choice came from <em>you</em> — your reasons, your values, your deliberation — and not from someone pushing you, drugging you, or pulling strings you couldn't see. You were the <em>author</em> of the act, not a puppet.</li>
+</ul>
+<p>We rely on this idea constantly, usually without noticing. The difference between a <em>gift</em> and a <em>mugging at gunpoint</em>, between <em>signing a contract</em> and <em>signing under threat</em>, between an <em>accident</em> and a <em>crime</em>, is a difference in freedom. Our entire web of praise and blame, pride and guilt, reward and punishment, leans on the assumption that people <em>freely</em> do what they do.</p>
+<h2 id="why-it-matters"><a class="header" href="#why-it-matters">Why it matters</a></h2>
+<p>This is not an abstract parlor game. A surprising amount of human life is quietly built on top of free will:</p>
+<ul>
+<li><strong>Moral responsibility.</strong> We praise people for good deeds and blame them for bad ones. But blaming someone seems to <em>presuppose</em> that they could have acted differently. If a man's hand is forced, we don't blame him — so what if, in some deep sense, <em>every</em> hand is forced?</li>
+<li><strong>Justice and punishment.</strong> Courtrooms run on free will. We punish people because they are <em>responsible</em> for what they did. The ideas of <em>desert</em> ("he deserves this") and of <em>retribution</em> depend on it. Take free will seriously enough, and you start asking whether punishment should be about <em>desert</em> at all, or only about <em>protecting people and reforming offenders</em>.</li>
+<li><strong>Our emotional lives.</strong> Gratitude, resentment, indignation, guilt, pride — what one philosopher called the <strong>reactive attitudes</strong> — are responses to how people <em>freely</em> treat us and themselves. You don't resent a falling tree for hitting your car; you <em>do</em> resent a person who keys it. The difference is, again, free will.</li>
+<li><strong>The feeling of being an agent.</strong> When you deliberate — weighing a job offer, deciding whether to apologize — you experience the future as <em>open</em> and the choice as <em>yours to make</em>. Free will is woven into what it feels like to be a person at all.</li>
+</ul>
+<p>So if free will turned out to be an illusion, it wouldn't just be an interesting fact. It would ask us to rethink blame, justice, and some of our deepest feelings about ourselves and each other. That leads to the deepest pressure point: moral responsibility.</p>
+<h2 id="the-real-stake-moral-responsibility"><a class="header" href="#the-real-stake-moral-responsibility">The real stake: moral responsibility</a></h2>
+<p>Of everything on that list, one item is quietly doing the heavy lifting, and it deserves its own spotlight: <strong>moral responsibility</strong>. For most philosophers, the free-will debate isn't ultimately about physics, or even about choice — it's about whether anyone <em>truly deserves</em> credit or blame for what they do.</p>
+<p>The link is tight. To really <em>blame</em> someone — not just dislike what happened, but hold it against <em>them</em> — seems to assume two things: that they <em>could have done otherwise</em>, and that the act genuinely <em>came from them</em>. Those are precisely the two pieces of free will. Knock out either one and blame starts to feel misplaced: we don't blame the sleepwalker, the person acting under threat, or the man whose tumor rewired him, exactly because one of the pieces is missing. The unsettling worry is that determinism — or luck — might quietly remove the very same pieces for <em>everyone</em>, all the time.</p>
+<p>It helps to notice that "responsibility" actually names two very different things:</p>
+<ul>
+<li><strong>Backward-looking (desert).</strong> <em>"She deserves blame (or praise) for what she did"</em> — as a matter of justice, full stop, regardless of any future benefit. This is the strong kind free will is meant to underwrite, and the kind most under threat.</li>
+<li><strong>Forward-looking (accountability).</strong> <em>"Let's hold her to account so she learns, makes amends, and others are protected."</em> This looks to the <em>future</em> — reform, repair, warning others — and might survive even if the first kind doesn't, because it doesn't require that she <em>deserved</em> it in the deepest sense, only that holding her responsible <em>does some good</em>.</li>
+</ul>
+<p>This distinction quietly reshapes the whole debate. The sharpest modern question isn't really "do we have free will?" but "<strong>what kind of responsibility can creatures like us actually have?</strong>" Perhaps we lose <em>desert</em> but keep <em>accountability</em> — which would transform how we punish and blame without abolishing it. Keep that split in mind; it's the hinge much of what follows turns on.</p>
+<h2 id="when-it-gets-real-cases-that-put-free-will-on-trial"><a class="header" href="#when-it-gets-real-cases-that-put-free-will-on-trial">When it gets real: cases that put free will on trial</a></h2>
+<p>These aren't hypotheticals. Courts, doctors, and families wrestle with the free-will question whenever something <em>interferes</em> with a person's control — and the way we respond reveals how much weight the idea silently carries.</p>
+<ul>
+<li>
+<p><strong>The tower shooter and his brain tumor.</strong> In 1966, <strong>Charles Whitman</strong> climbed the University of Texas clock tower and shot dozens of people, after killing his wife and mother. In the months before, he had told a psychiatrist about overwhelming violent urges he couldn't explain, and his suicide note <em>asked for an autopsy of his brain</em> because he felt something was wrong with him. The autopsy found a tumor pressing near the <strong>amygdala</strong>, a region tied to fear and aggression. Did the tumor <em>make</em> him do it? Nobody knows for sure — but the question alone is unsettling, because if a tumor can hijack a person's choices, we are forced to ask where the <em>person</em> ends and the <em>malfunction</em> begins. How much of <em>anyone's</em> behavior is "tumors" we simply can't see?</p>
+</li>
+<li>
+<p><strong>The brain tumor that "caused" a crime — and then was removed.</strong> Even more striking, because the experiment ran in both directions: in 2000, a previously ordinary 40-year-old man abruptly developed disturbing sexual urges and began collecting child pornography. Doctors found an egg-sized tumor pressing on the part of his brain that governs impulse control. They <strong>removed it, and the urges vanished</strong>. Months later the urges returned — and a scan showed the <strong>tumor had grown back</strong>. Remove it again; gone again. It is very hard to look at that case and say the man was simply a <em>freely</em> choosing wrongdoer.</p>
+</li>
+<li>
+<p><strong>The man who killed in his sleep.</strong> In 1987, <strong>Kenneth Parks</strong> drove 14 miles, walked into his in-laws' house, and killed his mother-in-law — while, the court accepted, <strong>sleepwalking</strong> the entire time. He was <em>acquitted</em>: you cannot be guilty of an act your conscious self never chose. The law here draws exactly the free-will line — <em>was anyone home to make the choice?</em></p>
+</li>
+<li>
+<p><strong>Phineas Gage's personality.</strong> Back in 1848, a railroad worker named <strong>Phineas Gage</strong> survived an iron rod blasting through his frontal lobe — but friends said he was "<strong>no longer Gage</strong>," his judgment and temperament transformed by the damage. The case became famous because it showed, vividly, that the "self" doing the choosing is a <em>physical organ</em> that injury can rewrite.</p>
+</li>
+</ul>
+<p>These cases matter because of what we <em>already do</em> with them. We <em>acquit</em> the sleepwalker, <em>show mercy</em> to the man with the tumor, <em>recognize</em> that Gage was changed by an injury. In other words, <strong>our justice and our compassion already track judgments about how free a person was.</strong> The insanity defense, diminished-capacity verdicts, and the difference between murder and manslaughter are all society's attempts to measure freedom and parcel out blame accordingly. The philosophical puzzle is just this everyday practice pushed to its limit: if a <em>tumor</em> can undermine responsibility, what about a difficult childhood, a genetic temperament, or simply the ordinary chain of cause and effect that shaped every one of us? Where, exactly, do we draw the line — and is there a principled place to draw it at all?</p>
+<h2 id="try-it-yourself-can-you-catch-the-moment-you-decide"><a class="header" href="#try-it-yourself-can-you-catch-the-moment-you-decide">Try it yourself: can you catch the moment you decide?</a></h2>
+<p>Here's an experiment you can run <em>right now</em>. Hold out your hand and, whenever you feel like it — no schedule, no reason — flick your wrist. Do it a few times. Now ask yourself: <em>where did each urge come from?</em> The impulse to move seems to just… appear, bubbling up from somewhere you have no access to. You didn't <em>decide to decide</em>. You can't quite catch yourself in the act of <em>authoring</em> the choice; you only notice it once it's already arriving.</p>
+<p>In the 1980s the neuroscientist <strong>Benjamin Libet</strong> wired people up to do exactly this and watched their brains. He found something startling: a wave of electrical activity — a "<strong>readiness potential</strong>" — began building in the brain <strong>about half a second <em>before</em> people said they consciously decided to move.</strong> The brain seemed to set the action in motion <em>before</em> the person was aware of choosing it. Later experiments with brain scanners pushed it further: in 2008, researchers could predict which of two buttons someone would press <strong>several seconds before</strong> the person felt they'd made up their mind.</p>
+<p>It's tempting to read this as proof that free will is a fairy tale — that the conscious "you" is just a spectator, informed after the fact of decisions the brain already made. But the experiments are fiercely disputed, and their reach is modest: maybe the readiness potential is just the brain <em>idling and warming up</em>, not <em>deciding</em>; maybe scanner predictions are better than chance without being close to mind-reading; and flicking a wrist on a whim may be nothing like a careful, reasoned choice. Libet himself thought consciousness still had a job — not in <em>starting</em> the impulse, but in <em>vetoing</em> it in the final fraction of a second, a power he nicknamed "<strong>free won't</strong>." Either way, the lesson lingers: when you go looking for the little "you" that pulls the levers, it is surprisingly hard to find.</p>
+<h2 id="whats-so-puzzling-about-it"><a class="header" href="#whats-so-puzzling-about-it">What's so puzzling about it</a></h2>
+<p>Here is the heart of the problem. Two pictures of the world both seem reasonable, and <em>each one seems to destroy free will</em> — just in opposite ways.</p>
+<h3 id="horn-1-if-everything-is-determined"><a class="header" href="#horn-1-if-everything-is-determined">Horn 1: If everything is determined</a></h3>
+<p>Science describes a world of <strong>cause and effect</strong>. Every event has earlier causes: the weather, a heartbeat, the firing of a neuron. Your brain is part of this world. So your choices are caused by the state of your brain a moment before, which was caused by the moment before that, and so on — back through your upbringing and your genes to events long before you were born.</p>
+<p>This is <strong>determinism</strong>: the idea that the past plus the laws of nature fix <em>exactly one</em> possible future. If it's true, then when you "chose" tea, the universe was already going to produce that choice, given everything that came before. You couldn't <em>really</em> have done otherwise — not without rewriting the laws of physics or the distant past, neither of which is up to you. The unsettling thought: <em>the choice was settled before you were born.</em> How can it be free?</p>
+<h3 id="horn-2-if-everything-is-not-determined"><a class="header" href="#horn-2-if-everything-is-not-determined">Horn 2: If everything is <em>not</em> determined</a></h3>
+<p>"Fine," you might say, "then let's hope the world <em>isn't</em> fully determined." And in fact modern physics, through <strong><a href="./quantum-mechanics.html">quantum mechanics</a></strong>, suggests there may be genuine <em>randomness</em> in nature at the smallest scales.</p>
+<p>But — and this is the twist that makes the puzzle so deep — randomness doesn't help. Suppose your choice <em>wasn't</em> fixed by the past, because some random quantum hiccup in your brain tipped it one way rather than the other. Then your choice was a matter of <em>chance</em> — like a tiny dice-roll. But a choice that happens by <em>luck</em> isn't <em>controlled</em> by you any more than a determined one. If anything, it's <em>less</em> yours: it just <em>happened</em>. Random is not the same as free.</p>
+<h3 id="the-trap"><a class="header" href="#the-trap">The trap</a></h3>
+<p>Put the two horns together and you get the puzzle in its starkest form. Your choices are <em>either</em> determined by the past <em>or</em> not. If they're determined, they were settled before you were born — not free. If they're not determined, they're partly a matter of luck — also not free. <strong>There doesn't seem to be any third option</strong> — and free will appears to need one. That's what makes this not just hard but genuinely puzzling: the threat comes from <em>both</em> directions at once.</p>
+<h2 id="a-second-puzzle-where-did-you-come-from"><a class="header" href="#a-second-puzzle-where-did-you-come-from">A second puzzle: where did <em>you</em> come from?</a></h2>
+<p>Even setting physics aside, there's a nagging deeper worry. You act out of your character — your values, tastes, and habits. But you didn't choose your original character: it was shaped by your genes and your upbringing, which you had no say in. You can reshape yourself over time, sure — but only using the self you were <em>already</em> given. Trace it back far enough and the ultimate raw material of "you" was handed to you by a world you never agreed to. So in what sense are you the <em>ultimate</em> author of anything? To be truly the source of yourself, it can seem, you'd have to have <em>created yourself from scratch</em> — which is impossible.</p>
+<h2 id="but-i-feel-free"><a class="header" href="#but-i-feel-free">"But I <em>feel</em> free!"</a></h2>
+<p>About here, most people want to bang the table: <em>Of course I'm free — I just decided to keep reading, and I could have stopped! I can feel it!</em> That reaction is completely fair, and the feeling is absolutely real. The only question is what the feeling is <em>evidence of</em>.</p>
+<p>Here's the catch. What you actually experience is the <em>absence of obstacles</em> — nobody's forcing your hand, no chain is on your wrist, the options feel wide open. But that experience would be exactly the same whether your choice is the undetermined, authored-by-you act you imagine <em>or</em> the inevitable output of a brain obeying physics. From the inside, the two would feel <em>identical</em> — so the feeling, vivid as it is, can't by itself tell them apart. (Remember Spinoza's stone, which would feel perfectly free as it flew, simply because it couldn't see what was pushing it.)</p>
+<p>None of this <em>proves</em> you aren't free. It just shows that the warm certainty of "I could have done otherwise" isn't the trump card it feels like — which is why people who feel every bit as free as you do still end up disagreeing about what that feeling is worth.</p>
+<h2 id="you-are-in-good-company-being-puzzled"><a class="header" href="#you-are-in-good-company-being-puzzled">You are in good company being puzzled</a></h2>
+<p>If this tension feels strange, you are in excellent company. <strong>Arthur Schopenhauer</strong> put the problem in one unforgettable sentence: <em>"Man can do what he wills, but he cannot will what he wills."</em> You can chase what you want — but you did not choose to <em>want</em> it. <strong>Baruch Spinoza</strong> made a similar point by imagining a stone flying through the air that would think itself free if only it were conscious of its motion but ignorant of what had thrown it.</p>
+<p>Many later thinkers took the worry personally. <strong>Albert Einstein</strong> said he did not believe in freedom of the will, and found the thought compassionate rather than bleak: it "protects me from taking myself and my fellow men too seriously." <strong>Charles Darwin</strong>, in private notes, called free will "a delusion" and thought this should teach humility. <strong>Stephen Hawking</strong> likewise treated free will as an illusion, while adding that human beings are too complicated to predict, so we keep treating one another as free in practice.</p>
+<p>But the pull in the other direction is just as old. <strong>Samuel Johnson</strong> captured the standoff neatly: <em>"All theory is against the freedom of the will; all experience for it."</em> <strong>Isaac Bashevis Singer</strong> turned the same tension into a joke: <em>"We must believe in free will — we have no choice."</em> And the modern debate remains alive: <strong>Sam Harris</strong> and <strong>Robert Sapolsky</strong> argue that science leaves no room for free will, while <strong>Daniel Dennett</strong> defended a "free will worth wanting" that survives science.</p>
+<p>The point is not that the smart people all agree — they plainly do not. It is that the puzzle is serious enough to unsettle the people who think hardest about the world.</p>
+<h2 id="so-what-do-people-conclude"><a class="header" href="#so-what-do-people-conclude">So what do people conclude?</a></h2>
+<p>Faced with this, thoughtful people split into a few camps — and reasonable people still disagree. In the briefest possible sketch:</p>
+<ul>
+<li><strong>"Free will and determinism actually get along."</strong> Maybe we've misunderstood what "free" means. Being free isn't about escaping cause and effect — it's about acting from <em>your own</em> reasons and values rather than being <em>coerced or compelled</em>. A determined choice that flows from your own deliberation is free; a choice made at gunpoint isn't. On this view, determinism was never the real enemy. (This is <strong>compatibilism</strong>, the most popular view among philosophers.)</li>
+<li><strong>"Real freedom needs an open future — and we have it."</strong> No: genuine freedom really does require that you <em>could</em> have done otherwise, and that you are the true source of your acts. So the world must <em>not</em> be fully determined, and human beings must be able to harness that openness as real authorship rather than mere chance. (This is <strong>libertarianism</strong> — no relation to the politics.)</li>
+<li><strong>"Real freedom needs an open future — and we don't have it."</strong> The freedom we'd need is impossible either way, so we should admit no one <em>truly</em> deserves blame or praise in the deepest sense — and then, hopefully, build a more humane and compassionate world on that honest footing. (This is <strong>free-will skepticism</strong>.)</li>
+</ul>
+<p>The whole landscape comes down to just two questions — <em>is freedom compatible with determinism?</em> and <em>do we actually have it?</em> — and where your answers land you:</p>
+<pre><code class="language-text">          Is free will compatible with determinism?
+                     /                 \
+                  YES                    NO
+                   |                      |
+            COMPATIBILISM        Do we have free will anyway?
+        (free even if the           /              \
+         world is determined)     YES               NO
+                                    |                 |
+                            LIBERTARIANISM    FREE-WILL SKEPTICISM
+                        (so the world is     (we lack it whether the
+                         not determined)      world is determined or not)
+</code></pre>
+<p>Each camp can explain part of what we believe, and each has to swallow something uncomfortable. That's why the debate is thousands of years old and still very much alive.</p>
+<h2 id="what-this-does-not-mean"><a class="header" href="#what-this-does-not-mean">What this does <em>not</em> mean</a></h2>
+<p>At this point, it helps to clear away a few common misunderstandings.</p>
+<ul>
+<li><strong>"No free will" does not mean choices do not matter.</strong> Your choices still shape the future. The question is whether those choices are ultimately self-made, not whether they have consequences.</li>
+<li><strong>Determinism is not fatalism.</strong> Fatalism says the outcome will happen no matter what you do. Determinism says what happens depends on causes — and your thinking, effort, hesitation, courage, and laziness are among those causes.</li>
+<li><strong>Explaining behavior is not the same as excusing it.</strong> If a person's genes, childhood, brain chemistry, or social environment help explain a harmful act, that does not automatically mean the act is harmless, acceptable, or safe to ignore.</li>
+<li><strong>Questioning desert does not erase accountability.</strong> Even if no one deserves suffering in the deepest sense, we may still need apology, repair, protection, treatment, deterrence, and honest confrontation.</li>
+</ul>
+<h2 id="a-note-for-religious-readers"><a class="header" href="#a-note-for-religious-readers">A note for religious readers</a></h2>
+<p>For many people, free will is not only a scientific or philosophical issue; it is a religious one. If God knows everything in advance, can human beings still choose freely? If God is all-powerful, why allow evil rather than prevent it? If a person's character is shaped by grace, sin, karma, fate, or divine providence, how much credit or blame belongs to the person?</p>
+<p>Different traditions answer these questions in very different ways. Some emphasize human freedom because love, obedience, repentance, and moral growth seem empty unless they are freely chosen. Others emphasize dependence on God, destiny, karma, or the deep causes that shape the self before any conscious choice is made. The same basic tension remains: we want our actions to be meaningfully <em>ours</em>, while also recognizing that we did not create the world, our nature, or the conditions under which we choose.</p>
+<h2 id="does-it-even-matter-what-you-believe"><a class="header" href="#does-it-even-matter-what-you-believe">Does it even matter what you believe?</a></h2>
+<p>You might think this is all harmless speculation — believe what you like, the sun still rises. But there's some evidence that the <em>belief itself</em> may leave a mark. In a much-discussed set of experiments, psychologists had people read passages arguing that free will is an illusion, then gave them an easy opportunity to cheat on a test. Those primed to <em>disbelieve</em> in free will cheated more — and in related studies behaved a bit more selfishly and aggressively — than people who read neutral passages. These findings are debated, and they do not show that disbelief in free will reliably makes people worse. Still, they raise a live possibility: feeling that "it's all determined anyway" can, in some contexts, quietly loosen a person's sense of accountability.</p>
+<p>That sounds alarming — but the thinkers who <em>reject</em> free will argue the effect can run the other way too. Giving up the idea that wrongdoers <em>deserve</em> to suffer can make us <strong>less</strong> vengeful, more forgiving, and more curious about <em>why</em> people go wrong and how to prevent it — exactly the "compassion" Einstein described, and the mercy we already feel toward the man with the brain tumor. Whether losing the belief makes us worse or better may depend on <em>what replaces it</em>. Either way, the upshot is striking: a 2,000-year-old metaphysical riddle turns out to nudge how real people treat one another — which is the strongest sign yet that it is anything but idle.</p>
+<h2 id="if-theres-really-no-free-will-what-changes"><a class="header" href="#if-theres-really-no-free-will-what-changes">If there's really no free will, what changes?</a></h2>
+<p>Suppose the skeptics are right and <em>no one</em> is free or deserving in the deepest sense. Does everything collapse? It turns out to be far less apocalyptic than the headline sounds — but not <em>nothing</em>. Here is what would, and wouldn't, change:</p>
+<ul>
+<li><strong>Justice would shift, not vanish.</strong> <em>Retribution</em> — punishing because someone <em>deserves</em> to suffer — would lose its footing. But protecting the public, deterring harm, and rehabilitating offenders all still make perfect sense; you don't need <em>desert</em> to justify keeping a dangerous person away from victims, just as we quarantine someone with a deadly contagious illness without supposing they <em>deserve</em> it. Many skeptics argue this points toward a <em>more humane</em>, less vengeful system — not a lawless one. (This is the <em>forward-looking</em> responsibility from earlier, carrying the load the <em>backward-looking</em> kind used to.)</li>
+<li><strong>Anger could soften into understanding.</strong> It's hard to stay furious at someone once you genuinely believe they <em>couldn't have done otherwise</em>. Resentment can give way to something closer to how we already regard a storm or an illness — which can mean more forgiveness, though critics worry it can also feel <em>cold</em> and distant.</li>
+<li><strong>Guilt and pride both shrink — and that cuts both ways.</strong> Less <em>crushing guilt and shame</em> over your failures, which many find liberating — but also less <em>pride</em> in your triumphs, since you didn't ultimately author the talents and good luck behind them. Einstein found this <em>freeing</em>; you might find it deflating. Either way it lands personally.</li>
+<li><strong>Effort still matters.</strong> The common panic — <em>"if it's all determined, why bother trying?"</em> — rests on a confusion. Your effort is one of the <em>causes</em> that shapes what happens; remove it and the outcome usually changes. A determined world isn't one where your choices don't matter — it's one where they matter <em>and</em> have causes. (Giving up is itself just another choice, with its own consequences.)</li>
+</ul>
+<p>And here's the reassurance most people miss: even if the grand, libertarian kind of free will evaporates, <strong>love, friendship, curiosity, moral conviction, the meaning of your projects, and the felt difference between right and wrong do not.</strong> Compatibilists insist that the <em>everyday</em> freedom that really matters — acting on your own reasons rather than at gunpoint — was never endangered by science in the first place. Whichever way you lean, daily life is sturdier than the scary version of the story lets on.</p>
+<h2 id="why-the-question-wont-go-away"><a class="header" href="#why-the-question-wont-go-away">Why the question won't go away</a></h2>
+<p>You might hope science could just <em>settle</em> it — peer into the brain and read off whether we're free. But the puzzle isn't really about the <em>details</em> of the brain; it's about what would <em>count</em> as freedom in the first place. Tell me the brain is a deterministic machine, and the determinist's worry bites. Tell me it exploits quantum randomness, and the luck worry bites. The hard question — <em>what would it even take for a choice to be truly mine?</em> — is one that no microscope can answer for us. It sits exactly where physics, the mind, and morality meet, which is why it belongs to everyone and not just to specialists.</p>
+<h2 id="a-quick-glossary"><a class="header" href="#a-quick-glossary">A quick glossary</a></h2>
+<p>The debate comes with a lot of new words. Here are the essentials in one place:</p>
+<ul>
+<li><strong>Determinism</strong> — the idea that the past plus the laws of nature fix <em>exactly one</em> possible future.</li>
+<li><strong>Indeterminism</strong> — the denial of that: some events (perhaps in the brain) aren't fixed in advance, leaving room for genuine chance.</li>
+<li><strong>Compatibilism</strong> — free will and determinism can <em>both</em> be true; "free" means acting from your own reasons, not escaping cause and effect.</li>
+<li><strong>Libertarianism</strong> (the free-will kind, <em>not</em> the political one) — real freedom needs an open, undetermined future, and we have it.</li>
+<li><strong>Free-will skepticism</strong> — no one has the deep kind of free will, whichever way the world turns out.</li>
+<li><strong>Desert</strong> — the idea that someone <em>deserves</em> praise or blame for its own sake, not merely for some future benefit.</li>
+<li><strong>The reactive attitudes</strong> — everyday responses like gratitude, resentment, and indignation that assume a person freely chose how they acted.</li>
+</ul>
+<hr />
+<p><em>Want the full story? The <a href="../philosophy/freewill/README.html">Free Will</a> section
+works through each position carefully — <a href="../philosophy/freewill/introduction.html">the basic problem</a>,
+<a href="../philosophy/freewill/compatibilism.html">compatibilism</a>,
+<a href="../philosophy/freewill/incompatibilism.html">incompatibilism</a>,
+<a href="../philosophy/freewill/libertarianism.html">libertarianism</a>,
+<a href="../philosophy/freewill/hard-incompatibilism.html">hard incompatibilism</a>,
+and <a href="../philosophy/freewill/other-positions.html">the other positions</a> — with the
+arguments, counterarguments, and history laid out in detail.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../general/quantum-mechanics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../philosophy/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../general/quantum-mechanics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../philosophy/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

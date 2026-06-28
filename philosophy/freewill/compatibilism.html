@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compatibilism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/compatibilism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="compatibilism"><a class="header" href="#compatibilism">Compatibilism</a></h1>
+<p><strong>Compatibilism</strong> is the thesis that <strong>free will is compatible with determinism</strong> — that an agent can act freely, and be morally responsible, even if every event (including the agent's choice) is causally necessitated by the past together with the laws of nature. It is the dominant position among professional philosophers, and it is best understood as a direct response to the <a href="./introduction.html">dilemma of determinism</a>: where the incompatibilist insists that determinism drains our actions of the control responsibility requires, the compatibilist replies that this rests on the <em>wrong analysis of "free"</em>. Freedom, on the compatibilist's telling, is not a matter of escaping causation but of being caused <em>in the right way</em> — by one's own deliberation, desires, and reasons, rather than by coercion, compulsion, or constraint.</p>
+<p>This page lays out the position, its history, its main varieties, the arguments for and against it, and the misconceptions that dog it.</p>
+<hr />
+<h2 id="the-core-claim"><a class="header" href="#the-core-claim">The core claim</a></h2>
+<p>It helps to separate two things compatibilism is <em>not</em> committed to:</p>
+<ul>
+<li>It need <strong>not</strong> assert that determinism is <em>true</em>. Compatibilism is a claim about <em>compatibility</em> — about what would still be possible <em>if</em> determinism held. (A compatibilist who also holds that we have free will is sometimes called a <strong>soft determinist</strong> when they additionally accept determinism; the labels come from William James.)</li>
+<li>It need <strong>not</strong> deny that we "could have done otherwise." It typically <em>reinterprets</em> that phrase, or — in some versions — denies that free will requires it at all.</li>
+</ul>
+<p>The positive claim is that the freedom worth wanting is a species of <strong>self-determination</strong>: an action is free when it flows from the agent's own will through an unbroken, suitably reasons-sensitive causal process. What matters is the <strong>source and structure</strong> of the causal chain, not whether the chain is deterministic. Coercion, manipulation, addiction, phobia, and delusion remove freedom; ordinary deliberated action does not — and determinism <em>per se</em> is none of those things.</p>
+<p>A useful slogan: the opposite of "free" is not "caused" but <strong>"compelled."</strong> Determinism makes all actions caused; it does not make them all compelled.</p>
+<h2 id="a-short-history"><a class="header" href="#a-short-history">A short history</a></h2>
+<p>Compatibilism is one of the oldest positions in the debate, and its history is essentially the history of refining the contrast between <em>caused</em> and <em>compelled</em>.</p>
+<ul>
+<li><strong>The Stoics</strong> already distinguished what is "up to us" (<em>eph' hēmin</em>) from external fate; Chrysippus' cylinder analogy — a push (external cause) sets the cylinder rolling, but it rolls <em>because of its own shape</em> (internal nature) — is an ancient sourcehood-style compatibilism.</li>
+<li><strong>Thomas Hobbes</strong> (against Bishop Bramhall, 1640s–50s) gave the position its modern, mechanistic form: liberty is the <strong>absence of external impediments</strong> to doing what one wills. A man is free when he can do <em>what he wills</em>, even though what he wills is itself determined.</li>
+<li><strong>David Hume</strong> (<em>Treatise</em> 1739; <em>Enquiry</em> 1748) supplied the canonical <strong>conditional analysis</strong> and reframed the whole dispute as merely <em>verbal</em>. Liberty, he said, is "a power of acting or not acting, <em>according to the determinations of the will</em>" — and far from threatening responsibility, <strong>determinism is required by it</strong>: praise and blame make sense only if actions issue reliably from stable characters. Indeterministic actions would be <em>random</em>, hence <em>not</em> attributable to the agent. This is Hume's "reconciling project."</li>
+<li><strong>G. E. Moore</strong> (1912) sharpened the conditional analysis: "could have done otherwise" means "would have done otherwise <em>if</em> one had chosen to."</li>
+<li><strong>A. J. Ayer</strong>, <strong>Moritz Schlick</strong>, and the mid-century empiricists pressed the <em>caused vs. constrained</em> distinction.</li>
+<li><strong>P. F. Strawson's</strong> "Freedom and Resentment" (1962) reoriented the debate around the <strong>reactive attitudes</strong>, arguing the responsibility practice is not hostage to any metaphysical thesis.</li>
+<li><strong>Harry Frankfurt</strong> (1969, 1971) launched two revolutions: <strong>Frankfurt cases</strong> against the need for alternative possibilities, and the <strong>hierarchical (mesh) theory</strong> of the will.</li>
+<li><strong>John Martin Fischer and Mark Ravizza</strong> (<em>Responsibility and Control</em>, 1998) developed <strong>reasons-responsiveness</strong> and <strong>semicompatibilism</strong>.</li>
+<li>Contemporary work (<strong>Gary Watson</strong>, <strong>Susan Wolf</strong>, <strong>R. Jay Wallace</strong>, <strong>Michael McKenna</strong>, <strong>Dana Nelkin</strong>, <strong>Kadri Vihvelin</strong>) refines these into deep-self, reason-tracking, and disposition-based accounts.</li>
+</ul>
+<h2 id="varieties-of-compatibilism"><a class="header" href="#varieties-of-compatibilism">Varieties of compatibilism</a></h2>
+<p>Compatibilism is a family, unified by the compatibility claim but divided over <em>what</em> "the right kind of causal process" amounts to.</p>
+<h3 id="classical-conditional-analysis-compatibilism"><a class="header" href="#classical-conditional-analysis-compatibilism">Classical (conditional-analysis) compatibilism</a></h3>
+<p>The oldest strategy analyzes the <strong>ability to do otherwise</strong> <em>hypothetically</em>. "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> could have done otherwise" is rendered as a counterfactual about the will:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord"> could have done </span><span class="mord mathnormal">A</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">if </span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord"> had chosen (willed, tried) to do </span><span class="mord mathnormal">A</span><span class="mord">, then </span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord"> would have done </span><span class="mord mathnormal">A</span><span class="mord">.</span></span></span></span></span></span></p>
+<p>So even in a deterministic world the agent retains the relevant ability: nothing <em>prevented</em> the alternative; the agent simply did not will it. This is the Hobbes–Hume–Moore–Ayer line.</p>
+<p><strong>The classic objection</strong> (Chisholm, Lehrer, Austin): the conditional may be <em>true while the categorical ability is absent</em>. A compulsive agent or a phobic <em>would</em> have done otherwise <em>if</em> they had chosen — but they <em>could not have chosen</em> otherwise, so the analysis mislabels them as free. The conditional analysis seems to relocate the problem rather than solve it (the antecedent "if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> had chosen" smuggles in an unanalyzed <em>ability to choose otherwise</em>). This objection drove compatibilists toward the structural and dispositional theories below. (A modern revival — <strong>Kadri Vihvelin</strong>, <strong>Michael Fara</strong> — recasts abilities as <strong>bundles of dispositions</strong> that, like fragility, are possessed even when not manifested, aiming to rehabilitate "could have done otherwise" against the Frankfurt and Chisholm challenges.)</p>
+<h3 id="hierarchical--mesh-theories-frankfurt"><a class="header" href="#hierarchical--mesh-theories-frankfurt">Hierarchical / "mesh" theories (Frankfurt)</a></h3>
+<p><strong>Harry Frankfurt</strong> locates freedom not in alternatives but in the <em>structure of the will</em>. Agents have <strong>first-order desires</strong> (to do this or that) and <strong>second-order desires</strong> — in particular <strong>second-order volitions</strong>: desires about <em>which</em> first-order desire shall be one's <em>will</em> (move one to action). One acts of one's own free will when the desire that moves one is the desire one <em>wants</em> to be moved by — when there is a <strong>mesh</strong> between the effective first-order desire and the higher-order volition.</p>
+<p>The <strong>unwilling addict</strong> takes the drug from a desire they repudiate at the higher order — the desire is theirs but not <em>truly their own</em>; they are not free. The <strong>willing addict</strong> endorses their craving — and so acts freely even though addicted. Freedom is <strong>wholehearted identification</strong> with one's effective desire, a matter entirely of internal psychic structure and hence indifferent to determinism.</p>
+<p><strong>Objections.</strong> (i) The <strong>regress / authority problem</strong> (Watson): why should the <em>second</em> order have authority over the first? Adding a third order invites a regress, and mere "highest actual order" looks arbitrary. (ii) <strong>Manipulation</strong>: a hierarchy can be <em>implanted</em>, mesh and all, yet intuitively the agent is not free — so structural mesh seems insufficient; <em>history</em> matters. (iii) Identification needs its own account lest it just rename the problem.</p>
+<h3 id="reasons-responsiveness-fischer--ravizza"><a class="header" href="#reasons-responsiveness-fischer--ravizza">Reasons-responsiveness (Fischer &amp; Ravizza)</a></h3>
+<p>The most influential contemporary view ties freedom to <strong>control</strong>, analyzed as the agent's sensitivity to reasons. The key notion is <strong>guidance control</strong>, which has two components:</p>
+<ol>
+<li>The action must issue from the agent's <strong>own</strong> mechanism (an <em>ownership</em> / "taking responsibility" condition with a historical element).</li>
+<li>That mechanism must be <strong>moderately reasons-responsive</strong>: it must be <em>receptive</em> to reasons (able to recognize the reasons there are, in a coherent pattern) and <em>reactive</em> to them (able to act on at least some sufficient reason to do otherwise in suitably nearby scenarios).</li>
+</ol>
+<p>Crucially, this requires only that the <em>mechanism</em> would respond differently <em>were the reasons different</em> — a counterfactual / dispositional fact compatible with the actual sequence being fully determined. So an agent can have guidance control without <strong>regulative control</strong> (genuine access to alternatives). A reckless driver who ignores a clear reason to slow down is unfree in the relevant way; a normal deliberator who weighs reasons is free, determinism notwithstanding.</p>
+<p>This distinction between guidance and regulative control underwrites <strong>semicompatibilism</strong> (below): it concedes alternatives may be unavailable yet preserves responsibility-grounding control.</p>
+<h3 id="deep-self-real-self-and-value-theories-watson-wolf-frankfurt"><a class="header" href="#deep-self-real-self-and-value-theories-watson-wolf-frankfurt">Deep-self, "real self," and value theories (Watson, Wolf, Frankfurt)</a></h3>
+<p>A related cluster grounds freedom in action's expressing the agent's <strong>real self</strong> — their cares, values, or evaluative judgments — rather than mere brute urges (<strong>Gary Watson's</strong> valuational/motivational distinction; Frankfurt's later talk of what one <em>cares about</em>). <strong>Susan Wolf's</strong> <em>Reason View</em> adds an <em>asymmetry</em>: full responsibility also requires the <strong>ability to track the True and the Good</strong>, so that an agent whose deepest self is itself the product of a deprived or insane upbringing may <em>express</em> their real self yet still not be fully responsible. This builds a <em>normative competence</em> condition into freedom.</p>
+<h3 id="strawsonian--reactive-attitude-compatibilism"><a class="header" href="#strawsonian--reactive-attitude-compatibilism">Strawsonian / reactive-attitude compatibilism</a></h3>
+<p><strong>P. F. Strawson</strong> shifts the question from metaphysics to our actual practices. To hold someone responsible just <em>is</em> to be prone to the <strong>reactive attitudes</strong> — resentment, gratitude, indignation, guilt, love — in response to the quality of will their actions express. These attitudes are excused or suspended in specific local cases (they did not know; it was an accident; they were compelled, manipulated, or are incapacitated) — but the <em>general</em> truth of determinism is not one of the things that licenses such an exemption, nor could we, as the social and emotional creatures we are, adopt the wholesale "objective attitude" toward everyone. Responsibility is grounded in the practice itself, not in a prior metaphysical proof. <strong>R. Jay Wallace</strong> and <strong>Michael McKenna</strong> develop normatively richer versions (responsibility as <em>fairness</em> of holding-to-account; as a <em>conversational</em> exchange of meaning).</p>
+<h3 id="semicompatibilism-fischer"><a class="header" href="#semicompatibilism-fischer">Semicompatibilism (Fischer)</a></h3>
+<p><strong>Semicompatibilism</strong> is the deliberately modest thesis that <strong>moral responsibility is compatible with determinism <em>even if</em> free will (in the alternative-possibilities sense) is not</strong>. It brackets the metaphysics of "could have done otherwise" entirely: whether or not determinism rules out alternatives, what responsibility actually requires is <em>guidance control</em>, and that is compatible with determinism. By conceding the <a href="#the-consequence-argument">Consequence Argument</a>'s conclusion about alternatives while denying its relevance, semicompatibilism is strategically insulated from the hardest incompatibilist argument.</p>
+<h2 id="arguments-for-compatibilism"><a class="header" href="#arguments-for-compatibilism">Arguments for compatibilism</a></h2>
+<ol>
+<li>
+<p><strong>The reconciling / "right kind of cause" argument.</strong> Freedom contrasts with <em>compulsion and constraint</em>, not with <em>causation</em>. Coercion, addiction, and manipulation are unfreedom precisely because they <em>bypass or override</em> the agent's rational, deliberative agency; ordinary determined action does not. Determinism is therefore the wrong target. This is the structural heart of every compatibilist theory.</p>
+</li>
+<li>
+<p><strong>The Humean point: responsibility <em>requires</em> determinism (or at least reliability).</strong> Praise, blame, and desert presuppose that actions flow from and reveal the agent's <strong>stable character and motives</strong>. An action undetermined "all the way down" would be a chance event — not attributable to the agent and not a basis for assessment. So indeterminism, far from securing responsibility, threatens it (the <strong><a href="./introduction.html">luck objection</a></strong> turned against the libertarian). Determinism supplies exactly the dependable agent–action link responsibility needs.</p>
+</li>
+<li>
+<p><strong>Frankfurt cases against alternative possibilities.</strong> Suppose <strong>Black</strong>, a neuroscientist, wants Jones to perform action <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>. Black implants a device that monitors Jones and will intervene to <em>force</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> only if Jones shows signs of choosing otherwise. In fact Jones chooses <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> on his own; the device watches but never fires. Jones <strong>could not have done otherwise</strong> (Black would have prevented it) — yet he seems fully responsible, since the actual sequence was entirely his own. If sound, this severs responsibility from the <strong>Principle of Alternative Possibilities</strong> (PAP), removing the incompatibilist's main lever: even if determinism erased alternatives, responsibility could remain. (Incompatibilists reply with the <strong>"flicker of freedom"</strong> — a residual alternative in the sign Jones gives — and the <strong>Kane–Widerker "dilemma" objection</strong>, that the prior sign is either reliable only if the situation is already deterministic, begging the question, or unreliable, restoring a genuine alternative.)</p>
+</li>
+<li>
+<p><strong>The argument from practice / theoretical conservatism.</strong> Our entire moral, legal, and interpersonal life presupposes responsibility, and works by tracking exactly the local excusing conditions (ignorance, compulsion, incapacity) the compatibilist's theory explains — while <em>never</em> treating "your action was caused" as an excuse. A theory that vindicates this practice, rather than convicting it of mass error, has a strong default claim (Strawson).</p>
+</li>
+<li>
+<p><strong>The "scientific image" pressure.</strong> If the only alternative to determinism that would help is <em>agent causation</em> or uncaused choices, and these sit poorly with a broadly naturalistic picture of persons as parts of the causal order, then a freedom that <em>needs no exemption from that order</em> is the only kind we could actually have. Compatibilism is the account of free will fit for naturalism.</p>
+</li>
+</ol>
+<h2 id="arguments-against-compatibilism-and-replies"><a class="header" href="#arguments-against-compatibilism-and-replies">Arguments against compatibilism (and replies)</a></h2>
+<h3 id="the-consequence-argument"><a class="header" href="#the-consequence-argument">The Consequence Argument</a></h3>
+<p>The most rigorous incompatibilist challenge (Ginet, <strong>van Inwagen</strong>):</p>
+<blockquote>
+<p>If determinism is true, our acts are consequences of the laws of nature and events in the remote past. But it is not up to us what went on before we were born, and it is not up to us what the laws of nature are. Therefore the consequences of these things — including our present acts — are <strong>not up to us</strong>.</p>
+</blockquote>
+<p>Formally it leans on a transfer-of-powerlessness principle (van Inwagen's <strong>Rule β</strong>): roughly, if no one has any choice about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, and no one has any choice about (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>), then no one has any choice about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>. Applied to the remote past <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, the laws <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span>, and their entailment of a present act, freedom is "transferred away."</p>
+<p><strong>Compatibilist replies.</strong> (i) <strong>Local-miracle / Lewis-style:</strong> in the relevant sense, the agent <em>was able</em> to do otherwise, where had they done so, <em>either</em> the past or a law would have been (counterfactually) slightly different — and being <em>able</em> to act such that a law would have been different is not the absurd power to <em>break</em> a law. (ii) <strong>Reject Rule β:</strong> the "no choice about" operator is argued to be invalid under agglomeration / transfer in the way the argument needs (McKay &amp; Johnson present a counterexample to β). (iii) <strong>Semicompatibilist sidestep:</strong> grant the conclusion about <em>alternatives</em> but deny it touches <em>responsibility</em>, which rests on guidance control, not regulative control.</p>
+<h3 id="the-manipulation-argument-and-the-zygote-argument"><a class="header" href="#the-manipulation-argument-and-the-zygote-argument">The manipulation argument (and the Zygote Argument)</a></h3>
+<p>The sharpest <em>intuitive</em> attack (<strong>Pereboom's</strong> four-case argument; <strong>Mele's</strong> <em>zygote</em> argument). Construct a case in which an agent — call her Ann — is <strong>covertly manipulated</strong> (e.g. <strong>Plum</strong> is engineered, or a designer creates <strong>a zygote</strong> precisely so that, given the actual laws and circumstances, the agent will perform a particular murder decades later). The manipulated agent satisfies <em>every</em> compatibilist condition: the act meshes with her higher-order volitions, issues from her own moderately reasons-responsive mechanism, expresses her real self, and is uncoerced. Yet she intuitively seems <strong>not responsible</strong> — she is a mere instrument of the manipulator. Pereboom then runs a <strong>"no-relevant-difference"</strong> sorites from this case, through progressively less exotic forms of determination, to ordinary determinism: if the manipulated agent is not responsible, and there is no principled difference, <em>no</em> determined agent is.</p>
+<p><strong>Compatibilist replies.</strong> (i) <strong>Hard-line</strong> (McKenna): bite the bullet — the manipulated agent <em>is</em> responsible (or our intuition that she is not is an unreliable artifact of the spooky manipulator), so the argument's first premise fails. (ii) <strong>Soft-line:</strong> find a <strong>relevant difference</strong> — typically a <em>historical/ownership</em> condition. Mesh theories were always vulnerable here, which is why Fischer–Ravizza build in a <strong>history requirement</strong> (the agent must, over time, have "taken responsibility" for the mechanism) and why <strong>Mele's</strong> own view adds historical constraints. Manipulation differs from ordinary determinism in that the manipulated agent's deliberative mechanism was <em>installed bypassing</em> her own prior agency. (iii) Distinguish <em>constitutive luck</em> present in all character-formation from the <em>intentional bypassing</em> peculiar to manipulation.</p>
+<h3 id="the-could-not-have-done-otherwise--leeway-objection"><a class="header" href="#the-could-not-have-done-otherwise--leeway-objection">The "could not have done otherwise" / leeway objection</a></h3>
+<p>If responsibility requires genuinely open alternatives (PAP), determinism — which leaves exactly one possible future — destroys it, and no conditional analysis recovers the <em>categorical</em> ability (the Chisholm/Austin point above). <strong>Reply:</strong> deny PAP via Frankfurt cases (§3 above), and/or rehabilitate "can" as a disposition (Vihvelin/Fara), and/or go semicompatibilist.</p>
+<h3 id="the-luck-and-ultimacy-objection-turned-around"><a class="header" href="#the-luck-and-ultimacy-objection-turned-around">The luck and ultimacy objection turned around</a></h3>
+<p>Incompatibilists like <strong>Galen Strawson</strong> press a deeper, <em>symmetric</em> worry: to be <em>truly</em> responsible one would have to be <strong>causa sui</strong> — the ultimate cause of oneself, one's character and values — which is impossible, since one's formative nature was given by heredity and environment one did not choose. Determinism makes this vivid, but the point is that <strong>no</strong> account, deterministic or indeterministic, secures <em>ultimate</em> sourcehood. <strong>Compatibilist reply:</strong> responsibility never required <em>ultimate</em> origination — an impossible standard — only the ordinary, local capacities (reasons-responsiveness, self-government) that real agents actually have and that our practices actually track. The compatibilist <em>concedes</em> we are not <em>causa sui</em> and insists this was never the right bar.</p>
+<h3 id="the-not-the-freedom-worth-wanting--and-kanes-challenge"><a class="header" href="#the-not-the-freedom-worth-wanting--and-kanes-challenge">The "not the freedom worth wanting"? — and Kane's challenge</a></h3>
+<p>Libertarians (<strong>Robert Kane</strong>) argue compatibilist freedom omits <strong>ultimate responsibility</strong> and <strong>self-forming actions</strong> — the rare, will-setting choices through which we <em>shape</em> the very characters that later determine us; without some indeterminism at those nodes, the buck never stops with the agent. <strong>Compatibilist reply:</strong> either ultimacy is incoherent (Galen Strawson's regress applies to the libertarian too), or the indeterminism Kane needs reintroduces the <strong>luck</strong> problem (if a self-forming choice is undetermined, what makes <em>its</em> outcome <em>the agent's</em> rather than chance?), so the libertarian has not in fact bought anything the compatibilist lacks.</p>
+<h2 id="common-misconceptions"><a class="header" href="#common-misconceptions">Common misconceptions</a></h2>
+<ul>
+<li><strong>"Compatibilists believe determinism is true."</strong> No — they hold free will is compatible with determinism <em>whether or not</em> it obtains. (Accepting <em>both</em> compatibilism and determinism is the narrower position, <em>soft determinism</em>.)</li>
+<li><strong>"Compatibilism says we have free will <em>because</em> everything is determined."</strong> It says determinism does not <em>remove</em> freedom; the <em>positive</em> source of freedom is self-determination / reasons-responsiveness, not determinism itself. (The Humean point that responsibility needs <em>reliability</em> is a separate, supporting argument, not the definition.)</li>
+<li><strong>"Compatibilism is just fatalism / 'everything is fixed so nothing matters.'</strong> The opposite. Deliberation is a real, efficacious link in the causal chain; <em>your choosing</em> is precisely <em>why</em> the determined outcome occurs (see <a href="./introduction.html">determinism is not fatalism</a>). Fatalism says the end comes <em>regardless</em> of your choice; compatibilism says it comes <em>through</em> it.</li>
+<li><strong>"It's a merely verbal trick — redefining 'free' to win."</strong> Compatibilists argue they are <em>recovering the ordinary concept</em>: in everyday and legal usage, "of his own free will" already contrasts with <em>coercion, duress, and compulsion</em>, not with <em>causation</em> — it is the <em>incompatibilist</em> who imports a technical, libertarian sense.</li>
+<li><strong>"Compatibilist freedom is second-rate — 'the freedom worth wanting' is libertarian."</strong> Compatibilists reply that libertarian freedom is either incoherent (ultimacy/<em>causa sui</em>) or no improvement (luck), so compatibilist freedom is not a consolation prize but the <em>only coherent</em> freedom — and exactly the kind our practices presuppose (Dennett's phrase, <em>Elbow Room</em>).</li>
+<li><strong>"If I'm determined, I could just as well do nothing — my efforts are pointless."</strong> This is the <strong>lazy sophism</strong> (the ancient <em>argos logos</em>): it confuses determinism with fatalism. Your effort is one of the determining causes; remove it and the outcome generally changes.</li>
+<li><strong>"Compatibilism lets manipulated or coerced people off the hook — or rather, holds them responsible."</strong> Neither: the whole apparatus (ownership/history conditions, reasons-responsiveness, mesh) exists precisely to <em>distinguish</em> coerced, addicted, and manipulated agents (not free) from ordinary deliberators (free).</li>
+</ul>
+<h2 id="where-compatibilism-sits"><a class="header" href="#where-compatibilism-sits">Where compatibilism sits</a></h2>
+<p>Relative to the <a href="./introduction.html">master dilemma</a>, compatibilism rejects premise (3) — <em>the</em> claim that free will is incompatible with determinism — while keeping (1) free will exists and remaining neutral on (2) whether determinism is true. Its great strength is <strong>theoretical conservatism</strong>: it vindicates ordinary moral practice and fits a naturalistic picture of persons without positing agent-causation or uncaused choices. Its central burdens are the two arguments that target it most directly — the <strong>Consequence Argument</strong> (does it really preserve any sense in which we "could have done otherwise"?) and the <strong>manipulation/zygote arguments</strong> (can it draw a principled line between determination and manipulation?). The most resilient contemporary form, <strong>semicompatibilism plus reasons-responsiveness with a history condition</strong>, is built precisely to absorb both.</p>
+<p>The next pages take up the <a href="./introduction.html">incompatibilist arguments</a> in their own right, the <strong>libertarian</strong> models of undetermined agency, and the bearing of physics and <a href="../../general/quantum-mechanics.html">quantum mechanics</a> on whether the indeterminism libertarians want is even available — and whether it would help if it were.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/incompatibilism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/incompatibilism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

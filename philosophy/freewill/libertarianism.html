@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Libertarianism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/libertarianism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="libertarianism"><a class="header" href="#libertarianism">Libertarianism</a></h1>
+<p><strong>Libertarianism</strong> (in the metaphysics of free will — <em>not</em> the political doctrine) is the <strong>incompatibilist</strong> position that affirms free will and therefore denies determinism. It holds that (i) free will is real, (ii) free will is <em>incompatible</em> with determinism, and so (iii) the world must be, at least at the moments of free choice, <strong>indeterministic</strong>. Where the <a href="./compatibilism.html">compatibilist</a> redefines freedom to fit a determined world, and the hard determinist accepts determinism and surrenders freedom, the libertarian keeps the strong, "could-have-done-otherwise-with-the-very-same-past" notion of freedom and pays for it with a commitment about how the world is.</p>
+<p>The libertarian's distinctive burden is therefore twofold: a <strong>metaphysical</strong> task — to say what kind of indeterministic causation amounts to <em>free agency rather than mere randomness</em> — and an <strong>empirical</strong> bet — that the actual world supplies indeterminism in the right place. This page sets out the motivation, the main models (agent-causal, event-causal, non-causal), the history, the arguments for the view, and the objections it must answer — above all the <strong>luck objection</strong>.</p>
+<hr />
+<h2 id="the-core-commitments"><a class="header" href="#the-core-commitments">The core commitments</a></h2>
+<p>Libertarianism is the conjunction of two theses, one negative and one positive:</p>
+<ul>
+<li><strong>Incompatibilism (negative):</strong> if determinism were true, no one would have free will. The libertarian typically motivates this with the <a href="./compatibilism.html#the-consequence-argument">Consequence Argument</a> and with the conviction that genuine freedom requires <strong>categorical</strong> alternative possibilities — that <em>holding the entire actual past and the laws fixed</em>, the agent could still have done otherwise.</li>
+<li><strong>Libertarian freedom exists (positive):</strong> at least some human choices <em>are</em> free in exactly this sense; hence determinism is false where it matters.</li>
+</ul>
+<p>Two further notions recur and explain <em>why</em> libertarians want indeterminism rather than treating it as an awkward cost:</p>
+<ul>
+<li><strong>Leeway (alternative possibilities):</strong> more than one future must be genuinely open <em>given the actual past</em> — a real branching, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord text"><span class="mord">past</span></span><span class="mclose">⟩</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> <strong>or</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord text"><span class="mord">same past</span></span><span class="mclose">⟩</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>. Determinism permits exactly one continuation, so it forecloses leeway.</li>
+<li><strong>Sourcehood / ultimacy:</strong> the agent must be the <strong>ultimate originator</strong> of the choice — the buck must stop with the agent, not with prior causes stretching back before her birth. Robert Kane calls this <strong>Ultimate Responsibility (UR)</strong>: to be ultimately responsible for an action, the agent must be responsible for <em>anything</em> that is a sufficient reason or cause of it.</li>
+</ul>
+<p>Libertarians disagree about which of leeway and sourcehood is fundamental, but most modern versions treat <strong>sourcehood/UR as primary</strong> and indeterminism as what sourcehood <em>requires</em>: if every sufficient cause of my choice traces to factors I did not originate, the regress of responsibility never terminates in me. Indeterminism is the only way to make the regress stop.</p>
+<h2 id="why-indeterminism-is-necessary-the-regress-of-sourcehood"><a class="header" href="#why-indeterminism-is-necessary-the-regress-of-sourcehood">Why indeterminism is necessary (the regress of sourcehood)</a></h2>
+<p>The driving intuition: if my choice is <em>fully determined</em> by my prior character and motives, then to be <em>truly</em> responsible for the choice I would have to be responsible for that character — but my character was formed by earlier choices, upbringing, heredity, and circumstance, regressing back to factors entirely outside my control. A determined world hands the ultimate explanation of every act to the <strong>remote past plus the laws</strong>, never to the agent. To <em>break</em> this regress, at least some choices must <strong>not</strong> be settled by the prior state of the world: there must be points where the agent's will is genuinely <strong>undetermined</strong> and yet the resulting choice is <strong>the agent's own doing</strong>. That second clause — undetermined <em>and</em> genuinely the agent's — is the whole problem, and the three models below are competing solutions to it.</p>
+<h2 id="the-three-models-of-libertarian-agency"><a class="header" href="#the-three-models-of-libertarian-agency">The three models of libertarian agency</a></h2>
+<h3 id="event-causal-libertarianism"><a class="header" href="#event-causal-libertarianism">Event-causal libertarianism</a></h3>
+<p>On the <strong>event-causal</strong> view (Robert <strong>Kane</strong>, Laura <strong>Ekstrom</strong>, Mark <strong>Balaguer</strong>), the only causation in nature is ordinary causation <em>between events/states</em> — there is no special agent-substance causation. Free choices are caused, in the familiar way, by the agent's reasons, beliefs, and desires — but this causation is <strong>indeterministic</strong>: the very same prior mental events leave more than one choice causally possible, each with some objective probability.</p>
+<p><strong>Kane's account</strong> is the most developed. He locates indeterminism in rare but pivotal <strong>self-forming actions (SFAs)</strong> — the will-setting choices (typically cases of <em>torn decision</em>, where duty conflicts with self-interest, or prudence with passion) through which we <em>form</em> the characters that, thereafter, more or less determine our ordinary acts. In an SFA, the agent is <em>genuinely torn</em>: there are <strong>two concurrent, goal-directed deliberative efforts of will</strong>, one toward each option, and the indeterminism is "located in" the agent's effort itself (Kane analogizes to <strong>amplified quantum indeterminism</strong> or to the chaotic, noisy processing of neural networks). <em>Whichever</em> way the choice resolves, the agent <strong>wanted it, made an effort for it, and endorsed it as her reason</strong> — so the outcome is not a random intrusion but the agent's own resolution of the conflict. Kane's signature move against the luck objection is <strong>plural rational control</strong>: because the agent rationally wills, and will <em>own and ratify</em>, the choice on <strong>either</strong> branch, the indeterminism does not undermine responsibility the way a coin-flip would. Most ordinary free acts then inherit their freedom <em>derivatively</em>, from the SFAs that built the character they flow from.</p>
+<p><strong>Strengths:</strong> naturalistically modest (no exotic causation); ties freedom to <em>reasons</em> and to a plausible developmental story. <strong>Pressure point:</strong> because the prior state does <em>not</em> settle the outcome, critics (Mele, Haji, Pereboom) argue the difference between the two branches is, at the crucial instant, <em>not settled by anything about the agent</em> — which is precisely the luck problem (below).</p>
+<h3 id="agent-causal-libertarianism"><a class="header" href="#agent-causal-libertarianism">Agent-causal libertarianism</a></h3>
+<p>The <strong>agent-causal</strong> view (Thomas <strong>Reid</strong> historically; <strong>Roderick Chisholm</strong>, Richard <strong>Taylor</strong>, Timothy <strong>O'Connor</strong>, <strong>E. J. Lowe</strong>, Randolph <strong>Clarke</strong> in modern dress) holds that the event-causal picture is <em>missing an ingredient</em>. A free action is caused not merely by prior events but by the <strong>agent herself</strong>, conceived as an enduring <strong>substance</strong> that exercises a fundamental, irreducible causal power. The agent is an <strong>uncaused causer</strong> — a <em>prime mover unmoved</em>, in Chisholm's deliberately strong phrase: she initiates a new causal chain without herself being causally determined to do so.</p>
+<p>This is designed to solve the luck problem <em>directly</em>: the choice is not left to chance among undetermined events, because <strong>the agent</strong> settles which way it goes — substance causation supplies the missing factor that determines the outcome without <em>prior events</em> determining it. The agent, not an antecedent state, is the terminus of the explanation, which is exactly what <strong>sourcehood/UR</strong> demanded.</p>
+<p><strong>Objections.</strong> (i) <strong>Intelligibility:</strong> what is "substance causation," and how does it differ from event causation involving the agent's states? Critics charge it is a label for the mystery, not a solution. (ii) <strong>The timing/exercise problem:</strong> if the agent-cause is not itself triggered by any prior event, what explains why she exercises the power <em>now</em>, toward <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> rather than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> — and if <em>nothing</em> explains it, has the luck problem really been escaped, or merely relabeled "agent-causal"? (iii) <strong>Naturalistic cost:</strong> an irreducible causal power of substances sits uneasily with a physics of event-to-event law; O'Connor and Clarke have worked to make it compatible with (or a supplement to) the scientific image, with contested success.</p>
+<h3 id="non-causal-volitionist-libertarianism"><a class="header" href="#non-causal-volitionist-libertarianism">Non-causal (volitionist) libertarianism</a></h3>
+<p>The <strong>non-causal</strong> view (Carl <strong>Ginet</strong>, Hugh <strong>McCann</strong>, Stewart <strong>Goetz</strong>) is the most radical: free actions — or their core, the <strong>volitions/willings</strong> — are <strong>not caused at all</strong>, neither by prior events nor by an agent-substance. A basic action has an intrinsic <strong>"actish" phenomenal quality</strong>; its connection to the agent's <em>reasons</em> is not causal but a matter of the agent's acting <em>in order to</em> fulfil a reason (a non-causal, teleological/intentional relation). Freedom is secured simply because the act is <em>uncaused</em> and hence not necessitated by anything.</p>
+<p><strong>Objections.</strong> (i) The <strong>control problem in its starkest form</strong>: if the volition is <em>uncaused</em>, it is hard to see how it is <em>up to the agent</em> at all rather than a brute, unowned happening — control seems to require <em>some</em> causal role for the agent. (ii) The <strong>deviant-causation / reasons-explanation</strong> worry: without causation, what makes it the case that the agent acted <em>for</em> this reason rather than that one, when both were present? Non-causalists owe an account of reason-explanation that does no causal work, which many find elusive.</p>
+<h2 id="a-map-of-the-positions"><a class="header" href="#a-map-of-the-positions">A map of the positions</a></h2>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Causation of the free choice</th><th>Solves sourcehood by…</th><th>Chief liability</th></tr></thead><tbody>
+<tr><td><strong>Event-causal</strong></td><td>indeterministic event causation by reasons/efforts</td><td>the choice is caused by, and owned/ratified on either branch by, the agent's own reasons</td><td>luck — prior state doesn't settle which branch</td></tr>
+<tr><td><strong>Agent-causal</strong></td><td>causation by the agent <em>as substance</em></td><td>the agent herself is the uncaused terminus of explanation</td><td>intelligibility / why-now; naturalistic cost</td></tr>
+<tr><td><strong>Non-causal</strong></td><td>none — the volition is uncaused</td><td>the act is intrinsically active and reason-directed</td><td>control — uncaused looks unowned</td></tr>
+</tbody></table>
+</div>
+<h2 id="a-short-history"><a class="header" href="#a-short-history">A short history</a></h2>
+<ul>
+<li><strong>Aristotle</strong> — the <em>locus classicus</em> of origination: virtuous and vicious actions are "up to us" (<em>eph' hēmin</em>), and we are "moving principles" of our actions; responsibility for character traces to earlier voluntary acts (an ancestor of Kane's self-forming actions).</li>
+<li><strong>Epicurus</strong> — often read as positing the <strong>atomic <em>swerve</em> (<em>clinamen</em>)</strong>: an uncaused, indeterministic deviation in atomic fall, introduced (on the standard interpretation, via Lucretius) precisely to make room for free volition against Democritean necessity — arguably the first appeal to <em>physical</em> indeterminism for free will.</li>
+<li><strong>Medieval voluntarism</strong> — <strong>Scotus</strong> and others emphasize the will's self-determination and its power for opposites at the moment of choice.</li>
+<li><strong>Thomas Reid</strong> (18th c.) — the founder of modern <strong>agent causation</strong>: the agent has an "active power" to cause volitions and is, in the strict sense, the cause of her free acts.</li>
+<li><strong>Kant</strong> — a complex, <em>non-naturalist</em> libertarianism: <strong>transcendental freedom</strong>, in which the noumenal self is a spontaneous, atemporal cause outside the deterministic phenomenal order. (Often treated as a separate, two-standpoints theory rather than a model of in-time indeterminism.)</li>
+<li><strong>C. A. Campbell</strong> (mid-20th c.) — a classic statement: free will is exercised paradigmatically in the effort of will to resist the strongest desire, against the line of least resistance, in a way introspectively given and not determined by character.</li>
+<li><strong>Roderick Chisholm</strong> ("Human Freedom and the Self," 1964) — revives agent causation in analytic terms: the agent as <em>prime mover unmoved</em>.</li>
+<li><strong>Robert Kane</strong> (<em>The Significance of Free Will</em>, 1996) — the leading <strong>event-causal</strong> theory: SFAs, Ultimate Responsibility, plural voluntary control, indeterminism located in the effort of will.</li>
+<li><strong>Timothy O'Connor</strong>, <strong>Randolph Clarke</strong>, <strong>E. J. Lowe</strong> — sophisticated contemporary <strong>agent-causal</strong> accounts seeking compatibility with a broadly scientific worldview.</li>
+<li><strong>Carl Ginet</strong>, <strong>Hugh McCann</strong> — contemporary <strong>non-causal</strong> views.</li>
+<li><strong>Mark Balaguer</strong> (<em>Free Will as an Open Scientific Problem</em>, 2010) — argues the existence of libertarian free will turns on a <em>genuinely open empirical question</em> about whether certain neural events are indeterministic, refusing to settle it from the armchair.</li>
+</ul>
+<h2 id="arguments-for-libertarianism"><a class="header" href="#arguments-for-libertarianism">Arguments for libertarianism</a></h2>
+<ol>
+<li><strong>The argument from incompatibilism + the reality of freedom.</strong> The skeleton of the view: (i) the <a href="./compatibilism.html#the-consequence-argument">Consequence Argument</a> shows free will is incompatible with determinism; (ii) we <em>do</em> have free will — a datum at least as secure as the metaphysical premises used against it; therefore (iii) determinism is false and our freedom is libertarian. The compatibilist saves freedom by weakening it; the libertarian takes the <em>strength</em> of our self-conception at face value.</li>
+<li><strong>The argument from sourcehood / Ultimate Responsibility.</strong> Genuine responsibility — <em>desert</em>-grounding responsibility, the kind that makes praise and blame <em>fair</em> — requires that the buck stop with the agent. As argued above, a determined chain never lets it stop with the agent (the regress runs to the remote past). Only an undetermined, agent-originated choice secures <strong>UR</strong>. This is the libertarian's positive engine, independent of any particular physics.</li>
+<li><strong>The phenomenological argument.</strong> In deliberation we experience the future as <strong>open</strong> and the choice as <strong>up to us now</strong> — a "garden of forking paths." We cannot deliberate at all except <em>under the idea</em> that more than one option is really available. Libertarianism takes this pervasive datum to be <em>veridical</em> rather than illusory. (Compatibilists reply that the experience is neutral between open alternatives and mere epistemic ignorance of what one will determinately do.)</li>
+<li><strong>The moral-desert argument.</strong> Basic desert, and the appropriateness of the strongest reactive attitudes, seem to presuppose that the agent <em>could have done otherwise</em> in the categorical sense — a presupposition only libertarian freedom satisfies.</li>
+</ol>
+<h2 id="objections-and-libertarian-replies"><a class="header" href="#objections-and-libertarian-replies">Objections (and libertarian replies)</a></h2>
+<h3 id="the-luck--randomness-objection--the-central-problem"><a class="header" href="#the-luck--randomness-objection--the-central-problem">The luck / randomness objection — the central problem</a></h3>
+<p>This is the objection every libertarian must answer. If a choice is <strong>not determined</strong> by the agent's prior state — her character, reasons, deliberation — then, holding <em>all</em> of that fixed, the agent might have chosen either way. But then <strong>what</strong> <em>makes</em> it the case that she chose <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> rather than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>? <em>Nothing</em> about the agent settles it — it is, at the crucial instant, a matter of <strong>luck</strong>. Pressed as a thought experiment (the <strong>"rollback" argument</strong>, van Inwagen, Mele): imagine God <em>rewinds</em> the universe to the exact instant before the choice and replays it many times. With everything about the agent identical, sometimes she chooses <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, sometimes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>, in some proportion. The differing outcomes cannot be credited to or explained by anything about <em>her</em> — so the particular outcome on <em>this</em> run seems no more <em>her doing</em>, and no more a basis for responsibility, than a quantum coin-flip. Indeterminism appears to <em>subtract</em> control rather than add it. (This is the <a href="./introduction.html">luck objection foreshadowed in the introduction</a>, now aimed squarely at the libertarian, and it is the mirror image of the compatibilist's Humean argument.)</p>
+<p><strong>Libertarian replies:</strong></p>
+<ul>
+<li><strong>Event-causal (Kane):</strong> <strong>plural voluntary/rational control</strong>. On <em>both</em> branches of the rollback the agent acts <em>for her own reasons</em>, <em>by her own effort of will</em>, and <em>endorses</em> the result as what she was trying (in part) to do — like two simultaneous efforts where <em>either</em> success is a success the agent willed. So neither outcome is a mere chance intrusion; both are rational, voluntary, and owned. Indeterminism makes the choice <em>undetermined</em> without making it <em>inadvertent</em>. Critics (Mele's "<em>still</em> doesn't explain the difference") respond that this explains why each <em>individual</em> outcome is rational, but not why <em>this</em> one occurred rather than the other — the <em>contrastive</em> explanation is still missing, and that residue is luck.</li>
+<li><strong>Agent-causal:</strong> deny the inference's key premise. It is false that "nothing settles it" — <strong>the agent</strong> settles it. The rollback shows only that no <em>prior event</em> settles it; agent-causation supplies a settling factor that is not a prior event, so the outcome is the agent's doing by definition. Critics retort that this just <em>names</em> a settler without explaining the contrast (why exercise the power toward <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> this time?), so luck reappears at the level of the agent-causal exercise.</li>
+<li><strong>Non-causal:</strong> reframe — demanding a <em>factor that settles</em> the choice presupposes a causal model of control the view rejects; the act's being <em>up to the agent</em> is basic, not constituted by a settling cause, so "what settles it?" is the wrong question. Critics find this closes the gap by fiat.</li>
+<li><strong>General "no worse off" reply (Kane, Clarke):</strong> the <em>same</em> contrastive-explanation demand, pressed on the <strong>compatibilist</strong>, also goes unmet — a determined choice is "explained" only by factors the agent didn't ultimately originate, which is <em>its</em> version of luck (<em>constitutive</em> luck). If neither side can give ultimate contrastive explanation, indeterminism is not a <em>special</em> defect, and the libertarian at least secures sourcehood.</li>
+</ul>
+<h3 id="the-intelligibility-objection"><a class="header" href="#the-intelligibility-objection">The intelligibility objection</a></h3>
+<p>Stated since antiquity (and by Hume): a free act must be neither <em>determined</em> (else not free) nor <em>undetermined</em> (else random) — but these seem <strong>exhaustive</strong>, so libertarian freedom is <em>incoherent</em>, a will-o'-the-wisp between necessity and chance. <strong>Reply:</strong> the dichotomy is not exhaustive if there is a third category — <em>agent-causation</em> (a kind of causation that is neither event-determination nor chance) or <em>non-causal active origination</em>. The entire libertarian project is the attempt to articulate that <em>tertium quid</em>; whether it succeeds is exactly what the three models contest.</p>
+<h3 id="the-empirical--scientific-objection"><a class="header" href="#the-empirical--scientific-objection">The empirical / scientific objection</a></h3>
+<p>Libertarianism makes a <strong>falsifiable-ish bet</strong>: that the brain exploits genuine indeterminism at the moment of choice. But (i) quantum indeterminism may <strong>wash out</strong> at the macroscopic, warm, wet scale of neurons (decoherence), leaving brain dynamics effectively classical and deterministic; and (ii) even if there is neural noise, it looks like <em>thermal randomness</em>, which is the <em>luck</em> problem, not freedom. <strong>Replies:</strong> Kane appeals to <strong>chaotic amplification</strong> of quantum fluctuations by sensitive neural networks; <strong>Balaguer</strong> insists the relevant question — are the <em>torn-decision</em> neural events causally undetermined <em>in the right way</em>? — is simply <strong>open</strong>, to be settled by future neuroscience, not refuted a priori; agent-causalists may <em>locate</em> the causal power at the level of the person rather than requiring micro-indeterminism to "do the work" unaided. The honest situation: the empirical premise is <strong>unproven in either direction</strong> (see <a href="../../general/quantum-mechanics.html">quantum mechanics</a> and the interpretation-dependence of physical indeterminism).</p>
+<h3 id="the-indeterminism-in-the-wrong-place--disappearing-agent-objection"><a class="header" href="#the-indeterminism-in-the-wrong-place--disappearing-agent-objection">The "indeterminism in the wrong place" / disappearing-agent objection</a></h3>
+<p>Even granting indeterminism, libertarians must put it <em>where it helps</em>. Indeterminism <em>upstream</em> of the choice (which considerations occur to me) makes deliberation chancy; indeterminism <em>at the moment of choice</em> makes the choice chancy; indeterminism <em>after</em> the will is set does nothing. Pereboom's <strong>disappearing agent</strong> objection presses that in the purely <em>event-causal</em> picture, once we subtract determination there is no <em>thing</em> left to tip the balance — the agent "disappears" as a settler, and only agent-causation could restore her, at the intelligibility cost above. <strong>Reply:</strong> Kane denies the agent disappears — she is present as the <em>plural, effortful, reason-giving</em> source on both branches; O'Connor agrees the event-causal version is inadequate and embraces agent-causation precisely to keep the agent in the picture.</p>
+<h3 id="galen-strawsons-causa-sui-regress-the-basic-argument"><a class="header" href="#galen-strawsons-causa-sui-regress-the-basic-argument">Galen Strawson's <em>causa sui</em> regress (the basic argument)</a></h3>
+<p>A challenge that cuts <em>against the libertarian's own goal</em>: to be <strong>ultimately</strong> responsible (UR) for a choice, one must be responsible for the self — character, reasons, priorities — from which it issues; to be responsible for <em>that</em> self, one must have chosen it, on the basis of a <em>prior</em> self, <em>ad infinitum</em>. Ultimate self-origination would require being <strong>causa sui</strong>, which is impossible. So the very <strong>UR</strong> the libertarian invokes is <strong>unattainable</strong> — indeterminism does not help, because the regress is about <em>origination of the self</em>, not about determinism. <strong>Reply:</strong> Kane argues UR does <strong>not</strong> require being <em>causa sui</em> in Strawson's strong sense: it requires only that <em>some</em> of one's character-forming <strong>SFAs</strong> were themselves undetermined and willed — responsibility is built up <em>incrementally</em> through a finite history of self-forming choices, each undetermined, none requiring a prior fully-formed self that chose it. Whether this truly halts the regress, or merely pushes it into each SFA (which faces the luck problem afresh), is the crux of the dispute.</p>
+<h2 id="common-misconceptions"><a class="header" href="#common-misconceptions">Common misconceptions</a></h2>
+<ul>
+<li><strong>"Libertarian free will means actions are uncaused / random."</strong> Only the <em>non-causal</em> model says uncaused, and even it denies the act is <em>random</em> (it is reason-directed). Event- and agent-causal libertarians insist free acts are <strong>caused</strong> — by reasons (indeterministically) or by the agent (substance-causally) — just <strong>not determined</strong>. <em>Undetermined ≠ uncaused ≠ random</em> is the libertarian's most important distinction.</li>
+<li><strong>"It requires that <em>everything</em> be undetermined."</strong> No — most libertarians need indeterminism only at <strong>select nodes</strong> (Kane's rare self-forming actions); ordinary acts can be virtually determined by the character those nodes formed, and inherit freedom derivatively.</li>
+<li><strong>"This is the same as political libertarianism."</strong> Entirely unrelated; the shared word is a historical accident.</li>
+<li><strong>"Quantum mechanics proves we have free will."</strong> It does not. Physical indeterminism is <strong>interpretation-dependent</strong> (Bohm and Everett are deterministic — see <a href="./introduction.html">the introduction</a>), may not survive to neural scales, and <em>even if real</em> is <em>thermal luck</em> unless an account like Kane's or O'Connor's converts it into control. QM at most makes indeterminism <em>available</em>; it does nothing to make it <em>freedom</em>.</li>
+<li><strong>"Libertarianism just denies science."</strong> The careful versions (Balaguer, O'Connor, Kane) are explicitly <em>naturalistic</em> and treat the key claim as an <strong>open empirical question</strong>, not a defiance of physics.</li>
+<li><strong>"Agent causation is obviously magic."</strong> It is <em>contested</em>, not obviously incoherent; its defenders argue ordinary event-causation is no less primitive a posit, and that substance-causation is needed to keep the <em>agent</em> (not just her states) in the causal story.</li>
+<li><strong>"If my choice could have gone either way, I'm not in control."</strong> This <em>assumes</em> the control problem is unanswerable — which is exactly what plural voluntary control (Kane) and agent-causation are designed to dispute; conflating "undetermined" with "out of control" begs the question against the libertarian.</li>
+</ul>
+<h2 id="where-libertarianism-sits"><a class="header" href="#where-libertarianism-sits">Where libertarianism sits</a></h2>
+<p>Against the <a href="./introduction.html">master dilemma</a>, libertarianism keeps (1) <em>free will exists</em> and (3) <em>free will is incompatible with determinism</em>, and therefore rejects (2): the world is <strong>not</strong> (wholly) deterministic. Its great appeal is that it preserves the <strong>full-strength, ultimacy-grounding freedom</strong> our moral self-conception and our deliberative experience seem to demand — the freedom the <a href="./compatibilism.html">compatibilist</a> is accused of watering down. Its great burdens are the <strong>luck objection</strong> (does indeterminism add control or only chance?), the <strong>intelligibility objection</strong> (is there a coherent <em>tertium quid</em> between necessity and randomness?), and the <strong>empirical bet</strong> (does the actual brain supply the right indeterminism?). The three models trade these burdens off differently: event-causal libertarianism is naturalistically cheap but most exposed to luck; agent-causal libertarianism answers luck but pays in intelligibility; non-causal libertarianism is metaphysically spare but strains hardest on control.</p>
+<p>The next pages take up the <strong>hard incompatibilist / free-will-skeptical</strong> response — which agrees with the libertarian that compatibilism fails <em>and</em> with the determinist's critic that libertarianism cannot beat luck, concluding we lack free will either way — and then turn to the bearing of physics and <a href="../../general/quantum-mechanics.html">quantum mechanics</a> on whether the indeterminism libertarians need is real and usable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/incompatibilism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/hard-incompatibilism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/incompatibilism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/hard-incompatibilism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

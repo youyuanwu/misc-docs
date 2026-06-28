@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Other Positions and Variants - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/other-positions.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="other-positions-and-variants"><a class="header" href="#other-positions-and-variants">Other Positions and Variants</a></h1>
+<p>The <a href="./introduction.html">four principal positions</a> — <a href="./compatibilism.html">compatibilism</a>, <a href="./incompatibilism.html">incompatibilism</a> (with its libertarian and hard-determinist branches), <a href="./libertarianism.html">libertarianism</a>, and <a href="./hard-incompatibilism.html">hard incompatibilism</a> — organize the debate, but they do not exhaust it. A number of further positions either occupy <em>hybrid</em> ground between the four, attack the <em>framing</em> of the dispute, or sit on an axis the standard map ignores (the <em>normative</em>, the <em>theological</em>, or the cross-cultural). This page surveys them concisely; each could be expanded into a full treatment, and several cross-link to the pages where the underlying machinery is developed.</p>
+<p>A useful way to keep them straight: the four main positions answer the <strong>metaphysical</strong> question (is freedom compatible with determinism, and do we have it?). The views below often answer a <em>different</em> question — <strong>which concept</strong> of free will we should <em>use</em> (revisionism), whether we should <em>believe</em> in it (illusionism), whether the question is <em>soluble</em> (mysterianism) or even <em>well-posed</em> (dissolutionism), or how freedom relates to <strong>God</strong> or to the <strong>self</strong>.</p>
+<hr />
+<h2 id="revisionism"><a class="header" href="#revisionism">Revisionism</a></h2>
+<p><strong>Revisionism</strong> (Manuel <strong>Vargas</strong>, <em>Building Better Beings</em>, 2013) distinguishes two projects that other positions run together: the <strong>diagnostic</strong> ("what is our ordinary, <em>folk</em> concept of free will?") and the <strong>prescriptive</strong> ("what concept <em>should</em> we use, given our aims?"). Vargas grants the skeptic's diagnostic point — the folk concept is shot through with <strong>libertarian</strong> assumptions that the world probably does not satisfy — but denies the skeptical conclusion: we should <em>revise</em> the concept into a naturalistically respectable, broadly <strong>compatibilist</strong> successor that still does the work of supporting responsibility practices (which are justified by their role in cultivating moral agency). Free will, so revised, <em>exists</em>; it is just not quite what the folk thought. Revisionism is thus a <em>meta-level</em> view — a claim about how to do the philosophy — that lands near compatibilism at the first order while conceding more to the incompatibilist about ordinary intuitions than classical compatibilists do.</p>
+<h2 id="illusionism"><a class="header" href="#illusionism">Illusionism</a></h2>
+<p><strong>Illusionism</strong> (Saul <strong>Smilansky</strong>, <em>Free Will and Illusion</em>, 2000) accepts <strong>free-will skepticism</strong> at the level of <em>truth</em> — there is no libertarian free will, and even compatibilist responsibility cannot fully ground the <em>desert</em> we ordinarily assume — but adds a striking <em>practical</em> thesis: the <strong>belief</strong> in free will and desert is, on balance, <strong>morally and psychologically beneficial</strong>, even necessary, so the illusion should largely be <em>preserved</em> rather than dispelled. Smilansky's "<strong>fundamental dualism</strong>" holds that compatibilist and hard-determinist insights are <em>both</em> partly right, and that a stable moral life requires not looking too hard at the gap between them. Illusionism is distinctive in being <em>skeptical about the metaphysics but conservative about the practice</em> — the mirror image of the <a href="./hard-incompatibilism.html">hard incompatibilist's</a> "abandon the illusion, reform the practice" program.</p>
+<h2 id="luck-based-skepticism-the-hard-luck-view"><a class="header" href="#luck-based-skepticism-the-hard-luck-view">Luck-based skepticism (the "hard luck" view)</a></h2>
+<p>A strand of <a href="./hard-incompatibilism.html">free-will skepticism</a> that makes <strong>luck</strong>, rather than determinism, the fundamental solvent. <strong>Neil Levy</strong> (<em>Hard Luck</em>, 2011) argues that <strong>constitutive luck</strong> (the traits, values, and circumstances we did not choose) and <strong>present luck</strong> (the chance features of the moment of choice) <em>jointly</em> undermine responsibility, and — crucially — that they do so <em>whether the world is determined or not</em>: indeterminism, by adding present luck, makes matters <em>worse</em>, not better. <strong>Bruce Waller</strong> (<em>Against Moral Responsibility</em>, 2011) presses a related, naturalistic "<strong>no one deserves</strong>" view rooted in the pervasiveness of unchosen causes. The position overlaps heavily with <a href="./hard-incompatibilism.html">hard incompatibilism</a> but is argued <em>from luck directly</em>, sidestepping the determinism axis entirely.</p>
+<h2 id="two-stage-models-free-will"><a class="header" href="#two-stage-models-free-will">Two-stage models ("free will")</a></h2>
+<p>A family of <em>hybrid</em> models that try to capture the benefits of indeterminism while disarming the <a href="./libertarianism.html#the-luck--randomness-objection--the-central-problem">luck objection</a> by <em>separating chance from choice in time</em>. The schema (William <strong>James</strong>'s "two-stage" picture; later <strong>Henry Margenau</strong>, <strong>Daniel Dennett</strong> in <em>Elbow Room</em>, <strong>Robert Kane</strong>'s adjacent view, and <strong>Bob Doyle</strong>'s "<strong>free will</strong>" model):</p>
+<ol>
+<li><strong>Generation stage</strong> — indeterminism (quantum or neural noise) <em>generates</em> a range of alternative possibilities, candidate thoughts, or options. This is "free."</li>
+<li><strong>Selection stage</strong> — an <em>adequately determined</em>, rational evaluative process <em>selects</em> among them according to the agent's character, reasons, and values. This is "will."</li>
+</ol>
+<p>Because the chance does its work <em>before</em> the decision — supplying options rather than <em>making</em> the choice — the final selection is determined by the agent's reasons and so is not itself a coin-flip. Critics ask whether this really secures <em>libertarian</em> free will (the <em>selection</em> may be determined, collapsing the view into compatibilism) or merely relocates the luck (if which options get generated is chancy, that chanciness can still influence the outcome). Two-stage models sit at the border of <a href="./libertarianism.html">libertarianism</a> and <a href="./compatibilism.html">compatibilism</a>, claiming the best of both.</p>
+<h2 id="mysterianism-and-agnosticism"><a class="header" href="#mysterianism-and-agnosticism">Mysterianism and agnosticism</a></h2>
+<p>Some hold the free-will problem is, or may be, <strong>insoluble by us</strong>. A <strong>mysterian</strong> (in the spirit of Colin McGinn's mysterianism about consciousness, and arguably <strong>Kant</strong>'s view that the reconciliation of freedom and nature lies beyond theoretical cognition) claims our cognitive faculties are <strong>constitutively unable</strong> to grasp how free agency fits the natural order — there is a fact of the matter, but it is closed to us. A more modest <strong>agnosticism</strong> simply suspends judgment: the arguments on all sides are powerful and none decisive, so the rational attitude is <em>non-belief</em>. Both are <em>second-order</em> stances about the <em>tractability</em> of the question rather than answers to it.</p>
+<h2 id="dissolutionism--no-genuine-problem"><a class="header" href="#dissolutionism--no-genuine-problem">Dissolutionism / "no genuine problem"</a></h2>
+<p>A deflationary tradition holds the dispute rests on a <strong>confusion</strong> and should be <em>dissolved</em> rather than solved. <strong>Hume</strong> already suspected it was "merely verbal" — a disagreement over how to define "liberty." Some <strong>Wittgensteinians</strong> and ordinary-language philosophers argue the puzzle arises from misusing words like "could," "cause," and "free" outside their home practices; once usage is clarified, the problem evaporates. <strong>P. F. Strawson's</strong> <a href="./compatibilism.html">reactive-attitudes</a> view has a dissolutionist edge: the demand for a metaphysical <em>vindication</em> of responsibility is itself the error. Critics reply that the stakes — <em>retributive punishment</em>, <em>basic desert</em> — are too real for the problem to be a mere muddle.</p>
+<h2 id="new-dispositionalism"><a class="header" href="#new-dispositionalism">New dispositionalism</a></h2>
+<p>A contemporary refinement <em>within</em> <a href="./compatibilism.html">compatibilism</a>, worth noting as a distinct research program. <strong>Kadri Vihvelin</strong> (<em>Causes, Laws, and Free Will</em>, 2013) and <strong>Michael Fara</strong> analyze "<strong>could have done otherwise</strong>" as the possession of a <strong>bundle of dispositions</strong> (capacities plus opportunities), on the model of <em>fragility</em> or <em>solubility</em> — properties a thing <em>has</em> even when they are not being <em>manifested</em>, and even in a determined world. The aim is to rescue the <em>categorical</em> ability to do otherwise from both the <a href="./incompatibilism.html#the-consequence-argument">Consequence Argument</a> and the <a href="./compatibilism.html">Frankfurt cases</a>, repairing the classical conditional analysis with the resources of contemporary metaphysics of dispositions.</p>
+<h2 id="theological-positions"><a class="header" href="#theological-positions">Theological positions</a></h2>
+<p>A largely separate cluster, where the threat to freedom is <strong>God</strong> rather than physical law. The key positions:</p>
+<ul>
+<li><strong>Theological determinism / predestination</strong> (<strong>Augustine</strong>, <strong>Calvin</strong>) — God ordains all that comes to pass; human freedom, if any, must be <em>compatibilist</em>.</li>
+<li><strong>The foreknowledge problem</strong> — if God <em>infallibly</em> knows today what you will freely do tomorrow, then it seems <em>already settled</em>, hence not free. Classic responses: <strong>Boethius</strong> (God is <em>timeless</em>, seeing all of history "at once," so foreknowledge is not <em>fore</em>-knowledge); <strong>Ockham</strong> (the relevant past facts about God's beliefs are "soft," not genuinely fixed); <strong>Molinism</strong> (<strong>Luis de Molina</strong>) — God has <strong>middle knowledge</strong> of what every possible free creature <em>would</em> freely do in any circumstance, and providentially arranges the world accordingly, reconciling robust (often <em>libertarian</em>) freedom with sovereignty.</li>
+<li><strong>Open theism</strong> — denies exhaustive divine foreknowledge of free future acts (the future is genuinely <em>open</em>, even for God), purchasing libertarian freedom at the cost of classical omniscience.</li>
+</ul>
+<p>These map onto the secular positions (compatibilist vs. libertarian) but with a <em>personal</em>, intentional determiner in place of impersonal laws — which raises distinctive issues of <em>manipulation</em> and <em>authorship</em> sharper than anything in the secular debate.</p>
+<h2 id="non-western-and-cross-cultural-frameworks"><a class="header" href="#non-western-and-cross-cultural-frameworks">Non-Western and cross-cultural frameworks</a></h2>
+<p>The problem is often reframed outside the Greek-derived tradition:</p>
+<ul>
+<li><strong>Buddhist</strong> thought, with its doctrines of <strong>no-self (anattā)</strong>, <strong>dependent origination (pratītyasamutpāda)</strong>, and <strong>karma</strong>, dissolves the <em>agent</em> the Western debate presupposes: there is causation and moral consequence but no enduring self to be the <em>ultimate source</em> — a view with affinities to both <a href="./hard-incompatibilism.html">hard incompatibilism</a> (no ultimate originator) and to a forward-looking, <em>cultivation</em>-based ethics. Contemporary scholars debate whether this yields <em>skepticism</em>, a distinctive <em>compatibilism</em>, or a reframing that makes the Western question moot.</li>
+<li><strong>Indian</strong> philosophical schools more broadly weave free agency into debates over karma, fate (<em>niyati</em>), and liberation (<em>mokṣa</em>).</li>
+<li>Comparative work asks whether the <strong>intuitions</strong> the Western debate treats as universal are in fact culturally variable — a question taken up empirically by experimental philosophy.</li>
+</ul>
+<h2 id="experimental-philosophy-of-free-will"><a class="header" href="#experimental-philosophy-of-free-will">Experimental philosophy of free will</a></h2>
+<p>Not a <em>position</em> but a <em>method</em> worth flagging: <strong>experimental philosophy (x-phi)</strong> studies, empirically, what <em>ordinary people</em> actually believe about free will and responsibility — for instance, whether folk intuitions are natively compatibilist or incompatibilist, and how they shift between <em>abstract</em> framings (which tend to elicit incompatibilist judgments) and <em>concrete, emotionally vivid</em> cases (which tend to elicit compatibilist ones). The findings bear directly on <strong>revisionism</strong> (what <em>is</em> the folk concept?) and on any argument that leans on "the intuitive view," by showing those intuitions to be <strong>unstable and context-sensitive</strong>.</p>
+<h2 id="how-these-relate-to-the-main-map"><a class="header" href="#how-these-relate-to-the-main-map">How these relate to the main map</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Free will exists?</th><th>Distinctive move</th></tr></thead><tbody>
+<tr><td><strong>Revisionism</strong></td><td>Yes (revised)</td><td>Separate the folk concept from the one we <em>should</em> use.</td></tr>
+<tr><td><strong>Illusionism</strong></td><td>No (but believe it)</td><td>Skeptical truth, conservative practice.</td></tr>
+<tr><td><strong>Luck skepticism</strong></td><td>No</td><td>Luck, not determinism, is the solvent.</td></tr>
+<tr><td><strong>Two-stage models</strong></td><td>Yes</td><td>Chance generates options; reason selects.</td></tr>
+<tr><td><strong>Mysterianism</strong></td><td>Unknown/unknowable</td><td>The problem exceeds our cognitive reach.</td></tr>
+<tr><td><strong>Dissolutionism</strong></td><td>(mis-posed)</td><td>The dispute is verbal/confused.</td></tr>
+<tr><td><strong>New dispositionalism</strong></td><td>Yes</td><td>"Can" as un-manifested disposition.</td></tr>
+<tr><td><strong>Theological</strong></td><td>Varies</td><td>The determiner is God, not law.</td></tr>
+<tr><td><strong>Buddhist / no-self</strong></td><td>(reframed)</td><td>No enduring agent to be the source.</td></tr>
+</tbody></table>
+</div>
+<p>Most of these are best read <em>against</em> the four core positions rather than as freestanding rivals: revisionism and new dispositionalism are sophisticated <a href="./compatibilism.html">compatibilisms</a>; illusionism and luck skepticism are <a href="./hard-incompatibilism.html">skepticisms</a> with different practical upshots; two-stage models are attempted <a href="./libertarianism.html">libertarian</a>/compatibilist hybrids; and mysterianism and dissolutionism are meta-level verdicts on the debate itself. The <strong>theological</strong> and <strong>cross-cultural</strong> entries, by contrast, change the <em>cast of characters</em> — substituting God, or dissolving the self — and so deserve fuller, standalone treatment, alongside the still-outstanding page on <strong>physics, neuroscience, and <a href="../../general/quantum-mechanics.html">quantum mechanics</a></strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/hard-incompatibilism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/arguments/consequence-argument.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/hard-incompatibilism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/arguments/consequence-argument.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

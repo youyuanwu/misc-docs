@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Frankfurt Cases and Alternative Possibilities - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/arguments/frankfurt-cases.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="frankfurt-cases-and-the-principle-of-alternative-possibilities"><a class="header" href="#frankfurt-cases-and-the-principle-of-alternative-possibilities">Frankfurt Cases and the Principle of Alternative Possibilities</a></h1>
+<p>The single most influential move in the modern free-will debate is <strong>Harry Frankfurt's</strong> 1969 attack on the <strong>Principle of Alternative Possibilities (PAP)</strong> — the deeply intuitive idea that an agent is morally responsible for an action <em>only if she could have done otherwise</em>. With a now-famous thought experiment, Frankfurt argued that PAP is <strong>false</strong>: an agent can be fully responsible even when she had <em>no alternative whatsoever</em>. If he is right, the consequences are enormous, because the most powerful argument that <a href="../introduction.html">determinism</a> threatens <a href="../concepts/moral-responsibility.html">moral responsibility</a> — the <a href="./consequence-argument.html">Consequence Argument</a> — works by showing determinism removes alternatives. Knock out PAP, and that threat is defused: responsibility could survive even in a world with a single possible future.</p>
+<p>This page states PAP and its motivation, presents the Frankfurt cases, and works through the major replies — the <strong>flicker of freedom</strong>, the <strong>Kane–Widerker–Ginet dilemma</strong>, and the <strong>buffered/blockage</strong> refinements — before drawing the upshot: the great shift from <strong>leeway</strong> to <strong>sourcehood</strong> conceptions of freedom and responsibility.</p>
+<hr />
+<h2 id="the-principle-of-alternative-possibilities"><a class="header" href="#the-principle-of-alternative-possibilities">The Principle of Alternative Possibilities</a></h2>
+<p>PAP is the formal regimentation of one of the two ingredients of <a href="../introduction.html">free will</a> — the <strong>leeway</strong> or "could have done otherwise" condition:</p>
+<blockquote>
+<p><strong>(PAP)</strong> A person is morally responsible for what she has done only if she could have done otherwise.</p>
+</blockquote>
+<p>Its appeal is immediate. We <em>excuse</em> people precisely by showing they had no choice: the cashier who hands over the money at gunpoint, the driver whose brakes failed, the addict in the grip of overwhelming compulsion. In each, "there was nothing else he could have done" functions as a release from blame. PAP simply generalizes this: no alternatives, no responsibility. It is also the bridge that makes the <a href="./consequence-argument.html">Consequence Argument</a> bite — if determinism leaves exactly one possible future, and PAP is true, then determinism abolishes responsibility.</p>
+<p>Frankfurt's target is exactly this principle. His strategy is to construct a case in which an agent <em>manifestly cannot do otherwise</em> yet <em>just as manifestly is responsible</em>, so that the two conditions PAP welds together come apart.</p>
+<h2 id="the-frankfurt-case"><a class="header" href="#the-frankfurt-case">The Frankfurt case</a></h2>
+<p>The canonical version involves a would-be manipulator with a fail-safe device:</p>
+<blockquote>
+<p><strong>Jones and Black.</strong> Jones is about to decide whether to do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> (say, vote a certain way, or kill someone). <strong>Black</strong>, a neurosurgeon, wants Jones to do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> and has secretly implanted a device in Jones's brain that lets Black monitor Jones's neural states. <em>If</em> Black sees Jones beginning to decide <em>not</em> to do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, the device will activate and cause Jones to decide on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> anyway. But <em>if</em> Jones shows signs of deciding on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> <strong>on his own</strong>, Black does nothing — the device simply watches.</p>
+<p>As it happens, Jones decides on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> entirely on his own, for his own reasons. <strong>Black never intervenes; the device never fires.</strong></p>
+</blockquote>
+<p>Now the two judgments Frankfurt wants:</p>
+<ol>
+<li><strong>Jones could not have done otherwise.</strong> Had he started to choose differently, Black's device would have stepped in and produced the choice for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>. The alternative was sealed off; there was no genuinely available path to not-<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>.</li>
+<li><strong>Jones is nonetheless morally responsible.</strong> The counterfactual intervener played <em>no role at all</em> in what actually happened. Jones deliberated, chose, and acted exactly as he would have in a world with no Black at all. The mere <em>presence</em> of an unused fail-safe cannot make a difference to his responsibility.</li>
+</ol>
+<p>If both judgments hold, <strong>PAP is false</strong>: Jones is responsible <em>and</em> could not have done otherwise. What matters to responsibility, Frankfurt concludes, is not the <em>availability of alternatives</em> but the <strong>actual sequence</strong> — <em>how the action actually came about</em>, whether it flowed from the agent's own deliberation rather than from the device. Responsibility tracks the <em>source</em>, not the <em>leeway</em>.</p>
+<h2 id="why-this-matters"><a class="header" href="#why-this-matters">Why this matters</a></h2>
+<p>Frankfurt cases are a hinge for the entire field:</p>
+<ul>
+<li>They <strong>decouple responsibility from determinism-via-leeway.</strong> If responsibility never required alternatives, then determinism's removal of alternatives is beside the point, and the <a href="./consequence-argument.html">Consequence Argument</a> — however technically sound about <em>leeway</em> — loses its grip on <em>responsibility</em>. This is the foundation of <a href="../compatibilism.html">Fischer's semicompatibilism</a>: grant that we cannot do otherwise, deny that this is what responsibility needs.</li>
+<li>They <strong>redirect the theory of freedom</strong> from <em>leeway</em> (regulative control, the garden of forking paths) to <strong>sourcehood</strong> (guidance control, actual-sequence). The question becomes not "were other options open?" but "did the action issue from the agent in the right way?"</li>
+<li>They <strong>reshape incompatibilism.</strong> <a href="../incompatibilism.html">Source incompatibilists</a> accept Frankfurt's lesson — responsibility is about the actual source — but argue determinism <em>still</em> poisons the source (the <a href="../incompatibilism.html">manipulation arguments</a>). So Frankfurt cases push serious incompatibilists from the leeway road onto the source road.</li>
+</ul>
+<h2 id="replies-and-the-ensuing-debate"><a class="header" href="#replies-and-the-ensuing-debate">Replies and the ensuing debate</a></h2>
+<p>Frankfurt cases are among the most-discussed thought experiments in philosophy, and the defense of PAP has been ingenious.</p>
+<h3 id="1-the-flicker-of-freedom"><a class="header" href="#1-the-flicker-of-freedom">1. The flicker of freedom</a></h3>
+<p>The first response (Naylor, van Inwagen, Fischer's early work): Jones is <em>not</em> literally without alternatives. <em>Something</em> must signal to Black whether to intervene — the "<strong>prior sign</strong>" by which the device detects which way Jones is tending. So Jones retains <em>some</em> alternative: he could have <strong>shown the other sign</strong>, begun to incline the other way, even if the device would then have overridden him. There is a residual "<strong>flicker of freedom</strong>" — a sliver of leeway — and PAP, defenders claim, requires only <em>some</em> alternative, however small.</p>
+<p><strong>Frankfurtian rejoinder:</strong> the flicker is too "thin and flickering" to ground responsibility. The available alternative — involuntarily beginning to show a different neural sign, only to be immediately overridden — is not a <em>robust</em> alternative: it is not an alternative in which the agent <em>does otherwise voluntarily</em>, <em>or</em> avoids the outcome, <em>or</em> could be the basis of a different appraisal of her. <strong>Robustness objection:</strong> an alternative grounds responsibility only if exercising it would have made the agent <em>not responsible</em> for the actual outcome (it must be a real exercise of agency that changes the moral situation). A mere flicker fails this test, so it cannot be what PAP is really about.</p>
+<h3 id="2-the-kanewiderkerginet-dilemma-the-indeterminism-objection"><a class="header" href="#2-the-kanewiderkerginet-dilemma-the-indeterminism-objection">2. The Kane–Widerker–Ginet dilemma (the indeterminism objection)</a></h3>
+<p>The most serious objection (Robert <strong>Kane</strong>, David <strong>Widerker</strong>, Carl <strong>Ginet</strong>) targets the <strong>prior sign</strong> and presses a <strong>dilemma</strong>. Black's device must read some prior sign to know whether to intervene. Ask: <em>does that sign deterministically guarantee how Jones will choose?</em></p>
+<ul>
+<li><strong>Horn 1 — the sign is deterministically sufficient for Jones's choice.</strong> Then the case simply <em>assumes</em> causal determinism in the actual sequence. But against a <a href="../libertarianism.html">libertarian</a> (who holds responsibility requires indeterminism), that <strong>begs the question</strong>: the libertarian already denies that a <em>determined</em> Jones is responsible, so a case stipulating determinism cannot <em>show</em> him responsible. The example presupposes exactly what is at issue.</li>
+<li><strong>Horn 2 — the sign is not deterministically sufficient.</strong> Then, even given the sign, Jones <em>might still</em> have chosen otherwise — the indeterminism leaves a genuine gap — so Black cannot intervene <em>in time</em> with certainty, and a <strong>real alternative remains open</strong> before the device could act. PAP is not violated after all.</li>
+</ul>
+<p>Either way, the objection runs, a Frankfurt case cannot <em>both</em> be dialectically fair against the incompatibilist <em>and</em> genuinely eliminate alternatives. The argument is sharpest precisely where it matters most — for the libertarian who thinks free action is undetermined.</p>
+<h3 id="3-buffered-and-blockage-cases-the-frankfurt-defenders-reply"><a class="header" href="#3-buffered-and-blockage-cases-the-frankfurt-defenders-reply">3. Buffered and blockage cases (the Frankfurt-defender's reply)</a></h3>
+<p>Frankfurt's defenders responded with redesigned cases meant to escape the dilemma by removing the <em>robust</em> prior sign while still being compatible with indeterminism.</p>
+<ul>
+<li><strong>Buffer cases</strong> (David <strong>Hunt</strong>; Derk <strong>Pereboom's</strong> "<strong>Tax Evasion</strong>"). Pereboom builds a case in which the <em>only</em> way Jones could even <em>begin</em> to choose otherwise is for a specific mental event — a sufficiently attentive moral consideration — to occur, and the device is triggered by the <em>absence</em> of that "buffer" event. The agent's available "alternative" is reduced to the involuntary occurrence of a single necessary precursor, which is <strong>not robust</strong> (it is not itself a voluntary doing of otherwise, and Jones is not blameworthy <em>for</em> it). Pereboom argues such cases preserve indeterminism <em>and</em> leave no robust alternative — so responsibility without robust alternatives stands.</li>
+<li><strong>Blockage cases</strong> (Hunt, following a suggestion of Frankfurt's). Imagine that all neural pathways to any alternative decision are <em>physically blocked</em> (without any need for a triggering sign), so the actual-sequence deliberation is left untouched but every other route is closed. If Jones is still responsible, alternatives are irrelevant — though critics worry blockage either reintroduces a flicker or covertly determines the outcome.</li>
+</ul>
+<p>The dialectic continues: Widerker, Ginet, and others contest whether the buffer is truly non-robust or whether <em>some</em> responsibility-grounding alternative always survives; defenders refine the cases further. There is no consensus that Frankfurt cases <em>decisively</em> refute PAP — but they have convinced many that, <em>if</em> PAP survives, it does so only in a weakened, flicker-dependent form too thin to carry the <a href="./consequence-argument.html">Consequence Argument's</a> weight.</p>
+<h3 id="4-revising-pap-rather-than-abandoning-it"><a class="header" href="#4-revising-pap-rather-than-abandoning-it">4. Revising PAP rather than abandoning it</a></h3>
+<p>Some defenders retreat to a <strong>weakened principle</strong> rather than give up leeway entirely — e.g. responsibility requires only that the agent could have <em>avoided being the unimpeded source</em> of the act, or could have made some relevant difference. Others (the leeway loyalists) hold a robust PAP and reject Frankfurt's responsibility intuition outright, insisting that if Jones <em>truly</em> could not have done otherwise, our confident attribution of responsibility is itself the thing to question.</p>
+<h2 id="the-upshot-from-leeway-to-sourcehood"><a class="header" href="#the-upshot-from-leeway-to-sourcehood">The upshot: from leeway to sourcehood</a></h2>
+<p>Whatever one's verdict on whether PAP is strictly <em>refuted</em>, Frankfurt cases produced a lasting reorientation. They drove a wedge between two things the tradition had run together — <strong>alternative possibilities</strong> and <strong>moral responsibility</strong> — and shifted the center of gravity from:</p>
+<ul>
+<li><strong>leeway / regulative control</strong> (the metaphysics of open alternatives, the "garden of forking paths") to</li>
+<li><strong>sourcehood / guidance control</strong> (the actual-sequence question of whether the action expressed the agent's own <a href="../compatibilism.html">reasons-responsive</a> agency).</li>
+</ul>
+<p>This realignment is why so much of the contemporary debate is about the <strong>actual sequence</strong>: <a href="../compatibilism.html">Fischer–Ravizza's guidance control</a>, the <a href="../compatibilism.html">deep-self and reasons-responsiveness</a> theories, and the <a href="../incompatibilism.html">source incompatibilist</a> reply that even a flawless actual-sequence source is poisoned if it was <em>itself</em> determined or <a href="../incompatibilism.html">manipulated</a> into existence. In the architecture of the field, Frankfurt cases are the pivot on which <a href="../incompatibilism.html">leeway incompatibilism</a> (which keeps PAP and fights the <a href="./consequence-argument.html">Consequence Argument</a> on its own ground) gives way to <a href="../incompatibilism.html">source incompatibilism</a> and to <a href="../compatibilism.html">semicompatibilism</a> (which drop PAP and relocate the whole dispute to the nature of the source).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/freewill/arguments/consequence-argument.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/freewill/concepts/moral-responsibility.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/freewill/arguments/consequence-argument.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/freewill/concepts/moral-responsibility.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Moral Responsibility - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/concepts/moral-responsibility.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="moral-responsibility"><a class="header" href="#moral-responsibility">Moral Responsibility</a></h1>
+<p>For most of the contemporary debate, <strong>moral responsibility</strong> is the real prize. The metaphysics of <a href="../introduction.html">determinism</a> and <a href="../introduction.html">free will</a> matters because of what it might do to <em>responsibility</em> — to the fairness of praise and blame, reward and punishment, guilt and indignation. This page steps back from the positions and examines responsibility itself: what it <em>is</em>, what its different <strong>faces</strong> are, what <strong>conditions</strong> an agent must meet to bear it, and how tightly it is really tied to free will. The payoff is a reframing that organizes everything else: the sharpest modern question is often not "do we have free will?" but <strong>"what kind of responsibility can creatures like us actually have?"</strong></p>
+<p>This is the technical companion to the plain-language treatment in <a href="../../general/free-will.html">What Is Free Will?</a>; it develops the <strong>backward-looking / forward-looking</strong> distinction sketched there into the full taxonomy.</p>
+<hr />
+<h2 id="free-will-and-moral-responsibility-two-questions-not-one"><a class="header" href="#free-will-and-moral-responsibility-two-questions-not-one">Free will and moral responsibility: two questions, not one</a></h2>
+<p>It is tempting to treat "free will" and "moral responsibility" as a single topic, but they are distinct, and prying them apart is one of the most important moves in the modern literature.</p>
+<ul>
+<li><strong>Free will</strong> is standardly a claim about a <em>capacity</em> — typically the power of <a href="../compatibilism.html">self-determination</a>, or the <a href="../introduction.html">ability to do otherwise</a>, or <a href="../libertarianism.html">ultimate sourcehood</a>.</li>
+<li><strong>Moral responsibility</strong> is a status: being an apt target of a distinctive family of <em>responses</em> (praise, blame, the reactive attitudes) and the <em>practices</em> built on them (desert, punishment, answerability).</li>
+</ul>
+<p>The two come apart because one can ask whether <em>responsibility</em> survives determinism <strong>without</strong> first settling what free will requires. <a href="../compatibilism.html">Semicompatibilism</a> (Fischer) is precisely the view that <strong>moral responsibility is compatible with determinism even if the freedom to do otherwise is not</strong> — so it brackets the free-will question and argues about responsibility directly. Free will is often <em>defined</em> as "the strongest control condition on moral responsibility," which makes responsibility the more fundamental notion and free will its servant.</p>
+<h2 id="holding-responsible-vs-being-responsible"><a class="header" href="#holding-responsible-vs-being-responsible">Holding responsible vs. being responsible</a></h2>
+<p>A second crucial distinction. There is:</p>
+<ul>
+<li><strong>being responsible</strong> — a <em>fact about the agent</em> (she really is an apt target of blame), and</li>
+<li><strong>holding responsible</strong> — an <em>activity of others</em> (we blame her, resent her, demand an account).</li>
+</ul>
+<p>Which is prior? The realist takes <em>being</em> responsible as basic and <em>holding</em> responsible as a response that is correct when the fact obtains. <strong>P. F. Strawson's</strong> great reversal (in "Freedom and Resentment," 1962) was to suggest the <strong>practice of holding responsible comes first</strong>: there is no fact of responsibility floating free of our responses; to be responsible just <em>is</em> to be a fit object of the <strong>reactive attitudes</strong>. This makes the theory of responsibility partly a theory of <em>when those attitudes are appropriate</em> — and removes the need for a prior metaphysical proof that we are "really" free.</p>
+<h2 id="the-reactive-attitudes-strawson"><a class="header" href="#the-reactive-attitudes-strawson">The reactive attitudes (Strawson)</a></h2>
+<p>Strawson's starting point is a set of emotions through which we register the <strong>quality of will</strong> others bear toward us: <strong>resentment</strong>, <strong>indignation</strong>, <strong>gratitude</strong>, <strong>guilt</strong>, <strong>forgiveness</strong>, hurt feelings, certain kinds of love. These <strong>reactive attitudes</strong> are the natural expression of our investment in being treated with goodwill rather than malice or indifference. To hold someone responsible is to be susceptible to these attitudes in response to what their conduct <em>expresses</em>.</p>
+<p>Strawson contrasts two stances we can take toward a person:</p>
+<ul>
+<li>The <strong>participant (or reactive) stance</strong> — engaging with them as a fellow member of the moral community, open to resentment and gratitude.</li>
+<li>The <strong>objective stance</strong> — viewing them as an object to be <em>managed, treated, or trained</em>, as we might a hazard, a small child, or someone in the grip of psychosis. Here the reactive attitudes are suspended.</li>
+</ul>
+<p>When do we suspend them? Strawson distinguishes two kinds of pleas:</p>
+<ul>
+<li><strong>Excuses</strong> ("he didn't mean to," "it was an accident," "he was pushed") — these concede the agent is a <em>responsible agent</em> but deny the particular act expressed ill will. The act is <em>reinterpreted</em>; the agent remains within the moral community.</li>
+<li><strong>Exemptions</strong> ("he's a small child," "he's psychotic," "he was under hypnosis") — these withdraw the agent <em>as such</em> from the participant stance, classifying them as not (now, or in this respect) a fit target of the reactive attitudes at all.</li>
+</ul>
+<p>Strawson's anti-skeptical thesis is that the <em>general</em> truth of determinism is neither an excuse (it does not reinterpret any <em>particular</em> act) nor a global exemption (we could not, and psychologically <em>cannot</em>, take the objective stance toward <em>everyone</em> permanently). So responsibility is not hostage to the metaphysics.</p>
+<h2 id="the-faces-of-moral-responsibility"><a class="header" href="#the-faces-of-moral-responsibility">The faces of moral responsibility</a></h2>
+<p>Strawson's account was later refined by the recognition that "responsibility" names <strong>several distinct things</strong>, which can come apart. The influential taxonomy runs:</p>
+<div class="table-wrapper"><table><thead><tr><th>Face</th><th>What it tracks</th><th>Characteristic response</th><th>Key figures</th></tr></thead><tbody>
+<tr><td><strong>Attributability</strong></td><td>the act/attitude <em>expresses who the agent is</em> — their character, cares, evaluative commitments ("self-disclosure")</td><td><em>aretaic</em> appraisal: she is generous / cowardly; this is <em>hers</em></td><td>Watson, Frankfurt, Wolf, A. Smith</td></tr>
+<tr><td><strong>Answerability</strong></td><td>the agent acted on a <em>judgment</em> and can be asked for her <strong>reasons</strong></td><td>demand for justification: "why did you do that?"</td><td>Scanlon, Hieronymi, A. Smith</td></tr>
+<tr><td><strong>Accountability</strong></td><td>the agent has flouted a legitimate <strong>demand</strong> and is liable to be <em>held to account</em></td><td>the reactive attitudes + sanction: resentment, blame, censure</td><td>Strawson, Wallace, Darwall</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li><strong>Attributability</strong> (Gary Watson, "Two Faces of Responsibility," 1996) is the weakest, most agent-disclosing sense: an act is attributable when it is an expression of the agent's <strong>real self</strong> — her <a href="../compatibilism.html">deep self, values, or quality of will</a>. It grounds judgments of <em>virtue and vice</em> but not yet of <em>liability</em>. (This is the home of the <a href="../compatibilism.html">deep-self / real-self compatibilist views</a>.)</li>
+<li><strong>Answerability</strong> (T. M. Scanlon, Angela Smith, Pamela Hieronymi) makes the criterion <em>rational</em>: you are responsible for those of your attitudes and actions that are <strong>judgment-sensitive</strong> — connected to your assessment of reasons — because you can, in principle, be asked to <em>defend</em> them. On this view even spontaneous attitudes (a flash of contempt) are responsibility-apt if they reflect your evaluative take on the world.</li>
+<li><strong>Accountability</strong> (Watson; R. Jay Wallace; Stephen Darwall) is the strongest, most <em>demanding</em> sense — the one closest to Strawson's blame and to <strong>desert</strong>. To hold someone accountable is to subject them to a legitimate <strong>demand</strong> backed by the reactive attitudes and liability to sanction. This face carries the heaviest conditions, because <em>holding someone to account</em> (unlike merely appraising their character) must be <strong>fair</strong>.</li>
+</ul>
+<p><strong>David Shoemaker</strong> (<em>Responsibility from the Margins</em>, 2015) develops the <strong>tripartite</strong> view that these are three genuinely different kinds of responsibility, each with its own conditions, so that an agent can be responsible in one sense but not another (a psychopath may be <em>attributability</em>-responsible — his cruelty is truly his — yet not fully <em>accountability</em>-responsible).</p>
+<h2 id="two-theories-of-what-holding-accountable-amounts-to"><a class="header" href="#two-theories-of-what-holding-accountable-amounts-to">Two theories of what "holding accountable" amounts to</a></h2>
+<p>Within the accountability face, two influential accounts say what blame <em>is</em>:</p>
+<ul>
+<li><strong>The normative-expectation / fairness account</strong> (R. Jay Wallace, <em>Responsibility and the Moral Sentiments</em>, 1994). To hold someone responsible is to subject them to reactive attitudes governed by <strong>normative expectations</strong> (the moral demands we legitimately make). The central question becomes one of <strong>fairness</strong>: it is appropriate to blame someone only if it would be <em>fair</em> to demand that they have complied — which shifts the debate from "could they have done otherwise?" to "is the demand fair given their capacities?"</li>
+<li><strong>The conversational account</strong> (Michael McKenna, <em>Conversation and Responsibility</em>, 2012). Responsibility is a <strong>conversational exchange</strong> of meaning: a wrong act is a <em>moral contribution</em> ("I may treat you this way"), blame is a <em>reply</em> ("no, you may not"), and the agent can <em>respond</em> in turn (apology, justification, excuse). Stephen <strong>Darwall's</strong> <em>second-personal</em> account is a cousin: blame is an <strong>addressed demand</strong> that presupposes the other as an accountable party who can recognize and answer it.</li>
+</ul>
+<h2 id="basic-desert-vs-forward-looking-responsibility"><a class="header" href="#basic-desert-vs-forward-looking-responsibility">Basic desert vs. forward-looking responsibility</a></h2>
+<p>The deepest fault line — and the hinge of the <a href="../hard-incompatibilism.html">free-will-skepticism debate</a> — concerns <em>why</em> a responsible agent may be blamed or punished.</p>
+<ul>
+<li><strong>Basic-desert responsibility</strong> (the focus of Derk Pereboom and the skeptics). An agent is responsible in the basic-desert sense if she deserves blame or praise <strong>non-instrumentally and non-contractually</strong> — simply <em>in virtue of having knowingly done wrong (or right)</em>, as a matter of what she fundamentally <em>merits</em>, independent of any further good the blame might do. This is the strong notion that grounds <strong>retributive</strong> punishment and the harshest reactive attitudes, and it is exactly what the <a href="../hard-incompatibilism.html">hard incompatibilist</a> argues no one can have.</li>
+<li><strong>Forward-looking (consequentialist or relational) responsibility.</strong> Holding responsible is justified by what it <em>achieves</em> or by the <em>relationships</em> it sustains — moral formation, reconciliation, protection, the integrity of our practices of mutual address — rather than by desert. This sense may survive even if basic desert does not, which is why skeptics can keep a reformed "responsibility" while rejecting retribution.</li>
+</ul>
+<p>Other non-basic justifications sit between: <strong>consequentialist</strong> (Schlick, Smart — blame as a tool that "shapes the springs of action"), <strong>contractualist/fairness</strong> (Scanlon, Wallace), and <strong>Strawsonian</strong> (the attitudes are constitutive of personal relationships and need no external vindication). The whole <a href="../hard-incompatibilism.html">punishment debate</a> is downstream of this distinction.</p>
+<h2 id="the-conditions-on-responsibility"><a class="header" href="#the-conditions-on-responsibility">The conditions on responsibility</a></h2>
+<p>Since Aristotle (<em>Nicomachean Ethics</em> III), two conditions have been thought jointly necessary for responsibility — and they map neatly onto Strawson's two pleas:</p>
+<ol>
+<li><strong>The control (or freedom) condition.</strong> The action must be appropriately <em>up to</em> the agent — under her control, voluntary, not compelled or coerced. <em>This is the condition free will is meant to satisfy</em>, and the whole <a href="../compatibilism.html">compatibilism</a>/<a href="../incompatibilism.html">incompatibilism</a> dispute is a dispute about how strong it must be (mere <a href="../compatibilism.html">reasons-responsive guidance control</a>, or full <a href="../introduction.html">leeway</a>/<a href="../libertarianism.html">sourcehood</a>?). Failures here are <strong>exemptions</strong> (no capacity) or <strong>excuses</strong> of compulsion/coercion.</li>
+<li><strong>The epistemic (or knowledge) condition.</strong> The agent must be aware, in the right way, of what she is doing and of its moral significance — its nature, consequences, and wrongness. Failures here are <strong>excuses of ignorance</strong> ("she didn't know, and couldn't reasonably have known, the glass was poisoned"). A large literature debates whether the relevant ignorance must be <em>culpable</em> (traceable to an earlier akratic or negligent failure) to preserve responsibility.</li>
+</ol>
+<p><strong>Tracing.</strong> Both conditions can be satisfied <em>derivatively</em>. A drunk driver may lack control and knowledge <em>at the moment</em> of the crash, yet be fully responsible because the incapacity <strong>traces</strong> back to an earlier exercise of control and knowledge (the decision to drink and drive). Fischer–Ravizza and others use tracing to handle responsibility for the unforeseen, the automatic, and the self-induced.</p>
+<h2 id="does-moral-responsibility-require-free-will--or-alternatives"><a class="header" href="#does-moral-responsibility-require-free-will--or-alternatives">Does moral responsibility require free will — or alternatives?</a></h2>
+<p>This is where the responsibility debate loops back to the metaphysics, and the key question is whether responsibility needs the <em>ability to do otherwise</em> (the <strong>leeway</strong> condition) or only the <em>right kind of actual-sequence source</em> (the <strong>sourcehood</strong> condition).</p>
+<ul>
+<li><strong>The Principle of Alternative Possibilities (PAP):</strong> an agent is morally responsible for what she did only if she <em>could have done otherwise</em>. If PAP is true, then any argument that determinism removes alternatives (the <a href="../arguments/consequence-argument.html">Consequence Argument</a>) directly threatens responsibility.</li>
+<li><strong>Frankfurt's challenge.</strong> <a href="../incompatibilism.html">Frankfurt-style cases</a> purport to show PAP is <strong>false</strong>: an agent can be responsible even when a counterfactual intervener would have prevented any alternative, because she in fact acted on her own. If this succeeds, responsibility is decoupled from leeway and rests on the <strong>actual sequence</strong> — on whether the action issued from the agent in the right way.</li>
+<li><strong>Guidance control and semicompatibilism.</strong> Fischer–Ravizza's answer: responsibility requires <strong>guidance control</strong> — action from the agent's <em>own</em>, <em>moderately reasons-responsive</em> mechanism — not <strong>regulative control</strong> (access to alternatives). Because guidance control is an actual-sequence, dispositional notion, it is compatible with determinism. Hence <a href="../compatibilism.html">semicompatibilism</a>: responsibility can be safe even if the <a href="../arguments/consequence-argument.html">Consequence Argument</a> shows the freedom-to-do-otherwise is not.</li>
+<li><strong>Source incompatibilist dissent.</strong> <a href="../incompatibilism.html">Source incompatibilists</a> grant Frankfurt's point about alternatives but insist responsibility <em>still</em> fails under determinism, because the actual-sequence source is itself a link in a chain the agent did not originate — the <a href="../incompatibilism.html">manipulation arguments</a> press exactly this.</li>
+</ul>
+<p>So the structure of the whole field can be read off the responsibility question: <strong>leeway theorists</strong> keep PAP and fight over the Consequence Argument; <strong>source theorists</strong> drop PAP and fight over manipulation and ultimacy; <strong>compatibilists</strong> of the guidance-control stripe drop PAP and locate responsibility in reasons-responsiveness.</p>
+<h2 id="common-misconceptions"><a class="header" href="#common-misconceptions">Common misconceptions</a></h2>
+<ul>
+<li><strong>"Responsible just means caused by the agent."</strong> Mere causal authorship is not enough; responsibility adds the <strong>control</strong> and <strong>epistemic</strong> conditions, and (on most views) fitness for the reactive attitudes. A falling reflex or a coerced act may be "caused by you" yet not something you are <em>responsible</em> for.</li>
+<li><strong>"Moral responsibility stands or falls with free will."</strong> Not quite: <a href="../compatibilism.html">semicompatibilism</a> defends responsibility while conceding the freedom-to-do-otherwise may be lost, and the <em>different faces</em> have <em>different</em> conditions, so responsibility can partly survive even where one strong sense lapses.</li>
+<li><strong>"Blame is just a feeling / just a useful tool."</strong> These are two <em>theories</em> (Strawsonian sentimentalism, consequentialism), not the default. Desert-based and answerability accounts hold that blame answers to <em>facts</em> about the agent and <em>reasons</em>, not merely to utility or emotion.</li>
+<li><strong>"To be responsible you must deserve to suffer."</strong> That is only <em>basic-desert accountability</em> — the strongest face. <strong>Attributability</strong> (this vice is yours) and <strong>answerability</strong> (defend your judgment) are genuine forms of responsibility that carry no commitment to deserved suffering.</li>
+</ul>
+<h2 id="where-moral-responsibility-sits"><a class="header" href="#where-moral-responsibility-sits">Where moral responsibility sits</a></h2>
+<p>Moral responsibility is the destination the rest of the <a href="../introduction.html">free-will debate</a> is traveling toward. Pulling it apart into <strong>attributability</strong>, <strong>answerability</strong>, and <strong>accountability</strong>, and separating <strong>basic desert</strong> from <strong>forward-looking</strong> justifications, does real work: it shows that the blunt question "are we responsible?" hides several questions with different answers, and that a position can give up the most demanding sense (basic-desert accountability) while keeping the rest. That is exactly the space the <a href="../hard-incompatibilism.html">hard incompatibilist</a> exploits (drop basic desert, keep forward-looking accountability), that the <a href="../compatibilism.html">compatibilist</a> occupies (responsibility needs only guidance control and fitness for the reactive attitudes), and that the <a href="../libertarianism.html">libertarian</a> resists (only ultimate sourcehood secures genuine desert). Whichever way one leans, the lesson is that <strong>"free will" is best understood as shorthand for "whatever control moral responsibility requires"</strong> — so getting clear about responsibility is getting clear about what was at stake all along.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/freewill/arguments/frankfurt-cases.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/remarks/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/freewill/arguments/frankfurt-cases.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/remarks/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hard Incompatibilism and Free-Will Skepticism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/freewill/hard-incompatibilism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="hard-incompatibilism-and-free-will-skepticism"><a class="header" href="#hard-incompatibilism-and-free-will-skepticism">Hard Incompatibilism and Free-Will Skepticism</a></h1>
+<p><strong>Free-will skepticism</strong> is the view that <strong>no one has free will</strong> in the sense required for <strong>basic desert</strong> moral responsibility — the kind of responsibility that would make a person <em>truly deserving</em> of blame and punishment, or praise and reward, <em>just because</em> of what they have done. <strong>Hard incompatibilism</strong> (the term is <strong>Derk Pereboom's</strong>) is its leading contemporary form. It earns the name by being "hard" on <em>both</em> sides of the <a href="./introduction.html">free-will dilemma</a>: it argues that free will is incompatible with <strong>determinism</strong> (siding with the <a href="./incompatibilism.html">incompatibilist</a> against the <a href="./compatibilism.html">compatibilist</a>) <strong>and</strong> that free will is <em>also</em> undermined by <strong>indeterminism</strong> (siding with the critics of the <a href="./libertarianism.html">libertarian</a>). Since determinism and indeterminism are exhaustive, the conclusion follows on <em>every</em> hypothesis about the causal structure of the world: whichever way physics turns out, the desert-grounding freedom is absent.</p>
+<p>Crucially, this is <em>not</em> a counsel of despair. Hard incompatibilists generally argue that <strong>morality, meaning, agency, and reform survive</strong> the loss of basic desert, and that abandoning it would <em>improve</em> much of moral and especially <strong>legal</strong> life. This page sets out the position, its history, its core arguments, the objections it faces, the misconceptions surrounding it, and its striking practical program.</p>
+<hr />
+<h2 id="the-position-precisely"><a class="header" href="#the-position-precisely">The position precisely</a></h2>
+<p>The view turns on a specific, demanding notion of responsibility, so the definitions must be kept straight.</p>
+<ul>
+<li><strong>Basic-desert moral responsibility.</strong> To be responsible in the <em>basic-desert</em> sense is to deserve blame or praise <em>non-instrumentally</em> — not because blaming produces good consequences (deterrence, reform), and not merely because one is an apt target of the reactive attitudes, but simply <em>in virtue of having knowingly done wrong (or right)</em>, as a matter of what one <em>fundamentally deserves</em>. This is the responsibility presupposed by <strong>retributive punishment</strong> ("he deserves to suffer for what he did") and by certain strong forms of guilt and indignation.</li>
+<li><strong>The skeptic's claim</strong> is narrow and precise: <strong>this</strong> kind of responsibility is something no human being ever has. The skeptic typically does <strong>not</strong> deny weaker, <em>forward-looking</em> senses (answerability, attributability, the aptness of holding-to-account for protective or formative ends).</li>
+</ul>
+<p>Hard incompatibilism is thus the conjunction:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.3591em;vertical-align:-1.6647em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-1.4715em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">anti-compatibilist</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span class="svg-align" style="top:-2.1576em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13  35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688  0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7 -331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214 c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14  53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3  11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0 -5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">free will</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">⇐</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">determinism</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8424em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6647em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4369em;vertical-align:-1.7424em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-1.4326em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">anti-libertarian (luck)</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span class="svg-align" style="top:-2.1576em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMinYMin slice'><path d='M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13  35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688  0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7 -331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z'/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMidYMin slice'><path d='M199572 214 c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14  53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3  11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0 -5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z'/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.548em' viewBox='0 0 400000 548' preserveAspectRatio='xMaxYMin slice'><path d='M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3  28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237 -174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z'/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">free will</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">⇐</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">indeterminism</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8424em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.7424em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">free will (basic desert)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>It is one species of the broader genus <strong>free-will skepticism</strong>, which also includes:</p>
+<ul>
+<li><strong>Hard determinism</strong> — the <em>classical</em> skeptic, which reaches the no-free-will conclusion <em>via</em> the premise that <strong>determinism is true</strong>. Hard incompatibilism is strictly weaker in its assumptions: it does <strong>not</strong> need determinism, since it blocks the indeterministic escape route too.</li>
+<li><strong>Illusionism</strong> (<strong>Saul Smilansky</strong>) — we lack free will, but the <em>belief</em> in it is a beneficial illusion we should largely preserve.</li>
+<li><strong>Hard-luck / no-self views</strong> (<strong>Bruce Waller</strong>, <strong>Galen Strawson</strong>) — responsibility is undone by the pervasiveness of <strong>luck</strong> in who we are, independently of the determinism question.</li>
+</ul>
+<h2 id="the-two-sided-argument"><a class="header" href="#the-two-sided-argument">The two-sided argument</a></h2>
+<p>The distinctive structure of hard incompatibilism is that it must close <em>both</em> exits from the dilemma. It does so with two argumentative wings.</p>
+<h3 id="wing-1--against-compatibilism-determinism-does-not-preserve-free-will"><a class="header" href="#wing-1--against-compatibilism-determinism-does-not-preserve-free-will">Wing 1 — against compatibilism (determinism does not preserve free will)</a></h3>
+<p>Here the hard incompatibilist deploys the standard <a href="./incompatibilism.html">source-incompatibilist arsenal</a>: primarily the <strong>Manipulation Argument</strong>. Pereboom's <strong>four-case argument</strong> (Professor <strong>Plum</strong>) is the centerpiece — a manipulated agent who satisfies every compatibilist condition (reasons-responsiveness, mesh, real-self expression, a suitable history) is intuitively <em>not</em> responsible, and there is no principled difference between him and an ordinary agent in a normal deterministic world. So compatibilist conditions, however refined, are <strong>insufficient</strong> for basic desert. (The <a href="./incompatibilism.html#the-consequence-argument">Consequence Argument</a> and Galen Strawson's <a href="./incompatibilism.html#the-origination--ultimacy-argument-source">Basic Argument</a> reinforce the same conclusion from the leeway and ultimacy directions.)</p>
+<h3 id="wing-2--against-libertarianism-indeterminism-does-not-help"><a class="header" href="#wing-2--against-libertarianism-indeterminism-does-not-help">Wing 2 — against libertarianism (indeterminism does not help)</a></h3>
+<p>This is what makes the view "harder" than mere incompatibilism. Even granting the libertarian her indeterminism, the hard incompatibilist argues it cannot deliver responsibility:</p>
+<ul>
+<li><strong>Against event-causal libertarianism — the luck / disappearing-agent objection.</strong> If the prior state of the agent (her reasons, character, efforts) leaves the choice <em>undetermined</em>, then nothing about the agent settles which way it goes; the <a href="./libertarianism.html#the-luck--randomness-objection--the-central-problem">rollback</a> replays produce different outcomes with everything about the agent held fixed, so the particular outcome is a matter of <strong>luck</strong> — and luck cannot ground <em>desert</em>. The agent, as a <em>settling</em> factor, "disappears."</li>
+<li><strong>Against agent-causal libertarianism — the empirical/coherence objection.</strong> Agent-causation <em>could</em>, if it existed, supply the missing settler (so Pereboom grants it is the libertarian's best shot and is <em>not</em> incoherent). But it sits in tension with our best physics: an agent-cause that produces <em>free</em> (undetermined) choices would have to interface with the brain's physical processes in a way that should show up as <strong>statistical anomalies</strong> in neural events — deviations from the probabilities physics predicts — for which there is no evidence and which the scientific picture gives us no reason to expect. So agent-causal libertarianism is, at best, a <strong>live but unsupported empirical bet</strong> we have no good reason to make.</li>
+</ul>
+<p>With both wings in place — compatibilism <em>insufficient</em>, libertarianism <em>unhelpful or unsupported</em> — basic-desert free will is unavailable on any view of the causal order.</p>
+<h2 id="a-short-history"><a class="header" href="#a-short-history">A short history</a></h2>
+<ul>
+<li><strong>Ancient–early-modern skeptical strands.</strong> Deterministic denials of freedom run from the <strong>Stoic</strong> fate debates through <strong>Spinoza</strong> (freedom as illusion born of ignorance of causes — "men think themselves free because they are conscious of their volitions, but ignorant of the causes by which they are determined") to <strong>d'Holbach's</strong> uncompromising 18th-century <strong>hard determinism</strong>.</li>
+<li><strong>Clarence Darrow</strong> (early 20th c.) brought hard-determinist reasoning into the <strong>courtroom</strong>, arguing in the Leopold–Loeb case that offenders are products of heredity and environment and so not fit objects of retribution — an early public airing of the practical program.</li>
+<li><strong>Paul Edwards</strong>, <strong>Galen Strawson</strong> (the <strong>Basic Argument</strong>, 1986/1994), and <strong>Bruce Waller</strong> (<em>Freedom Without Responsibility</em>, 1990; <em>Against Moral Responsibility</em>, 2011) developed the modern <em>luck</em>- and <em>ultimacy</em>-based skepticism that does not lean on determinism.</li>
+<li><strong>Derk Pereboom</strong> (<em>Living Without Free Will</em>, 2001; <em>Free Will, Agency, and Meaning in Life</em>, 2014) named and systematized <strong>hard incompatibilism</strong>, supplying the four-case manipulation argument and the constructive "life without free will" program.</li>
+<li><strong>Saul Smilansky</strong> (<em>Free Will and Illusion</em>, 2000) defended <strong>illusionism</strong> — skepticism plus the claim that the illusion is socially indispensable.</li>
+<li><strong>Gregg Caruso</strong> (<em>Rejecting Retributivism</em>, 2021; the <strong>public-health quarantine</strong> model) and Caruso–Pereboom (<em>Moral Responsibility Reconsidered</em>) developed the skeptical theory of <strong>punishment</strong> and its institutional implications; Caruso–Dennett's published debate (<em>Just Deserts</em>, 2021) is the canonical exchange with a compatibilist.</li>
+<li><strong>Neil Levy</strong> (<em>Hard Luck</em>, 2011) gave a sustained <strong>luck-based</strong> argument that neither compatibilist nor libertarian agency escapes the corroding effect of luck.</li>
+</ul>
+<h2 id="arguments-for-hard-incompatibilism"><a class="header" href="#arguments-for-hard-incompatibilism">Arguments for hard incompatibilism</a></h2>
+<ol>
+<li><strong>The exhaustion (dilemma) argument.</strong> Determinism and indeterminism are jointly exhaustive. Compatibilism fails (Wing 1); libertarianism fails (Wing 2). Therefore desert-grounding free will is impossible — not merely <em>absent in fact</em>, but unavailable on <em>any</em> metaphysics. This is the master argument and the source of the view's distinctive strength: it does not depend on settling the physics.</li>
+<li><strong>The pervasiveness-of-luck argument</strong> (Levy, Waller). Who we are is fixed by <strong>constitutive luck</strong> (the genes, temperament, and formative environment we did not choose) and <strong>present/circumstantial luck</strong> (the situations we happen to face). Since neither determinism nor indeterminism lets us <em>transcend</em> this luck, and desert cannot rest on luck, basic desert is undermined regardless of the determinism question.</li>
+<li><strong>The manipulation/origination argument</strong> — as in <a href="./incompatibilism.html">incompatibilism</a>: an agent whose every psychological state traces to factors outside her control is relevantly like a manipulated agent, and so not a fit object of basic desert.</li>
+<li><strong>The argument from the failure of retributive justification.</strong> Independently, the skeptic argues that <em>retributive</em> punishment — suffering imposed because <em>deserved</em> — requires basic desert; since basic desert is unsupported, retributivism loses its justification, and we should prefer forward-looking institutions that do not need it.</li>
+</ol>
+<h2 id="the-constructive-program-living-without-basic-desert"><a class="header" href="#the-constructive-program-living-without-basic-desert">The constructive program: living without basic desert</a></h2>
+<p>The most important — and most misunderstood — part of the view is that it is <strong>revisionary, not nihilistic</strong>. Pereboom, Caruso, Waller, and others argue that <em>most of what matters survives</em>:</p>
+<ul>
+<li><strong>Morality and moral judgment survive.</strong> We can still judge acts <em>right</em> and <em>wrong</em>, hold <em>axiological</em> assessments, and have moral reasons; what changes is only the inference to <em>basic desert</em>. "He acted wrongly" remains true and action-guiding.</li>
+<li><strong>A reformed responsibility survives.</strong> Pereboom's <strong>forward-looking</strong> account keeps a notion of responsibility grounded in three legitimate aims: <strong>protection</strong> (of potential victims), <strong>moral formation/reconciliation</strong> (engaging the wrongdoer to reform and to repair relationships), and the demand for the agent to <em>answer for</em> their conduct — all justifiable <em>without</em> desert.</li>
+<li><strong>The reactive attitudes are modulated, not abolished.</strong> Pereboom argues the <em>desert-presupposing</em> attitudes — especially <strong>resentment</strong> and <strong>indignation</strong> — should be tempered, while <strong>stance-analogues</strong> that do not presuppose desert (moral concern, sorrow, disappointment, resolve, a non-retributive "moral protest") can do their work. Love, gratitude, and joy are argued to <em>not</em> essentially depend on desert and so survive intact — answering the <a href="./compatibilism.html">Strawsonian</a> worry that giving up desert would dehumanize relationships.</li>
+<li><strong>Punishment is re-grounded.</strong> Retributivism is rejected; in its place Caruso defends a <strong>public-health–quarantine model</strong>: just as we may justly <em>quarantine</em> a person who carries a dangerous contagion — not because they <em>deserve</em> it, but on grounds of others' right to protection, constrained by least-infringement and rehabilitation — society may incapacitate dangerous offenders on a purely <em>protective</em>, non-punitive rationale, while investing in the <strong>social determinants</strong> of criminal behavior (a public-health approach to crime). This is offered as <em>more humane</em> than desert-based punishment, not more permissive.</li>
+<li><strong>Meaning, achievement, and self-worth survive.</strong> Pereboom argues that life's meaning, the value of achievements, and self-respect do not require <em>basic desert</em>; they rest on engagement, relationships, and the goods themselves, which remain fully available.</li>
+</ul>
+<p>A frequently cited <em>bonus</em> argument: relinquishing basic desert may bring <strong>psychological and social goods</strong> — less corrosive anger and vindictiveness, more compassion and willingness to repair, a more humane penal system — echoing <strong>Spinoza's</strong> thought that understanding the causes of conduct frees us from the bondage of the reactive passions.</p>
+<h2 id="theories-of-punishment-where-deterrence-fits"><a class="header" href="#theories-of-punishment-where-deterrence-fits">Theories of punishment: where deterrence fits</a></h2>
+<p>Because re-grounding punishment is the most consequential part of the program, it helps to lay out the theories of punishment explicitly and see which ones the loss of basic desert removes — and which survive. They divide on the <em>direction</em> in which they look for justification.</p>
+<ul>
+<li><strong>Backward-looking — retributivism.</strong> Punishment is justified because the offender <em>deserves</em> to suffer for what they did. This is the <strong>only</strong> theory that <em>requires</em> basic-desert free will, and so it is exactly the theory hard incompatibilism <strong>rejects</strong>: with basic desert gone, "he deserves it" loses its foundation, and <em>retributive</em> punishment becomes unjustified.</li>
+<li><strong>Forward-looking — consequentialist.</strong> Punishment is justified by the future goods it produces, never by desert. Three such goods are standardly distinguished:
+<ul>
+<li><strong>Deterrence</strong> — discouraging crime by attaching a credible cost to it, both for <em>this</em> offender (<strong>specific</strong> deterrence) and for <em>others</em> who might offend (<strong>general</strong> deterrence). The classic theory of <strong>Hobbes</strong> and the utilitarian <strong>Bentham</strong>.</li>
+<li><strong>Incapacitation</strong> — physically preventing an offender from harming others (e.g. confinement).</li>
+<li><strong>Rehabilitation</strong> — reforming the offender so they no longer wish to offend.</li>
+</ul>
+</li>
+</ul>
+<p>The crucial observation for this debate: <strong>none of the forward-looking justifications requires free will or basic desert.</strong> They presuppose only that human behavior is <em>causally responsive</em> — that incentives, confinement, and treatment reliably <em>change what people do</em>. That assumption is not merely compatible with determinism; it sits <em>most</em> naturally there (a determined agent is precisely the kind of system that responds predictably to incentives). So <strong>deterrence is one of the desert-free tools that <em>survives</em> free-will skepticism</strong> — which is why the <a href="#the-constructive-program-living-without-basic-desert">forward-looking responsibility</a> reconstruction can keep it while discarding retribution.</p>
+<p>But hard incompatibilists are typically <em>wary of making deterrence the foundation</em>, for a reason the free-will debate makes vivid. Because deterrence justifies punishment by its effects <em>on others</em>, pure deterrence theories threaten to <strong>use the offender as a mere means</strong> — in principle licensing the punishment of an innocent, or disproportionately harsh sentences, whenever doing so would deter enough people. This is the <strong>Kantian</strong> "never merely as a means" objection, and it is sharpest exactly where desert has been removed and can no longer cap what may be done to a person. This is why <strong>Caruso's quarantine model</strong> grounds itself in <strong>incapacitation justified by the right to self-protection</strong> (constrained by least-infringement and rehabilitation) rather than in deterrence: it seeks the protective benefit <em>without</em> treating offenders as instruments for influencing third parties, with general deterrence at most a welcome <em>side effect</em> rather than the justifying ground.</p>
+<p>In short: of the four classic aims, <strong>retribution is the one casualty</strong> of free-will skepticism; <strong>deterrence, incapacitation, and rehabilitation all remain available</strong> — but skeptics tend to build on <em>protection and reform</em> and treat deterrence cautiously, precisely because a desert-free framework no longer has the notion of <em>what the offender deserves</em> to limit how much they may be used.</p>
+<h2 id="objections-and-replies"><a class="header" href="#objections-and-replies">Objections (and replies)</a></h2>
+<ul>
+<li><strong>The Frankfurt / leeway objection.</strong> If <a href="./compatibilism.html">Frankfurt cases</a> show responsibility does not require alternative possibilities, one route to skepticism is blocked. <strong>Reply:</strong> the hard incompatibilist is a <em>source</em> skeptic, not a <em>leeway</em> skeptic — the manipulation and luck arguments target <em>sourcehood</em> and are untouched by Frankfurt cases.</li>
+<li><strong>The compatibilist's hard-line reply to manipulation.</strong> McKenna: the manipulated agent <em>is</em> responsible if the conditions are truly met, so Wing 1 fails. <strong>Reply:</strong> Pereboom argues the no-relevant-difference sorites is robust and the intuition of non-responsibility in Case 1 is too strong to dismiss; the burden is on the compatibilist to locate a <em>principled</em> difference, and historical conditions only push the determination further back without changing its character.</li>
+<li><strong>The "self-defeating / can't-live-it" objection.</strong> Belief in desert and the reactive attitudes are argued to be <em>psychologically ineliminable</em>, so the view is unlivable; or: <em>denying</em> responsibility undermines the very practices (promising, trusting) that make moral life possible. <strong>Reply:</strong> (i) the forward-looking reconstruction shows the practices <em>can</em> be re-grounded; (ii) partial, gradual modulation of the harshest attitudes is both possible and arguably beneficial; (iii) what is ineliminable (love, basic moral concern) is shown <em>not</em> to require desert.</li>
+<li><strong>The Strawsonian objectivity objection.</strong> Abandoning the reactive attitudes means adopting the cold "objective attitude," treating persons as <em>objects to be managed</em> rather than fellow members of the moral community. <strong>Reply:</strong> Pereboom denies the dichotomy — one can drop <em>desert-based</em> resentment while retaining <em>moral protest, concern, and address</em>, which preserve the second-personal, community-respecting stance.</li>
+<li><strong>The "moral motivation collapses" objection.</strong> Without desert, why be good, and why would anyone reform? <strong>Reply:</strong> moral reasons, the desire to do right, concern for others, and forward-looking accountability remain fully operative; deterrence and reform are <em>better</em> served, the skeptic argues, by addressing causes than by retribution.</li>
+<li><strong>The epistemic / burden-of-proof objection.</strong> Perhaps we should <em>presume</em> responsibility absent proof of its impossibility. <strong>Reply:</strong> given the <em>high stakes</em> of basic desert — it licenses <em>deliberately imposing suffering</em> — the skeptic argues the burden runs the <em>other</em> way: we should not inflict desert-based harm unless its presupposition is <em>established</em>, which it is not (a precautionary argument prominent in Caruso).</li>
+</ul>
+<h2 id="common-misconceptions"><a class="header" href="#common-misconceptions">Common misconceptions</a></h2>
+<ul>
+<li><strong>"Free-will skeptics think nothing matters / anything goes."</strong> The opposite: they retain right and wrong, moral reasons, and accountability, and many argue the view yields a <em>more</em> compassionate ethics and a <em>more</em> humane penal system. It rejects <em>basic desert</em>, not <em>morality</em>.</li>
+<li><strong>"It means criminals should go free."</strong> No — it re-grounds incapacitation of dangerous offenders on <strong>protective</strong> (quarantine-analogue) grounds, with rehabilitation and least-infringement constraints. It rejects <em>retributive</em> punishment, not public safety.</li>
+<li><strong>"Hard incompatibilism just <em>is</em> hard determinism."</strong> No — hard determinism <em>assumes determinism is true</em>; hard incompatibilism deliberately does <strong>not</strong>, because it also blocks the <em>indeterministic</em> route (Wing 2). It is the more cautious, metaphysics-independent skepticism.</li>
+<li><strong>"It's refuted because we obviously <em>feel</em> free and <em>can't help</em> blaming people."</strong> The feeling and the reactive impulses are exactly what the view <em>predicts and explains</em>; their psychological grip is not evidence that their <em>desert</em>-presupposition is <em>satisfied</em>.</li>
+<li><strong>"Giving up free will means giving up love, gratitude, and meaning."</strong> Pereboom argues precisely that these do <strong>not</strong> depend on basic desert and so survive; what is tempered is <em>desert-based resentment and retribution</em>.</li>
+<li><strong>"It's the same as fatalism — effort is pointless."</strong> No — like every position here it distinguishes <a href="./introduction.html">determinism from fatalism</a>; reform, deliberation, and effort are causally efficacious and central to the forward-looking program. Indeed the view <em>urges</em> us to change the <em>causes</em> of behavior.</li>
+<li><strong>"It denies we are agents at all."</strong> It affirms agency, rationality, and self-control as real psychological capacities; it denies only that these suffice for the <em>desert</em>-grounding kind of responsibility.</li>
+</ul>
+<h2 id="where-hard-incompatibilism-sits"><a class="header" href="#where-hard-incompatibilism-sits">Where hard incompatibilism sits</a></h2>
+<p>Against the <a href="./introduction.html">master dilemma</a>, hard incompatibilism drops premise (1) — <em>free will exists</em> — but does so on grounds that are <strong>independent of premise (2)</strong>: it argues we lack desert-grounding freedom <em>whether or not</em> determinism is true, because compatibilism is insufficient and the libertarian's indeterminism only adds luck. It therefore agrees with the <a href="./incompatibilism.html">incompatibilist</a> against the <a href="./compatibilism.html">compatibilist</a>, and with the <a href="./libertarianism.html">luck objection</a> against the <a href="./libertarianism.html">libertarian</a>, and takes both to their joint conclusion. Its strength is dialectical completeness — it answers the dilemma <em>whatever</em> physics says — and its constructive program, which aims to show the conclusion is not only bearable but in important respects <em>better</em>. Its burden is to make good on that program: to show that a moral and legal life shorn of <em>basic desert</em> really can retain accountability, meaning, and the goods of human relationship, against the compatibilist's charge that it gives up something we cannot, and need not, do without.</p>
+<p>With hard incompatibilism, the four principal positions on the <a href="./introduction.html">master dilemma</a> — compatibilism, libertarianism, hard determinism, and hard incompatibilism — are all on the table. The remaining pages take up the <strong>further positions</strong> that complicate this four-way map (revisionism, illusionism, luck-based skepticism, two-stage models, and the theological debates), and, separately, the bearing of <strong>physics and <a href="../../general/quantum-mechanics.html">quantum mechanics</a></strong> on whether the indeterminism the <a href="./libertarianism.html">libertarian</a> needs is real and usable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/libertarianism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/freewill/other-positions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/libertarianism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/freewill/other-positions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
