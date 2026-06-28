@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Quantum Mechanics? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/general/quantum-mechanics.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-quantum-mechanics"><a class="header" href="#what-is-quantum-mechanics">What Is Quantum Mechanics?</a></h1>
+<p><em>A plain-language introduction for the curious reader. No physics or
+mathematics background is needed — only a willingness to have some
+comfortable intuitions gently dismantled.</em></p>
+<hr />
+<h2 id="the-one-paragraph-version"><a class="header" href="#the-one-paragraph-version">The one-paragraph version</a></h2>
+<p>Quantum mechanics is the physics of the very small — atoms, electrons,
+photons of light. It is the most precisely tested theory in the history
+of science, the foundation of chemistry, lasers, transistors, MRI
+machines, and the computer you're reading this on. And yet, more than a
+century after it was discovered, nobody fully agrees on what it actually
+<em>means</em>. It works flawlessly, and it is deeply, irreducibly strange.</p>
+<h2 id="the-world-isnt-made-of-tiny-billiard-balls"><a class="header" href="#the-world-isnt-made-of-tiny-billiard-balls">The world isn't made of tiny billiard balls</a></h2>
+<p>Before quantum mechanics, the picture was comfortable. The world was made
+of little particles, like miniature billiard balls, each with a definite
+position and a definite speed, moving along definite paths. If you knew
+where everything was and how fast it was going, you could (in principle)
+predict the future exactly. The universe was a giant, predictable clock.</p>
+<p>When physicists looked closely at atoms in the early 1900s, that picture
+fell apart. The small-scale world refused to behave like billiard balls.
+What replaced it is so counterintuitive that the physicist Richard
+Feynman — who understood it as well as anyone ever has — said plainly: <em>"I
+think I can safely say that nobody understands quantum mechanics."</em></p>
+<p>Here is what's so strange.</p>
+<h2 id="how-it-was-discovered-and-by-whom"><a class="header" href="#how-it-was-discovered-and-by-whom">How it was discovered, and by whom</a></h2>
+<p>Quantum mechanics wasn't the work of a single genius in a single flash of
+insight. It was built up over about thirty years by a remarkable
+generation of physicists, each puzzling over experiments that the old
+physics simply could not explain.</p>
+<ul>
+<li>
+<p><strong>1900 — Max Planck lights the fuse.</strong> Trying to explain the colors of
+light given off by hot objects, the German physicist Max Planck found he
+could only make the math work if energy came in tiny discrete lumps —
+"quanta" — rather than flowing smoothly. He thought it was a mathematical
+trick. It was the first crack in classical physics, and it gives the
+field its name.</p>
+</li>
+<li>
+<p><strong>1905 — Einstein takes it seriously.</strong> Albert Einstein showed that
+light itself comes in particle-like packets (now called <em>photons</em>),
+explaining a puzzling effect where light knocks electrons out of metal.
+This won him the Nobel Prize — and, ironically, helped launch the very
+theory he would later distrust.</p>
+</li>
+<li>
+<p><strong>1913 — Niels Bohr tackles the atom.</strong> The Danish physicist Niels Bohr
+proposed that electrons in an atom can only occupy certain fixed orbits,
+jumping between them in sudden "quantum leaps." It was a strange,
+patched-together model, but it explained real measurements.</p>
+</li>
+<li>
+<p><strong>1925–1927 — the breakthrough years.</strong> In a burst of activity, the
+modern theory took shape. <strong>Werner Heisenberg</strong> (with Max Born and Pascual
+Jordan) created one version; <strong>Erwin Schrödinger</strong> independently created
+another, built around his now-famous <em>wave equation</em> — and the two were
+soon shown to be the same theory in different clothing. <strong>Max Born</strong>
+supplied the radical interpretation that the theory predicts only
+<em>probabilities</em>, and <strong>Heisenberg</strong> announced his <em>uncertainty
+principle</em>. Much of this crystallized at Bohr's institute in Copenhagen,
+which is why the traditional interpretation bears that city's name.</p>
+</li>
+<li>
+<p><strong>1928 and beyond — Dirac and the deepening.</strong> The British physicist
+<strong>Paul Dirac</strong> unified the new mechanics with Einstein's relativity and,
+along the way, predicted <em>antimatter</em> before anyone had seen it. Others —
+Wolfgang Pauli, and later Richard Feynman and many more — extended the
+framework into the modern theory used today.</p>
+</li>
+</ul>
+<p>It's worth noting that several of the founders were deeply uneasy with
+what they had created. Einstein never accepted it as the final word, and
+Schrödinger invented his famous cat (below) precisely to highlight how
+absurd the theory seemed. The discomfort of the very people who built it
+is part of what makes the story so compelling.</p>
+<p>Now, here is what's so strange.</p>
+<h2 id="strangeness-1-things-can-be-in-many-states-at-once"><a class="header" href="#strangeness-1-things-can-be-in-many-states-at-once">Strangeness #1: Things can be in many states at once</a></h2>
+<p>A coin is either heads or tails. A quantum object — say, an electron — can
+be in a blend of "heads" <em>and</em> "tails" at the same time, a situation
+called a <strong>superposition</strong>. It is not that we don't <em>know</em> which one it
+is; as far as anyone can tell, it genuinely isn't <em>either one</em> until we
+look.</p>
+<p>The famous illustration is <strong>Schrödinger's cat</strong>: a thought experiment in
+which a cat in a sealed box is, by the rules of quantum mechanics, placed
+in a superposition of <em>alive</em> and <em>dead</em> — both at once — until someone
+opens the box. Schrödinger invented it to show how absurd the idea seemed
+when scaled up to everyday objects. The puzzle of why we never <em>see</em> such
+blends in daily life is still very much alive (more on that below).</p>
+<h2 id="strangeness-2-looking-changes-things"><a class="header" href="#strangeness-2-looking-changes-things">Strangeness #2: Looking changes things</a></h2>
+<p>In the quantum world, <strong>measurement is not a passive act</strong>. When you
+measure a quantum object that's in a superposition, you don't just <em>find
+out</em> its state — the act of measuring forces it to pick one. The blend of
+possibilities snaps to a single definite outcome. This is often called
+the <strong>collapse</strong> of the state.</p>
+<p>Stranger still, <em>which</em> outcome you get is, as far as we can tell,
+<strong>genuinely random</strong>. The theory does not predict what <em>will</em> happen on a
+single measurement; it predicts only the <em>probabilities</em> of the various
+outcomes. This randomness appears to be built into nature itself, not a
+reflection of our ignorance. It so disturbed Albert Einstein — who helped
+found the theory — that he protested, <em>"God does not play dice."</em> As far
+as every experiment can tell, on this point Einstein was wrong.</p>
+<h2 id="strangeness-3-the-uncertainty-principle"><a class="header" href="#strangeness-3-the-uncertainty-principle">Strangeness #3: The uncertainty principle</a></h2>
+<p>You cannot know everything about a quantum object at once. The more
+precisely you pin down <em>where</em> a particle is, the less you can know about
+<em>how fast it's moving</em> — and vice versa. This isn't a limitation of our
+instruments; it's a fundamental trade-off baked into nature, called
+<strong>Heisenberg's uncertainty principle</strong>. At the smallest scales, the
+crisp, fully-specified reality of the billiard-ball picture simply does
+not exist.</p>
+<h2 id="strangeness-4-spooky-action-at-a-distance"><a class="header" href="#strangeness-4-spooky-action-at-a-distance">Strangeness #4: Spooky action at a distance</a></h2>
+<p>This is perhaps the weirdest of all. Two quantum particles can become
+<strong>entangled</strong> — linked so that they behave as a single system no matter
+how far apart they travel. Measure one, and the other is instantly
+affected, even if it's on the other side of the galaxy.</p>
+<p>Einstein loathed this and called it <em>"spooky action at a distance,"</em>
+convinced it meant the theory was incomplete. Decades later, experiments
+(by John Bell's reasoning, confirmed by Alain Aspect and others, earning
+the 2022 Nobel Prize) settled the matter: <strong>the spookiness is real.</strong> The
+correlations between entangled particles are stronger than any "billiard
+ball" picture of separate, independent objects could ever produce.
+(Importantly, this can't be used to send messages faster than light — the
+results are random on each end — but the connection itself is undeniable.)</p>
+<h2 id="so-why-dont-we-notice-any-of-this"><a class="header" href="#so-why-dont-we-notice-any-of-this">So why don't <em>we</em> notice any of this?</a></h2>
+<p>Fair question. Your coffee cup is never in two places at once; your cat is
+reliably either awake or asleep. The reason is <strong>decoherence</strong>: large
+objects are constantly being "measured" by their environment — bumped by
+air molecules, lit by stray photons — billions of times a second. All
+that interaction destroys the delicate quantum blends almost instantly,
+leaving the ordinary, definite world we experience. Quantum strangeness
+doesn't vanish at large scales; it just hides extremely well.</p>
+<h2 id="what-its-good-for"><a class="header" href="#what-its-good-for">What it's good for</a></h2>
+<p>For all its weirdness, quantum mechanics is staggeringly useful. It is not
+a fringe curiosity — it runs the modern world:</p>
+<ul>
+<li><strong>Electronics.</strong> Transistors and microchips — and therefore every
+computer and phone — work by quantum rules.</li>
+<li><strong>Lasers</strong>, used in everything from surgery to barcode scanners to
+fiber-optic internet.</li>
+<li><strong>Medical imaging</strong> like MRI scanners.</li>
+<li><strong>Chemistry itself.</strong> Why atoms bond into molecules the way they do is a
+quantum question; quantum mechanics is the hidden foundation of all of
+chemistry and biology.</li>
+<li><strong>Quantum computers</strong>, an emerging technology that harnesses
+superposition and entanglement to tackle problems no ordinary computer
+can — explored elsewhere in this book under <a href="../misc/quantum-algorithms.html">quantum
+algorithms</a>.</li>
+</ul>
+<p>The theory's predictions have been confirmed to extraordinary precision —
+in some cases agreeing with experiment to better than one part in a
+billion. Whatever it <em>means</em>, it is unquestionably <em>correct</em>.</p>
+<h2 id="the-open-questions"><a class="header" href="#the-open-questions">The open questions</a></h2>
+<p>Here's the remarkable part: a theory this successful still has a gaping
+hole at its center. The mathematics works perfectly, but <em>what it tells us
+about reality</em> is genuinely unsettled. The biggest open puzzles:</p>
+<ul>
+<li>
+<p><strong>The measurement problem.</strong> The theory says quantum systems smoothly
+evolve as blends of possibilities — <em>except</em> when measured, at which
+point they abruptly collapse to one outcome. But what counts as a
+"measurement"? Where exactly is the line between the quantum world and
+the ordinary one? The theory doesn't say. This is the deepest unsolved
+conceptual problem in the subject.</p>
+</li>
+<li>
+<p><strong>What is the "state" really?</strong> When we describe a particle as a blend
+of possibilities, is that blend a real physical thing, or just a
+bookkeeping device for our knowledge and predictions? Physicists
+genuinely disagree.</p>
+</li>
+<li>
+<p><strong>Why randomness?</strong> Is the universe truly random at heart, or does the
+apparent randomness hide some deeper layer we haven't found? Most
+evidence points to genuine randomness, but the question isn't fully
+closed.</p>
+</li>
+</ul>
+<p>These aren't gaps that better experiments alone will fill — they're
+questions about <strong>interpretation</strong>, and serious physicists hold sharply
+different views:</p>
+<ul>
+<li>The <strong>Copenhagen interpretation</strong> (the traditional textbook stance):
+don't ask what's "really" happening between measurements; the theory
+predicts outcomes, and that's all we can demand of it.</li>
+<li>The <strong>many-worlds interpretation</strong>: there is no collapse at all —
+instead, every possible outcome happens, each in its own branching
+parallel universe.</li>
+<li><strong>Pilot-wave (Bohmian) theory</strong>: particles do have definite positions
+all along, guided by an invisible wave — restoring determinism at the
+cost of accepting that spooky non-local connection openly.</li>
+</ul>
+<p>All of these make the <em>same</em> experimental predictions, which is exactly
+why choosing between them is so hard. They are different stories about the
+same flawless mathematics.</p>
+<p>And looming over everything is the grandest open problem in physics:
+quantum mechanics and Einstein's theory of gravity (general relativity)
+are both spectacularly successful, yet they are mathematically
+incompatible. Unifying them into a single theory of <strong>quantum gravity</strong>
+remains the great unfinished business of fundamental physics.</p>
+<h2 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h2>
+<p>If you'd like to see the actual machinery — the precise rules, written in
+the language of mathematics — that lives in the technical <a href="../physics/README.html">Physics</a>
+section of this book. The heart of it is the <a href="../physics/QM/postulates.html">Postulates of Quantum
+Mechanics</a>, the handful of exact rules from
+which everything above follows. From there the book builds toward
+<a href="../physics/QFT/README.html">quantum field theory</a>, the modern framework
+that merges quantum mechanics with special relativity.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../general/non-classical-logic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../philosophy/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../general/non-classical-logic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../philosophy/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

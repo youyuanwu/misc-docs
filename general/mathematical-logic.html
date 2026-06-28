@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Mathematical Logic? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/general/mathematical-logic.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-mathematical-logic"><a class="header" href="#what-is-mathematical-logic">What Is Mathematical Logic?</a></h1>
+<p><em>A plain-language introduction for the curious reader. No mathematics
+background is assumed — if you can follow an argument and ask "but how do
+you</em> know <em>that?", you already have everything you need.</em></p>
+<hr />
+<h2 id="the-one-sentence-version"><a class="header" href="#the-one-sentence-version">The one-sentence version</a></h2>
+<p>Mathematical logic is the part of mathematics that turns <strong>reasoning
+itself</strong> into something you can study — precisely, like numbers or
+shapes. Instead of using logic to prove things <em>about</em> triangles or
+prime numbers, it asks: what <em>is</em> a proof? What does it mean for a
+statement to be <em>true</em>? And — most surprisingly — what can mathematics
+<em>never</em> settle, no matter how clever we are?</p>
+<h2 id="why-would-anyone-study-this"><a class="header" href="#why-would-anyone-study-this">Why would anyone study this?</a></h2>
+<p>For most of history, "proof" was something mathematicians did by
+instinct. A proof was a convincing argument, and you knew a good one
+when you saw it. That worked well enough — until, around the late
+1800s, mathematics started producing results so strange that people no
+longer trusted their instincts.</p>
+<p>A few things shook everyone's confidence:</p>
+<ul>
+<li>
+<p><strong>Infinity stopped behaving.</strong> Mathematicians discovered that some
+infinities are <em>bigger</em> than others. There are more decimal numbers
+than there are whole numbers — even though both lists go on forever.
+That sounds like a paradox, and people wanted to know whether the
+reasoning behind it could be trusted.</p>
+</li>
+<li>
+<p><strong>Reasoning produced outright contradictions.</strong> Some very natural-
+looking arguments led to flat nonsense (the most famous is <em>Russell's
+paradox</em> — see the box below). If careful reasoning can lead to a
+contradiction, then something about "careful reasoning" needs to be
+pinned down exactly.</p>
+</li>
+</ul>
+<p>So a question that had always lurked in the background became urgent:</p>
+<blockquote>
+<p>Can we write down, completely and exactly, the rules of correct
+mathematical reasoning — and then <em>prove</em> that those rules never lead
+us astray?</p>
+</blockquote>
+<p>Mathematical logic was born from trying to answer that question. The
+answer turned out to be far more interesting than anyone expected.</p>
+<blockquote>
+<p><strong>Russell's paradox, in everyday terms.</strong> Imagine a town with one
+barber, who shaves <em>exactly those men who do not shave themselves</em>.
+Fine — but does the barber shave himself? If he does, then he's a man
+who shaves himself, so by the rule he must <em>not</em> shave himself. If he
+doesn't, then he's a man who doesn't shave himself, so by the rule he
+<em>must</em> shave himself. Either answer contradicts itself. The same trap
+appears in early attempts to define the basic objects of mathematics,
+and escaping it forced logicians to be much more careful.</p>
+</blockquote>
+<h2 id="the-big-idea-writing-rules-a-machine-could-follow"><a class="header" href="#the-big-idea-writing-rules-a-machine-could-follow">The big idea: writing rules a machine could follow</a></h2>
+<p>The central move in mathematical logic is to make reasoning so explicit
+that it becomes <strong>mechanical</strong>. You fix:</p>
+<ol>
+<li>A small, exact <strong>language</strong> — symbols and grammar rules for writing
+statements, with no room for ambiguity.</li>
+<li>A handful of starting assumptions, called <strong>axioms</strong> — the things you
+simply agree to take as given.</li>
+<li>A few <strong>rules of inference</strong> — permitted ways to get a new statement
+from ones you already have.</li>
+</ol>
+<p>A <strong>proof</strong> then becomes a concrete thing: a list of statements where
+each one is either an axiom or follows from earlier ones by a rule. The
+crucial point is that checking whether a proof is <em>correct</em> requires no
+cleverness or intuition at all — you could, in principle, hand it to a
+clerk (or a computer) who just follows the rules step by step.</p>
+<p>This is a profound shift. Once "proof" is a precise object, you can
+prove things <em>about proofs</em>. You can ask mathematical questions about
+mathematics itself. That self-reflection is where all the famous results
+come from.</p>
+<h2 id="hilberts-dream"><a class="header" href="#hilberts-dream">Hilbert's dream</a></h2>
+<p>The man who turned that urgent question into a concrete research mission
+was <strong>David Hilbert</strong>, the most influential mathematician of his era. In
+the 1920s he laid out a bold plan — now called <strong>Hilbert's program</strong> —
+to put all of mathematics on unshakable foundations once and for all.</p>
+<p>His goal was to reduce every branch of mathematics to one fixed system
+of axioms and rules, and then prove three things about that system,
+using only the safest, most concrete reasoning imaginable:</p>
+<ul>
+<li>that it is <strong>consistent</strong> — it can never prove a contradiction;</li>
+<li>that it is <strong>complete</strong> — every true statement can be proved;</li>
+<li>that it is <strong>decidable</strong> — there's a mechanical procedure to determine
+whether any given statement is provable.</li>
+</ul>
+<p>If it worked, mathematics would be permanently secure: no more
+paradoxes, no more doubt, every question answerable in principle.
+Hilbert's optimism was famous. <em>"We must know — we will know,"</em> he
+declared, and he flatly rejected the idea that any problem was
+fundamentally unsolvable: <em>"in mathematics there is no ignorabimus"</em>
+(no "we shall not know").</p>
+<p>Here is the twist of history. In 1930, Hilbert gave that very speech in
+Königsberg. The day <em>before</em>, at the same meeting, a quiet 24-year-old
+named Kurt Gödel had announced the result that would shatter the dream.</p>
+<h2 id="the-headline-results"><a class="header" href="#the-headline-results">The headline results</a></h2>
+<p>Here are the discoveries that make logicians' eyes light up — stated
+without symbols.</p>
+<h3 id="1-good-news-the-rules-really-do-capture-truth"><a class="header" href="#1-good-news-the-rules-really-do-capture-truth">1. Good news: the rules really do capture truth</a></h3>
+<p>For the basic logic of "and", "or", "not", "for all", and "there
+exists", there's a beautiful match-up. <strong>Anything that is true in every
+possible situation can actually be proved from the rules</strong>, and
+everything you can prove really is always true. The rules of logic are
+neither too weak nor too strong — they fit reality exactly. (This is
+<em>Gödel's completeness theorem</em>, from 1929. Yes, the same Gödel as the
+bad news below.)</p>
+<h3 id="2-bad-news-mathematics-cant-fully-capture-itself"><a class="header" href="#2-bad-news-mathematics-cant-fully-capture-itself">2. Bad news: mathematics can't fully capture itself</a></h3>
+<p>This is the showstopper, and it is genuinely one of the great
+intellectual results of the twentieth century.</p>
+<p>In 1931, <strong>Kurt Gödel</strong> proved that <em>any</em> honest, rule-based system rich
+enough to talk about ordinary whole-number arithmetic must be
+<strong>incomplete</strong>: there will always be true statements about numbers that
+the system can <em>never prove</em>. You can keep adding new axioms, but the
+problem never goes away — each beefed-up system has its own new
+unprovable truths.</p>
+<p>The trick behind it is dazzling. Gödel found a way to make arithmetic
+talk <em>about itself</em> — to encode statements like "this very statement has
+no proof" in the language of numbers. If the system could prove that
+statement, it would be proving something false; if it can't, then the
+statement is true but unprovable. Either way, the dream of a complete,
+self-contained mathematics is dead.</p>
+<p>A companion result (<strong>Gödel's second incompleteness theorem</strong>) is even
+more humbling: such a system can never prove <em>its own consistency</em> —
+it can never certify, from the inside, that it will never contradict
+itself. To trust it, you always have to step outside it.</p>
+<p>Between them, these two theorems demolished Hilbert's program as
+originally conceived. Completeness? Impossible. A self-contained proof
+of consistency? Impossible. The dream of settling mathematics once and
+for all was gone — not because mathematicians weren't good enough, but
+because <em>no such thing can exist</em>. (Hilbert's program did not die in
+vain, though: the effort to rescue parts of it gave birth to whole
+fields of modern logic, and a carefully scaled-back version still
+thrives today.)</p>
+<h3 id="3-some-questions-are-permanently-undecided"><a class="header" href="#3-some-questions-are-permanently-undecided">3. Some questions are permanently undecided</a></h3>
+<p>It gets stranger. Some perfectly clear mathematical questions have been
+shown to be <strong>independent</strong> of our standard rules — meaning the accepted
+foundations of mathematics can neither prove them true nor prove them
+false. The most famous is the <em>continuum hypothesis</em>, a question about
+the sizes of infinity. We now know it's not that we haven't been clever
+enough to settle it — it <em>cannot</em> be settled by the usual rules at all.
+Mathematicians are, in effect, free to add it or its opposite as a new
+assumption.</p>
+<h3 id="4-no-machine-can-answer-every-math-question"><a class="header" href="#4-no-machine-can-answer-every-math-question">4. No machine can answer every math question</a></h3>
+<p>Closely related, and the seed of computer science itself: <strong>Alan
+Turing</strong> (and, independently, Alonzo Church) showed in the 1930s that
+there is no mechanical procedure — no possible computer program — that
+can correctly decide, for <em>every</em> mathematical statement, whether it's
+provable. Some problems are simply beyond any algorithm, not because our
+computers are too slow, but in principle, forever.</p>
+<p>To even state this result, Turing had to invent a precise idea of what a
+"computer" <em>is</em>. That idea — the <strong>Turing machine</strong> — became the
+theoretical foundation of all of computing. In a real sense, the
+computer in your pocket is a child of mathematical logic.</p>
+<h2 id="so-what-is-it-good-for"><a class="header" href="#so-what-is-it-good-for">So what is it good for?</a></h2>
+<p>It's tempting to file all this under "fascinating but useless." The
+opposite is true. Mathematical logic quietly underpins a lot of modern
+life:</p>
+<ul>
+<li><strong>Computers exist because of it.</strong> The theory of what can and can't be
+computed came <em>before</em> the first electronic computers and shaped their
+design.</li>
+<li><strong>Programming languages and chip design</strong> rely on formal logic to
+describe and check behaviour.</li>
+<li><strong>Software verification</strong> — proving that critical software (in
+aircraft, medical devices, encryption) does exactly what it should —
+uses the descendants of these ideas to catch bugs that testing would
+miss.</li>
+<li><strong>Artificial intelligence</strong> has long borrowed from logic for
+representing knowledge and drawing conclusions.</li>
+<li><strong>Databases</strong> answer your queries using a language built directly on
+first-order logic.</li>
+</ul>
+<p>And beyond the practical payoff, mathematical logic delivers something
+rare: clear, permanent knowledge about the <strong>limits of knowledge
+itself</strong>. It tells us, with full rigor, that there are truths we can
+never prove, questions we can never settle, and problems no machine can
+solve. Few fields can say something that deep — and be certain of it.</p>
+<h2 id="what-do-mathematicians-make-of-all-this"><a class="header" href="#what-do-mathematicians-make-of-all-this">What do mathematicians make of all this?</a></h2>
+<p>Reactions across the mathematical world have ranged from awe to
+discomfort — which is part of what makes the field so interesting.</p>
+<ul>
+<li>
+<p><strong>John von Neumann</strong>, himself a giant of the era, was in the audience
+for Gödel's announcement, immediately grasped its importance, and
+reportedly said afterwards that <em>"it's all over"</em> for Hilbert's dream.
+He went on to champion Gödel's work.</p>
+</li>
+<li>
+<p><strong>David Hilbert</strong>, by contrast, is said to have been <em>angry</em> when he
+first heard the news — it was the refutation of his life's
+philosophical mission. Yet the foundations he built were exactly what
+made the refutation possible.</p>
+</li>
+<li>
+<p>Not everyone is troubled by the limits. Many working mathematicians
+cheerfully ignore them: in day-to-day mathematics the unprovable
+statements rarely come up, and the famous undecidable questions sit
+off to the side of most research. As one common attitude has it, the
+incompleteness theorems are profound about <em>foundations</em> without much
+changing what a number theorist or geometer does on a Tuesday.</p>
+</li>
+<li>
+<p>Others find genuine beauty and even comfort in the results. The
+mathematician <strong>G. H. Hardy</strong> prized mathematics for its permanence
+and elegance; the discovery that the subject has built-in horizons it
+can never cross strikes many as more wondrous than disappointing — a
+sign that mathematics is a richer, wilder territory than a finished
+rulebook could ever be.</p>
+</li>
+<li>
+<p>A famous minority reading comes from the physicist <strong>Roger Penrose</strong>,
+who has argued that Gödel's theorems show the human mind cannot be
+<em>just</em> a computer, since (he claims) we can "see" truths a formal
+system cannot prove. This is hotly contested — most logicians think
+the argument overreaches — but it shows how far the ripples from a
+1931 logic paper still travel, into debates about consciousness and
+artificial intelligence.</p>
+</li>
+</ul>
+<p>The healthy consensus today is that the incompleteness and
+undecidability results are not a <em>crisis</em> but a <em>discovery</em> — a
+permanent, surprising fact about the nature of mathematics, as much a
+part of the landscape as the prime numbers or the value of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span>.</p>
+<h2 id="where-to-go-next"><a class="header" href="#where-to-go-next">Where to go next</a></h2>
+<p>If your appetite is whetted and you'd like to see the actual machinery —
+the symbols, the precise definitions, the proofs — that all lives in the
+technical <a href="../logic/README.html">Logic</a> section of this book. A good entry
+point there is <a href="../logic/sentential-logic.html">Sentential (Propositional)
+Logic</a>, followed by <a href="../logic/first-order-logic.html">First-Order
+(Predicate) Logic</a>. The full story of the
+incompleteness results has its own deep-dive:
+<a href="../logic/topics/godel-incompleteness.html">Gödel's Incompleteness Theorems</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../general/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../general/non-classical-logic.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../general/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../general/non-classical-logic.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
