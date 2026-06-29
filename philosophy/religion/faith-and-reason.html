@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Faith and Reason - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/faith-and-reason.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="faith-and-reason"><a class="header" href="#faith-and-reason">Faith and Reason</a></h1>
+<p>Even if some <a href="./arguments-for-theism.html">argument for God</a> succeeded, a further and in some ways deeper question would remain: what is the proper relation between <strong>faith</strong> — the characteristic attitude of religious commitment — and <strong>reason</strong> — the evidence-weighing, argument-following faculty by which we govern belief generally? Must religious belief be <em>based on</em> evidence and argument to be rational, or can faith be legitimate, even admirable, precisely where it outruns the evidence? The dispute is not about <em>whether</em> God exists but about the <em>epistemic standing</em> of believing that he does, and it cuts across the theism/atheism divide: there are evidentialist theists and fideist ones, just as there are evidentialist atheists.</p>
+<p>This page sets out what "faith" might mean, the four classic ways of relating it to reason, the <strong>evidentialism vs. fideism</strong> axis that organizes the modern debate, and the two famous <em>pragmatic</em> attempts — Pascal's Wager and James's "will to believe" — to license belief on non-evidential grounds. It is the gateway to <a href="./epistemology/religious-epistemology.html">religious epistemology</a>, where <a href="./epistemology/reformed-epistemology.html">Reformed epistemology</a>, <a href="./epistemology/religious-experience.html">religious experience</a>, and <a href="./epistemology/miracles.html">miracles</a> develop the themes technically.</p>
+<hr />
+<h2 id="what-is-faith"><a class="header" href="#what-is-faith">What is faith?</a></h2>
+<p>"Faith" is not one thing, and several of the field's confusions trace to conflating its senses:</p>
+<ul>
+<li><strong>Faith as belief-that</strong> (<em>propositional</em>) — assent to propositions, e.g. that God exists. The question is then whether such assent is <em>rationally held</em>.</li>
+<li><strong>Faith as trust</strong> (<em>fiducial</em>, Latin <em>fides</em>) — personal trust <em>in</em> God, on the model of trusting a person, not just believing a proposition. Trust can be reasonable even where proof is unavailable, as trust in a friend is.</li>
+<li><strong>Faith as faithfulness</strong> — a practical commitment, a way of living, an orientation of the will, rather than a cognitive state at all.</li>
+<li><strong>Faith as a virtue or gift</strong> — in much theology, a disposition not wholly under voluntary control, "infused" rather than reasoned into.</li>
+</ul>
+<p>A recurring fault line is <strong>doxastic voluntarism</strong>: can one <em>choose</em> to believe? If belief is involuntary (we cannot simply decide that the wall is green), then injunctions to "have faith" must target trust, attention, or action rather than belief directly — a point that bears on both <a href="#pascals-wager">Pascal's Wager</a> and <a href="#james-the-will-to-believe">James</a>.</p>
+<h2 id="four-models-of-the-relationship"><a class="header" href="#four-models-of-the-relationship">Four models of the relationship</a></h2>
+<p>The historical positions can be sorted into four stances on how faith and reason relate:</p>
+<ul>
+<li><strong>Conflict / incompatibility.</strong> Faith and reason are <em>rivals</em>; where they meet, one must yield. This is the shared premise of two opposite camps — the <strong>rationalist critic</strong> who concludes that reason discredits faith, and the <strong>fideist</strong> who concludes that faith must override reason. <strong>Tertullian's</strong> <em>credo quia absurdum</em> ("I believe because it is absurd") and the <a href="./language/religious-language.html">verificationist</a> dismissal of religious language are both, in this sense, conflict positions.</li>
+<li><strong>Incompatibilist fideism.</strong> Faith is <em>higher</em> than reason and not answerable to it; the attempt to ground faith in argument is a category mistake or even a spiritual failing. <strong>Kierkegaard</strong>: faith is a passionate "leap," embracing the "objective uncertainty" of the paradox that the eternal entered time; to demand proof is to evade the risk that constitutes faith. <strong>Wittgensteinian</strong> philosophers of religion (<a href="./language/religious-language.html">D.Z. Phillips</a>) make a gentler version: religious belief belongs to its own "form of life" with its own grammar, not assessable by external evidential standards.</li>
+<li><strong>Synthesis / harmony.</strong> Faith and reason are distinct but cooperative, two complementary routes to one truth. <strong>Aquinas's</strong> is the paradigm: reason can establish the <em>preambles</em> of faith (that God exists, by the <a href="./arguments/cosmological.html">Five Ways</a>) and defend faith against objection, while the <em>mysteries</em> of faith (Trinity, Incarnation) exceed but do not contradict reason. "Grace perfects nature; it does not destroy it." Natural theology is the joint where the two meet.</li>
+<li><strong>Independence / incommensurability.</strong> Faith and reason address different domains and cannot conflict because they never compete — the religious counterpart of Gould's <a href="./pluralism/science-and-religion.html">NOMA</a>. Faith governs meaning, value, and the existential; reason governs empirical fact. Whether this <em>protects</em> religion or <em>trivialises</em> it (by making it immune to all evidence, and so empty of factual content) is the standing objection.</li>
+</ul>
+<h2 id="evidentialism-vs-fideism"><a class="header" href="#evidentialism-vs-fideism">Evidentialism vs. fideism</a></h2>
+<p>The modern debate distils the four models into a single axis: <strong>must religious belief be proportioned to evidence?</strong></p>
+<h3 id="the-evidentialist-demand"><a class="header" href="#the-evidentialist-demand">The evidentialist demand</a></h3>
+<p><strong>Locke</strong> held that faith is assent on the testimony of God, but that reason must first certify <em>that</em> a revelation is genuinely from God — so faith never licenses believing beyond what reason approves. <strong>W.K. Clifford</strong> ("The Ethics of Belief," 1877) pressed this into a stark ethical principle:</p>
+<blockquote>
+<p>It is wrong always, everywhere, and for anyone, to believe anything upon insufficient evidence.</p>
+</blockquote>
+<p>On this view, faith <em>unsupported</em> by evidence is not merely intellectually defective but morally culpable — a violation of one's duties to the community of inquirers. Applied to religion, the evidentialist makes the <a href="./arguments-for-theism.html">arguments for theism</a> decisive: if they fail, belief is unwarranted.</p>
+<h3 id="fideist-and-externalist-replies"><a class="header" href="#fideist-and-externalist-replies">Fideist and externalist replies</a></h3>
+<p>Two very different responses resist the demand:</p>
+<ul>
+<li><strong>Fideism</strong> rejects the <em>demand itself</em>: religious faith is not the kind of thing that requires or admits evidential support, and Clifford's principle, applied to the existential commitments by which we actually live (in persons, in projects), is unliveable. This is Kierkegaard's and, in a key, James's line.</li>
+<li><strong>Reformed epistemology</strong> rejects the demand as <em>self-undermining and too strong</em>: Clifford's own principle is not itself supported by sufficient evidence, and consistently applied it would forbid the perfectly rational beliefs of perception, memory, and other minds, which we hold without argument. If those are rational while <strong><a href="./epistemology/reformed-epistemology.html">properly basic</a></strong>, belief in God may be too — grounded in experience and the <em>sensus divinitatis</em> rather than inferred. This is the most influential contemporary answer and is developed in <a href="./epistemology/reformed-epistemology.html">Reformed epistemology</a>.</li>
+</ul>
+<p>The evidentialist's rejoinder is the <strong>"great pumpkin" objection</strong>: if belief in God can be properly basic without evidence, what stops <em>any</em> belief — in the Great Pumpkin, in astrology — from claiming the same status? Drawing a principled line between properly basic religious belief and basic <em>nonsense</em> is the central task the Reformed epistemologist inherits.</p>
+<h2 id="pragmatic-and-prudential-arguments"><a class="header" href="#pragmatic-and-prudential-arguments">Pragmatic and prudential arguments</a></h2>
+<p>A distinct tradition argues that <em>even without</em> sufficient evidence, belief can be <em>rational to adopt</em> on practical grounds — that the rationality of belief is sometimes a matter of prudence or the will, not of evidence.</p>
+<h3 id="pascals-wager"><a class="header" href="#pascals-wager">Pascal's Wager</a></h3>
+<p><strong>Pascal</strong> grants that reason cannot settle whether God exists ("reason can decide nothing here") and reframes the question as a <em>decision under uncertainty</em>. Treating belief as a wager with the outcomes set out in a decision matrix:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th>God exists</th><th>God does not exist</th></tr></thead><tbody>
+<tr><td><strong>Believe</strong></td><td>infinite gain (eternal bliss)</td><td>finite loss (some earthly goods)</td></tr>
+<tr><td><strong>Disbelieve</strong></td><td>infinite loss</td><td>finite gain</td></tr>
+</tbody></table>
+</div>
+<p>Since any non-zero probability of God multiplied by an <em>infinite</em> payoff dominates any finite alternative, the expected value of belief is infinite and the rational choice is to believe (and, since belief is not directly voluntary, to <em>cultivate</em> it — "take the holy water," follow the practices, and belief will come). The Wager is a landmark in <a href="../../logic/proof-theory.html">decision theory</a> as much as theology, but faces three standard objections:</p>
+<ul>
+<li><strong>The many-gods objection.</strong> The matrix assumes a binary (the Christian God or none); a different deity who <em>punishes</em> belief, or rewards a <em>different</em> faith, scrambles the expected-value calculation, and there are indefinitely many such hypotheses.</li>
+<li><strong>The doxastic-voluntarism objection.</strong> One cannot believe at will, so the Wager can at most recommend <em>acting</em> so as to <em>induce</em> belief — and a God who sees the calculating motive might not be impressed.</li>
+<li><strong>The mixed-strategy and infinite-utility objections.</strong> With infinite utilities the arithmetic misbehaves: any non-zero probability of belief yields infinite expectation, so even a wavering or token believer "wins," which trivialises the result.</li>
+</ul>
+<h3 id="james--the-will-to-believe"><a class="header" href="#james--the-will-to-believe">James — the will to believe</a></h3>
+<p><strong>William James</strong> ("The Will to Believe," 1896) answers Clifford directly. When a choice between hypotheses is <strong>living</strong> (both are real options for you), <strong>forced</strong> (not choosing <em>is</em> choosing — suspension has the same practical upshot as denial), and <strong>momentous</strong> (a unique, weighty, irreversible stake), and when <em>the evidence cannot decide</em>, then we have the <em>right</em> to let "our passional nature" settle the matter. Clifford's rule — <em>suspend belief whenever the evidence is insufficient</em> — is itself a passional choice (the choice to fear error more than to lose truth), and in forced, momentous cases suspension can <em>cost us the truth and the good</em> by withholding the trust that alone makes certain truths accessible (some goods, like friendship, exist only if first trusted). James does not license belief <em>against</em> evidence, only <em>beyond</em> it in the special class of forced, momentous, evidentially undecidable options — of which the religious is the paradigm.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The faith–reason question is <em>orthogonal</em> to the existence question: one can be a theist who thinks belief needs the <a href="./arguments-for-theism.html">arguments</a> (the <strong>evidentialist theist</strong>), a theist who thinks it does not (the <strong>fideist</strong> or <strong>Reformed</strong> theist), or an atheist on either ground. The modern debate has largely moved past the bare "conflict" picture to a contest between the <strong>evidentialist demand</strong> (Clifford) and the claim that religious belief can be rational without inferential evidence — whether by a <em>pragmatic</em> license (<a href="#pascals-wager">Pascal</a>, <a href="#james-the-will-to-believe">James</a>) or by being <strong><a href="./epistemology/reformed-epistemology.html">properly basic</a></strong>. The latter route hands the question to <a href="./epistemology/religious-epistemology.html">religious epistemology</a>, where the standing of belief grounded in <a href="./epistemology/religious-experience.html">religious experience</a> and the testimony of <a href="./epistemology/miracles.html">miracles</a> is worked out in detail.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/religion/arguments-against-theism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/religion/arguments/ontological.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/religion/arguments-against-theism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/religion/arguments/ontological.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

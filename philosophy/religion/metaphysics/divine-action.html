@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Divine Action and Creation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/metaphysics/divine-action.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="divine-action-and-creation"><a class="header" href="#divine-action-and-creation">Divine Action and Creation</a></h1>
+<p>Classical theism holds not only that God <em>exists</em> but that God <em>creates</em> and <em>acts</em> — that the world depends on God for its being at every moment, and that God does particular things within it (answers prayer, works <a href="../epistemology/miracles.html">miracles</a>, guides history, becomes incarnate). This raises a cluster of metaphysical questions distinct from God's <em>existence</em> and <em>nature</em>: What is <strong>creation</strong> — making something from nothing? How does an <a href="../attributes/eternity.html">immaterial, eternal</a> God <em>sustain</em> and <em>act</em> in a physical, temporal world? And can God act <em>specially</em> — do <em>this</em> rather than <em>that</em> — without <em>violating</em> the laws of nature science describes? The last question, <strong>special divine action</strong>, is the live frontier where philosophy of religion meets physics, and where <a href="../../../general/quantum-mechanics.html">quantum indeterminism</a> has been proposed as the "causal joint" through which God acts.</p>
+<p>This page treats creation <em>ex nihilo</em>, conservation and concurrence, the primary/secondary causation distinction and occasionalism, and the problem of special divine action including the NIODA program.</p>
+<hr />
+<h2 id="creation-ex-nihilo"><a class="header" href="#creation-ex-nihilo">Creation ex nihilo</a></h2>
+<p>The classical doctrine is that God created the world <strong>out of nothing</strong> (<em>creatio ex nihilo</em>) — not by shaping pre-existing matter (as a craftsman, the <em>demiurge</em> of Plato's <em>Timaeus</em>), nor by emanation from the divine substance (Neoplatonism, <a href="../concept-of-god.html">pantheism</a>), but by bringing the entire universe — matter, space, and <a href="./time-and-cosmology.html">time itself</a> — into being where there was <em>nothing</em> before. Several points:</p>
+<ul>
+<li><strong>"Nothing" is not a stuff.</strong> <em>Ex nihilo</em> does not mean God made the world <em>out of</em> a peculiar material called "nothing"; it means there was <em>no material at all</em> — creation is not transformation but the <em>sheer origination</em> of being. This distinguishes the <a href="../arguments/cosmological.html">cosmological argument's</a> God from a mere arranger.</li>
+<li><strong>Creation is not (only) a first event.</strong> On the classical view (Aquinas), creation is primarily a relation of <em>dependence</em>, not a <em>temporal beginning</em>. Even if the universe had <em>no</em> first moment (were past-eternal), it would still be <em>created</em> — <em>continuously</em> held in being by God. Aquinas held that creation-in-time is known by <em>faith</em> (revelation) but that <em>philosophy</em> cannot prove the world began; the <a href="../arguments/cosmological.html">Kalām argument</a> disagrees, making the temporal beginning central. So "creation" and "the universe had a beginning" are <em>separable</em> claims.</li>
+<li><strong>Why creation?</strong> A perfectly self-sufficient God (<a href="../attributes/goodness-and-simplicity.html">aseity</a>) does not create from <em>need</em>. The classical answer: creation is an act of <em>gratuitous goodness</em> — the diffusion of the divine goodness (<em>bonum est diffusivum sui</em>). This raises the <a href="../attributes/goodness-and-simplicity.html">simplicity/freedom</a> worry (could a simple, necessary God have <em>not</em> created, or created <em>otherwise</em>?) examined under the attributes.</li>
+</ul>
+<h2 id="conservation-and-concurrence"><a class="header" href="#conservation-and-concurrence">Conservation and concurrence</a></h2>
+<p>Creation is not a one-off. Classical theism holds that God's creative act is <em>ongoing</em>:</p>
+<ul>
+<li><strong>Conservation (preservation).</strong> God <em>sustains</em> every created thing in existence at every moment; were God to withdraw his sustaining power, things would not <em>fall apart</em> but <em>cease to be</em> entirely. Creatures have no "ontological inertia" — existence is not something a thing, once made, possesses on its own. (This is why the <a href="../arguments/cosmological.html">cosmological argument's</a> essentially-ordered series is a <em>here-and-now</em> dependence, not a past chain.)</li>
+<li><strong>Concurrence (concursus).</strong> A stronger and more contested thesis: God not only <em>sustains</em> creatures but <em>co-operates</em> in their <em>every action</em> — no created cause produces <em>any</em> effect without God's concurrent causal contribution. When fire burns, <em>both</em> the fire <em>and</em> God (as primary cause) act. Concurrentism is the mainstream Thomist–Molinist view, positioned between two extremes (below). The difficulty: how do <em>two</em> complete causes (God and creature) produce <em>one</em> effect without redundancy — and, acutely, how does divine concurrence in <em>sinful</em> acts avoid making God the <em>author of sin</em>? (This connects concurrence to the <a href="../evil/problem-of-evil.html">problem of evil</a>.)</li>
+</ul>
+<h2 id="primary-and-secondary-causation-occasionalism"><a class="header" href="#primary-and-secondary-causation-occasionalism">Primary and secondary causation; occasionalism</a></h2>
+<p>The framework for relating divine and creaturely causation is the <strong>primary/secondary cause</strong> distinction:</p>
+<ul>
+<li><strong>Primary cause:</strong> God, the first and universal cause, the source of <em>being</em> and of all causal power.</li>
+<li><strong>Secondary causes:</strong> creatures, which have <em>genuine</em> causal powers of their own — <em>real</em> efficacy — but <em>derived</em> from and <em>dependent on</em> God. Fire <em>really</em> heats; the will <em>really</em> chooses; but neither does so independently of the primary cause that grounds its power and concurs in its act.</li>
+</ul>
+<p>This is the <strong>concurrentist</strong> middle. The two extremes:</p>
+<ul>
+<li><strong>Mere conservationism</strong> (Durandus): God <em>creates and sustains</em> creatures with their powers, but does <em>not</em> concur in each act — creatures, once endowed, act <em>on their own</em>. This maximises creaturely autonomy (and eases the problem of evil) but is charged with deism-by-degrees: God becomes a remote sustainer, not intimately involved.</li>
+<li><strong>Occasionalism</strong> (al-Ghazālī in <em>kalām</em>; <strong>Malebranche</strong>): creatures have <em>no</em> real causal power at all; <em>God is the only true cause</em>. What we call "fire heating cotton" is really <em>God</em> producing the heat <em>on the occasion of</em> the contact — the apparent causal connections are <em>regular conjunctions</em> God reliably maintains. Occasionalism radically exalts God's sovereignty and dovetails with a <a href="../epistemology/miracles.html">Humean</a> (regularity) view of causation, but at the price of emptying nature of genuine powers and making <em>every</em> event (including evil and sin) <em>directly</em> God's doing — a severe <a href="../evil/theodicies.html">theodicy</a> cost, and a threat to creaturely <a href="../../freewill/libertarianism.html">free agency</a>.</li>
+</ul>
+<p>The choice among these shapes everything downstream: how <em>involved</em> God is in nature, how <em>autonomous</em> creatures (and free agents) are, and how the <a href="../evil/problem-of-evil.html">problem of evil</a> is handled.</p>
+<h2 id="special-divine-action-and-the-laws-of-nature"><a class="header" href="#special-divine-action-and-the-laws-of-nature">Special divine action and the laws of nature</a></h2>
+<p>The hardest contemporary problem is <strong>special divine action (SDA)</strong> — God's doing something <em>particular</em> (a <a href="../epistemology/miracles.html">miracle</a>, an answer to prayer, a providential guiding) as opposed to the <em>general</em> divine action of creating-and-sustaining the whole law-governed order. The dilemma:</p>
+<ul>
+<li>If God acts <em>specially</em> by <em>intervening</em> — overriding or suspending a law of nature — then divine action looks like a <em><a href="../epistemology/miracles.html">violation</a></em> of the very order God established, and sits awkwardly with the success and integrity of science (the "interventionist" worry, and a <a href="../pluralism/science-and-religion.html">science-religion</a> flashpoint).</li>
+<li>If God <em>never</em> intervenes (the <strong>deist</strong> option, or strict <a href="../pluralism/science-and-religion.html">NOMA</a>), then providence, petitionary prayer, and miracles are illusory, and God is causally idle within history.</li>
+</ul>
+<p>The project of <strong>non-interventionist objective divine action (NIODA)</strong> — pursued in the Vatican Observatory / CTNS series (Robert J. Russell, Nancey Murphy, John Polkinghorne, Thomas Tracy) — seeks a <em>third</em> way: <em>objective</em> special divine action (God <em>really</em> brings about particular results, not merely in the believer's perception) that is <em>non-interventionist</em> (does <em>not</em> violate or suspend any law). The strategies look for "causal joints" — places where nature's own description leaves room for God to determine an outcome <em>without</em> breaking a law:</p>
+<ul>
+<li><strong><a href="../../../general/quantum-mechanics.html">Quantum indeterminism</a>.</strong> If the standard interpretation is right and quantum events are <em>objectively undetermined</em> — the laws fix only <em>probabilities</em> (the Born rule), not outcomes — then God could <em>determine</em> which of the physically-possible outcomes occurs <em>without violating any law</em>, since the law <em>did not</em> dictate a unique outcome to begin with. Aggregated and amplified (e.g. through mutations, neural events, chaotic <a href="../../../general/quantum-mechanics.html">sensitive dependence</a>), such quantum-level determinations could yield macroscopic providential effects. God acts "in the gaps" the <em>laws themselves</em> leave open — not the discredited "<a href="../arguments/teleological.html">God of the gaps</a>" of <em>ignorance</em>, but a principled openness in the <em>physics</em>.</li>
+<li><strong>Chaos and "top-down" causation.</strong> Polkinghorne appeals to the unpredictability of chaotic systems (re-read metaphysically as ontological openness) and to whole-part / top-down causal influence as room for divine input.</li>
+</ul>
+<p>The objections are serious: (i) it is <em>interpretation-dependent</em> — on a <em><a href="../../../general/quantum-mechanics.html">deterministic</a></em> reading of QM (Bohm, Everett) there are <em>no</em> open quantum outcomes for God to fix, so NIODA's central move rests on a contested physics; (ii) it risks a <em>new</em> God-of-the-gaps, hostage to future physics that might close the "gaps"; (iii) it threatens to make God's action <em>causally indistinguishable</em> from chance (if God "determines" quantum outcomes that <em>look</em> random, in what sense is this <em>action</em> rather than just the statistics?), echoing the <a href="../../freewill/libertarianism.html">luck objection</a> from the free-will debate; and (iv) some object it makes God a <em>cause among causes</em> within the system, compromising the <a href="#primary-and-secondary-causation-occasionalism">primary/secondary</a> transcendence — God should act <em>as primary cause through</em> secondary causes, not as one more secondary cause nudging particles. The classical Thomist alternative is precisely to deny that SDA needs a "gap": as <em>primary cause</em>, God can bring about <em>any</em> outcome <em>through</em> secondary causes (including law-governed ones) without <em>competing</em> with them or violating anything, because divine and natural causation operate at <em>different levels</em>.</p>
+<h2 id="where-divine-action-sits"><a class="header" href="#where-divine-action-sits">Where divine action sits</a></h2>
+<p>Divine action is the metaphysics of a God who is not merely <em>posited</em> but <em>active</em> — and it inherits the tensions of the <a href="../attributes/eternity.html">attributes</a>: a <a href="../attributes/eternity.html">timeless, immutable</a> God's "acting at a moment" is already puzzling, and creation's relation to a <a href="../attributes/goodness-and-simplicity.html">simple, necessary</a> being strains divine freedom. <strong>Creation ex nihilo</strong> and <strong>conservation</strong> express the world's <em>total dependence</em> on God; the <strong>primary/secondary cause</strong> framework (between deistic <em>mere conservationism</em> and all-consuming <em>occasionalism</em>) calibrates how <em>involved</em> God is and how <em>autonomous</em> creatures and <a href="../../freewill/libertarianism.html">free agents</a> are. The sharpest live problem is <strong>special divine action</strong>: how God can act <em>particularly</em> — grounding <a href="../epistemology/miracles.html">providence, prayer, and miracles</a> — without either <em>violating</em> the laws (the interventionist worry that troubles <a href="../pluralism/science-and-religion.html">science and religion</a>) or lapsing into deism. The <strong>NIODA</strong> appeal to <a href="../../../general/quantum-mechanics.html">quantum indeterminism</a> is the most discussed contemporary proposal, ingenious but hostage to the <a href="../../../general/quantum-mechanics.html">interpretation of quantum mechanics</a> and pressed by a <a href="../../freewill/libertarianism.html">luck-style</a> objection, while the classical Thomist reply denies any "gap" is needed at all. The topic connects forward to the <a href="./afterlife.html">afterlife</a> (God's action <em>beyond</em> the natural order) and to <a href="./time-and-cosmology.html">creation and time</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/language/realism-antirealism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/metaphysics/afterlife.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/language/realism-antirealism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/metaphysics/afterlife.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

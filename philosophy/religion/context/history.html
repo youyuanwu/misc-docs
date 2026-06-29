@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of Philosophy of Religion - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/context/history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-philosophy-of-religion"><a class="header" href="#a-history-of-philosophy-of-religion">A History of Philosophy of Religion</a></h1>
+<p>The problems treated throughout these notes — the <a href="../arguments-for-theism.html">arguments for God</a>, the <a href="../evil/problem-of-evil.html">problem of evil</a>, the <a href="../attributes/coherence-of-theism.html">divine attributes</a>, <a href="../faith-and-reason.html">faith and reason</a> — did not arise all at once but developed over two and a half millennia, each era reframing the questions in its own terms. This page gives the chronological narrative, the connective tissue for the topic-organised pages: how the philosophy of religion grew from Greek metaphysics and biblical monotheism, through the great medieval synthesis, the early-modern turn to criticism, the 19th-century revolt, and the 20th-century collapse and revival.</p>
+<p>It complements the <a href="../traditions/abrahamic.html">Abrahamic traditions</a> page (which focuses on cross-confessional interaction) and the <a href="./figures.html">key figures</a> reference.</p>
+<hr />
+<h2 id="ancient"><a class="header" href="#ancient">Ancient</a></h2>
+<p>Greek philosophy supplied the <em>conceptual</em> resources; the Hebrew scriptures supplied the <em>personal, creator</em> God. Their eventual fusion is the origin of Western philosophy of religion.</p>
+<ul>
+<li><strong>Plato</strong> — the <em>Forms</em> and the Form of the <strong>Good</strong> as the highest reality; the <em>demiurge</em> of the <em>Timaeus</em> (a craftsman who shapes pre-existing matter, <em>not</em> a creator <a href="../metaphysics/divine-action.html"><em>ex nihilo</em></a>); the immortality of the <em>soul</em> (<a href="../metaphysics/afterlife.html"><em>Phaedo</em></a>); the <em>Euthyphro</em>'s <a href="../ethics/religion-and-morality.html">dilemma</a> about piety and the gods. Platonism gave later theism its vocabulary of transcendence, the Good, and the soul.</li>
+<li><strong>Aristotle</strong> — the <strong>Unmoved Mover</strong> of the <em>Metaphysics</em>: a first cause of motion, pure actuality, "thought thinking itself," drawing the cosmos as a <em>final</em> cause (object of desire) rather than creating it. This is the seed of the <a href="../arguments/cosmological.html">cosmological argument</a> and of the <a href="../attributes/eternity.html">eternity/immutability</a> attributes, though Aristotle's god is impersonal and does not <em>create</em>.</li>
+<li><strong>The Stoics</strong> — a <em>pantheistic</em> divine <em>Logos</em> / providence pervading and ordering nature, and an early <a href="../evil/problem-of-evil.html">problem-of-evil</a> discussion.</li>
+<li><strong>Epicurus</strong> — the sharpest ancient statement of the <a href="../evil/problem-of-evil.html">problem of evil</a> (the "Epicurean paradox" of God's willingness and ability), and a deistic-leaning theology of gods indifferent to the world.</li>
+<li><strong>Plotinus</strong> and <strong>Neoplatonism</strong> — the <strong>One</strong> beyond being, from which all reality <em>emanates</em>; the <a href="../language/religious-language.html">via negativa</a> and the <a href="../traditions/mysticism.html">mystical</a> ascent. Neoplatonism profoundly shaped Augustine, <a href="../traditions/abrahamic.html">Maimonides</a>, and Islamic <a href="../traditions/abrahamic.html">falsafa</a>.</li>
+</ul>
+<h2 id="medieval"><a class="header" href="#medieval">Medieval</a></h2>
+<p>The medieval achievement was the <strong>synthesis</strong> of Greek philosophy with the monotheism of the three <a href="../traditions/abrahamic.html">Abrahamic faiths</a> — a <em>joint</em>, cross-confessional project (treated in detail on that page).</p>
+<ul>
+<li><strong>Augustine</strong> (5th c.) — Neoplatonist Christian; <a href="../evil/theodicies.html">evil as privation</a> and the <a href="../evil/theodicies.html">free-will</a> and soul-making materials; <a href="../metaphysics/time-and-cosmology.html">time as created with the world</a>; <a href="../faith-and-reason.html">faith seeking understanding</a>.</li>
+<li><strong>Anselm</strong> (11th c.) — the <a href="../arguments/ontological.html">ontological argument</a> and the <a href="../concept-of-god.html">perfect-being method</a>; <em>fides quaerens intellectum</em>.</li>
+<li><strong>Islamic <a href="../traditions/abrahamic.html">falsafa and kalām</a></strong> — Avicenna's <a href="../arguments/cosmological.html">contingency argument</a> and essence/existence; al-Ghazālī's <a href="../arguments/cosmological.html">Kalām argument</a>, <a href="../metaphysics/divine-action.html">occasionalism</a>, and critique of the philosophers; Averroes's Aristotelianism and reflections on <a href="../faith-and-reason.html">reason and revelation</a>.</li>
+<li><strong>Jewish philosophy</strong> — Maimonides' <a href="../language/religious-language.html">negative theology</a> and <a href="../attributes/goodness-and-simplicity.html">divine simplicity</a>.</li>
+<li><strong>Thomas Aquinas</strong> (13th c.) — the grand synthesis: the <a href="../arguments/cosmological.html">Five Ways</a>, <a href="../language/religious-language.html">analogy</a>, the <a href="../faith-and-reason.html">faith/reason</a> harmony, and the classic treatment of the <a href="../attributes/coherence-of-theism.html">attributes</a>.</li>
+<li><strong>Scotus and Ockham</strong> (13th–14th c.) — the <a href="../traditions/abrahamic.html">univocity of being</a> and the <a href="../arguments/ontological.html">modal</a> ontological argument (Scotus); <a href="../arguments/ontological.html">nominalism</a>, the <a href="../attributes/omniscience.html">hard/soft-fact</a> solution to foreknowledge, and <a href="../ethics/religion-and-morality.html">divine-command</a> voluntarism (Ockham).</li>
+</ul>
+<h2 id="early-modern"><a class="header" href="#early-modern">Early modern</a></h2>
+<p>The early-modern period turned from <em>synthesis</em> toward <em>criticism</em>, as the new science and the rise of <em>epistemology</em> reframed every question.</p>
+<ul>
+<li><strong>Descartes</strong> (17th c.) — a <em>rationalist</em> restatement of the <a href="../arguments/ontological.html">ontological</a> and a <a href="../arguments/cosmological.html">causal cosmological</a> argument; God as guarantor of knowledge; <a href="../attributes/omnipotence.html">universal possibilism</a> about the eternal truths.</li>
+<li><strong>Spinoza</strong> — radical <strong><a href="../concept-of-god.html">pantheism</a></strong>: <em>Deus sive Natura</em>, one infinite substance; the <a href="../pluralism/critiques-of-religion.html">critique of anthropomorphic and revealed religion</a> (the <em>Theologico-Political Treatise</em>).</li>
+<li><strong>Leibniz</strong> — the <a href="../arguments/cosmological.html">contingency argument</a> from the <a href="../arguments/cosmological.html">Principle of Sufficient Reason</a>; the term and project of <strong><a href="../evil/theodicies.html">theodicy</a></strong> ("the best of all possible worlds").</li>
+<li><strong>Pascal</strong> — the <a href="../epistemology/pragmatic-arguments.html">Wager</a> and the <a href="../concept-of-god.html">God of the philosophers vs. the God of faith</a>.</li>
+<li><strong>Locke</strong> — <a href="../faith-and-reason.html">reasonable religion</a>, faith subordinate to reason's certification of revelation; the seed of <a href="../epistemology/religious-epistemology.html">evidentialism</a>.</li>
+<li><strong>Hume</strong> (18th c.) — the watershed <em>critic</em>: the <em>Dialogues Concerning Natural Religion</em> dismantle the <a href="../arguments/teleological.html">design argument</a> and press the <a href="../evil/problem-of-evil.html">problem of evil</a>; "Of Miracles" challenges <a href="../epistemology/miracles.html">testimony for the miraculous</a>; the <a href="../arguments/cosmological.html">critique of causation</a> undercuts the cosmological argument.</li>
+<li><strong>Kant</strong> — the destroyer and reconstructor: the <em>Critique of Pure Reason</em> argues that <em>all</em> the theoretical <a href="../arguments-for-theism.html">proofs</a> fail (existence is <a href="../arguments/ontological.html">not a predicate</a>; causation cannot be extended beyond experience), but the <em>Critique of Practical Reason</em> restores God as a <strong><a href="../arguments/moral.html">postulate of practical reason</a></strong>, required by morality. Kant relocates religion from metaphysics to ethics.</li>
+</ul>
+<h2 id="the-nineteenth-century"><a class="header" href="#the-nineteenth-century">The nineteenth century</a></h2>
+<p>The 19th century mounted the great <em>revolt</em> against theism, supplying the <a href="../pluralism/critiques-of-religion.html">debunking critiques</a> and the existential reframings.</p>
+<ul>
+<li><strong>Hegel</strong> — religion as a stage in the self-realisation of <em>Geist</em> (Absolute Spirit), its pictorial truth fulfilled in philosophy.</li>
+<li><strong>Schleiermacher</strong> — religion relocated to <em>feeling</em> (the "feeling of absolute dependence"), insulating it from rational <a href="../faith-and-reason.html">critique</a> — the ancestor of the <a href="../pluralism/science-and-religion.html">independence</a> model.</li>
+<li><strong>Kierkegaard</strong> — <a href="../faith-and-reason.html">fideism</a> and the "leap of faith"; truth as subjectivity; the critique of speculative reason in religion.</li>
+<li><strong>The masters of suspicion</strong> — <a href="../pluralism/critiques-of-religion.html">Feuerbach</a> (God as human projection), <a href="../pluralism/critiques-of-religion.html">Marx</a> (religion as ideology/opium), <a href="../pluralism/critiques-of-religion.html">Nietzsche</a> (the "death of God," ressentiment), and later <a href="../pluralism/critiques-of-religion.html">Freud</a> (religion as wish-fulfilment) and <a href="../pluralism/critiques-of-religion.html">Durkheim</a> (the sacred as society) — the <a href="../pluralism/critiques-of-religion.html">debunking</a> tradition.</li>
+<li><strong>Darwin</strong> (1859) — <em>On the Origin of Species</em> removes the <a href="../arguments/teleological.html">biological design argument's</a> force, the most consequential scientific event for the philosophy of religion.</li>
+<li><strong>W.K. Clifford</strong> vs. <strong>William James</strong> — the <a href="../epistemology/religious-epistemology.html">ethics-of-belief</a> debate (<a href="../faith-and-reason.html">evidentialism</a> vs. the <a href="../epistemology/pragmatic-arguments.html">will to believe</a>).</li>
+</ul>
+<h2 id="the-twentieth-century-to-today"><a class="header" href="#the-twentieth-century-to-today">The twentieth century to today</a></h2>
+<p>The 20th century saw the philosophy of religion nearly <em>die</em> and then <em>revive</em>.</p>
+<ul>
+<li><strong>Logical positivism</strong> (1920s–50s) — the <a href="../language/religious-language.html">verificationist</a> challenge (Ayer): religious language is <em>meaningless</em>, neither true nor false. For a time this threatened to <em>end</em> the subject. Its self-refutation, and the <a href="../language/religious-language.html">falsification debate</a> (Flew, Hare, Mitchell), reopened the question of <a href="../language/religious-language.html">religious language</a>.</li>
+<li><strong>Wittgenstein</strong> and the <a href="../language/religious-language.html">language-game</a> reconception (D.Z. Phillips) — religion as a form of life, the <a href="../language/realism-antirealism.html">non-realist</a> and <a href="../faith-and-reason.html">independence</a> readings.</li>
+<li><strong>Process theology</strong> (Whitehead, Hartshorne) — a <a href="../concept-of-god.html">revised, dipolar, persuasive God</a> and a <a href="../evil/theodicies.html">process theodicy</a>.</li>
+<li><strong>The analytic revival</strong> (1960s–present) — the rebirth of rigorous philosophy of religion in the analytic tradition: <strong>Plantinga</strong> (the <a href="../arguments/ontological.html">modal ontological argument</a>, the <a href="../evil/theodicies.html">free-will defense</a>, <a href="../epistemology/reformed-epistemology.html">Reformed epistemology</a>, <a href="../epistemology/reformed-epistemology.html">warrant</a>), <strong>Swinburne</strong> (the <a href="../arguments-for-theism.html">Bayesian cumulative case</a> and the <a href="../attributes/coherence-of-theism.html">coherence of theism</a>), <strong>Mackie</strong> and <strong>Rowe</strong> (the <a href="../evil/problem-of-evil.html">logical</a> and <a href="../evil/problem-of-evil.html">evidential</a> problems of evil), <strong>Adams</strong> (<a href="../ethics/religion-and-morality.html">modified DCT</a>), <strong>Hick</strong> (<a href="../evil/theodicies.html">soul-making</a> and <a href="../pluralism/religious-pluralism.html">pluralism</a>), <strong>Stump</strong> and <strong>Kretzmann</strong> (<a href="../attributes/eternity.html">eternity</a>), <strong>Schellenberg</strong> (<a href="../evil/divine-hiddenness.html">divine hiddenness</a>), and the rise of <strong><a href="./method.html">analytic theology</a></strong>.</li>
+<li><strong>Recent currents</strong> — <a href="../attributes/omniscience.html">open theism</a>; the <a href="../pluralism/science-and-religion.html">science-and-religion</a> dialogue and <a href="../metaphysics/divine-action.html">NIODA</a>; the <a href="../pluralism/critiques-of-religion.html">cognitive science of religion</a>; the <a href="../pluralism/critiques-of-religion.html">New Atheism</a>; and the broadening of the field to <a href="../traditions/non-western.html">non-Western</a> and comparative philosophy of religion.</li>
+</ul>
+<h2 id="where-the-history-sits"><a class="header" href="#where-the-history-sits">Where the history sits</a></h2>
+<p>The philosophy of religion has moved through a recognisable arc: <strong>ancient</strong> Greece supplied the metaphysical concepts (the Good, the Unmoved Mover, the One) and Israel the personal creator; the <strong>medieval</strong> <a href="../traditions/abrahamic.html">Abrahamic</a> synthesis fused them into <a href="../concept-of-god.html">classical theism</a> with its <a href="../arguments-for-theism.html">arguments</a> and <a href="../attributes/coherence-of-theism.html">attributes</a>; the <strong>early-modern</strong> turn (Hume, Kant) subjected the <a href="../arguments-for-theism.html">proofs</a> to a criticism from which the <em>demonstrative</em> ambition never recovered, relocating religion toward <a href="../arguments/moral.html">practical reason</a> and <a href="../faith-and-reason.html">feeling</a>; the <strong>nineteenth century</strong> mounted the <a href="../pluralism/critiques-of-religion.html">debunking</a> revolt and (with <a href="../arguments/teleological.html">Darwin</a>) removed the design argument's biological force; and the <strong>twentieth</strong> saw the <a href="../language/religious-language.html">verificationist</a> near-death followed by a vigorous <strong>analytic revival</strong> that reframed every classical question — the <a href="../arguments-for-theism.html">arguments</a>, <a href="../evil/problem-of-evil.html">evil</a>, the <a href="../attributes/coherence-of-theism.html">attributes</a>, and above all <a href="../epistemology/religious-epistemology.html">religious epistemology</a> — in the probabilistic and externalist terms that organise these notes. Understanding <em>which era</em> a problem comes from explains <em>why</em> it is posed as it is; the <a href="./method.html">method</a> page takes up how the field is pursued <em>today</em>, and the <a href="./figures.html">figures</a> page gives the principal contributors in brief.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/traditions/mysticism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/context/method.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/traditions/mysticism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/context/method.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

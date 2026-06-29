@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Other Theistic Arguments - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments/other-arguments.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="other-theistic-arguments"><a class="header" href="#other-theistic-arguments">Other Theistic Arguments</a></h1>
+<p>Beyond the canonical <a href="./ontological.html">ontological</a>, <a href="./cosmological.html">cosmological</a>, <a href="./teleological.html">teleological</a>, <a href="./moral.html">moral</a>, <a href="./religious-experience.html">experiential</a>, and <a href="./consciousness-and-reason.html">mind-based</a> arguments lies a long tail of further <a href="../arguments-for-theism.html">arguments for God</a> — individually more modest, rarely advanced as proofs, but several of them genuinely interesting and most of them naturally enlisted as <em>strands</em> in a <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>. This page collects them: the argument from <strong>miracles</strong>, from <strong>beauty</strong>, from <strong>desire</strong>, from the <strong>applicability of mathematics</strong>, from <strong>common consent</strong>, the <strong>pragmatic</strong> arguments, and the <strong>transcendental / presuppositional</strong> strategy.</p>
+<p>The treatment is deliberately compact; where an argument has its own dedicated discussion elsewhere (miracles, the pragmatic arguments), the capsule here points to it.</p>
+<hr />
+<h2 id="the-argument-from-miracles"><a class="header" href="#the-argument-from-miracles">The argument from miracles</a></h2>
+<p>If a genuine <strong>miracle</strong> has occurred — an event beyond the productive power of nature, brought about by God — then God exists, and a particular revelation may be authenticated. Historically this is among the most important religious arguments (the evidential role of the Resurrection in Christianity, of reported wonders in other traditions). As a <em>philosophical</em> argument it has two stages: establishing that <em>some</em> event actually occurred, and establishing that its best explanation is <em>divine</em> rather than natural-but-unknown or fraudulent.</p>
+<p>Both stages are heavily contested, and the locus of the debate is <strong>Hume's</strong> essay "Of Miracles," with its claim that the <em>testimony</em> for a miracle can never outweigh the standing <em>uniform experience</em> against a violation of natural law. Because the full assessment is an <em>epistemological</em> one — about the weight of testimony and the proper Bayesian handling of antecedently improbable events — it is developed in <a href="../epistemology/miracles.html">miracles and testimony</a>. The bare argument-form: <em>this</em> extraordinary event is best explained by God, so God exists; its force depends entirely on whether the historical and probabilistic case for any specific miracle can be made.</p>
+<h2 id="the-argument-from-beauty"><a class="header" href="#the-argument-from-beauty">The argument from beauty</a></h2>
+<p>Sometimes called the <strong>aesthetic argument</strong>: the world contains beauty — in nature, in the elegance of physical law, in art and music — far in excess of anything required for survival, and beauty is more <em>expected</em>, more <em>at home</em>, in a universe made by a God who delights in it than in one produced by indifferent physical processes.</p>
+<ol>
+<li>Objective beauty exists (sunsets, mathematical elegance, the <em>Goldberg Variations</em>).</li>
+<li>Beauty is gratuitous from a purely survival standpoint — natural selection did not need the universe, or our response to it, to be <em>beautiful</em>.</li>
+<li>Theism predicts and explains pervasive beauty (a good, creative God values and shares beauty); naturalism leaves it a surd.</li>
+<li>So beauty confirms theism over naturalism.</li>
+</ol>
+<p>Objections mirror those to the <a href="./teleological.html">design argument</a>: whether beauty is <em>objective</em> at all (or projected by us), whether evolutionary aesthetics (mate choice, landscape preference, the pleasure of pattern-recognition) explains our responses naturalistically, and whether the world's <em>ugliness</em> and horror count equally on the other side (the aesthetic analogue of the <a href="../evil/problem-of-evil.html">problem of evil</a>). Like the design argument it is, at best, a probabilistic strand.</p>
+<h2 id="the-argument-from-desire"><a class="header" href="#the-argument-from-desire">The argument from desire</a></h2>
+<p>Associated with <strong>C.S. Lewis</strong>: human beings have a deep, persistent desire — <em>Sehnsucht</em>, a longing or "joy" — that no finite object (food, sex, success, even human love) ultimately satisfies, and the natural reading is that it has a real, transcendent object, namely God.</p>
+<ol>
+<li>Every <em>natural</em>, innate desire corresponds to some real object that can satisfy it (hunger ↦ food, thirst ↦ drink, sexual desire ↦ sex).</li>
+<li>Humans have a natural desire that nothing in this world satisfies.</li>
+<li>So there exists <em>something beyond this world</em> that can satisfy it — "another world," and ultimately God.</li>
+</ol>
+<p>The argument's vulnerabilities are at premises 1 and 2. Against 1: the generalisation is false or question-begging — some desires (for immortality, for perfect justice, for a lost past) plausibly have <em>no</em> satisfier, and that an <em>appetite</em> exists does not entail its <em>object</em> exists (one can desire the impossible). Against 2: the unsatisfied longing may be explained psychologically (the hedonic treadmill, the structure of desire itself, Freudian projection) without positing a transcendent object. At most it suggests, rather than shows, a transcendent good; defenders treat it as a <em>pointer</em> and an experiential strand rather than a demonstration.</p>
+<h2 id="the-argument-from-the-applicability-of-mathematics"><a class="header" href="#the-argument-from-the-applicability-of-mathematics">The argument from the applicability of mathematics</a></h2>
+<p>A more sophisticated cousin of the design argument, drawing on Wigner's "unreasonable effectiveness of mathematics in the natural sciences": the physical universe is described, with uncanny precision and often <em>in advance</em>, by abstract mathematical structures discovered by pure thought. Why should the universe be so deeply, elegantly <em>mathematical</em> — and why should <em>our</em> minds be able to grasp the mathematics that governs it?</p>
+<p>The theistic reading: a rational God who structures the world mathematically and creates minds in his image to comprehend it explains both the <em>world's</em> intelligibility and the <em>fit</em> between mind and world; on naturalism, both the mathematical character of nature and our capacity to track it are unexplained coincidences. The naturalist replies that mathematics is <em>so</em> general and flexible that <em>some</em> mathematical description of <em>any</em> regular world is guaranteed (so its applicability is no surprise), that we <em>select and develop</em> the mathematics that happens to fit, and that our mathematical abilities are evolved or cultural. It connects to deep issues in the <a href="../../../logic/category-theory.html">philosophy of mathematics</a> — Platonism about abstract objects, the <a href="../../../logic/set-theory-zfc.html">foundations of mathematics</a> — and, like beauty, is a suggestive strand rather than a proof.</p>
+<h2 id="the-argument-from-common-consent"><a class="header" href="#the-argument-from-common-consent">The argument from common consent</a></h2>
+<p>The <strong>consensus gentium</strong> argument: belief in God (or gods, or a transcendent reality) is nearly <em>universal</em> across human cultures and history, and such widespread, spontaneous agreement is best explained by the belief's being <em>true</em> — or by humans possessing a God-tracking faculty (the <em><a href="../epistemology/reformed-epistemology.html">sensus divinitatis</a></em>).</p>
+<p>The objections are old and strong: universality of belief does not entail truth (universal false beliefs — that the sun goes round the earth — have existed); the consent is <em>not</em> in fact uniform (atheism, non-theistic religions, and radically different deities break the "consensus"); and there are powerful <em>naturalistic</em> explanations of why God-belief is near-universal <em>whether or not it is true</em> — the <a href="../pluralism/critiques-of-religion.html">cognitive science of religion</a> (hyperactive agency detection), or Freudian and Durkheimian <a href="../arguments-against-theism.html">projection</a>. Indeed the very universality the argument cites is what the <em>debunking</em> arguments explain away. It survives, if at all, only when paired with a claim that the God-producing faculty is <em>reliable</em> — which throws it back onto <a href="../epistemology/reformed-epistemology.html">Reformed epistemology</a>.</p>
+<h2 id="pragmatic-and-prudential-arguments"><a class="header" href="#pragmatic-and-prudential-arguments">Pragmatic and prudential arguments</a></h2>
+<p>A categorically different kind of argument: these do not claim God <em>exists</em> but that it is <em>rational to believe</em> (or to try to believe) he does, on practical rather than evidential grounds — <strong>Pascal's Wager</strong> (belief as the dominant bet under infinite stakes) and <strong>James's "will to believe"</strong> (the right to believe in forced, momentous, evidentially undecidable options). Because they concern the <em>justification of belief</em> rather than the <em>existence of God</em>, they belong to the <a href="../faith-and-reason.html">faith-and-reason</a> debate and are developed there (and in <a href="../epistemology/pragmatic-arguments.html">pragmatic arguments</a>); they are listed here only to mark that "arguments for theistic belief" is a wider category than "arguments for God's existence."</p>
+<h2 id="the-transcendental--presuppositional-argument"><a class="header" href="#the-transcendental--presuppositional-argument">The transcendental / presuppositional argument</a></h2>
+<p>A distinctive strategy from <strong>presuppositional apologetics</strong> (Van Til, Bahnsen): rather than offer evidence <em>for</em> God, argue that God is the <em>precondition</em> of <em>any</em> reasoning, evidence, or intelligibility whatever — that logic, the uniformity of nature, and objective morality cannot be <em>accounted for</em> on a non-theistic worldview, so that the atheist, in the very act of arguing, <em>presupposes</em> the God she denies. It is the <strong>transcendental</strong> form: not "here is evidence" but "the possibility of evidence itself requires God." It overlaps the <a href="./consciousness-and-reason.html">argument from reason</a> (the reliability of cognition) and the <a href="./moral.html">moral argument</a> (the grounding of objective norms).</p>
+<p>The objections: the argument is widely regarded as <em>question-begging</em> (it assumes that <em>only</em> God could ground logic and induction, which is precisely what must be shown), and it confronts the <em>many-gods</em> problem in acute form (even if <em>some</em> transcendent ground is needed, why the Christian God specifically?). Naturalists and Platonists offer rival accounts of the grounding of logic and induction that the presuppositionalist must <em>refute</em> rather than merely <em>deny</em>. It is more a <em>method</em> — shifting the burden by attacking the coherence of the opposing worldview — than a free-standing proof.</p>
+<h2 id="where-these-arguments-sit"><a class="header" href="#where-these-arguments-sit">Where these arguments sit</a></h2>
+<p>None of the arguments on this page is offered, by careful proponents, as a stand-alone demonstration; each isolates some further feature of the world — its wonders, its beauty, our unquenchable longing, its mathematical intelligibility, the near-universality of belief — and claims it is <em>more expected</em> under theism than under naturalism. Their proper home is therefore the <strong><a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a></strong>: weak strands that, the theist argues, reinforce one another and the stronger arguments. The honest assessment is that most face a powerful <em>naturalistic</em> counter-explanation (evolutionary aesthetics, the cognitive science of belief, the flexibility of mathematics) that, if successful, <em>undercuts</em> rather than merely <em>rebuts</em> them — and that several (common consent, the argument from desire) depend for any force on the prior success of <a href="../epistemology/reformed-epistemology.html">Reformed epistemology's</a> claim that we possess a <em>reliable</em> God-tracking faculty. The <a href="../faith-and-reason.html">pragmatic</a> and <a href="#the-transcendental--presuppositional-argument">transcendental</a> arguments stand apart, shifting the question from <em>God's existence</em> to the <em>rationality of belief</em> and the <em>preconditions of reason</em> — and so connect the case for theism back to <a href="../faith-and-reason.html">faith and reason</a> and <a href="../epistemology/religious-epistemology.html">religious epistemology</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/arguments/consciousness-and-reason.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/evil/problem-of-evil.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/arguments/consciousness-and-reason.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/evil/problem-of-evil.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

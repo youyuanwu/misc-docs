@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Philosophy of Religion? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-philosophy-of-religion"><a class="header" href="#what-is-philosophy-of-religion">What Is Philosophy of Religion?</a></h1>
+<p><strong>Philosophy of religion</strong> is the rational examination of the concepts, claims, and arguments that arise from religious thought and practice. It asks not what any particular tradition <em>teaches</em> but whether what is taught can be <em>defended</em>: whether there is a God or transcendent reality, whether such a being's nature is even coherent, whether religious belief can be rational, whether religious language succeeds in saying anything, and what follows for morality, meaning, and the human predicament. It is <strong>philosophy applied to religion</strong> — argument and analysis rather than devotion, scripture, or church history — and it proceeds, in principle, from premises available to believer and unbeliever alike.</p>
+<p>This page fixes the subject matter, separates the three different <em>kinds</em> of question the field pursues, lays out the map of available positions, and distinguishes philosophy of religion from the neighbouring disciplines it is most often confused with. The later pages take up each problem — the <a href="./arguments-for-theism.html">arguments for</a> and <a href="./arguments-against-theism.html">against</a> theism, the <a href="./evil/problem-of-evil.html">problem of evil</a>, the <a href="./attributes/coherence-of-theism.html">divine attributes</a>, <a href="./language/religious-language.html">religious language</a>, and <a href="./faith-and-reason.html">faith and reason</a> — in detail.</p>
+<hr />
+<h2 id="three-questions-not-one"><a class="header" href="#three-questions-not-one">Three questions, not one</a></h2>
+<p>It is tempting to think the philosophy of religion is just the question "Does God exist?" But that single question conceals three logically independent ones, and progress depends on keeping them apart. They mirror the structure used throughout these notes (compare the <a href="../freewill/introduction.html">free-will problem</a>, which is likewise split into a metaphysical, a normative, and a conceptual question):</p>
+<ul>
+<li><strong>The metaphysical question — is there a God, or a transcendent reality at all?</strong> This is the question of <em>existence</em>: whether the world contains, or depends on, a being of the relevant kind. It is the province of <a href="./arguments-for-theism.html">natural theology</a> (arguments that there is such a being) and of <a href="./arguments-against-theism.html">atheological arguments</a> (arguments that there is not, above all from <a href="./evil/problem-of-evil.html">evil</a>).</li>
+<li><strong>The epistemic question — can we <em>know</em>, and when is religious belief justified?</strong> Even if there is a God, it is a further question whether anyone is in a position to know it, and <em>how</em> belief could be warranted: by argument and evidence, by <a href="./epistemology/religious-experience.html">religious experience</a>, by <a href="./epistemology/miracles.html">testimony of miracles</a>, or as <a href="./epistemology/reformed-epistemology.html">properly basic</a> without argument at all. This is the domain of <a href="./epistemology/religious-epistemology.html">religious epistemology</a> and of <a href="./faith-and-reason.html">faith and reason</a>.</li>
+<li><strong>The semantic question — what does religious language <em>mean</em>?</strong> Before asking whether "God is good" is <em>true</em> or <em>known</em>, we must ask what it <em>says</em>. Is talk of a timeless, immaterial, infinite being literally meaningful, or only analogical, symbolic, or expressive? The <a href="./language/religious-language.html">verificationist challenge</a> pressed this hard, and the answer shapes everything: a sentence that says nothing can be neither true nor justified.</li>
+</ul>
+<p>A complete view must answer all three, and the answers interact. A non-realist who holds that "God exists" is not a factual claim at all (semantic) thereby dissolves the metaphysical question; an evidentialist who demands proportioning belief to evidence (epistemic) makes the success of the <a href="./arguments-for-theism.html">arguments</a> decisive in a way a <a href="./faith-and-reason.html">fideist</a> does not.</p>
+<h2 id="the-map-of-positions"><a class="header" href="#the-map-of-positions">The map of positions</a></h2>
+<p>On the metaphysical question, the principal positions are arrayed by <em>what</em> they affirm about the divine and <em>whether</em> they affirm anything:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Core claim</th></tr></thead><tbody>
+<tr><td><strong>Theism</strong></td><td>There exists a personal God: a unique, incorporeal, omnipotent, omniscient, perfectly good creator.</td></tr>
+<tr><td><strong>Atheism</strong></td><td>There is no God (in the relevant sense). "Negative/weak" atheism = absence of theistic belief; "positive/strong" atheism = belief that there is no God.</td></tr>
+<tr><td><strong>Agnosticism</strong></td><td>The existence of God is unknown, or unknowable; belief should be suspended.</td></tr>
+<tr><td><strong>Deism</strong></td><td>There is a creator who does not intervene — no miracles, revelation, or providence; God is known by reason, not scripture.</td></tr>
+<tr><td><strong>Pantheism</strong></td><td>God is identical with the cosmos or nature (Spinoza's <em>Deus sive Natura</em>).</td></tr>
+<tr><td><strong>Panentheism</strong></td><td>The world is <em>in</em> God but God exceeds it; God and world are interdependent (process theology).</td></tr>
+<tr><td><strong>Polytheism</strong></td><td>There are many gods.</td></tr>
+<tr><td><strong>Naturalism</strong></td><td>Reality is exhausted by the natural/physical order; there is nothing supernatural to know.</td></tr>
+</tbody></table>
+</div>
+<p>The default subject of Western philosophy of religion is <strong>classical theism</strong> — the "God of the philosophers," a being possessing the <a href="./concept-of-god.html">omni-attributes</a> to their maximal degree — because it is the conception against which the central <a href="./arguments-for-theism.html">arguments</a> and the <a href="./evil/problem-of-evil.html">problem of evil</a> are pitched. But the field is steadily widening to take in <a href="./concept-of-god.html">process and open theism</a>, and the <a href="./traditions/non-western.html">non-Western traditions</a> — Hindu, Buddhist, Confucian, Daoist — whose conceptions of ultimate reality are often non-personal or non-theistic, and which generate philosophical problems of their own.</p>
+<p>A useful taxonomy of the existence question itself distinguishes:</p>
+<ul>
+<li><strong>Theistic arguments</strong> — that God <em>does</em> exist: the <a href="./arguments/ontological.html">ontological</a>, <a href="./arguments/cosmological.html">cosmological</a>, <a href="./arguments/teleological.html">teleological</a>, <a href="./arguments/moral.html">moral</a>, and <a href="./arguments/religious-experience.html">experiential</a> arguments.</li>
+<li><strong>Atheological arguments</strong> — that God does <em>not</em> exist: the <a href="./evil/problem-of-evil.html">problem of evil</a>, <a href="./evil/divine-hiddenness.html">divine hiddenness</a>, and <a href="./attributes/coherence-of-theism.html">incoherence-of-attributes</a> arguments.</li>
+<li><strong>Neutral / second-order considerations</strong> — about <a href="./arguments-against-theism.html">burden of proof</a>, the <a href="./language/religious-language.html">meaningfulness</a> of the dispute, and the <a href="./epistemology/religious-epistemology.html">epistemology</a> of belief without proof.</li>
+</ul>
+<h2 id="what-philosophy-of-religion-is-not"><a class="header" href="#what-philosophy-of-religion-is-not">What philosophy of religion is <em>not</em></a></h2>
+<p>The field is defined as much by its method as its subject, and three contrasts sharpen it:</p>
+<ul>
+<li><strong>Not theology.</strong> <em>Theology</em> reasons <em>from within</em> a tradition, typically taking the existence of God and the authority of a revelation as starting points, and works out their consequences (systematic theology) or interprets their sources (biblical, dogmatic theology). Philosophy of religion takes nothing as given by faith; it subjects the starting points themselves to scrutiny. The boundary is porous — <strong>philosophical theology</strong> and the recent <strong>analytic theology</strong> deliberately straddle it — but the difference in <em>burden</em> is real: the theologian may presuppose what the philosopher must argue for.</li>
+<li><strong>Not religious studies.</strong> <em>Religious studies</em> (the history, sociology, anthropology, and psychology of religion) describes religion as a human phenomenon — what people believe and do, and why — without evaluating whether the beliefs are <em>true</em>. It is descriptive and empirical; philosophy of religion is normative and evaluative. (The descriptive findings can nonetheless feed <em>atheological</em> arguments: see the <a href="./pluralism/critiques-of-religion.html">projection theories</a> of Feuerbach, Marx, and Freud, and the cognitive science of religion.)</li>
+<li><strong>Not apologetics.</strong> <em>Apologetics</em> is the defence of a faith, advocacy with a conclusion fixed in advance. Philosophy of religion follows the argument where it leads and is equally prepared to find for atheism; many of its central practitioners (Hume, Mackie, Rowe) were unbelievers. The discipline's credibility depends on this evenhandedness — the same standards are applied to a <a href="./arguments/teleological.html">design argument</a> and to the <a href="./evil/problem-of-evil.html">argument from evil</a>.</li>
+</ul>
+<h2 id="a-field-not-a-single-debate"><a class="header" href="#a-field-not-a-single-debate">A field, not a single debate</a></h2>
+<p>Because the three questions are independent, the philosophy of religion is genuinely a <em>field</em> rather than an extended argument about existence. Its main provinces, each developed in its own pages:</p>
+<ul>
+<li>The <strong>existence of God</strong> — the <a href="./arguments-for-theism.html">arguments for</a> and <a href="./arguments-against-theism.html">against</a>, and the canonical trio of <a href="./arguments/ontological.html">ontological</a>, <a href="./arguments/cosmological.html">cosmological</a>, and <a href="./arguments/teleological.html">teleological</a> arguments.</li>
+<li>The <strong>nature of God</strong> — the <a href="./concept-of-god.html">concept of God</a> and the coherence of the <a href="./attributes/coherence-of-theism.html">divine attributes</a>: <a href="./attributes/omnipotence.html">omnipotence</a>, <a href="./attributes/omniscience.html">omniscience and foreknowledge</a>, <a href="./attributes/eternity.html">eternity</a>, <a href="./attributes/goodness-and-simplicity.html">goodness and simplicity</a>.</li>
+<li>The <strong>problem of evil</strong> — the chief reason to doubt theism, in its <a href="./evil/problem-of-evil.html">logical and evidential</a> forms, the <a href="./evil/theodicies.html">theodicies</a> that answer it, and the related problem of <a href="./evil/divine-hiddenness.html">divine hiddenness</a>.</li>
+<li><strong>Religious epistemology</strong> — <a href="./faith-and-reason.html">faith and reason</a>, <a href="./epistemology/reformed-epistemology.html">evidentialism and Reformed epistemology</a>, <a href="./epistemology/religious-experience.html">religious experience</a>, and <a href="./epistemology/miracles.html">miracles</a>.</li>
+<li><strong>Religious language</strong> — whether God-talk is <a href="./language/religious-language.html">meaningful, analogical, or non-realist</a>.</li>
+<li><strong>Religion's bearing on value and life</strong> — <a href="./ethics/religion-and-morality.html">religion and morality</a> (the Euthyphro dilemma, divine-command theory) and the <a href="./ethics/meaning-of-life.html">meaning of life</a>.</li>
+<li><strong>Religion in a plural and scientific world</strong> — <a href="./pluralism/religious-pluralism.html">religious diversity</a>, <a href="./pluralism/science-and-religion.html">science and religion</a>, and the <a href="./pluralism/critiques-of-religion.html">critiques of religion</a>.</li>
+<li><strong>The wider traditions</strong> — <a href="./traditions/non-western.html">non-Western philosophy of religion</a> and the <a href="./context/history.html">history</a> of the field.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The philosophy of religion is best entered not through a verdict but through a <em>grid</em>: three questions (does it exist? can we know? what does it mean?) crossed with a range of positions (theism, atheism, agnosticism, and their variants). Almost every dispute in the field is located somewhere on that grid, and most confusion comes from sliding between its cells — answering a semantic worry with a metaphysical argument, or treating a failure of <em>proof</em> as a proof of <em>non-existence</em>. The next page fixes the central object of the metaphysical question by asking exactly <em>what</em> is meant by "God"; with the <a href="./concept-of-god.html">concept of God</a> in hand we can then weigh the <a href="./arguments-for-theism.html">arguments for</a> and <a href="./arguments-against-theism.html">against</a> its existence.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/religion/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/religion/concept-of-god.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/religion/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/religion/concept-of-god.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

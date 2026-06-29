@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Non-Western Philosophy of Religion - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/traditions/non-western.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="non-western-philosophy-of-religion"><a class="header" href="#non-western-philosophy-of-religion">Non-Western Philosophy of Religion</a></h1>
+<p>The philosophy of religion as usually taught is built around the <a href="../concept-of-god.html">classical theism</a> of the Abrahamic faiths — a single, personal, omnipotent creator — and its <a href="../arguments-for-theism.html">arguments</a>, <a href="../evil/problem-of-evil.html">problems</a>, and <a href="../attributes/coherence-of-theism.html">attributes</a> are framed for <em>that</em> conception. But the great traditions of <strong>India</strong> and <strong>China</strong> developed sophisticated philosophies of ultimate reality that are often <em>non-theistic</em> or <em>non-personal</em>, with their own rigorous arguments, their own problem of evil, and their own accounts of the self, liberation, and the transcendent. Taking them seriously <em>widens</em> every question in the field: it shows which problems are <em>parochial</em> to theism and which are <em>universal</em>, and it supplies the deep <a href="../pluralism/religious-pluralism.html">diversity</a> that makes the pluralism debate pressing.</p>
+<p>This page surveys the Indian <em>darśanas</em> (Nyāya theistic arguments, Advaita Vedānta's non-dualism, karma and evil), Buddhist non-theism (dependent origination, Nāgārjuna's critique of a creator, no-self), and Chinese conceptions of the transcendent (Confucian <em>Tian</em>, Daoist naturalism).</p>
+<hr />
+<h2 id="indian-philosophy-of-religion"><a class="header" href="#indian-philosophy-of-religion">Indian philosophy of religion</a></h2>
+<p>Classical Indian philosophy comprises competing schools (<em>darśanas</em>), some <em>theistic</em>, some not, debating with great logical rigour over centuries.</p>
+<h3 id="nyāya-theistic-arguments"><a class="header" href="#nyāya-theistic-arguments">Nyāya: theistic arguments</a></h3>
+<p>The <strong>Nyāya</strong> school (and Nyāya–Vaiśeṣika) developed India's most systematic <strong>natural theology</strong> — arguments for <strong>Īśvara</strong> (the Lord, a supreme God) that strikingly <em>parallel</em> the Western <a href="../arguments/cosmological.html">cosmological</a> and <a href="../arguments/teleological.html">teleological</a> arguments, developed independently:</p>
+<ul>
+<li><strong>The causal/design argument</strong> (Udayana, <em>Nyāyakusumāñjali</em>, 11th c.): the world is an <em>effect</em> (composed of parts, exhibiting arrangement), and every effect requires an <em>intelligent maker</em> with knowledge of the materials; the world's complexity and the regularity of karma exceed any human maker; so there is a supremely intelligent maker, Īśvara. This is a design-cum-cosmological inference (<em>anumāna</em>) of exactly the <a href="../arguments/teleological.html">Western</a> type.</li>
+<li>Udayana marshalled a <em>battery</em> of arguments (from the world as effect, from the support of atoms in combination, from the authority of the Vedas, from the operation of karma needing a supervisor) — a <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a> avant la lettre.</li>
+</ul>
+<p>Crucially, these were <em>contested within India</em>: the <strong>Mīmāṃsā</strong> school (concerned with Vedic ritual) was <em>atheistic</em>, arguing the Vedas are <em>authorless</em> and eternal and need no divine author, and that the world-process runs on karma <em>without</em> a God; and the <strong>Buddhists</strong> (below) argued <em>against</em> Īśvara directly. So India staged its <em>own</em> theism/atheism debate, with arguments mirroring the Western ones.</p>
+<h3 id="advaita-vedānta-non-dualism"><a class="header" href="#advaita-vedānta-non-dualism">Advaita Vedānta: non-dualism</a></h3>
+<p><strong>Advaita ("non-dual") Vedānta</strong> (Śaṅkara, 8th c.) offers a conception of ultimate reality utterly unlike personal theism: <strong>Brahman</strong> — the one, infinite, non-dual reality — is <em>identical</em> with <strong>Ātman</strong>, the true Self, and the apparent plurality of the world and individual selves is <em>Māyā</em> (a beginningless cosmic appearance, neither simply real nor simply unreal). The famous <em>mahāvākya</em> ("great saying"): <em>Tat tvam asi</em> — "<strong>That thou art</strong>." Liberation (<em>mokṣa</em>) is the <em>realisation</em>, not the <em>acquisition</em>, that one's deepest self <em>is</em> Brahman.</p>
+<p>Advaita distinguishes two levels (anticipating <a href="../pluralism/religious-pluralism.html">Hick's</a> move): <strong>Nirguna Brahman</strong> (Brahman <em>without</em> qualities — the ultimate, ineffable, impersonal reality, beyond all predication, like the <a href="../language/religious-language.html">via negativa's</a> God) and <strong>Saguna Brahman</strong> (Brahman <em>with</em> qualities — Īśvara, the personal God of worship, <em>real</em> at the conventional level but a <em>lower</em> truth than the qualityless absolute). This is a form of <a href="../concept-of-god.html">monism / pantheism</a> of great philosophical depth, and its non-personal ultimate is one of the conceptions <a href="../pluralism/religious-pluralism.html">Hick's pluralism</a> must accommodate as an <em>impersona</em> of the Real. (Rival Vedānta schools — <strong>Rāmānuja's</strong> qualified non-dualism and <strong>Madhva's</strong> dualism — defend a <em>personal</em> God and a <em>real</em> distinction between God and souls, so even "Vedānta" contains a theism/non-theism spectrum.)</p>
+<h3 id="karma-and-the-problem-of-evil"><a class="header" href="#karma-and-the-problem-of-evil">Karma and the problem of evil</a></h3>
+<p>Indian thought handles <a href="../evil/problem-of-evil.html">evil</a> through <strong>karma</strong> and <strong>rebirth</strong> (<a href="../metaphysics/afterlife.html">saṃsāra</a>): suffering is the lawful fruit of one's own past actions, across innumerable lives. This is a <em>theodicy</em> of <em>desert</em> — no suffering is <em>undeserved</em>, so the <a href="../evil/problem-of-evil.html">problem of evil</a> as "why does a good God permit <em>unmerited</em> suffering?" is <em>dissolved</em>. Its costs are real: it can <em>blame the victim</em> (present misfortune implies past wrongdoing), it requires an <a href="../arguments/cosmological.html">infinite regress</a> of lives (each life's conditions explained by a prior), it strains <a href="../metaphysics/afterlife.html">personal identity</a> (in what sense is the <em>reborn</em> being the <em>same</em> one being punished — acute for <a href="#buddhist-philosophy-of-religion">Buddhism's no-self</a>), and for <em>theistic</em> schools (Nyāya, Rāmānuja) it raises a version of the Western problem (why did Īśvara set up <em>this</em> karmic order, or create the souls who would sin?). The interplay of <em>karma</em> and <em>God</em> is itself a debated topic within Indian theism.</p>
+<h2 id="buddhist-philosophy-of-religion"><a class="header" href="#buddhist-philosophy-of-religion">Buddhist philosophy of religion</a></h2>
+<p><strong>Buddhism</strong> is the great <em>non-theistic</em> tradition — it neither affirms nor centres a creator God, and developed explicit <em>arguments against</em> one:</p>
+<ul>
+<li><strong>Atheism about a creator.</strong> The Buddha treated the question of a first cause / creator as <em>unprofitable</em> (one of the "unanswered questions"), and later Buddhist philosophers argued <em>against</em> Īśvara. <strong>Nāgārjuna</strong> and others pressed: a creator is <em>superfluous</em> (the world runs on <strong>dependent origination</strong>, below); the <a href="../evil/problem-of-evil.html">problem of evil</a> tells against a <em>good, powerful</em> creator (the <em>Bodhicaryāvatāra</em> and others deploy evil-style arguments); and a <em>permanent</em> creator conflicts with universal <em>impermanence</em>. Buddhism thus runs the <a href="../arguments-against-theism.html">atheological</a> case from <em>within</em> a deeply religious framework.</li>
+<li><strong>Dependent origination (<em>pratītyasamutpāda</em>).</strong> The central metaphysics: everything arises <em>in dependence on</em> causes and conditions — nothing exists independently, by its own nature, or eternally. There is no need for, and no room for, an <em>unconditioned first cause</em>: the world is a beginningless web of <em>mutual conditioning</em>. This is a direct <em>alternative</em> to the <a href="../arguments/cosmological.html">cosmological argument's</a> demand for a self-existent ground — Buddhism <em>embraces</em> the regress of conditions (or its mutual-dependence structure) rather than terminating it in a <a href="../attributes/goodness-and-simplicity.html">necessary being</a>.</li>
+<li><strong>No-self (<em>anattā / anātman</em>).</strong> There is <em>no</em> permanent, substantial self or soul; the "person" is a changing <em>bundle</em> of impersonal processes (the five <em>skandhas</em>), causally continuous but without an enduring owner. This is the sharpest contrast with both the <a href="#advaita-vedanta-non-dualism">Hindu Ātman</a> and the <a href="../metaphysics/afterlife.html">Western soul</a>: rebirth is <em>causal continuity without identity</em> (the flame passed candle to candle), and liberation (<em>nirvāṇa</em>) is <em>release</em> from the craving rooted in the <em>illusion</em> of self. (The no-self doctrine connects to the <a href="../../freewill/introduction.html">free-will</a> discussion of the self and agency, and to the <a href="../metaphysics/afterlife.html">personal-identity</a> problems of the afterlife.)</li>
+<li><strong>Nāgārjuna's emptiness (<em>śūnyatā</em>).</strong> The Madhyamaka school radicalises dependent origination: all things are <em>empty</em> of <em>svabhāva</em> (intrinsic, independent existence) — including emptiness itself. This is not nihilism but a <em>middle way</em> between existence and non-existence, with a sophisticated <em>two-truths</em> doctrine (conventional vs. ultimate) and a critique of <em>all</em> metaphysical positing that bears comparison with Western anti-foundationalism and the <a href="../language/religious-language.html">limits of religious language</a>.</li>
+</ul>
+<h2 id="chinese-conceptions-of-the-transcendent"><a class="header" href="#chinese-conceptions-of-the-transcendent">Chinese conceptions of the transcendent</a></h2>
+<p>The Chinese traditions conceive the ultimate in still other terms, often <em>immanent</em> and <em>naturalistic</em> rather than a transcendent personal creator:</p>
+<ul>
+<li><strong>Confucianism — <em>Tian</em> (Heaven).</strong> Early Confucianism invokes <strong>Tian</strong> ("Heaven") as a quasi-transcendent moral order or source — sometimes a purposive, almost personal power that grounds the moral law and the "Mandate of Heaven," sometimes a more impersonal <em>order of nature and morality</em>. Confucian thought is centrally <em>ethical</em> and <em>this-worldly</em> (the cultivation of virtue, ritual, and social harmony) rather than focused on God or an afterlife — "not yet able to serve the living, how can you serve the dead?" (Confucius). It raises the question whether a <em>religion</em> (or philosophy of the transcendent) can be essentially <em>ethical and immanent</em>, bearing on the <a href="../pluralism/critiques-of-religion.html">"religion"-as-category</a> debate.</li>
+<li><strong>Daoism — the <em>Dao</em> and naturalism.</strong> The <strong>Dao</strong> ("the Way") is the ineffable, spontaneous <em>source and pattern</em> of all things — "the Dao that can be spoken is not the eternal Dao" (<em>Dao De Jing</em>), a striking statement of <a href="../language/religious-language.html">ineffability</a> and the <a href="../language/religious-language.html">via negativa</a>. The Dao is not a <em>personal creator</em> but an <em>impersonal</em>, immanent principle of natural spontaneity (<em>ziran</em>) and effortless action (<em>wu wei</em>); the sage aligns with it rather than worshipping it. It is a profoundly <em>non-theistic</em>, <em>naturalistic</em> yet <em>religious</em> conception of the ultimate, another <em>impersona</em> for a <a href="../pluralism/religious-pluralism.html">pluralist</a> account to absorb.</li>
+</ul>
+<h2 id="where-non-western-philosophy-of-religion-sits"><a class="header" href="#where-non-western-philosophy-of-religion-sits">Where non-Western philosophy of religion sits</a></h2>
+<p>The non-Western traditions transform the philosophy of religion from the study of <em>theism and its discontents</em> into the study of <em>ultimate reality</em> in all its forms. They show that the field's central moves are <em>not</em> parochial: India developed its <em>own</em> <a href="../arguments/teleological.html">cosmological/design arguments</a> (Nyāya's Īśvara) <em>and</em> its own <a href="../arguments-against-theism.html">atheism</a> (Mīmāṃsā, Buddhism), staging a theism debate that mirrors the Western one; and they supply <em>alternatives</em> to its core assumptions — <strong>dependent origination</strong> as a rival to the <a href="../arguments/cosmological.html">first-cause</a> demand, <strong>karma</strong> as a <a href="../evil/theodicies.html">theodicy</a> of desert, <strong>no-self</strong> as a rival to the <a href="../metaphysics/afterlife.html">soul</a>, and the <strong>impersonal ultimates</strong> (Nirguna Brahman, the Dao, śūnyatā) as conceptions of the transcendent that are religiously central yet <em>not</em> a personal God. These non-personal ultimates are exactly what make <a href="../pluralism/religious-pluralism.html">religious diversity</a> <em>deep</em> (Hick's "Real" must span personae <em>and</em> impersonae) and the <a href="../epistemology/religious-experience.html">perennialism/constructivism</a> debate live, and the <a href="../../freewill/introduction.html">no-self</a> and <a href="../language/religious-language.html">ineffability</a> themes connect outward to the free-will and religious-language discussions. A complete philosophy of religion cannot treat them as an appendix to theism; they are the comparative ground against which the <a href="../concept-of-god.html">concept of God</a> itself is one option among several.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/pluralism/critiques-of-religion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/traditions/abrahamic.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/pluralism/critiques-of-religion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/traditions/abrahamic.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Omniscience, Foreknowledge, and Freedom - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/attributes/omniscience.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="omniscience-foreknowledge-and-freedom"><a class="header" href="#omniscience-foreknowledge-and-freedom">Omniscience, Foreknowledge, and Freedom</a></h1>
+<p><strong>Omniscience</strong> — knowing all truths — generates the deepest and most famous tension among the <a href="../concept-of-god.html">divine attributes</a>: if God knows <em>now</em>, infallibly, everything I will <em>freely</em> do tomorrow, then it seems my doing it is already <em>fixed</em>, and so not free after all. The <strong>problem of theological fatalism</strong> is the religious twin of the <a href="../../freewill/introduction.html">free-will problem</a>: where the secular version pits freedom against <em>causal determinism</em>, this one pits it against <em>infallible foreknowledge</em>. It is the single richest point of contact between the philosophy of religion and the <a href="../../freewill/README.html">free will</a> section, and it has produced a remarkable repertoire of solutions — Boethian eternity, Ockhamist hard/soft facts, Molinist middle knowledge, and open theism.</p>
+<p>This page formalises the foreknowledge argument, then surveys the five classic responses, keeping the focus on the <em>coherence of the attribute</em> (the <em>agency</em> side is developed under <a href="../../freewill/other-positions.html">free will</a>).</p>
+<hr />
+<h2 id="the-foreknowledge-dilemma"><a class="header" href="#the-foreknowledge-dilemma">The foreknowledge dilemma</a></h2>
+<p><strong>Nelson Pike's</strong> sharpened version (1965) of a problem going back to Boethius and Augustine. Suppose God is essentially omniscient and that he believed eighty years ago that you would do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> today. Then:</p>
+<ol>
+<li>God believed at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (eighty years ago) that you would do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (today). <em>(omniscient foreknowledge)</em></li>
+<li>God is essentially infallible — if God believes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>. So God's past belief cannot have been mistaken.</li>
+<li>It is now too late to do anything about what God believed at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> — the past is <strong>fixed</strong>, beyond anyone's power to change. <em>(fixity of the past)</em></li>
+<li>If you were <em>able</em> to refrain from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, you would be able either to make God's past belief false, or to make it the case that God did not hold it, or that God was not infallible — but (2) and (3) rule all three out.</li>
+<li>Therefore you are <em>not able</em> to refrain from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>: you cannot do otherwise.</li>
+<li>So you do not do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> freely.</li>
+</ol>
+<p>The structure exactly mirrors the <a href="../../freewill/arguments/consequence-argument.html">Consequence Argument</a>: a transfer of the <em>fixity of the past</em> across an entailment to the <em>fixity of the present action</em>. Here the role of "the past plus the laws" is played by "God's past infallible belief." Crucially the threat is <strong>epistemic/logical, not causal</strong> — God's foreknowledge need not <em>cause</em> your act; the mere existence of an infallible prior belief seems enough to remove the ability to do otherwise. (For the same reason, the argument is a species of <strong>logical/theological</strong> <a href="../../freewill/introduction.html">fatalism</a>, distinct from causal determinism.)</p>
+<h2 id="the-responses"><a class="header" href="#the-responses">The responses</a></h2>
+<h3 id="1-deny-the-past-belief-is-a-hard-fact--ockhamism"><a class="header" href="#1-deny-the-past-belief-is-a-hard-fact--ockhamism">1. Deny the past belief is a "hard fact" — Ockhamism</a></h3>
+<p><strong>William of Ockham's</strong> strategy attacks premise 3's application. Distinguish:</p>
+<ul>
+<li><strong>Hard facts</strong> about a time — facts <em>wholly about</em> that time, genuinely over and done with (e.g. "the sun rose at dawn"). These are accidentally necessary, beyond anyone's power.</li>
+<li><strong>Soft facts</strong> — facts <em>about</em> a past time that are partly <em>about</em> the future, whose truth depends on what happens later (e.g. "eighty years ago, it was true that you would do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> today").</li>
+</ul>
+<p>Ockham argues God's past belief about your future free act is a <strong>soft fact</strong>: its obtaining <em>depends on</em> what you will freely do, so it is not "over and done with" in the way a hard fact is. Hence you <em>can</em> do otherwise — not by <em>changing</em> the past, but because, had you been going to do otherwise, God would <em>always</em> have believed <em>that</em> instead. Your present freedom has a kind of "counterfactual power" over God's past belief (a <em>backtracking</em> dependence, not backward causation). The challenge (Plantinga, Fischer's "Ockhamism" debate) is to give a principled <strong>hard/soft fact distinction</strong> that classifies God's belief as soft without trivialising — a notoriously difficult task.</p>
+<h3 id="2-take-god-out-of-time--boethian-eternity"><a class="header" href="#2-take-god-out-of-time--boethian-eternity">2. Take God out of time — Boethian eternity</a></h3>
+<p><strong>Boethius</strong> (and <strong>Aquinas</strong>) deny premise 1's tensed framing. God is <strong>timeless</strong>: God does not <em>fore</em>know anything, because God is not <em>in</em> time at all. From his eternal "now," God sees all of history — past, present, and future to us — in a single timeless present, as a watcher on a hill sees the whole road at once while travellers on it pass point by point. God's knowledge of your act is therefore not <em>earlier</em> than the act; there is no <em>past</em> belief to be fixed, so premise 3 has nothing to grip. Boethius: God's knowledge is of things "present to him," and "if you will weigh the foreknowledge by which God discerns all things, you will more rightly deem it to be knowledge of a never-failing present than foreknowledge of the future."</p>
+<p>Objections: (a) it relocates rather than removes the problem — if God <em>timelessly</em> knows you do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, your doing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is still <em>fixed</em> relative to that infallible knowledge (the "eternity" version of the dilemma); (b) it requires the contested doctrine of divine <a href="./eternity.html">timelessness</a>, with its own difficulties about how a timeless being acts and knows the changing present.</p>
+<h3 id="3-middle-knowledge--molinism"><a class="header" href="#3-middle-knowledge--molinism">3. Middle knowledge — Molinism</a></h3>
+<p><strong>Luis de Molina's</strong> ingenious account posits, between God's <em>natural</em> knowledge (of necessary truths) and <em>free</em> knowledge (of what he decrees), a <strong>middle knowledge</strong> (<em>scientia media</em>): God's pre-volitional knowledge of all true <strong>counterfactuals of freedom</strong> — propositions of the form "<em>if</em> creature <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> were in circumstances <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> would freely do <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>." Knowing all such conditionals <em>and</em> which circumstances he will actualise, God knows infallibly what every free creature will do, <em>without</em> causing it and <em>without</em> the act being unfree: the truth-maker of God's knowledge is the creature's own (libertarian-free) counterfactual disposition. Molinism is powerful — it also underwrites accounts of providence and grace — and is defended today by <strong>Flint</strong> and <strong>Craig</strong>.</p>
+<p>Its central difficulty is the <strong>grounding objection</strong> (Adams, Hasker): what <em>makes</em> the counterfactuals of freedom true, <em>prior</em> to the creature's existing or choosing? If a libertarian-free choice is genuinely undetermined, there seems to be <em>no fact</em> — not the agent, not the circumstances — to ground a determinate truth about what the agent <em>would</em> freely do in a merely possible situation. If there is no such truth-maker, there is no middle knowledge to have.</p>
+<h3 id="4-deny-there-are-truths-to-know--open-theism"><a class="header" href="#4-deny-there-are-truths-to-know--open-theism">4. Deny there are truths to know — open theism</a></h3>
+<p><strong>Open theism</strong> (Hasker, Swinburne, Pinker, Boyd) bites a different bullet: it <em>limits</em> omniscience by <em>redefining</em> it. God knows all <em>truths</em>, but — if the future is genuinely open — there are <em>no truths yet</em> about what free creatures will undetermined-ly do (future contingents lack a truth-value, or are all false). So God's not knowing them is no imperfection: omniscience is knowing everything <em>knowable</em>, and unsettled futures are not there to be known. God knows all possibilities and probabilities and is supremely intelligent in responding, but takes genuine <em>risks</em>. This dissolves the dilemma (no infallible <em>foreknowledge</em> of the free act exists) at the cost of classical omniscience and exhaustive providence — and it presupposes <a href="../../freewill/libertarianism.html">libertarian free will</a> plus an open-future (<a href="../../../logic/intuitionistic-logic.html">non-bivalent</a>) metaphysics. Critics charge it gives up too much of the <a href="../concept-of-god.html">God of classical theism</a> and struggles with prophecy.</p>
+<h3 id="5-accept-the-conclusion--theological-compatibilism"><a class="header" href="#5-accept-the-conclusion--theological-compatibilism">5. Accept the conclusion — theological compatibilism</a></h3>
+<p>Finally, one may grant that infallible foreknowledge is incompatible with the <em>ability to do otherwise</em> but deny that such ability is required for freedom — the move of <a href="../../freewill/compatibilism.html">compatibilism</a> and especially <a href="../../freewill/compatibilism.html">semicompatibilism</a>. If freedom is acting on one's own reasons-responsive mechanism (guidance control) rather than having genuine alternatives, then God's foreknowledge — which removes alternatives but not self-governance — leaves freedom and responsibility intact. This is the natural home for theists who are already compatibilists about <a href="../../freewill/introduction.html">determinism</a>, and it connects the foreknowledge debate directly to the <a href="../../freewill/arguments/frankfurt-cases.html">Frankfurt-case</a> attack on the alternative-possibilities condition.</p>
+<h2 id="a-map-of-the-options"><a class="header" href="#a-map-of-the-options">A map of the options</a></h2>
+<p>The five responses can be sorted by <em>which premise of <a href="#the-foreknowledge-dilemma">Pike's argument</a> they reject</em>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Response</th><th>Rejects</th><th>Cost</th></tr></thead><tbody>
+<tr><td><strong>Ockhamism</strong></td><td>(3) — God's belief is a <em>soft</em> fact, not fixed</td><td>needs a principled hard/soft distinction</td></tr>
+<tr><td><strong>Eternity</strong> (Boethius)</td><td>(1) — God does not <em>fore</em>know; he is timeless</td><td>needs <a href="./eternity.html">timelessness</a>; "eternity" dilemma recurs</td></tr>
+<tr><td><strong>Molinism</strong></td><td>the dilemma's setup — God knows via middle knowledge</td><td>the grounding objection</td></tr>
+<tr><td><strong>Open theism</strong></td><td>(2)/(1) — no truths about the free future to know</td><td>limits omniscience &amp; providence</td></tr>
+<tr><td><strong>Compatibilism</strong></td><td>(6) — freedom doesn't need alternatives</td><td>inherits the <a href="../../freewill/compatibilism.html">compatibilism</a> debate</td></tr>
+</tbody></table>
+</div>
+<h2 id="where-omniscience-sits"><a class="header" href="#where-omniscience-sits">Where omniscience sits</a></h2>
+<p>The foreknowledge problem shows that omniscience cannot be assessed apart from the theory of <a href="../../freewill/introduction.html">free will</a>: the argument is structurally the <a href="../../freewill/arguments/consequence-argument.html">Consequence Argument</a> with "God's prior infallible belief" in place of "the past plus the laws," and the menu of escapes maps onto the broader free-will menu. A theist's choice here is largely <em>forced by</em> commitments elsewhere — a <a href="../../freewill/libertarianism.html">libertarian</a> who wants exhaustive providence is pushed toward <strong>Molinism</strong> or <strong>eternity</strong>; one willing to limit providence takes <strong>open theism</strong>; a <a href="../../freewill/compatibilism.html">compatibilist</a> simply denies that foreknowledge threatens the freedom worth having. None of the options is cost-free, which is why this remains the liveliest of the attribute debates. It also feeds the <a href="../evil/problem-of-evil.html">problem of evil</a> (a God who <em>foreknew</em> every horror and created anyway faces the sharpest form of the question) and the <a href="./coherence-of-theism.html">coherence-of-theism</a> capstone. The companion tensions — whether a <em>timeless</em> God can know "what time it is now," and whether omniscience conflicts with <a href="./eternity.html">immutability</a> — are taken up next.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/attributes/omnipotence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/attributes/eternity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/attributes/omnipotence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/attributes/eternity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

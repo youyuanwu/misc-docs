@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Science and Religion - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/pluralism/science-and-religion.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="science-and-religion"><a class="header" href="#science-and-religion">Science and Religion</a></h1>
+<p>Are <strong>science</strong> and <strong>religion</strong> at war, indifferent to each other, in dialogue, or in deep harmony? The popular image — Galileo before the Inquisition, evolution against Genesis — suggests inevitable <em>conflict</em>, and the "conflict thesis" was influential for a century. But historians and philosophers of religion now widely regard that picture as a <em>myth</em>, or at least a gross oversimplification, and the question has become one of <em>typology</em>: what <em>are</em> the possible relations, and which fits the actual history and the genuine logical points of contact? The flashpoints — <a href="../arguments/teleological.html">evolution and design</a>, <a href="../epistemology/miracles.html">miracles and natural law</a>, the <a href="../arguments/teleological.html">fine-tuning</a> of the cosmos, the cognitive science of belief — recur throughout these notes; this page gives the framework.</p>
+<p>This page sets out Barbour's fourfold typology and Gould's NOMA, the historical critique of the "conflict thesis" (Galileo), the status of methodological naturalism, and the specific tension over miracles and law.</p>
+<hr />
+<h2 id="four-models-of-the-relationship"><a class="header" href="#four-models-of-the-relationship">Four models of the relationship</a></h2>
+<p><strong>Ian Barbour's</strong> influential <strong>fourfold typology</strong> organises the options:</p>
+<ul>
+<li><strong>Conflict.</strong> Science and religion make competing claims about the <em>same</em> domain (the age and origin of the world, the descent of humans, the occurrence of <a href="../epistemology/miracles.html">miracles</a>), and at most one can be right. Both <strong>scientific materialism</strong> (science disproves religion — the <a href="./critiques-of-religion.html">New Atheist</a> line) and <strong>biblical literalism</strong> (religion trumps science — young-earth creationism) are <em>conflict</em> positions; they agree on the <em>framework</em> (rivalry) and differ only on the winner.</li>
+<li><strong>Independence.</strong> Science and religion occupy <em>separate</em> domains, ask <em>different</em> questions, and use <em>different</em> languages, so they <em>cannot</em> conflict. Science addresses the <em>how</em>, the empirical and mechanistic; religion the <em>why</em>, the meaning, value, and ultimate purpose. This is the most common irenic position (and the <a href="../language/religious-language.html">Wittgensteinian</a> and <a href="../faith-and-reason.html">independence model of faith and reason</a> belong here).</li>
+<li><strong>Dialogue.</strong> The two are distinct but <em>interact</em> at the boundaries — science raises questions it cannot answer (why is there a law-governed universe at all? why is it <a href="../arguments/teleological.html">fine-tuned</a>? why is it intelligible?) that religion may address, and each can inform the other's presuppositions and ethics.</li>
+<li><strong>Integration.</strong> A stronger synthesis — natural theology, process theology, or a unified worldview in which scientific and religious claims are systematically woven together (e.g. theistic evolution as a <em>positive</em> account, not a mere truce).</li>
+</ul>
+<h2 id="noma"><a class="header" href="#noma">NOMA</a></h2>
+<p>The best-known version of the <em>independence</em> model is <strong>Stephen Jay Gould's</strong> <strong>NOMA</strong> — "<strong>Non-Overlapping Magisteria</strong>" (<em>Rocks of Ages</em>, 1999). A <em>magisterium</em> is a domain of teaching authority; Gould's thesis: science and religion are <em>non-overlapping</em> magisteria —</p>
+<blockquote>
+<p>"The magisterium of science covers the empirical realm: what the universe is made of (fact) and why it works this way (theory). The magisterium of religion extends over questions of ultimate meaning and moral value. These two magisteria do not overlap."</p>
+</blockquote>
+<p>On NOMA, the apparent conflicts are <em>boundary violations</em> — creationism trespassing on science's empirical turf, scientism trespassing on religion's evaluative turf — and proper hygiene keeps the peace. NOMA's <em>virtue</em> is irenic clarity; its <em>problems</em>:</p>
+<ul>
+<li><strong>Religions do make empirical claims.</strong> Most actual religions assert things <em>within</em> science's magisterium — that the universe was created, that <a href="../epistemology/miracles.html">miracles</a> occurred, that there was a literal Adam, that prayer has effects, that humans have non-physical souls. NOMA "saves" peace only by <em>redefining</em> religion to exclude exactly these claims — which most believers will not accept (it presupposes the <a href="../language/realism-antirealism.html">non-realism</a> or radical liberalism the average believer rejects).</li>
+<li><strong>It can cut both ways unfairly</strong> — critics on both sides see NOMA as a diplomatic <em>gerrymander</em> that protects religion from empirical refutation by <em>stipulation</em>, while <a href="./critiques-of-religion.html">naturalists</a> think religion's empirical claims <em>have</em> been refuted and theists think science's domain is <em>not</em> as exhaustive as NOMA's tidy division implies.</li>
+</ul>
+<h2 id="the-conflict-thesis-as-myth-galileo"><a class="header" href="#the-conflict-thesis-as-myth-galileo">The conflict thesis as myth: Galileo</a></h2>
+<p>The historical claim that science and religion have been in <em>perennial war</em> derives from two 19th-century polemics — <strong>John William Draper's</strong> <em>History of the Conflict between Religion and Science</em> (1874) and <strong>Andrew Dickson White's</strong> <em>A History of the Warfare of Science with Theology</em> (1896). Historians of science (Lindberg, Numbers, Brooke) now regard the <strong>"conflict thesis"</strong> as <em>largely a myth</em>:</p>
+<ul>
+<li>The historical relationship was <em>complex and mostly cooperative</em>: the medieval church <em>preserved and cultivated</em> learning, founded the universities, and many foundational scientists (Copernicus a cleric, Kepler, Newton, Boyle, Mendel an abbot, Lemaître a priest who proposed the Big Bang) were <em>devout</em>. The idea that the medievals thought the earth flat, that the church <em>systematically</em> suppressed science, etc., are 19th-century inventions.</li>
+<li><strong>Galileo</strong>, the <em>paradigm</em> "conflict" case, was <em>not</em> a simple science-vs-religion clash. It involved Copernican astronomy, yes — but also Counter-Reformation politics, the limits of the <em>evidence then available</em> (the absence of detectable stellar parallax was a <em>genuine</em> scientific objection to a moving earth), Galileo's own combative personality and his insistence on <em>theological</em> interpretation, and disputes <em>internal</em> to the church. It was a <em>messy</em> episode of overlapping scientific, personal, and institutional conflict, not a clean morality play of free inquiry against dogma.</li>
+</ul>
+<p>The upshot is not that there has been <em>no</em> tension — there has — but that "<strong>war</strong>" badly mischaracterises a relationship that has been variously cooperative, indifferent, and contested.</p>
+<h2 id="methodological-naturalism"><a class="header" href="#methodological-naturalism">Methodological naturalism</a></h2>
+<p>A key concept for understanding both the <em>peace</em> and the <em>limits</em> of the science–religion relation is <strong>methodological naturalism (MN)</strong>: the working rule that <em>science</em>, as a method, explains phenomena <em>only</em> by <em>natural</em> causes — it does <em>not</em> appeal to supernatural agency (God, miracles) in its theories, <em>regardless of</em> whether anything supernatural exists. MN is to be distinguished from <strong>metaphysical / philosophical naturalism</strong>, the <em>worldview</em> that <em>nothing</em> supernatural exists.</p>
+<ul>
+<li>MN is what lets a <em>theist</em> be a perfectly good <em>scientist</em>: she brackets divine action <em>methodologically</em> in the lab while believing in it <em>metaphysically</em> — the two are compatible because MN is a rule of <em>method</em>, not a <em>claim about reality</em>.</li>
+<li>MN explains why <strong><a href="../arguments/teleological.html">Intelligent Design</a></strong> is excluded from science (it appeals to a non-natural designer) <em>without</em> science thereby asserting atheism — the exclusion is methodological, and the <em>Kitzmiller v. Dover</em> ruling turned on exactly this.</li>
+<li>The <em>philosophical</em> question (raised under the <a href="../arguments/teleological.html">design argument</a>): is MN a <em>justified constraint</em> (science just <em>is</em> the search for natural mechanisms, and has succeeded spectacularly by so limiting itself) or a <em>question-begging exclusion</em> (if a supernatural cause <em>did</em> operate, MN would <em>guarantee</em> science misses it)? Defenders say MN is a <em>defeasible</em> strategy vindicated by results; critics (ID, some theists) call it a stipulation that <em>pre-decides</em> against design. Even granting MN is <em>only</em> methodological, the conflation of MN with <em>metaphysical</em> naturalism — treating science's bracketing of God as <em>evidence</em> there is no God — is a common and important fallacy on the <a href="./critiques-of-religion.html">scientism</a> side.</li>
+</ul>
+<h2 id="miracles-laws-and-the-genuine-points-of-contact"><a class="header" href="#miracles-laws-and-the-genuine-points-of-contact">Miracles, laws, and the genuine points of contact</a></h2>
+<p>Where, then, are the <em>real</em> logical contacts (as opposed to mythical "war")?</p>
+<ul>
+<li><strong><a href="../epistemology/miracles.html">Miracles</a> vs. natural law.</strong> If a miracle is a <em><a href="../epistemology/miracles.html">violation</a></em> of law, it seems to conflict with science's law-governed picture; if it is a <em>non-natural event</em> (an agent's input, not a law-breaking), the conflict eases. The deeper issue is <a href="../metaphysics/divine-action.html">special divine action</a>: whether God can act in nature <em>without</em> violating its laws (the <a href="../metaphysics/divine-action.html">NIODA</a> program, <a href="../../../general/quantum-mechanics.html">quantum indeterminism</a>). This is a <em>genuine</em> point of contact, handled in <a href="../metaphysics/divine-action.html">divine action</a> and <a href="../epistemology/miracles.html">miracles</a>.</li>
+<li><strong><a href="../arguments/teleological.html">Evolution and design</a>.</strong> Darwin removed the <em>biological</em> design argument's force by supplying a designer-free mechanism; the conflict is real <em>only</em> if one insists on biblical literalism <em>or</em> on ID — <em>theistic evolution</em> (God works <em>through</em> evolutionary processes) is a widely held <em>non-conflict</em> position. The surviving design argument retreats to <a href="../arguments/teleological.html">cosmic fine-tuning</a>, where the rival is the <em>multiverse</em>, not biology.</li>
+<li><strong><a href="../metaphysics/time-and-cosmology.html">Cosmology and creation</a>.</strong> Big Bang cosmology and <a href="../arguments/teleological.html">fine-tuning</a> are sometimes read as <em>supporting</em> theism (a beginning, an ordered start — the <a href="../arguments/cosmological.html">Kalām</a>), sometimes as needing <em>no</em> God (no-boundary proposals, the multiverse). A genuine <em>dialogue</em> point.</li>
+<li><strong>The cognitive and natural sciences of religion.</strong> The <a href="./critiques-of-religion.html">scientific explanation of religious belief</a> (HADD, evolutionary psychology) is offered as a <em>debunking</em> of religion — a <em>conflict</em> move — but, as with all genetic arguments, <em>explaining</em> belief does not <em>refute</em> it (handled in <a href="./critiques-of-religion.html">critiques of religion</a>).</li>
+</ul>
+<h2 id="where-science-and-religion-sit"><a class="header" href="#where-science-and-religion-sit">Where science and religion sit</a></h2>
+<p>The relation of science and religion is best understood not through the discredited <strong>"conflict thesis"</strong> — a 19th-century polemical myth that misreads <a href="#the-conflict-thesis-as-myth-galileo">Galileo</a> and the largely cooperative history — but through <strong>Barbour's typology</strong> (conflict, independence, dialogue, integration), with <strong>NOMA</strong> the best-known <em>independence</em> version (irenic, but only by <em>redefining</em> religion to drop its empirical claims). The pivotal concept is <strong>methodological naturalism</strong>: a rule of scientific <em>method</em> that brackets the supernatural, compatible with theism and <em>not</em> equivalent to metaphysical naturalism — though conflating the two (treating science's success as <em>disproof</em> of God) is the characteristic error of <a href="./critiques-of-religion.html">scientism</a>, just as denying MN's fruits is the error of <a href="../arguments/teleological.html">creationism</a>. The <em>genuine</em> points of contact are few and specific — <a href="../epistemology/miracles.html">miracles and law</a>, <a href="../metaphysics/divine-action.html">special divine action</a>, <a href="../arguments/teleological.html">evolution and design</a>, <a href="../metaphysics/time-and-cosmology.html">cosmology and creation</a>, the <a href="./critiques-of-religion.html">cognitive science of belief</a> — and at each, "conflict" is <em>optional</em> rather than forced, depending on contested <em>interpretive</em> choices (literalism, ID, scientism) rather than on science and religion as such. The topic frames the <a href="./critiques-of-religion.html">critiques of religion</a> and connects to nearly every argument in the <a href="../arguments-for-theism.html">natural-theology</a> section.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/pluralism/religious-pluralism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/pluralism/critiques-of-religion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/pluralism/religious-pluralism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/pluralism/critiques-of-religion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

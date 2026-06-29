@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Epistemology of Religious Experience - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/epistemology/religious-experience.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-epistemology-of-religious-experience"><a class="header" href="#the-epistemology-of-religious-experience">The Epistemology of Religious Experience</a></h1>
+<p>The <a href="../arguments/religious-experience.html">argument from religious experience</a> asks whether the experience of God is <em>evidence</em> that God exists. This page asks the prior and more general question: what <em>is</em> religious and mystical experience, and what — if anything — does it <em>deliver as knowledge</em>? The epistemology of religious experience concerns the <strong>nature</strong>, <strong>structure</strong>, and <strong>reliability</strong> of the states in which people take themselves to encounter a transcendent reality: their phenomenology (Otto's "numinous," James's mysticism), the deep dispute over whether such experience has a culture-independent <strong>common core</strong> or is wholly <strong>constructed</strong> by the mystic's prior concepts, and the bearing of <strong>cross-tradition conflict</strong> on whether any of it can be trusted. (The <em>argument</em> — using experience to prove God — stays on the <a href="../arguments/religious-experience.html">arguments page</a>; the <em>epistemology</em> of the experience itself is developed here.)</p>
+<hr />
+<h2 id="mapping-the-experiences"><a class="header" href="#mapping-the-experiences">Mapping the experiences</a></h2>
+<p>Two classic phenomenologies frame the field:</p>
+<ul>
+<li><strong>Rudolf Otto</strong> (<em>The Idea of the Holy</em>, 1917) isolates the <strong>numinous</strong> — the distinctively religious experience of the <em>holy</em> as a <em>mysterium tremendum et fascinans</em>: a reality experienced as wholly <em>other</em> (<em>mysterium</em>), overwhelming and awe-inducing, even dreadful (<em>tremendum</em>), yet magnetically attractive (<em>fascinans</em>). The numinous is, for Otto, a <em>sui generis</em> category, irreducible to moral or aesthetic feeling — a direct sense of "creature-feeling" before the transcendent. It is paradigmatically an experience of a <em>personal</em> Other over against the self.</li>
+<li><strong>William James</strong> (<em>The Varieties of Religious Experience</em>, 1902) focuses on <strong>mystical</strong> states and gives four marks: <strong>ineffability</strong> (they defy adequate expression — "no adequate report of its contents can be given in words"), <strong>noetic quality</strong> (they present themselves as <em>states of knowledge</em>, insights into truth), <strong>transiency</strong> (they rarely last long), and <strong>passivity</strong> (the mystic feels <em>grasped</em> by a superior power). James held mystical experience to be the experiential <em>root</em> of religion, of which creeds and theologies are secondary intellectual translations.</li>
+</ul>
+<p>A further structural distinction (W.T. Stace): <strong>extrovertive</strong> mysticism <em>looks outward</em> and perceives the One <em>through and in</em> the multiplicity of the world (all things as a living unity), while <strong>introvertive</strong> mysticism <em>turns inward</em>, emptying consciousness of all content to reach a <em>pure</em>, undifferentiated unity — which Stace took to be the deeper and more cross-culturally uniform type.</p>
+<h2 id="perennialism-vs-constructivism"><a class="header" href="#perennialism-vs-constructivism">Perennialism vs. constructivism</a></h2>
+<p>The central epistemological debate concerns the relation between <em>experience</em> and <em>interpretation</em> — and it decides what mystical experience could <em>show</em>.</p>
+<h3 id="perennialism-the-common-core-thesis"><a class="header" href="#perennialism-the-common-core-thesis">Perennialism (the common-core thesis)</a></h3>
+<p><strong>Perennialism</strong> (W.T. Stace, Aldous Huxley, Walter Hick in part) holds that beneath the diverse <em>descriptions</em> mystics give lies a <em>common, culture-independent core experience</em> — typically the introvertive experience of undifferentiated unity — which mystics then <em>interpret</em> through the doctrines of their own tradition. On this view the Christian "union with God," the Advaitin "identity with Brahman," the Buddhist experience of emptiness, and the Plotinian "One" are <em>one type of experience</em> variously <em>conceptualised after the fact</em>. The distinction is between the <strong>experience</strong> (uniform) and its <strong>interpretation</strong> (tradition-relative). Perennialism is attractive to the <a href="../arguments/religious-experience.html">argument from experience</a> and to <a href="../pluralism/religious-pluralism.html">pluralism</a>, because a shared core would supply a common object behind the conflicting creeds.</p>
+<h3 id="constructivism"><a class="header" href="#constructivism">Constructivism</a></h3>
+<p><strong>Steven Katz</strong> ("Language, Epistemology, and Mysticism," 1978) launched the dominant counter-position: there is <strong>no unmediated experience</strong>. The mystic's concepts, expectations, training, and tradition <em>shape the experience itself</em>, not merely its later description — "there are NO pure (i.e. unmediated) experiences." A Jewish mystic, formed by Torah and a covenantal, <em>personal</em> God, has a <em>devekut</em> (cleaving) experience that <em>constitutively differs</em> from a Buddhist's experience of <em>śūnyatā</em>, because the very categories through which experience is had are different. The Kantian moral: all experience is conceptually mediated; mystical experience is no exception; so the <em>diversity</em> of mystical reports reflects a <em>real diversity of experiences</em>, and the perennialist's "common core" is a projection. Constructivism <em>explains the conflict</em> (below) elegantly — different traditions <em>produce</em> different experiences — but at the cost of the experiences' evidential reach: if experience merely <em>mirrors</em> prior belief, it cannot <em>confirm</em> it without circularity.</p>
+<p>The dispute is unresolved. Moderate positions (Forman's "pure consciousness event," Wainwright) argue that <em>some</em> mystical states — especially the <em>introvertive</em>, contentless ones — are <em>minimally</em> mediated and so partly vindicate perennialism, while <em>theistic</em> and visionary experiences are heavily constructed.</p>
+<h2 id="ineffability-and-its-paradox"><a class="header" href="#ineffability-and-its-paradox">Ineffability and its paradox</a></h2>
+<p>The recurrent claim that mystical experience is <strong>ineffable</strong> carries a famous self-referential tension: to <em>say</em> "it is ineffable" is already to say <em>something</em> about it, and mystics in fact say a great deal. The standard resolutions: ineffability concerns <em>adequate</em> or <em>literal</em> propositional description (the experience can be <em>gestured at</em> by negation, paradox, and metaphor but not <em>captured</em> in concepts), or it marks the breakdown of the <strong>subject–object structure</strong> that ordinary language presupposes (in undifferentiated unity there is no "object" to predicate of). This connects directly to <a href="../language/religious-language.html">religious language</a>: the <em>via negativa</em> (apophatic theology) is, in part, the <em>theory</em> of mystical ineffability — we can say what God is <em>not</em>, never <em>positively</em> what God is.</p>
+<h2 id="reliability-and-cross-tradition-conflict"><a class="header" href="#reliability-and-cross-tradition-conflict">Reliability and cross-tradition conflict</a></h2>
+<p>The epistemological payoff turns on whether religious experience is a <strong>reliable</strong> source of belief about reality. The case <em>for</em> (developed as the <a href="../arguments/religious-experience.html">argument from experience</a>): a general <strong>Principle of Credulity</strong> (Swinburne) and the parity of <a href="../arguments/religious-experience.html">mystical practice with sense-perception</a> (Alston) make experiences <em>prima facie</em> trustworthy unless defeated. The chief <em>defeater</em> is <strong>cross-tradition conflict</strong>:</p>
+<ul>
+<li>Mystics across traditions report <em>incompatible</em> objects — a personal God, an impersonal Absolute, a non-self emptiness with <em>no</em> God. They cannot all be veridical <em>as described</em>.</li>
+<li>In ordinary perception, observers <em>converge</em> (we agree there is a tree), which underwrites perception's reliability; in religious experience they <em>diverge</em>, which seems to <em>undercut</em> it: a "perceptual" practice that yields contradictory deliverances looks unreliable.</li>
+</ul>
+<p>The responses map onto the perennialism/constructivism split and onto <a href="../pluralism/religious-pluralism.html">pluralism</a>:</p>
+<ul>
+<li><strong>Hick's pluralism</strong>: the experiences are <em>all</em> veridical contacts with one ultimate <strong>Real</strong>, differently <em>conceptualised</em> (personae/impersonae) — a perennialist-friendly reading that saves reliability by demoting the <em>specific</em> descriptions to appearances (see <a href="../pluralism/religious-pluralism.html">religious pluralism</a>).</li>
+<li><strong>Constructivist deflation</strong>: the conflict is <em>expected</em> because the experiences are <em>produced</em> by the traditions; this <em>explains</em> the diversity but <em>lowers</em> the evidential value of any of them.</li>
+<li><strong>Particularism</strong> (Alston, Plantinga): one may rationally trust <em>one's own</em> established practice despite the existence of rivals, just as one rationally holds contested philosophical or political views — though Alston concedes diversity is the "most difficult" problem for his perceptual model, and it connects to the general epistemology of <a href="../pluralism/religious-pluralism.html">disagreement</a>.</li>
+</ul>
+<p>A second, sharper defeater is the <a href="../pluralism/critiques-of-religion.html">naturalistic explanation</a> of mystical states (temporal-lobe activity, psychedelics, meditation-induced neurology): if the experiences are fully explained by brain processes that would occur <em>whether or not</em> their alleged objects exist, their <em>reliability</em> as windows onto a transcendent reality is undercut. The reply (as on the <a href="../arguments/religious-experience.html">arguments page</a>) is that <em>having a neural substrate</em> is true of <em>all</em> perception and does not by itself impugn veridicality — the question is whether the states <em>track</em> an external reality, which is exactly what the cross-tradition conflict makes hard to establish.</p>
+<h2 id="where-the-epistemology-of-religious-experience-sits"><a class="header" href="#where-the-epistemology-of-religious-experience-sits">Where the epistemology of religious experience sits</a></h2>
+<p>Religious experience is the most <em>immediate</em> putative source of religious knowledge, and its epistemology turns on a single fault line: the <strong>perennialism/constructivism</strong> debate over whether there is an experience <em>prior to</em> and <em>independent of</em> the tradition that interprets it. If perennialism is right, a culture-independent core could <em>ground</em> religious knowledge and underwrite <a href="../pluralism/religious-pluralism.html">pluralism</a>; if constructivism is right, experience largely <em>mirrors</em> prior belief and cannot <em>confirm</em> it without circularity. Either way, the <strong>cross-tradition conflict</strong> of mystical reports is the standing defeater that distinguishes religious from ordinary perception and that the <a href="../arguments/religious-experience.html">argument from religious experience</a> must answer — by Hick's <a href="../pluralism/religious-pluralism.html">pluralist</a> reconciliation, by <a href="./reformed-epistemology.html">particularist</a> trust in one's own practice, or by accepting a reduced evidential weight. The topic thus sits at the crossroads of three others: the <a href="../arguments/religious-experience.html">argument from experience</a> (its evidential use), <a href="./reformed-epistemology.html">Reformed epistemology</a> (experience as the <em>ground</em> of properly basic belief), and <a href="../language/religious-language.html">religious language</a> (ineffability and the <em>via negativa</em>) — and it feeds the broader problem of <a href="../pluralism/religious-pluralism.html">religious diversity</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/epistemology/reformed-epistemology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/epistemology/miracles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/epistemology/reformed-epistemology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/epistemology/miracles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

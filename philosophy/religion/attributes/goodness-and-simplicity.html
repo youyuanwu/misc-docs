@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Goodness, Simplicity, and Aseity - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/attributes/goodness-and-simplicity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="goodness-simplicity-and-aseity"><a class="header" href="#goodness-simplicity-and-aseity">Goodness, Simplicity, and Aseity</a></h1>
+<p>The remaining classical <a href="../concept-of-god.html">divine attributes</a> concern God's <em>goodness</em>, his <em>mode of being</em>, and his <em>independence</em>. <strong>God is perfectly good</strong>; <strong>God is simple</strong> — without parts, so that his attributes are not distinct components but one undivided reality; and <strong>God exists <em>a se</em></strong> — from himself, depending on nothing, and <em>necessarily</em>. These are the most metaphysically demanding of the attributes, and <strong>divine simplicity</strong> in particular — long central to classical theism (Augustine, Anselm, Maimonides, Avicenna, Aquinas) — has become one of the most contested, attacked by leading contemporary theists as incoherent. They also reach back into the <a href="../arguments-for-theism.html">arguments for God</a> (aseity and necessity are what the <a href="../arguments/cosmological.html">cosmological</a> and <a href="../arguments/ontological.html">ontological</a> arguments aim at) and into <a href="../ethics/religion-and-morality.html">ethics</a> (how God relates to the good).</p>
+<p>This page treats divine goodness and its link to morality, the doctrine of divine simplicity and the modern objections to it, and aseity, necessity, and the "bootstrapping" problem about God and abstract objects.</p>
+<hr />
+<h2 id="divine-goodness"><a class="header" href="#divine-goodness">Divine goodness</a></h2>
+<p>That God is <strong>perfectly good</strong> is the attribute the <a href="../evil/problem-of-evil.html">problem of evil</a> targets and the <a href="../arguments/moral.html">moral argument</a> exploits. Two questions arise:</p>
+<ul>
+<li><strong>In what sense is God good?</strong> <em>Metaphysical</em> goodness (God is the supreme being, perfect and complete, the fullness of being — the sense in which Aquinas says "every being, as being, is good") differs from <em>moral</em> goodness (God is benevolent, just, loving — a moral <em>agent</em> who does right). Classical theism affirms both but grounds moral goodness in metaphysical: God <em>is</em> goodness itself (<em>ipsum bonum</em>), and finite things are good by <em>participating</em> in or <em>resembling</em> him.</li>
+<li><strong>How does God relate to the moral standard?</strong> This is the <a href="../ethics/religion-and-morality.html">Euthyphro dilemma</a>: is the good good <em>because</em> God wills it (arbitrariness) or does God will it <em>because</em> it is good (a standard independent of God)? The classical answer — that goodness is neither external to God nor a product of arbitrary will but <em>identical with God's own nature</em> — depends directly on <strong>divine simplicity</strong>: if God <em>is</em> goodness, the dilemma's "because" splits the inseparable. So the coherence of the standard reply to Euthyphro rests on the coherence of simplicity, developed below and applied in <a href="../ethics/religion-and-morality.html">religion and morality</a>.</li>
+</ul>
+<p>A further puzzle: if God is <em>essentially</em> good and <em>cannot</em> do evil, is God <em>praiseworthy</em> for his goodness, and is God <em>free</em>? If goodness is necessary to God, God cannot do otherwise than well — which seems to remove the <a href="../../freewill/introduction.html">alternative possibilities</a> some think praise requires. The reply parallels <a href="../../freewill/compatibilism.html">compatibilist</a> and <a href="../../freewill/arguments/frankfurt-cases.html">Frankfurt-style</a> moves in the free-will debate: God's goodness flows from his own nature, which is the <em>highest</em> form of freedom (self-determination by one's deepest values), not a constraint imposed from outside.</p>
+<h2 id="divine-simplicity"><a class="header" href="#divine-simplicity">Divine simplicity</a></h2>
+<p><strong>Divine simplicity (DDS)</strong> is the doctrine that God is in <em>no way composite</em> — God has no parts of any kind: no spatial or temporal parts, no matter–form composition, no substance–accident distinction, and, most strikingly, <em>no distinction between God and his attributes</em> or <em>among the attributes themselves</em>. God does not <em>have</em> goodness, power, knowledge, and existence as distinct properties; God <em>is</em> his goodness, <em>is</em> his power, <em>is</em> his existence — and these are, in God, one and the same simple reality, differing only in how <em>we</em> conceive them. As Aquinas puts it, in God essence and existence are identical: God is <em>ipsum esse subsistens</em>, "subsistent being itself."</p>
+<p>The motivations are deep:</p>
+<ul>
+<li><strong>From aseity and ultimacy.</strong> If God had parts, he would depend on them and on whatever composes them — but God depends on <em>nothing</em> (aseity). A composite being is explained by its components; the ultimate, self-existent ground of all cannot be so explained, so must be non-composite.</li>
+<li><strong>From immutability and eternity.</strong> Parts introduce potentiality and the possibility of change; a <a href="./eternity.html">timeless, immutable</a> being must be pure actuality, without composition.</li>
+<li><strong>From monotheism's logic.</strong> Only a simple being is <em>unconditioned</em> in the way the <a href="../arguments/cosmological.html">cosmological argument's</a> terminus must be.</li>
+</ul>
+<h3 id="the-objections"><a class="header" href="#the-objections">The objections</a></h3>
+<p>DDS is assailed by powerful objections, several pressed by theists (notably <strong>Plantinga</strong>, <em>Does God Have a Nature?</em>):</p>
+<ul>
+<li><strong>The identity objection.</strong> If God is identical with each of his properties, and each property is identical with God, then by transitivity <em>all God's properties are identical with one another</em> — God's mercy <em>is</em> his justice <em>is</em> his power <em>is</em> his knowledge. But these seem <em>distinct</em> (mercy and justice can even pull apart). Worse: if God <em>is</em> a property, then God is an <em>abstract object</em> — and abstract objects are causally inert, impersonal, and necessarily non-living, so God would not be a <em>person</em> who knows and acts. Plantinga regards this as close to a <em>reductio</em>.</li>
+<li><strong>The modal/freedom objection.</strong> If God is <em>identical</em> with his act of will, and that act is <em>simple</em> and <em>necessary</em> (God is a necessary being with no accidental features), then God could not have willed otherwise — God <em>necessarily</em> creates <em>this</em> world, collapsing divine <em>freedom</em> and the <em>contingency</em> of creation. A simple God seems unable to be a <em>free</em> creator who might have created differently or not at all.</li>
+<li><strong>The intrinsic/extrinsic objection.</strong> God's knowing contingent facts (that <em>this</em> world exists) seems to depend on those facts, introducing a God–world relation that varies — but a <em>simple</em> God has no varying features.</li>
+</ul>
+<h3 id="the-replies"><a class="header" href="#the-replies">The replies</a></h3>
+<p>Defenders (Stump, Brower, the Thomist revival) respond that the objections read DDS through a modern "property" framework alien to it. On a <strong>truthmaker</strong> reading (Brower), "God is good" is true not because God <em>instances</em> a property <em>goodness</em> but because <em>God himself</em> is the truthmaker for all the divine predications — the several predicates are made true by one simple reality without naming distinct constituents. The apparent identity of mercy and justice is defused: the <em>terms</em> differ in connotation and in the <em>effects</em> they pick out in creatures, while the <em>reality</em> in God is one. The modal objection is met by locating the contingency of creation in the <em>effects</em> (the created world) rather than in any <em>intrinsic</em> difference in God's one eternal act — God's act is "intrinsically the same" across worlds, differing only in what it <em>brings about</em>. Whether these replies fully succeed, or merely relocate the mystery, is unresolved; DDS remains a live dividing line between <strong>classical theism</strong> and the more anthropomorphic <strong><a href="../concept-of-god.html">theistic personalism</a></strong> of Plantinga and Swinburne, who simply <em>deny</em> simplicity and treat God as a person with distinct (if essential) properties.</p>
+<h2 id="aseity-necessity-and-the-bootstrapping-problem"><a class="header" href="#aseity-necessity-and-the-bootstrapping-problem">Aseity, necessity, and the bootstrapping problem</a></h2>
+<p><strong>Aseity</strong> (Latin <em>a se</em>, "from itself") is God's complete <em>independence</em>: God exists in and through himself, depending on nothing else for his existence or nature. It is closely tied to <strong>necessity</strong> — God does not merely happen to exist but exists <em>necessarily</em>, could not have failed to exist (the property the <a href="../arguments/ontological.html">ontological</a> and <a href="../arguments/cosmological.html">cosmological</a> arguments trade on). Aseity is, for many, the <em>core</em> of the concept of God: whatever else God is, God is the <strong>ultimate</strong>, the one reality that is <em>unconditioned</em> and on which all else depends.</p>
+<p>This generates a sharp modern puzzle, the <strong>bootstrapping problem</strong> about God and <strong>abstract objects</strong> (Plantinga, Bergmann–Brower, Craig's <em>God Over All</em>). Platonism holds that there exist <em>necessarily</em>, and <em>independently</em>, infinitely many abstract objects — numbers, sets, properties, propositions. But:</p>
+<ul>
+<li>If abstract objects exist <em>independently of God</em>, then God is <em>not</em> the source of <em>all</em> reality — there is a vast realm of necessary beings God did not make and on which, arguably, his own nature depends (if God's properties are abstracta). This <strong>violates aseity</strong> and divine ultimacy.</li>
+<li>If, to save aseity, God <em>creates</em> the abstract objects, then he creates <em>properties</em> — but to create anything God must already <em>have</em> properties (power, intention), and those properties would have to exist <em>before</em> being created. God would have to "bootstrap" his own attributes into existence, which is viciously circular.</li>
+</ul>
+<p>The proposed solutions trade off: <strong>absolute creationism</strong> (God creates abstracta, and bites the bootstrapping bullet or restricts it), <strong>divine conceptualism</strong> (abstract objects are <em>thoughts in the divine mind</em> — necessary, but ontologically <em>dependent</em> on God, preserving aseity), <strong>nominalism</strong> (deny abstract objects exist at all, so there is nothing to threaten aseity), and the classical <strong>DDS</strong> route (God's properties are not abstracta distinct from God but <em>identical</em> with the simple God — which is exactly why <a href="#divine-simplicity">simplicity</a> was wanted). The problem shows how tightly aseity, simplicity, and necessity are bound together: defending God's ultimacy against an independent Platonic heaven pushes one back toward the contested doctrine of simplicity.</p>
+<h2 id="where-these-attributes-sit"><a class="header" href="#where-these-attributes-sit">Where these attributes sit</a></h2>
+<p>Goodness, simplicity, and aseity are the metaphysical <em>foundation</em> of the classical concept of God, and they stand or fall together. <strong>Goodness</strong> grounds the <a href="../arguments/moral.html">moral argument</a> and the classical reply to <a href="../ethics/religion-and-morality.html">Euthyphro</a> — but only <em>via</em> <strong>simplicity</strong> (God <em>is</em> goodness). <strong>Simplicity</strong> secures aseity, immutability, and <a href="./eternity.html">eternity</a> and answers the bootstrapping threat — but at the price of the formidable identity and freedom objections that lead many contemporary theists to abandon it for <a href="../concept-of-god.html">theistic personalism</a>. <strong>Aseity</strong> and <strong>necessity</strong> are arguably the irreducible core — what the <a href="../arguments/cosmological.html">cosmological</a> and <a href="../arguments/ontological.html">ontological</a> arguments reach — but securing God's ultimacy against independent abstract objects forces a choice among unattractive options or a return to simplicity. The deep lesson, carried into the <a href="./coherence-of-theism.html">coherence-of-theism</a> capstone, is that the divine attributes form an <em>interlocking system</em>: one cannot adjust <a href="./omnipotence.html">omnipotence</a>, <a href="./omniscience.html">omniscience</a>, <a href="./eternity.html">eternity</a>, goodness, simplicity, or aseity in isolation, because each is defined partly through the others — which is what makes the question of their <em>joint</em> coherence both unavoidable and hard.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/attributes/eternity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/attributes/coherence-of-theism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/attributes/eternity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/attributes/coherence-of-theism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

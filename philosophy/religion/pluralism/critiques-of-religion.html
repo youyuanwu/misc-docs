@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Critiques of Religion and the Secular - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/pluralism/critiques-of-religion.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="critiques-of-religion-and-the-secular"><a class="header" href="#critiques-of-religion-and-the-secular">Critiques of Religion and the Secular</a></h1>
+<p>Beyond the <a href="../arguments-against-theism.html">arguments that God does not exist</a> lies a different kind of challenge: not that religious <em>claims</em> are false, but that religious <em>belief</em> can be fully <em>explained</em> — psychologically, socially, evolutionarily — <em>without</em> supposing any of it is true. These are the <strong>"masters of suspicion"</strong> (Ricoeur's name for Marx, Nietzsche, and Freud) and their descendants in the modern <strong>cognitive science of religion</strong>. Their arguments are <strong>debunking</strong> or <strong>undercutting</strong>: they attack the <em>credibility and grounds</em> of belief by exposing its <em>real</em> causes, rather than <em>rebutting</em> its content. If belief in God is the predictable output of wishful thinking, social control, or an over-active agency-detector, then — the suspicion runs — its near-universality is no evidence for its truth, and may be evidence of <em>illusion</em>.</p>
+<p>This page surveys the projection theories (Feuerbach, Marx, Freud, Durkheim, with Nietzsche's genealogy), the cognitive science of religion, the New Atheism and its critics, and the meta-question of "religion" as a category — and assesses whether debunking arguments succeed or commit the genetic fallacy.</p>
+<hr />
+<h2 id="the-masters-of-suspicion"><a class="header" href="#the-masters-of-suspicion">The masters of suspicion</a></h2>
+<p>The 19th and early 20th centuries produced a series of <em>naturalistic</em> explanations of religion, each locating its <em>true</em> source in some human reality that religion <em>disguises</em> and <em>projects</em>:</p>
+<ul>
+<li><strong>Ludwig Feuerbach</strong> (<em>The Essence of Christianity</em>, 1841) — the foundational projection theory. <strong>Theology is anthropology</strong>: "God" is the human <em>species-essence</em> — our own attributes of love, wisdom, will, and power — <em>abstracted</em>, <em>idealised</em> to infinity, and <em>projected</em> outward onto an imaginary heavenly being, which is then <em>worshipped</em> as other. In religion "man… contemplates his own latent nature." The cure is to <em>reclaim</em> the projection: to recognise the divine predicates as <em>human</em> ideals and redirect devotion from God to <em>humanity</em>. (This is also the seed of <a href="../language/realism-antirealism.html">religious anti-realism</a> — Cupitt accepts the projection and <em>keeps</em> the practice.)</li>
+<li><strong>Karl Marx</strong> — religion as <strong>ideology</strong>. Taking over Feuerbach's projection but giving it a <em>material</em> base: religion is a <em>symptom</em> of, and <em>compensation</em> for, real social suffering under economic exploitation. The famous passage: religion is "the sigh of the oppressed creature, the heart of a heartless world… the <strong>opium of the people</strong>" — both a <em>consolation</em> that makes misery bearable and an <em>ideology</em> that <em>pacifies</em> the oppressed and <em>legitimates</em> the existing order ("pie in the sky when you die"). Religion will <em>wither</em> when the unjust material conditions that produce the need for it are abolished.</li>
+<li><strong>Friedrich Nietzsche</strong> — <strong>genealogy</strong> and ressentiment. Less a projection theory than a <em>genealogical</em> unmasking of religion's <em>moral</em> origins: Christian "slave morality" arose from the <strong>ressentiment</strong> of the weak against the strong, <em>inverting</em> the noble valuation (strength, pride) into "sin" and exalting meekness — a clever revenge dressed as virtue. With the "<a href="../ethics/meaning-of-life.html">death of God</a>," the values religion underwrote lose their ground, threatening <a href="../ethics/meaning-of-life.html">nihilism</a>; Nietzsche's project is their <em>revaluation</em>.</li>
+<li><strong>Sigmund Freud</strong> (<em>The Future of an Illusion</em>, 1927) — religion as <strong>wish-fulfilment</strong>. Religious belief is a collective <em>illusion</em> (a belief <em>driven by wish</em>, regardless of evidence) rooted in <em>infantile</em> psychology: confronted with a frightening, indifferent universe, humanity <em>projects</em> the protective <strong>father</strong> of childhood onto the cosmos — an all-powerful Father who provides, commands, and consoles. Religion is the "universal obsessional neurosis of humanity," a defence against helplessness. It <em>may</em> be outgrown as humanity matures into a scientific, reality-facing adulthood.</li>
+<li><strong>Émile Durkheim</strong> (<em>The Elementary Forms of Religious Life</em>, 1912) — religion as <strong>society</strong>. The <em>sociological</em> version: the <strong>sacred</strong> is <em>society itself</em>, experienced and symbolised. In collective ritual, individuals feel a power greater than themselves bearing down on them and binding them together (<em>collective effervescence</em>) — and <em>that</em> power, <em>real</em> but <em>misrecognised</em>, is the <em>social</em> group. "God" is the <em>symbol</em> of the clan, of collective life; religion's <em>function</em> is to produce social solidarity. Unlike Marx and Freud, Durkheim sees religion as <em>true to</em> something real (society) and <em>functionally</em> indispensable.</li>
+</ul>
+<p>The common structure: religion has a <em>hidden</em> cause (the human essence, class oppression, the infantile father, the social group), and once that cause is exposed, the <em>apparent</em> perception of God is <em>explained away</em> — there is no need to posit God to account for the belief.</p>
+<h2 id="the-cognitive-science-of-religion"><a class="header" href="#the-cognitive-science-of-religion">The cognitive science of religion</a></h2>
+<p>The contemporary heir to the suspicion tradition is the <strong>cognitive science of religion (CSR)</strong> — an empirical research program (Boyer, Barrett, Atran, Sperber) explaining religious belief as the natural by-product of ordinary, evolved cognitive machinery, requiring <em>no</em> special "religion module" and <em>no</em> God:</p>
+<ul>
+<li><strong>Hyperactive Agency Detection (HADD).</strong> Humans have an evolved, <em>trigger-happy</em> device for detecting <em>agents</em> (predators, rivals) behind events — because the cost of a <em>false positive</em> (mistaking wind for a tiger) is trivial while a <em>false negative</em> (missing a real tiger) is fatal. This device <em>over-fires</em>, attributing <em>agency</em> to natural events (storms, disease, fortune), seeding belief in <em>unseen agents</em> — spirits, ancestors, gods.</li>
+<li><strong>Promiscuous teleology</strong> and <strong>mind–body dualism.</strong> Children are natural <em>teleologists</em> (seeing purpose everywhere — "the rocks are pointy so animals won't sit on them") and intuitive <em>dualists</em> (treating minds as separable from bodies), cognitive biases that make <em>design</em>, <em>purpose</em>, and <em>souls/afterlife</em> intuitively compelling.</li>
+<li><strong>Minimally counterintuitive concepts.</strong> Religious concepts spread and stick because they are <em>mostly</em> intuitive (a god is a person with beliefs and desires) with a <em>few</em> attention-grabbing violations (invisible, immortal, all-knowing) — an optimal cognitive "stickiness" for cultural transmission.</li>
+</ul>
+<p>The debunking force: if belief in gods is what <em>normally-functioning</em> human minds <em>produce</em> whether or not any god exists — a predictable cognitive <em>by-product</em> — then the bare <em>fact</em> of widespread belief is <em>not</em> evidence for its <em>truth</em>, and the <a href="../arguments/other-arguments.html">common-consent argument</a> is <em>undercut</em>.</p>
+<h2 id="do-the-debunking-arguments-succeed"><a class="header" href="#do-the-debunking-arguments-succeed">Do the debunking arguments succeed?</a></h2>
+<p>The critical question is whether <em>explaining</em> a belief's origin <em>discredits</em> it. The standard theistic reply is the <strong>genetic fallacy</strong> charge:</p>
+<ul>
+<li><strong>Explaining is not refuting.</strong> The <em>causal origin</em> of a belief is logically independent of its <em>truth</em>. <em>All</em> beliefs — including <em>true</em> ones, and including <em>mathematical</em> and <em>scientific</em> ones — have causal-psychological explanations; that a belief was <em>produced</em> by some mechanism says <em>nothing</em> about whether its content is <em>correct</em>. Newton's belief in gravity has a cognitive history too; that does not refute gravity. So Feuerbach, Freud, and CSR, <em>even if entirely correct as psychology</em>, do not <em>show</em> there is no God — at most they show belief <em>would</em> arise <em>whether or not</em> there is one.</li>
+<li><strong>The reply about <em>warrant</em>, not <em>truth</em>.</strong> The sophisticated debunker concedes this and retreats to the <em>undercutting</em> claim: the explanation shows the belief is <em>not formed by a process that tracks the truth</em>, so the belief is <em>unwarranted</em> (even if, by luck, true). This is a <em>genuine</em> defeater-style argument, and it engages directly with <a href="../epistemology/reformed-epistemology.html">Reformed epistemology's</a> claim that the <a href="../epistemology/reformed-epistemology.html"><em>sensus divinitatis</em></a> is a <em>reliable</em>, truth-aimed faculty.</li>
+<li><strong>Plantinga's counter.</strong> If theism is <em>true</em>, then the very cognitive faculties CSR describes (HADD, teleological intuition) may be <em>God's chosen means</em> of implanting the <em>sensus divinitatis</em> — a <em>reliable</em>, God-designed process, not a truth-insensitive accident. So whether CSR <em>debunks</em> depends on whether theism is <em>true</em>: on theism, the mechanisms are <em>reliable</em>; on naturalism, they are not. The debunking argument therefore <em>presupposes</em> naturalism rather than <em>establishing</em> it — it cannot be a <em>neutral</em> premise (this is the <a href="../epistemology/reformed-epistemology.html">de jure / de facto</a> point again). The naturalist replies that the mechanisms demonstrably <em>misfire</em> (they generate <em>false</em> agency-attributions constantly, and <em>contradictory</em> gods across cultures — see <a href="./religious-pluralism.html">religious diversity</a>), which is evidence of <em>un</em>reliability <em>independent</em> of the theism question.</li>
+</ul>
+<p>The debate, then, does not end in an easy "genetic fallacy" dismissal: the <em>crude</em> debunking (origin → falsehood) commits it, but the <em>refined</em> debunking (origin → unwarrant, via unreliability) is a real challenge that ties directly into the <a href="../epistemology/reformed-epistemology.html">reliability</a> disputes of religious epistemology.</p>
+<h2 id="the-new-atheism-secularization-and-religion-as-a-category"><a class="header" href="#the-new-atheism-secularization-and-religion-as-a-category">The New Atheism, secularization, and "religion" as a category</a></h2>
+<p>Three further strands of the modern critique:</p>
+<ul>
+<li><strong>The New Atheism.</strong> The popular movement (Dawkins's <em>The God Delusion</em>, Hitchens, Harris, Dennett) combines the <a href="../evil/problem-of-evil.html">argument from evil</a>, the <a href="./science-and-religion.html">scientific</a> critique, and the <em>moral</em> charge that religion is <em>harmful</em> (violence, oppression, anti-science). Critics — including many atheist philosophers — fault it for engaging <em>unsophisticated</em> forms of belief, neglecting the strongest <a href="../arguments-for-theism.html">natural theology</a> and <a href="../concept-of-god.html">philosophical theism</a>, and for <em>its own</em> faith in the sufficiency of science (<a href="./science-and-religion.html">scientism</a>). It is more a <em>cultural</em> phenomenon than a contribution to the philosophy of religion, but it sharpened the <a href="../arguments-against-theism.html">burden-of-proof</a> and harm debates.</li>
+<li><strong>Secularization theory.</strong> The sociological thesis that <em>modernity</em> inexorably <em>erodes</em> religion (as science, education, and prosperity advance, belief declines). Once near-consensus, it is now contested: religion has <em>not</em> withered globally (it is resurgent in much of the world, and persistent in the modernised USA), prompting <em>revised</em> theories (secularization as a <em>European</em> particularity, or a <em>transformation</em> rather than a <em>decline</em> of religiosity). Relevant to the <a href="./religious-pluralism.html">diversity</a> and meaning debates.</li>
+<li><strong>"Religion" as a constructed category.</strong> A genealogical critique (Talal Asad, W.C. Smith): the very <em>concept</em> of "religion" — as a distinct sphere of <em>private belief</em> separable from politics, science, and culture — is a <em>modern, Western, Protestant</em> construction, projected anachronistically onto other cultures and times that had no such category. If "religion" is not a natural kind but a contingent invention, then <em>some</em> philosophy-of-religion questions (especially the <a href="./science-and-religion.html">science-vs-religion</a> framing and the comparison of "religions" in <a href="./religious-pluralism.html">pluralism</a>) may be <em>malformed</em> — built on a category that distorts what it classifies.</li>
+</ul>
+<h2 id="where-the-critiques-sit"><a class="header" href="#where-the-critiques-sit">Where the critiques sit</a></h2>
+<p>The critiques of religion are <strong>debunking</strong> rather than <strong>rebutting</strong> arguments: they aim to <em>explain belief away</em> — as projected human essence (Feuerbach), class anaesthetic (Marx), infantile wish (Freud), society self-worshipped (Durkheim), or cognitive by-product (CSR) — rather than to <em>disprove God</em>. Their force depends entirely on the <strong>genetic</strong> question: the <em>crude</em> form (origin therefore falsehood) commits the <strong>genetic fallacy</strong> and fails, since <em>all</em> beliefs have causal histories and explaining is not refuting; the <em>refined</em> form (origin therefore <em>unwarrant</em>, via the <em>unreliability</em> of the belief-forming process) is a <em>genuine</em> challenge that meets <a href="../epistemology/reformed-epistemology.html">Reformed epistemology</a> head-on — and, by Plantinga's <a href="../epistemology/reformed-epistemology.html">de jure/de facto</a> point, <em>presupposes</em> the falsity of theism (on which the mechanisms would be <em>reliable</em>) rather than <em>establishing</em> it, though the naturalist counters with the mechanisms' manifest misfiring and the <a href="./religious-pluralism.html">diversity</a> of their outputs. The <strong>New Atheism</strong>, <strong>secularization theory</strong>, and the <strong>"religion"-as-category</strong> critique extend the secular challenge into ethics, sociology, and conceptual history. Together with the <a href="../evil/problem-of-evil.html">problem of evil</a> and <a href="../evil/divine-hiddenness.html">divine hiddenness</a>, the debunking critiques form the <a href="../arguments-against-theism.html">atheological</a> case's <em>undercutting</em> wing — complementing the <em>rebutting</em> arguments and pressing, from the side of <em>suspicion</em>, the same question the whole <a href="../epistemology/religious-epistemology.html">epistemology</a> section turns on: whether belief in God is the deliverance of a <em>reliable</em> faculty or the <em>predictable illusion</em> of a mind built to see agents, fathers, and purposes that are not there.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/pluralism/science-and-religion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/traditions/non-western.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/pluralism/science-and-religion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/traditions/non-western.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

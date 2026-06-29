@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Religious Epistemology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/epistemology/religious-epistemology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="religious-epistemology"><a class="header" href="#religious-epistemology">Religious Epistemology</a></h1>
+<p><strong>Religious epistemology</strong> is the theory of <em>knowledge and rational belief applied to religion</em>: not <em>whether</em> God exists (the <a href="../arguments-for-theism.html">arguments</a> handle that) but whether, and how, belief in God can be <strong>justified</strong>, <strong>warranted</strong>, or <strong>known</strong> — and what <em>standards</em> such belief must meet. It is the epistemic limb of the <a href="../introduction.html">three questions</a>, and it has become one of the most active areas of the field since the 1980s, largely because of a dispute over a single demand: must religious belief be supported by <em>evidence and argument</em> to be rational, or can it be rational <em>without</em> them? The answer reshapes everything, since it determines whether the success of <a href="../arguments-for-theism.html">natural theology</a> is <em>necessary</em> for rational faith or merely one route among others.</p>
+<p>This page sets out the <strong>evidentialist</strong> demand and the "ethics of belief," the <strong>internalism/externalism</strong> distinction that frames the modern debate, and the <strong>"great pumpkin"</strong> objection that any adequate religious epistemology must answer. It is the hub for the more specific pages on <a href="./reformed-epistemology.html">Reformed epistemology</a>, <a href="./religious-experience.html">religious experience</a>, <a href="./miracles.html">miracles</a>, and the <a href="./pragmatic-arguments.html">pragmatic arguments</a>.</p>
+<hr />
+<h2 id="the-evidentialist-objection"><a class="header" href="#the-evidentialist-objection">The evidentialist objection</a></h2>
+<p>The default position of modern epistemology, and the implicit charge against religious belief, is <strong>evidentialism</strong>: a belief is rational (justified, epistemically permissible) only if it is <em>proportioned to the evidence</em> — held with a firmness matching the strength of the reasons for it. Applied to religion, this becomes the <strong>evidentialist objection</strong> (Flew, Mackie, Scriven): belief in God is rational <em>only if</em> there is sufficient evidence for it; the <a href="../arguments-for-theism.html">theistic arguments</a> are the evidence; they fail (or at least fall short of proof); therefore religious belief is <em>not</em> rational — it is, in <strong>Clifford's</strong> stern phrase, believing "upon insufficient evidence."</p>
+<p>The objection has two parts that can be separated:</p>
+<ul>
+<li>A general <strong>epistemological principle</strong>: rational belief requires evidence.</li>
+<li>A <strong>factual claim</strong>: the evidence for God is insufficient.</li>
+</ul>
+<p>A theist can resist at <em>either</em> point — by <em>meeting</em> the evidential demand (mounting a successful <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>), or by <em>rejecting the demand itself</em>. The second, more radical strategy — denying that religious belief needs propositional evidence at all — is the move of <a href="./reformed-epistemology.html">Reformed epistemology</a>, and it has reframed the whole field.</p>
+<h2 id="the-ethics-of-belief"><a class="header" href="#the-ethics-of-belief">The ethics of belief</a></h2>
+<p>The evidentialist demand is often given a <em>moral</em> edge. <strong>W.K. Clifford's</strong> "The Ethics of Belief" (1877) argues that belief is never a private matter — beliefs guide action and are passed to others — so we have a <em>duty</em> to believe responsibly:</p>
+<blockquote>
+<p>"It is wrong always, everywhere, and for anyone, to believe anything upon insufficient evidence."</p>
+</blockquote>
+<p>His parable: a shipowner, suppressing his doubts, convinces himself his vessel is seaworthy; it sinks with all aboard. He is <em>guilty</em>, Clifford says, "not because his belief was wrong, but because he had no right to believe on such evidence" — and he would be equally guilty <em>even if the ship had safely arrived</em>, because the <em>culpability lies in the believing</em>, not the outcome. Generalised, Clifford makes under-evidenced belief an <em>ethical</em> failing, a betrayal of one's duty to the community of inquirers.</p>
+<p>The replies (developed under <a href="../faith-and-reason.html">faith and reason</a>): <strong>James's</strong> "will to believe" denies that the rule "always withhold belief absent sufficient evidence" is itself evidentially mandated — it is <em>one</em> passional policy (fearing error above all) among others, and in <em>forced, momentous, undecidable</em> options it can cost us truth and good. And the <strong>Reformed</strong> reply notes that Clifford's principle, applied to <em>itself</em>, is self-undermining (what <em>sufficient evidence</em> supports "always proportion belief to evidence"?) and, applied consistently, far too strong (it would condemn ordinary perceptual, memory, and testimonial beliefs we hold without argument).</p>
+<h2 id="internalism-vs-externalism"><a class="header" href="#internalism-vs-externalism">Internalism vs. externalism</a></h2>
+<p>The deep shift that reframed religious epistemology is the move from <strong>internalist</strong> to <strong>externalist</strong> theories of justification — a distinction from general epistemology with decisive consequences here:</p>
+<ul>
+<li><strong>Internalism</strong> holds that what justifies a belief must be <em>cognitively accessible</em> to the believer — reasons, evidence, or other mental states she can reflect on and cite. On internalism, the evidentialist demand is natural: to be justified in believing God exists, you must <em>have</em> (and be able to access) good reasons. Religious belief is then hostage to the <a href="../arguments-for-theism.html">arguments</a>.</li>
+<li><strong>Externalism</strong> holds that justification (or <em>warrant</em>) depends on factors <em>outside</em> the believer's reflective access — typically, on the belief's being produced by a <strong>reliable process</strong> (reliabilism) or a <strong>properly functioning</strong> faculty aimed at truth. On externalism, a belief can be warranted <em>without</em> the believer possessing any argument for it, <em>provided</em> it is formed in the right truth-conducive way — exactly as ordinary perceptual beliefs are warranted by the reliable functioning of perception, not by an <em>argument</em> that perception is reliable.</li>
+</ul>
+<p>The externalist turn is what makes <a href="./reformed-epistemology.html">Reformed epistemology</a> possible: if belief in God is the output of a reliable, properly functioning, truth-aimed faculty (a <em><a href="./reformed-epistemology.html">sensus divinitatis</a></em>), it can be <strong>warranted</strong> even though the believer has no <a href="../arguments-for-theism.html">theistic argument</a> — just as a child's perceptual beliefs are warranted before she could defend the reliability of her senses. The evidentialist objection, framed in internalist terms, then <em>misfires</em>: it demands evidence for a belief that does not <em>need</em> evidence to be warranted.</p>
+<p>This connects to the <strong>de jure / de facto</strong> distinction (Plantinga, developed under <a href="./reformed-epistemology.html">Reformed epistemology</a>): a <em>de facto</em> objection says theism is <em>false</em>; a <em>de jure</em> objection says that, whatever its truth, theism is <em>irrational</em> or <em>unwarranted</em>. The evidentialist objection is the leading <em>de jure</em> challenge — and the externalist reply is that <em>whether</em> theistic belief is warranted depends on <em>whether God exists and has designed us to know him</em>, so that the <em>de jure</em> question cannot be settled independently of the <em>de facto</em> one. There is, Plantinga argues, <em>no</em> viable de jure objection that does not presuppose atheism.</p>
+<h2 id="the-great-pumpkin-objection"><a class="header" href="#the-great-pumpkin-objection">The "great pumpkin" objection</a></h2>
+<p>The chief danger for any epistemology that <em>loosens</em> the evidential demand is <strong>over-permissiveness</strong>, crystallised in Plantinga's own <strong>"Great Pumpkin" objection</strong> (which he raises against himself): if belief in God can be rational/properly basic <em>without</em> evidence, what stops <em>any</em> belief — in the Great Pumpkin (Linus's pseudo-deity in <em>Peanuts</em>), in voodoo, in astrology, in a flat earth — from claiming the <em>same</em> status? If "I just find myself believing it, in the basic way" licenses theism, it seems to license <em>everything</em>, dissolving the distinction between rational and irrational belief.</p>
+<p>A successful religious epistemology must therefore draw a <em>principled</em> line between <em>properly</em> basic religious belief and arbitrary or crazy basic belief, <em>without</em> simply reintroducing the evidentialist demand. The externalist answer (developed in <a href="./reformed-epistemology.html">Reformed epistemology</a>) is that the line is drawn by <strong>proper function and reliable origin</strong>: theistic belief is properly basic <em>if</em> it issues from a God-given, truth-aimed faculty functioning correctly — whereas Great-Pumpkin belief issues from no such faculty. But this answer is <em>conditional on theism's truth</em> (only if there <em>is</em> a God who designed the <em>sensus divinitatis</em> is theistic belief reliably produced), which both explains the externalist's confidence and exposes the move to the charge of <strong>circularity</strong> — using the truth of theism to certify the warrant of theistic belief. Whether that circularity is <em>vicious</em> or the same benign circularity that afflicts <em>any</em> attempt to validate a basic faculty (we cannot validate perception without using perception) is the crux, and it is the standing problem the next page inherits.</p>
+<h2 id="where-religious-epistemology-sits"><a class="header" href="#where-religious-epistemology-sits">Where religious epistemology sits</a></h2>
+<p>Religious epistemology is the battleground over a single question — <em>does rational belief in God require evidence?</em> — and the answer turns on a prior question in general epistemology: <strong>internalism or externalism</strong> about justification. If internalism is right, the <strong>evidentialist objection</strong> stands and religious belief lives or dies by the <a href="../arguments-for-theism.html">arguments</a> and the <a href="../evil/problem-of-evil.html">problem of evil</a>. If externalism is right, belief can be <strong>warranted</strong> by a reliable, properly functioning faculty <em>without</em> argument — the opening that <a href="./reformed-epistemology.html">Reformed epistemology</a> exploits, at the risk of the <strong>"great pumpkin"</strong> over-permissiveness and the charge of circularity. The other routes to warranted religious belief — the perceptual model of <a href="./religious-experience.html">religious experience</a>, the testimonial evidence of <a href="./miracles.html">miracles</a>, and the practical license of the <a href="./pragmatic-arguments.html">pragmatic arguments</a> — are all, in effect, attempts to discharge or sidestep the evidentialist demand by different means, and each is taken up in turn. The overarching dialectic remains the one set in <a href="../faith-and-reason.html">faith and reason</a>: whether faith is answerable to the tribunal of evidence, or rational on its own terms.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/attributes/coherence-of-theism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/epistemology/reformed-epistemology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/attributes/coherence-of-theism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/epistemology/reformed-epistemology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

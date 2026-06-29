@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Concept of God - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/concept-of-god.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-concept-of-god"><a class="header" href="#the-concept-of-god">The Concept of God</a></h1>
+<p>Before asking <em>whether</em> God exists, we must ask <em>what</em> is being claimed to exist. The word "God" does not name a single agreed concept: the <strong>God of classical theism</strong> — a unique, simple, immaterial, eternal being possessing every perfection without limit — is a sophisticated philosophical construction, and it differs sharply both from the more anthropomorphic deity of unreflective piety and from the rival conceptions (process, pantheist, deist) that the tradition has thrown up. The <a href="./arguments-for-theism.html">arguments for</a> and <a href="./arguments-against-theism.html">against</a> God's existence, and the <a href="./evil/problem-of-evil.html">problem of evil</a>, are all aimed at a <em>particular</em> concept; change the target and the arguments change with it. Fixing the concept is therefore the first task.</p>
+<p>This page sets out the dominant <strong>classical-theistic</strong> conception and the perfect-being method that generates it, surveys the principal <strong>alternatives</strong>, and flags the internal tensions among the divine attributes that the <a href="./attributes/coherence-of-theism.html">attributes pages</a> examine in depth.</p>
+<hr />
+<h2 id="classical-theism-the-omni-attributes"><a class="header" href="#classical-theism-the-omni-attributes">Classical theism: the omni-attributes</a></h2>
+<p>In the mainstream of Jewish, Christian, and Islamic philosophical theology — Augustine, Anselm, Maimonides, Avicenna, Aquinas — "God" denotes the <em>greatest possible being</em>, and the standard attributes are read off from that. A representative list:</p>
+<ul>
+<li><strong>Omnipotence</strong> — maximal power; God can do anything (subject to debate over whether "anything" includes the logically impossible: see <a href="./attributes/omnipotence.html">omnipotence</a>).</li>
+<li><strong>Omniscience</strong> — maximal knowledge; God knows all truths, including, on the classical view, all future ones — which generates the <a href="./attributes/omniscience.html">foreknowledge-and-freedom</a> problem.</li>
+<li><strong>Omnibenevolence</strong> — perfect goodness; the attribute the <a href="./evil/problem-of-evil.html">problem of evil</a> puts under most pressure.</li>
+<li><strong>Aseity and necessity</strong> — God exists <em>a se</em> (from itself), depending on nothing, and exists <em>necessarily</em> rather than contingently; this is the engine of the <a href="./arguments/ontological.html">ontological</a> and <a href="./arguments/cosmological.html">cosmological</a> arguments.</li>
+<li><strong>Eternity</strong> — God is either <em>timeless</em> (outside time altogether, Boethius, Aquinas) or <em>everlasting</em> (in time but without beginning or end): see <a href="./attributes/eternity.html">eternity</a>.</li>
+<li><strong>Immutability and impassibility</strong> — God does not change, and (on the strong version) cannot be acted on or suffer.</li>
+<li><strong>Simplicity</strong> — God is not composed of parts; the attributes are not distinct components but one undivided reality (see <a href="./attributes/goodness-and-simplicity.html">goodness and simplicity</a>).</li>
+<li><strong>Incorporeality and omnipresence</strong> — God is immaterial and not located, yet present to all things.</li>
+<li><strong>Personhood and creator</strong> — God is an agent with knowledge, will, and love, who freely created and sustains all else.</li>
+</ul>
+<p>Three further structural commitments are usually bundled in: <strong>monotheism</strong> (there is exactly one such being), <strong>transcendence</strong> (God is distinct from and "beyond" the world) together with <strong>immanence</strong> (God is nonetheless present and active within it), and <strong>personal relationality</strong> (God is a "thou," not merely a principle).</p>
+<h2 id="perfect-being-theology-the-anselmian-method"><a class="header" href="#perfect-being-theology-the-anselmian-method">Perfect-being theology: the Anselmian method</a></h2>
+<p>Classical theism is not an arbitrary list but the output of a <em>method</em>. <strong>Anselm's</strong> formula — God is <em>id quo maius cogitari nequit</em>, "that than which nothing greater can be conceived" — yields the <strong>perfect-being</strong> program: God possesses, to the maximal compossible degree, every property it is intrinsically better to have than to lack (a "great-making property"). Power, knowledge, and goodness are great-making, so God has them maximally; ignorance, weakness, and dependence are not, so God lacks them.</p>
+<p>The method is elegant but does real work — and incurs real debts:</p>
+<ul>
+<li>It supplies the premise of the <a href="./arguments/ontological.html">ontological argument</a>: if existence (or <em>necessary</em> existence) is itself great-making, the greatest conceivable being must exist.</li>
+<li>It requires a prior account of <em>value</em> — of which properties are genuinely "great-making" — that is not obvious and may itself be contested (is <em>impassibility</em> a perfection, or a defect, in a God of love?).</li>
+<li>It can generate <strong>incompatibility worries</strong>: if two great-making properties cannot be jointly maximised (perfect justice and perfect mercy; complete foreknowledge and genuine responsiveness), perfect-being theology must rank or qualify them. These tensions are the subject matter of the <a href="./attributes/coherence-of-theism.html">coherence-of-theism</a> debate.</li>
+</ul>
+<h2 id="the-god-of-the-philosophers-vs-the-god-of-faith"><a class="header" href="#the-god-of-the-philosophers-vs-the-god-of-faith">The God of the philosophers vs. the God of faith</a></h2>
+<p><strong>Pascal's</strong> night of fire — <em>"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars"</em> — names a recurring complaint: the abstract, immutable, impassible Absolute of perfect-being theology seems remote from the living, responsive, covenant-making God of worship and scripture. The tension is genuine and runs through the field:</p>
+<ul>
+<li>A <strong>timeless, immutable, impassible</strong> God cannot literally <em>change his mind</em>, <em>respond</em> to prayer in time, <em>come to know</em> what you have just decided, or <em>suffer with</em> the afflicted — yet the religious life seems to presuppose all of these.</li>
+<li>This pressure is one of the main motivations for the <strong>revisionary</strong> conceptions below, especially process and open theism, which trade some classical attributes for a more relational, temporally engaged deity.</li>
+</ul>
+<p>The classical theist replies that scripture speaks <em>analogically</em> (see <a href="./language/religious-language.html">religious language</a>) and that apparent "responsiveness" can be redescribed without literal change in God. Whether that redescription is adequate is exactly what divides classical from revisionary theists.</p>
+<h2 id="the-alternatives"><a class="header" href="#the-alternatives">The alternatives</a></h2>
+<p>The concept of God is a family, not a point. The principal rivals to classical theism:</p>
+<ul>
+<li><strong>Deism.</strong> A creator who designed and started the world but does not intervene — no miracles, no special revelation, no ongoing providence. God is known through reason and nature alone. Characteristic of the Enlightenment (Voltaire, the "watchmaker" reading of the <a href="./arguments/teleological.html">design argument</a>); it accepts a cosmological/teleological inference to a first cause while rejecting the scriptural superstructure.</li>
+<li><strong>Pantheism.</strong> God is <em>identical</em> with the totality of what exists — Spinoza's <em>Deus sive Natura</em>, "God, or Nature." There is no transcendent creator distinct from the world; the divine is the one infinite substance of which all things are modes. Closely related conceptions appear in <a href="./traditions/non-western.html">Advaita Vedānta</a> (Brahman) and in some forms of idealism.</li>
+<li><strong>Panentheism.</strong> A middle path: the world is <em>in</em> God (God includes and pervades it) but God is <em>more</em> than the world and not exhausted by it. Characteristic of <strong>process theology</strong> (Whitehead, Hartshorne), on which God is <em>dipolar</em> — eternal in abstract nature, temporal and changing in concrete actuality — and <em>persuades</em> rather than coerces the world, a feature with consequences for the <a href="./evil/theodicies.html">problem of evil</a>.</li>
+<li><strong>Open theism.</strong> A revision <em>within</em> personal theism: God is everlasting (in time), genuinely responsive, and — crucially — does <em>not</em> foreknow the free future, because (it is claimed) there are as yet no truths about undetermined future choices to be known. This is offered as a solution to the <a href="./attributes/omniscience.html">foreknowledge problem</a> and as a more relational reading of providence, at the cost of classical omniscience.</li>
+<li><strong>Finite / limited-God views.</strong> Some respond to <a href="./evil/problem-of-evil.html">evil</a> by limiting God's <em>power</em> (a God who does the best he can within constraints — J.S. Mill, some process views) or, in <strong>theistic personalism</strong>, by treating God as a <em>person without a body</em> on the model of a maximal human-like agent (Swinburne), rather than as the metaphysically austere <em>ipsum esse subsistens</em> of <a href="./attributes/goodness-and-simplicity.html">divine simplicity</a>.</li>
+<li><strong>Non-personal ultimates.</strong> Beyond the Abrahamic frame, "ultimate reality" need not be a personal God at all: Brahman, the Dao, Plotinus's <strong>One</strong> beyond being, Tillich's <strong>"ground of being,"</strong> the Buddhist refusal of a creator. These widen the metaphysical question past theism and are taken up under the <a href="./traditions/non-western.html">traditions</a>.</li>
+</ul>
+<h2 id="internal-tensions-among-the-attributes"><a class="header" href="#internal-tensions-among-the-attributes">Internal tensions among the attributes</a></h2>
+<p>The classical package is powerful but tightly wound, and several attributes pull against one another. These are not yet <em>objections to God's existence</em> — they are challenges to the <em>coherence</em> of the concept, and they organize the <a href="./attributes/coherence-of-theism.html">attributes</a> section:</p>
+<ul>
+<li><strong>Omniscience vs. freedom.</strong> If God infallibly knows now what you will freely do tomorrow, is your choice still open? (See <a href="./attributes/omniscience.html">omniscience and foreknowledge</a>; this is the religious counterpart of the <a href="../freewill/introduction.html">free-will</a> problem.)</li>
+<li><strong>Omnipotence's limits.</strong> Can God make a stone too heavy to lift, sin, or change the past? (See <a href="./attributes/omnipotence.html">omnipotence</a>.)</li>
+<li><strong>Eternity vs. action and knowledge.</strong> A <em>timeless</em> God seems unable to act <em>at</em> a moment or know <em>what time it is now</em>; an <em>everlasting</em> God seems caught up in change. (See <a href="./attributes/eternity.html">eternity</a>.)</li>
+<li><strong>Simplicity vs. the plurality of attributes.</strong> If God is utterly without parts, how can power, knowledge, and goodness be <em>distinct</em> perfections — and how can a simple being be a <em>free</em> creator who might have created otherwise? (See <a href="./attributes/goodness-and-simplicity.html">goodness and simplicity</a>.)</li>
+<li><strong>Goodness vs. evil.</strong> Perfect goodness and unlimited power seem jointly to exclude the suffering we observe — the <a href="./evil/problem-of-evil.html">problem of evil</a>, the single most pressing tension of all.</li>
+<li><strong>Immutability/impassibility vs. love and responsiveness.</strong> The Pascalian worry above, in attribute form.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>"Does God exist?" is well-posed only relative to a <em>conception</em> of God, and the conception standardly in play is the maximally perfect, simple, necessary, personal creator of <strong>classical theism</strong>, generated by the <strong>perfect-being</strong> method. That conception is the target of the <a href="./arguments-for-theism.html">theistic arguments</a> (which try to establish a being of just this kind) and of the <a href="./arguments-against-theism.html">atheological arguments</a> (which try to show no such being exists, or that the very concept is incoherent). The <strong>alternatives</strong> — deism, pantheism, panentheism, open and process theism, non-personal ultimates — matter because they change what has to be proved and what counts as a refutation: an <a href="./evil/problem-of-evil.html">argument from evil</a> decisive against an omnipotent, omnibenevolent classical God may leave a <em>finite</em> or <em>persuasive</em> deity untouched. With the concept fixed, the next pages turn to the case <a href="./arguments-for-theism.html">for</a> and <a href="./arguments-against-theism.html">against</a> its instantiation.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/religion/introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/religion/arguments-for-theism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/religion/introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/religion/arguments-for-theism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Religious Pluralism and Diversity - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/pluralism/religious-pluralism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="religious-pluralism-and-diversity"><a class="header" href="#religious-pluralism-and-diversity">Religious Pluralism and Diversity</a></h1>
+<p>The world contains <em>many</em> religions, making <em>incompatible</em> claims about the divine, salvation, and the human condition — and most adherents acquired their religion by the <em>accident</em> of birth and culture. This <strong>fact of religious diversity</strong> poses two distinct problems. The <em>soteriological</em> problem: if one religion is true, what becomes of the sincere adherents of the others — are they excluded from salvation? The <em>epistemological</em> problem: given that equally intelligent, sincere people across traditions hold contradictory beliefs on the same evidence, can <em>anyone</em> be justified in their religious convictions? The responses — <strong>exclusivism, inclusivism, pluralism</strong> — define the terrain, and <strong>John Hick's</strong> pluralistic hypothesis is the most ambitious attempt to honour <em>all</em> the traditions at once.</p>
+<p>This page sets out the three positions, Hick's pluralism and its Kantian structure, the epistemology of religious disagreement, and the particularist reply.</p>
+<hr />
+<h2 id="three-responses-to-diversity"><a class="header" href="#three-responses-to-diversity">Three responses to diversity</a></h2>
+<p>On the question of <em>truth and salvation</em> across religions, the classic taxonomy (Alan Race):</p>
+<ul>
+<li><strong>Exclusivism</strong> (particularism). <em>One</em> religion is uniquely true, and its path is the <em>only</em> way to salvation/liberation; other religions are false where they conflict with it, and their adherents are not saved (or are saved only through the one true way, often unknowingly). Traditional "<em>extra ecclesiam nulla salus</em>" (no salvation outside the church). Its strength: it takes the traditions' <em>own</em> exclusive truth-claims at face value. Its difficulty: it seems to <em>condemn</em> the majority of sincere humanity for an accident of birth, raising acutely the <a href="../evil/problem-of-evil.html">problem of evil</a> and <a href="../evil/divine-hiddenness.html">divine hiddenness</a> (why would a <a href="../evil/divine-hiddenness.html">loving God</a> leave most people in saving ignorance?).</li>
+<li><strong>Inclusivism.</strong> <em>One</em> religion is the fullest or normative truth and the <em>locus</em> of salvation, <em>but</em> the saving reality is <em>also</em> at work, partially and implicitly, in other traditions; their sincere adherents <em>can</em> be saved <em>through</em> the one true source, even without explicitly knowing it (<strong>Karl Rahner's</strong> "anonymous Christians"). A middle path: it preserves a privileged truth while extending salvation widely. Its difficulty: it can seem <em>condescending</em> (re-describing the devout Hindu as an "anonymous Christian" honours neither), and unstable between the other two.</li>
+<li><strong>Pluralism.</strong> <em>No</em> single religion is uniquely true or the sole way; the major traditions are <em>equally valid</em> (if imperfect) human responses to the <em>same</em> ultimate reality, <em>equally effective</em> paths to salvation/liberation. It takes religious diversity at face value as <em>genuine plurality</em>, not error. Its difficulty: it seems to <em>contradict</em> what the traditions <em>themselves</em> assert (each claims <em>unique</em> truth), and to demote the <em>specific</em> doctrinal claims (a personal God, the Incarnation) to mere appearances — buying equality at the price of <em>literal</em> truth.</li>
+</ul>
+<h2 id="hicks-pluralistic-hypothesis"><a class="header" href="#hicks-pluralistic-hypothesis">Hick's pluralistic hypothesis</a></h2>
+<p><strong>John Hick</strong> (<em>An Interpretation of Religion</em>, 1989) gives pluralism its most developed form, with an explicitly <strong>Kantian</strong> structure. The core distinction:</p>
+<ul>
+<li><strong>The Real</strong> <em>an sich</em> (in itself) — the one ultimate, transcendent reality, which is <em>ineffable</em>: beyond the reach of our concepts, neither personal nor impersonal, good nor evil, one nor many, <em>as it is in itself</em>.</li>
+<li><strong>The Real <em>as humanly experienced</em></strong> — the Real as it appears, <em>refracted</em> through the differing conceptual schemes and forms of life of the various traditions. The Real is experienced and thought <em>as</em> the <strong>personae</strong> (personal deities: Yahweh, the Father, Allah, Vishnu) and <em>as</em> the <strong>impersonae</strong> (non-personal absolutes: Brahman, the Dao, the Void, Nirguna Brahman).</li>
+</ul>
+<p>The Kantian move (see <a href="../../../logic/higher-order-logic.html">the analogy to phenomena/noumena</a> in epistemology): just as, for Kant, we never know the world <em>as it is in itself</em> (the noumenon) but only <em>as structured by</em> our cognitive categories (the phenomenon), so we never encounter the Real in itself but only the Real <em>as conceptualised</em> through our religious categories. The great traditions are thus <em>all</em> veridical contacts with <em>one</em> Real, differently <em>humanly constructed</em> — none is simply <em>false</em>, and their apparent <em>contradictions</em> (personal vs. impersonal ultimate) are <em>appearances</em> of the single ineffable Real, not genuine rival descriptions of <em>it</em>. The test of a religion's authenticity is <em>soteriological and moral</em>: its capacity to transform people "from self-centredness to Reality-centredness" — and by this fruit, Hick argues, the major traditions are <em>roughly equally</em> effective.</p>
+<p><strong>Objections</strong> to Hick:</p>
+<ul>
+<li><strong>The ineffability problem.</strong> If the Real is <em>truly</em> beyond all our concepts, we cannot even say it is <em>good</em>, <em>one</em>, or <em>the source of salvation</em> — yet Hick says all these. A Real of which <em>nothing positive</em> can be said collapses into a blank, unable to do the work (grounding the equal validity of the traditions) Hick needs (compare the <a href="../language/religious-language.html">via negativa's</a> emptiness worry).</li>
+<li><strong>It is itself a (covert) exclusivism.</strong> Hick's pluralism is <em>not</em> neutral: it asserts a <em>particular</em> metaphysics (the ineffable Real, the phenomenal status of all deities) that <em>every</em> tradition's <em>own</em> self-understanding <em>denies</em>. So it does not honour the traditions; it <em>overrules</em> them all in favour of a new, quasi-Kantian meta-religion — exclusivism at a higher level.</li>
+<li><strong>It demotes specific truth-claims.</strong> The Christian's "God is triune" and the Muslim's "God is <em>not</em> triune" are <em>both</em> reduced to appearances of the Real — but the believers mean them as <em>literal</em> truths, and at least one must be <em>wrong</em> if they are about the <em>same</em> reality. Pluralism saves "equal validity" only by emptying the <a href="../language/realism-antirealism.html">realist</a> content of the claims.</li>
+</ul>
+<h2 id="the-epistemology-of-religious-disagreement"><a class="header" href="#the-epistemology-of-religious-disagreement">The epistemology of religious disagreement</a></h2>
+<p>Diversity is not only a <em>soteriological</em> but an <em>epistemic</em> challenge, connected to the general epistemology of <strong>peer disagreement</strong>. The argument:</p>
+<ol>
+<li>For most religious beliefs, there exist <em>epistemic peers</em> — people equally intelligent, informed, sincere, and reflective — in <em>other</em> traditions who hold <em>contradictory</em> beliefs.</li>
+<li>The <em>grounds</em> of one's own religious belief (upbringing, experience, testimony, <a href="../arguments-for-theism.html">arguments</a>) are <em>symmetrically</em> available to one's peers for <em>their</em> incompatible beliefs.</li>
+<li>The "<strong>conciliationist</strong>" view in the epistemology of disagreement holds that, on discovering an epistemic peer disagrees, one should <em>reduce confidence</em> (move toward suspension or the peer's view).</li>
+<li>So awareness of religious diversity should lead each believer to <em>substantially reduce</em> confidence in her own distinctive religious beliefs — perhaps toward <a href="../arguments-against-theism.html">agnosticism</a>.</li>
+</ol>
+<p>The <strong>genetic / contingency</strong> sharpening (the "Galactic" or "born-in-the-wrong-place" argument): had you been born in Riyadh or Varanasi rather than your actual home, you would (with high probability) hold a <em>different</em> religion with equal conviction — which suggests your belief tracks <em>birthplace</em>, not <em>truth</em>, and so is epistemically <em>undermined</em> (a <a href="./critiques-of-religion.html">debunking</a> argument).</p>
+<h2 id="the-particularist-reply"><a class="header" href="#the-particularist-reply">The particularist reply</a></h2>
+<p>The <strong>particularist</strong> (a.k.a. epistemic exclusivist — <strong>Plantinga</strong>, <strong>van Inwagen</strong>, <strong>Alston</strong>) resists the conciliationist conclusion:</p>
+<ul>
+<li><strong>Symmetry can be broken from the inside.</strong> If one's religious belief is in fact <em>true</em> and produced by a reliable faculty (the <a href="../epistemology/reformed-epistemology.html"><em>sensus divinitatis</em></a>, <a href="../epistemology/religious-experience.html">religious experience</a>), then one <em>does</em> have something one's peers lack — <em>contact with the truth</em> — even if one cannot <em>demonstrate</em> this to a neutral party. Disagreement does not <em>automatically</em> defeat warrant (see <a href="../epistemology/reformed-epistemology.html">Reformed epistemology</a>).</li>
+<li><strong>Conciliationism proves too much.</strong> Applied consistently, the demand to suspend belief whenever intelligent peers disagree would force suspension on <em>philosophy, politics, ethics, and even the conciliationist principle itself</em> — areas of <em>pervasive</em> peer disagreement where we do <em>not</em> think all parties are irrational. If reasonable people can hold contested <em>philosophical</em> views despite disagreement, why not contested <em>religious</em> ones?</li>
+<li><strong>The contingency argument over-generalises.</strong> That you would have held <em>different</em> beliefs had you been raised elsewhere is true of your <em>political</em>, <em>moral</em>, and even <em>scientific</em> and <em>mathematical</em> education too, yet we do not think this debunks <em>all</em> such beliefs; <em>causal origin</em> does not settle <em>truth or warrant</em> (the <a href="./critiques-of-religion.html">genetic fallacy</a>).</li>
+</ul>
+<p>Plantinga concedes diversity provides a <em>defeater</em> one must <em>address</em> — it is, with <a href="../evil/problem-of-evil.html">evil</a>, among the serious challenges to warranted belief — but denies it is an <em>automatic</em> defeater that rationally compels the believer to abandon or even greatly reduce her conviction. The cost, again, is the <a href="../epistemology/reformed-epistemology.html">Great-Pumpkin</a> worry: the <em>same</em> reply is available to the <em>adherent of every tradition</em>, so particularism vindicates the rationality of <em>mutually incompatible</em> exclusivisms — defensively even-handed, but offering no way to <em>adjudicate</em> between them.</p>
+<h2 id="where-religious-pluralism-sits"><a class="header" href="#where-religious-pluralism-sits">Where religious pluralism sits</a></h2>
+<p>Religious diversity presses theism from two sides. <em>Soteriologically</em>, the spectrum runs from <strong>exclusivism</strong> (one true way — faithful to the traditions' self-understanding, but harsh toward sincere outsiders and a sharp form of the <a href="../evil/divine-hiddenness.html">hiddenness</a> problem) through <strong>inclusivism</strong> to <strong>pluralism</strong> (equal validity — generous, but contradicting the traditions and demoting their <a href="../language/realism-antirealism.html">literal claims</a>). <strong>Hick's</strong> Kantian <em>pluralistic hypothesis</em> is the major attempt to make pluralism rigorous, reconciling the conflicting deliverances of <a href="../epistemology/religious-experience.html">religious experience</a> as appearances of one ineffable <strong>Real</strong> — at the price of the <em>ineffability</em> problem and the charge of being a covert higher-order exclusivism. <em>Epistemically</em>, diversity is a problem of <a href="#the-epistemology-of-religious-disagreement">peer disagreement</a>: the conciliationist concludes that diversity should lower religious confidence toward <a href="../arguments-against-theism.html">agnosticism</a>, while the <strong>particularist</strong> (<a href="../epistemology/reformed-epistemology.html">Reformed</a>) replies that disagreement need not defeat warrant and that conciliationism, consistently applied, would dissolve philosophy itself. The standoff mirrors the whole <a href="../faith-and-reason.html">faith-and-reason</a> debate, and it connects to the <a href="./critiques-of-religion.html">debunking critiques</a> (the contingency-of-birth argument) and to the <a href="../traditions/non-western.html">non-Western traditions</a> whose very different ultimates are what make the diversity so deep.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/ethics/meaning-of-life.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/pluralism/science-and-religion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/ethics/meaning-of-life.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/pluralism/science-and-religion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

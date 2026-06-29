@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Omnipotence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/attributes/omnipotence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="omnipotence"><a class="header" href="#omnipotence">Omnipotence</a></h1>
+<p><strong>Omnipotence</strong> — being all-powerful — is the most conspicuous of the <a href="../concept-of-god.html">divine attributes</a>, and the first to generate paradox. The puzzles are ancient and deceptively simple: <em>Can God make a stone so heavy that he cannot lift it? Can God do evil, change the past, or make a contradiction true?</em> Each seems to force a dilemma — either there is something God cannot do (so he is not omnipotent) or omnipotence entails absurdities (so the concept is incoherent). The task of an account of omnipotence is to say precisely <em>what</em> "can do anything" should mean, in a way that is both faithful to the religious idea of unlimited power and free of contradiction. This is the first front in the <a href="./coherence-of-theism.html">coherence-of-theism</a> debate.</p>
+<p>This page works through the <strong>stone paradox</strong>, the two classical responses (the Thomist restriction to the logically possible vs. Descartes' universal possibilism), and the modern attempts to give a precise <strong>maximal-power analysis</strong>.</p>
+<hr />
+<h2 id="the-stone-paradox"><a class="header" href="#the-stone-paradox">The stone paradox</a></h2>
+<p>The sharpest puzzle, in the form <strong>Aquinas</strong> and later <strong>Mavrodes</strong> discuss:</p>
+<blockquote>
+<p>Can an omnipotent being create a stone too heavy for it to lift?</p>
+</blockquote>
+<p>Set it out as a dilemma. Either God <em>can</em> create such a stone or he <em>cannot</em>:</p>
+<ul>
+<li>If God <strong>cannot</strong> create the stone, there is something God cannot do — so God is not omnipotent.</li>
+<li>If God <strong>can</strong> create the stone, then there is something God cannot do (lift it) — so God is not omnipotent.</li>
+</ul>
+<p>Either way, omnipotence seems impossible. The paradox is more than a riddle: it purports to show the <em>concept</em> is self-contradictory, and so (in the <a href="../arguments-against-theism.html">incoherence-of-attributes</a> strategy) that no omnipotent being can exist.</p>
+<p>The standard dissolution: the task "create a stone that an omnipotent being cannot lift" is <em>self-contradictory</em> — it describes a stone that is both liftable-by-an-omnipotent-being and not-liftable-by-an-omnipotent-being. The "stone too heavy to lift" is a <em>pseudo-task</em>, a string of words that picks out no genuine possible state of affairs, like "a round square" or "a married bachelor." Inability to perform a pseudo-task is no limitation on power, because there is <em>no task there</em> to perform. This already presupposes the <strong>Thomist</strong> reading of omnipotence.</p>
+<h2 id="two-readings-of-can-do-anything"><a class="header" href="#two-readings-of-can-do-anything">Two readings of "can do anything"</a></h2>
+<p>The paradoxes turn on the scope of "anything," and there are two historic answers.</p>
+<h3 id="the-thomist-restriction-the-logically-possible"><a class="header" href="#the-thomist-restriction-the-logically-possible">The Thomist restriction: the logically possible</a></h3>
+<p><strong>Aquinas</strong>: omnipotence is the power to do <em>whatever is logically (broadly, metaphysically) possible</em> — whatever does not involve a contradiction. God can do all things that are <em>absolutely</em> possible; a "contradiction" is not a <em>thing</em> that God fails to be able to do, but a <em>non-thing</em>, "a non-being," so its impossibility is no defect in power:</p>
+<blockquote>
+<p>"Whatever implies a contradiction does not come within the scope of divine omnipotence, because it cannot have the aspect of possibility. … It is better to say that such things cannot be done, than that God cannot do them."</p>
+</blockquote>
+<p>On this reading the limits are not on God but in the "objects": there is nothing for omnipotence to fail at. So God cannot make <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span>, cannot make a round square, cannot change the past (Aquinas: not even God can make what has been not to have been), cannot make a stone too heavy for an omnipotent being to lift — because each is a <em>logical</em> impossibility, not a possible feat God lacks the strength for. This is the mainstream view.</p>
+<h3 id="descartes-universal-possibilism"><a class="header" href="#descartes-universal-possibilism">Descartes' universal possibilism</a></h3>
+<p><strong>Descartes</strong> took the bolder line: God's power extends even over the <em>logical</em> and <em>mathematical</em> truths. The "eternal truths" — that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>, that the radii of a circle are equal, even the laws of logic — are <em>freely created</em> by God and depend on his will; God could have made them otherwise. To say the necessary truths constrain God is to subordinate God to something, which Descartes will not allow: "God cannot have been determined to make it true that contradictories cannot be true together, and therefore he could have done the opposite."</p>
+<p>The view is heroic but widely rejected: if God could make contradictions true, then <em>reasoning itself</em> about God collapses (we could prove anything), and the very claim "God can do otherwise" loses determinate meaning. Most theists prefer to say that the necessary truths are not <em>external constraints</em> on God but flow from God's own rational nature — a position that converges with the Thomist reading and connects to <a href="./goodness-and-simplicity.html">divine simplicity</a>.</p>
+<h2 id="refining-the-analysis-maximal-power"><a class="header" href="#refining-the-analysis-maximal-power">Refining the analysis: maximal power</a></h2>
+<p>Even granting the restriction to the logically possible, a <em>precise</em> definition proves surprisingly hard, and the modern literature (Geach, Flint–Freddoso, Hoffman–Rosenkrantz) is a series of repairs:</p>
+<ul>
+<li><strong>Naïve definition:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is omnipotent iff <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> can do everything logically possible. <em>Problem:</em> some logically possible <em>tasks</em> cannot be done <em>by an essentially perfect being</em> — e.g. "sin," "lie," "create a being one did not create," "scratch oneself out of existence." These acts are <em>possible</em> (we can do some of them) but God <em>cannot</em> perform them, not from weakness but because they conflict with his <em>other</em> essential attributes (perfect goodness, necessary existence).</li>
+<li><strong>The goodness tension.</strong> Can God do evil? If omnipotence requires the power to sin, then a <em>perfectly good</em> (and essentially so) being is <em>not</em> omnipotent — an apparent conflict <em>between attributes</em> (pursued in <a href="./coherence-of-theism.html">coherence of theism</a>). The usual reply: the inability to sin is not a <em>lack</em> of power but a <em>perfection of will</em>; being unable to do evil is a feature of maximal goodness, not a deficiency of strength. So omnipotence should be defined as <strong>maximal power compossible with God's other essential attributes</strong>, not "ability to do literally anything possible."</li>
+<li><strong>Geach's deflation.</strong> Peter Geach argued the philosophers' "omnipotence" (power over all possibilities) is hopeless and that scripture anyway asserts only that God is <strong>almighty</strong> — has power <em>over all things</em>, is the source and Lord of everything — which is defensible without the paradox-breeding "can do anything" formula. Many contemporary theists adopt some version of this: God's power is <em>unsurpassable</em> and <em>universal in scope</em> (nothing exists or happens outside his control) without being the incoherent ability to actualise every describable "task."</li>
+<li><strong>The McEar problem.</strong> A precise analysis must also exclude gerrymandered beings: "McEar," a being essentially capable <em>only</em> of scratching his ear, would count as omnipotent on a careless definition (he can do everything <em>he</em> can possibly do). Ruling out such cases without ad-hocery is the technical core of the Flint–Freddoso and Hoffman–Rosenkrantz analyses, which relativise power to states of affairs, times, and the agent's nature.</li>
+</ul>
+<h2 id="related-puzzles"><a class="header" href="#related-puzzles">Related puzzles</a></h2>
+<p>The same machinery handles the other classic challenges:</p>
+<ul>
+<li><strong>Can God change the past?</strong> No — on the Thomist view, "making what happened not to have happened" is a logical impossibility (it is the <a href="./omniscience.html">hard fact</a> of the past). This is why the past's fixity figures in the <a href="./omniscience.html">foreknowledge problem</a>.</li>
+<li><strong>Can God make a being he cannot control, or free creatures who always go right?</strong> The latter connects directly to the <a href="../evil/theodicies.html">free-will defense</a>: if <a href="../../freewill/libertarianism.html">libertarian freedom</a> is genuine, then "make someone <em>freely</em> do X" is not a task even omnipotence can perform, which is the linchpin of Plantinga's reply to the <a href="../evil/problem-of-evil.html">problem of evil</a>.</li>
+<li><strong>Can God commit suicide / cease to exist?</strong> If God exists <em>necessarily</em> (see <a href="./goodness-and-simplicity.html">aseity</a>), self-annihilation is impossible — again a feature of God's nature, not a power-deficit.</li>
+</ul>
+<h2 id="where-omnipotence-sits"><a class="header" href="#where-omnipotence-sits">Where omnipotence sits</a></h2>
+<p>The omnipotence paradoxes are the entry point to the <em>coherence</em> question for theism, and the consensus resolution is the <strong>Thomist</strong> one: omnipotence is power over the <em>logically possible</em>, so that the "stone too heavy to lift," changing the past, and making contradictions true are <em>pseudo-tasks</em> whose impossibility limits nothing. Descartes' <strong>universal possibilism</strong> — God's power even over logic — is the heroic minority view, generally rejected as self-defeating. The residual difficulty is not the cartoon paradox but the precise <em>analysis</em>: "can do anything possible" must be refined to <strong>maximal power compossible with God's other essential attributes</strong>, since a perfectly good, necessarily existent being <em>cannot</em> sin or self-annihilate — inabilities that are perfections, not weaknesses. That refinement already shows omnipotence cannot be assessed in isolation: it is entangled with <a href="./goodness-and-simplicity.html">goodness</a>, <a href="./goodness-and-simplicity.html">necessity</a>, and (via the <a href="../evil/theodicies.html">free-will defense</a>) the <a href="../evil/problem-of-evil.html">problem of evil</a>. Whether the full set of attributes is <em>jointly</em> coherent is the capstone question of <a href="./coherence-of-theism.html">the coherence of theism</a>; the next and harder attribute-tension is <a href="./omniscience.html">omniscience and its clash with freedom</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/evil/divine-hiddenness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/attributes/omniscience.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/evil/divine-hiddenness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/attributes/omniscience.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Defenses and Theodicies - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/evil/theodicies.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="defenses-and-theodicies"><a class="header" href="#defenses-and-theodicies">Defenses and Theodicies</a></h1>
+<p>If the <a href="./problem-of-evil.html">problem of evil</a> is the strongest case against God, the <strong>theodicies and defenses</strong> are theism's reply: the attempts to show <em>either</em> that God and evil are logically compatible (a <strong>defense</strong>) <em>or</em> that there are good reasons a perfectly good, omnipotent God <em>would</em> permit the evils we observe (a <strong>theodicy</strong>, from Greek <em>theos</em> + <em>dikē</em>, the "justification of God" — Leibniz's coinage). The task is set by the <a href="./problem-of-evil.html#the-inconsistent-triad">inconsistent triad</a>: the theist must identify a candidate good (or a limit on what even omnipotence can do) such that permitting evil is the price of securing it, or else block the inference from observed to <em>gratuitous</em> evil.</p>
+<p>This page surveys the major responses — the <strong>free-will defense</strong>, <strong>soul-making</strong>, the <strong>Augustinian/privation</strong> view, <strong>natural-law</strong> and <strong>greater-good</strong> theodicies, <strong>skeptical theism</strong>, the <strong>process</strong> and <strong>open-theist</strong> replies, and the <strong>appeal to mystery</strong> — and weighs each against the <a href="./problem-of-evil.html#the-evidential-problem-of-evil">evidential</a> and especially the <em>natural-evil</em> and <em>horrendous-evil</em> challenges. The companion <a href="./divine-hiddenness.html">divine hiddenness</a> page handles the parallel problem of God's silence.</p>
+<hr />
+<h2 id="defense-vs-theodicy"><a class="header" href="#defense-vs-theodicy">Defense vs. theodicy</a></h2>
+<p>The single most important methodological point (introduced on the <a href="./problem-of-evil.html#kinds-of-evil-and-key-distinctions">problem-of-evil</a> page) governs how to read everything below:</p>
+<ul>
+<li>A <strong>defense</strong> aims only to rebut a charge of <em>inconsistency</em> or <em>improbability</em> — it offers a <em>possible</em> reason God <em>might</em> have for permitting evil, without asserting it is the <em>actual</em> one. It is enough that the story be <em>logically possible</em> (against the logical problem) or <em>not improbable</em> (against the evidential problem).</li>
+<li>A <strong>theodicy</strong> is more ambitious: it offers the <em>actual</em> reasons a good God <em>does</em> permit evil — a positive <em>justification</em> of God's governance.</li>
+</ul>
+<p>The distinction sets the bar. Against the <a href="./problem-of-evil.html#the-logical-problem-of-evil">logical problem</a>, a bare <em>defense</em> suffices and (most agree) succeeds. Against the <a href="./problem-of-evil.html#the-evidential-problem-of-evil">evidential problem</a>, the theist needs more — either a credible theodicy, or a defense strong enough (e.g. <a href="#skeptical-theism">skeptical theism</a>) to neutralise the inference to <em>gratuitous</em> evil. Many theists deliberately retreat to <em>defense</em>, holding that we need not <em>know</em> God's reasons to be rational in believing he has them.</p>
+<h2 id="the-free-will-defense"><a class="header" href="#the-free-will-defense">The free-will defense</a></h2>
+<p>The most important response, <strong>Alvin Plantinga's</strong>, was introduced on the <a href="./problem-of-evil.html#plantingas-free-will-defense-and-the-collapse-of-the-logical-problem">problem-of-evil page</a> as the refutation of the <em>logical</em> problem; here is its full shape as a theodicy of <strong>moral</strong> evil:</p>
+<ul>
+<li><strong>The good of free will.</strong> A world containing creatures who <em>freely</em> choose the good — who love, and do right, of their own accord — is more valuable than a world of automata caused to behave well. This great good <em>requires</em> freedom in a robust, <a href="../../freewill/libertarianism.html">libertarian</a> sense.</li>
+<li><strong>The cost of freedom.</strong> Genuine freedom to choose the good entails the <em>real possibility</em> of choosing evil. Not even an omnipotent God can <em>make</em> a creature <em>freely</em> do right — that is logically impossible, like a married bachelor. So a God who wants the good of free creatures must accept the <em>risk</em> of moral evil.</li>
+<li><strong>Transworld depravity.</strong> Plantinga argues it is <em>possible</em> that <em>every</em> free creature God could have created would have gone wrong in <em>some</em> circumstance ("transworld depravity"), so that there may be <em>no</em> feasible world with free creatures and <em>no</em> moral evil. If so, God's failure to actualise a sinless free world is no mark against his power or goodness.</li>
+</ul>
+<p>The defense is widely granted to dispatch the <em>logical</em> problem of <em>moral</em> evil. Its limits, much debated:</p>
+<ul>
+<li><strong>Natural evil.</strong> Earthquakes, disease, and animal suffering are not obviously the result of <em>anyone's</em> free choice. Plantinga gestures at the bare <em>possibility</em> that natural evil is the work of <em>free non-human agents</em> (fallen angels) — adequate as a <em>defense</em> (it need only be possible) but incredible as a <em>theodicy</em>. Other responses fold natural evil into the <a href="#natural-law-and-greater-good-theodicies">natural-law</a> or <a href="#soul-making-theodicy">soul-making</a> accounts.</li>
+<li><strong>Quantity and distribution.</strong> Even granting freedom requires <em>some</em> permitted evil, why <em>so much</em>, and why visited so heavily on the innocent? The free-will defense explains the <em>possibility</em> of moral evil, not its observed <em>scale</em> — which is the <a href="./problem-of-evil.html#the-evidential-problem-of-evil">evidential</a> pressure.</li>
+<li><strong>The compatibilist objection.</strong> If <a href="../../freewill/compatibilism.html">compatibilism</a> about free will is true, then God <em>could</em> have created free creatures who <em>always</em> freely choose the good (Mackie's point: if freely-doing-right is <em>compatible</em> with being determined, an omnipotent God could determine it). The defense thus <em>presupposes</em> <a href="../../freewill/libertarianism.html">libertarian free will</a> — tying the problem of evil directly to the <a href="../../freewill/introduction.html">free-will debate</a> and inheriting its difficulties (the <a href="../../freewill/libertarianism.html">luck objection</a>).</li>
+</ul>
+<h2 id="soul-making-theodicy"><a class="header" href="#soul-making-theodicy">Soul-making theodicy</a></h2>
+<p>Where the free-will defense is <em>Augustinian</em> in spirit (evil as the privation consequent on a <em>fall</em> from an original perfection), the <strong>soul-making</strong> theodicy is <strong>Irenaean</strong>, developed by <strong>John Hick</strong> (<em>Evil and the God of Love</em>, 1966). Its claim: God did not create a finished paradise but a <em>world fit for growth</em> — an environment in which immature creatures, made "in the image" of God, can develop <em>into</em> his "likeness" through struggle, choice, and the meeting of real difficulty.</p>
+<ul>
+<li>A world <em>without</em> hardship, danger, or suffering — a hedonic playpen — could not produce courage, compassion, patience, self-sacrifice, or mature moral character; these <em>second-order</em> goods <em>logically require</em> the <em>first-order</em> evils they respond to. There is no courage without danger, no compassion without suffering, no forgiveness without wrong.</li>
+<li><strong>"Epistemic distance."</strong> God remains hidden (cf. <a href="./divine-hiddenness.html">divine hiddenness</a>) and the world is religiously ambiguous so that our coming to God and goodness is a <em>free</em>, uncoerced development rather than a forced response to an overwhelming divine presence.</li>
+<li>Because soul-making is often <em>incomplete</em> at death, Hick's theodicy requires an <strong>afterlife</strong> in which the process continues to a good end — and Hick embraces <strong>universal</strong> salvation, since a soul-making God who <em>failed</em> with even one soul would not have justified its suffering.</li>
+</ul>
+<p>Objections: the theodicy seems to <em>justify</em> — even <em>require</em> — suffering, which can read as morally complacent; much suffering is <em>soul-destroying</em> rather than soul-making (it brutalises and crushes rather than ennobles); the <em>distribution</em> is grotesquely uneven (some are pampered, others tortured from birth); <strong>animal</strong> suffering and the suffering of those who die <em>before</em> any character can form fit poorly; and the appeal to a <em>universalist</em> afterlife is a large further commitment. Still, soul-making addresses <em>natural</em> evil more naturally than the free-will defense and captures the genuine thought that some goods are <em>only</em> available through adversity.</p>
+<h2 id="the-augustinian-and-privation-views"><a class="header" href="#the-augustinian-and-privation-views">The Augustinian and privation views</a></h2>
+<p><strong>Augustine's</strong> classical theodicy has two pillars:</p>
+<ul>
+<li><strong>Evil as privation (<em>privatio boni</em>).</strong> Evil is not a positive <em>thing</em> God created but a <em>lack</em> or <em>corruption</em> of a good that should be present — blindness is the absence of sight, vice the absence of virtue, as cold is the absence of heat and darkness the absence of light. God made everything good; evil entered as the <em>spoiling</em> of good things, not as a created reality. This answers the <em>Manichaean</em> worry ("did God create evil?") — God created no evil <em>stuff</em> — and preserves divine goodness, but it is widely felt to be a <em>metaphysical reclassification</em> that does not lessen the <em>experienced reality</em> of agony; calling a child's cancer a "privation" does not make it hurt less or explain why God permits the corruption.</li>
+<li><strong>The Fall.</strong> Both moral and natural evil are traced to the misuse of free will — angelic and human — in a primordial Fall, which disordered creation. As a <em>historical</em> claim this sits uneasily with evolutionary biology (predation and animal suffering long predate humanity), so modern defenders tend to take it symbolically or combine it with other strategies.</li>
+</ul>
+<h2 id="natural-law-and-greater-good-theodicies"><a class="header" href="#natural-law-and-greater-good-theodicies">Natural-law and greater-good theodicies</a></h2>
+<p>A family of responses argues that certain evils are the <em>necessary by-products</em> of goods that <em>could not exist without them</em>:</p>
+<ul>
+<li><strong>Natural-law theodicy.</strong> A world of <em>free, embodied, rational agents</em> who can act, plan, and learn requires a <em>stable, law-governed</em> environment — regular, predictable natural laws. But the very regularities that make agency and science possible (gravity, plate tectonics, the transmissibility of energy and pathogens) will <em>inevitably</em> produce harm in particular circumstances: the gravity that lets us walk also lets us fall, the fire that warms also burns. God could prevent each harm only by <em>constant ad hoc miracle</em>, which would destroy the lawlike order on which rational agency depends. So natural evil is the <em>price</em> of a world fit for free agents. (Swinburne adds that natural evil also supplies the <em>knowledge</em> of how to harm and help — and so the <em>scope</em> for significant free choice.)</li>
+<li><strong>Greater-good theodicy</strong> (general form): every evil God permits is <em>necessary</em> to a greater good (or to preventing a worse evil), so there is <em>no gratuitous</em> evil — directly denying premise 1 of <a href="./problem-of-evil.html#rowes-evidential-argument">Rowe's argument</a>. The difficulty is the <em>evidential</em> one: the goods are often <em>invisible</em>, and asserting that <em>every</em> horror secretly serves a greater good strains credibility and risks the morally corrosive conclusion that we should <em>not</em> prevent evils (if they are all necessary to greater goods) — the <strong>"too much"</strong> objection.</li>
+</ul>
+<h2 id="skeptical-theism"><a class="header" href="#skeptical-theism">Skeptical theism</a></h2>
+<p>Rather than offer a positive theodicy, <strong>skeptical theism</strong> (Stephen Wykstra, William Alston, Michael Bergmann) attacks the <a href="./problem-of-evil.html#rowes-evidential-argument">evidential argument's</a> crucial inference — the <strong>"<a href="./problem-of-evil.html#the-noseeum-inference-and-skeptical-theism">noseeum</a>"</strong> move from <em>"we see no justifying good for this evil"</em> to <em>"there is none."</em> The skeptical theist argues:</p>
+<ul>
+<li>Given the immense gap between divine and human cognition, we have <em>no good reason to expect</em> that we <em>could</em> discern God's reasons for permitting a given evil even if such reasons exist. The goods served may lie far downstream in history, or in the lives of others, or in categories of value we cannot conceive — as a young child cannot grasp why a loving parent permits a painful medical procedure.</li>
+<li>Wykstra's <strong>CORNEA</strong> principle formalises this: "I see no <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>" supports "there is no <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>" <em>only when</em>, were there an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>, I would <em>likely</em> perceive it. For God's reasons, that condition fails. So our <em>inability to see</em> a justifying good is <em>not</em> evidence that there is none, and Rowe's premise 1 is unsupported.</li>
+</ul>
+<p>This is a <em>defense</em>, not a theodicy — it claims not to <em>know</em> why God permits evil, only that our <em>ignorance</em> is exactly what theism should predict, so the evidential argument cannot get traction. Its much-pressed <strong>cost</strong>: the <em>same</em> skepticism, applied consistently, seems to undercut <em>other</em> inferences theism needs — if we cannot judge that an evil is <em>probably</em> gratuitous, can we judge that the world is <em>probably</em> good, that God is <em>probably</em> trustworthy, that our <em>moral</em> perceptions track real value? The worry is that skeptical theism purchases immunity from the problem of evil at the price of a corrosive general skepticism about value and about God's goodness itself.</p>
+<h2 id="process-and-open-theist-replies"><a class="header" href="#process-and-open-theist-replies">Process and open-theist replies</a></h2>
+<p>Two responses dissolve the problem by <em>revising the concept of God</em> (see <a href="../concept-of-god.html">the concept of God</a>):</p>
+<ul>
+<li><strong>Process theodicy</strong> (Whitehead, <strong>Hartshorne</strong>, Griffin): God is <em>not</em> omnipotent in the classical sense. On process metaphysics God <em>persuades</em> but cannot <em>coerce</em>; every actual entity has its own self-determining power that God cannot override. God does the utmost a <em>persuasive</em> power can do, luring the world toward greater value, but cannot unilaterally prevent evil. The problem of evil simply <em>lapses</em>, because premise 1 of the <a href="./problem-of-evil.html#the-inconsistent-triad">triad</a> (unlimited power) is denied. The cost is steep: a God who <em>cannot</em> guarantee the final triumph of good, and who falls short of the being of <a href="../concept-of-god.html">classical theism</a> — to many, a "solution" that concedes what was to be defended.</li>
+<li><strong>Open theism</strong> revises <em>omniscience</em> rather than omnipotence: God does not foreknow free future choices (there being, it claims, no truths yet to know), and so takes <em>genuine risks</em> in creating free creatures, responding to evils as they arise rather than ordaining or foreseeing them. This softens the <em>foreknowledge</em> edge of the problem (God did not <em>knowingly</em> create <em>this</em> sufferer for <em>this</em> fate) but leaves the <em>power</em> question largely intact, so it is usually combined with a free-will theodicy.</li>
+</ul>
+<h2 id="the-appeal-to-mystery-and-the-antitheodicy"><a class="header" href="#the-appeal-to-mystery-and-the-antitheodicy">The appeal to mystery and the antitheodicy</a></h2>
+<p>Finally, two responses that decline the theodicy project itself:</p>
+<ul>
+<li><strong>The appeal to mystery.</strong> Perhaps the most ancient response — the voice from the whirlwind in <strong>Job</strong> ("Where were you when I laid the foundations of the earth?") offers Job <em>no explanation</em>, only an encounter. The believer may rationally trust that God has reasons while disclaiming any ability to state them — a posture close to <a href="#skeptical-theism">skeptical theism</a> but devotional rather than argumentative. Critics call this an evasion; defenders call it honesty about the limits of finite understanding.</li>
+<li><strong>Antitheodicy</strong> (D.Z. Phillips, Kenneth Surin, after <strong>Dostoevsky's Ivan Karamazov</strong>): the very <em>project</em> of theodicy is morally objectionable. To explain <em>why</em> the torture of a single child is "necessary to a greater good" is to <em>justify the unjustifiable</em>, to adopt the detached calculus of a bookkeeper toward horrors that demand <em>refusal</em>, not rationalisation. Ivan does not deny God; he "returns the ticket" — rejects a harmony <em>bought</em> at the price of a child's tears. The proper response to horrendous evil, on this view, is lament, protest, and solidarity, not explanation. <strong>Marilyn McCord Adams's</strong> treatment of <a href="./problem-of-evil.html#kinds-of-evil-and-key-distinctions">horrendous evils</a> is sympathetic: general greater-good theodicies <em>cannot</em> address evils that destroy the sufferer's very capacity to find life worth living; only God's <em>intimate defeat</em> of such evils <em>within the victim's own life</em> — through relationship with God valued as incommensurably good — could answer them, and that is consolation and redemption, not theodicy.</li>
+</ul>
+<h2 id="where-the-theodicies-sit"><a class="header" href="#where-the-theodicies-sit">Where the theodicies sit</a></h2>
+<p>The defenses and theodicies form a layered reply to the <a href="./problem-of-evil.html">problem of evil</a>. Against the <strong><a href="./problem-of-evil.html#the-logical-problem-of-evil">logical</a></strong> problem, the <a href="#the-free-will-defense">free-will defense</a> is decisive — bare <em>possibility</em> is all that is needed, and it is supplied (presupposing, however, <a href="../../freewill/libertarianism.html">libertarian free will</a>). Against the far harder <strong><a href="./problem-of-evil.html#the-evidential-problem-of-evil">evidential</a></strong> problem, no single response commands assent: the <strong>free-will</strong> and <strong>soul-making</strong> theodicies explain <em>much</em> moral and characterforming evil but strain against the <em>scale</em>, the <em>distribution</em>, <em>natural</em> evil, and <em>horrendous</em> evil; <strong>natural-law</strong> theodicy addresses natural evil but at the cost of seeming to subordinate persons to a system; <strong><a href="#skeptical-theism">skeptical theism</a></strong> blocks the atheist's inference but courts a corrosive general skepticism; the <strong>process</strong> and <strong>open</strong> replies dissolve the problem only by <a href="../concept-of-god.html">revising God</a> into something less than the classical being; and the <strong><a href="#the-appeal-to-mystery-and-the-antitheodicy">antitheodicy</a></strong> tradition rejects the whole enterprise as a moral mistake. The honest summary is that theism has a strong <em>defense</em> (evil is not a disproof of God) and a <em>contested</em> theodicy (no fully convincing account of <em>why</em> there is <em>this much</em> evil) — which is why the problem of evil remains the heaviest weight on the atheist side of the <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>, and why its near-relative, <a href="./divine-hiddenness.html">divine hiddenness</a>, presses the same structure through God's silence rather than the world's suffering.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/evil/problem-of-evil.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/evil/divine-hiddenness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/evil/problem-of-evil.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/evil/divine-hiddenness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

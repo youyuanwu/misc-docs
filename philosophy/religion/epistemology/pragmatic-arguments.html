@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pragmatic and Prudential Arguments - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/epistemology/pragmatic-arguments.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="pragmatic-and-prudential-arguments"><a class="header" href="#pragmatic-and-prudential-arguments">Pragmatic and Prudential Arguments</a></h1>
+<p>Most <a href="../arguments-for-theism.html">arguments about God</a> are <strong>epistemic</strong>: they aim to show that God <em>exists</em>, or that belief is <em>warranted by evidence</em>. The <strong>pragmatic</strong> (or <strong>prudential</strong>) arguments are different in kind: they grant that the evidence may be <em>inconclusive</em> and argue that it is nonetheless <em>rational to believe</em> — or to <em>try</em> to believe — on <strong>practical</strong> grounds, because of the <em>benefits</em> of believing or the <em>costs</em> of not. They concern the <em>rationality of belief</em> rather than the <em>truth of the proposition</em>, and they belong to the <a href="../faith-and-reason.html">faith-and-reason</a> and <a href="./religious-epistemology.html">religious-epistemology</a> debate over whether belief must be proportioned to evidence at all. The two landmarks are <strong>Pascal's Wager</strong> and <strong>William James's</strong> "The Will to Believe."</p>
+<p>This page sets out the decision-theoretic structure of the Wager and its objections, James's reply to <a href="./religious-epistemology.html#the-ethics-of-belief">Clifford's evidentialism</a>, and the problem of <strong>doxastic voluntarism</strong> that haunts both.</p>
+<hr />
+<h2 id="pascals-wager"><a class="header" href="#pascals-wager">Pascal's Wager</a></h2>
+<p><strong>Blaise Pascal</strong> (<em>Pensées</em>, §233) grants at the outset that theoretical reason cannot settle the question — "reason can decide nothing here" — and reframes belief as a <strong>decision under uncertainty</strong>, a <em>bet</em> one is forced to place by the very fact of living. The argument is a founding text of <strong>decision theory</strong> as much as of theology. With the two states (God exists / does not) and two acts (believe / not), the payoff matrix:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th>God exists (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>)</th><th>God does not (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>)</th></tr></thead><tbody>
+<tr><td><strong>Believe (wager for God)</strong></td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">∞</span></span></span></span> (eternal beatitude)</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (finite loss: some pleasures, effort)</td></tr>
+<tr><td><strong>Disbelieve (wager against)</strong></td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">∞</span></span></span></span> or large loss</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (finite gain: worldly liberty)</td></tr>
+</tbody></table>
+</div>
+<p>The reasoning runs through stages:</p>
+<ul>
+<li><strong>Dominance fails to settle it alone</strong>, so Pascal computes <strong>expected utility</strong>. For <em>any</em> non-zero probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> that God exists, the expected value of believing,
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mord text"><span class="mord">believe</span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6389em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">+</span><span class="mord">∞</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">+</span><span class="mord">∞</span><span class="mpunct">,</span></span></span></span></span>
+<em>infinitely</em> exceeds the expected value of disbelief (finite). The <em>infinite</em> payoff swamps the finite stakes and <em>any</em> finite probability, however small. So the rational choice — by the agent's <em>own</em> prudential standard — is to <em>wager for God</em>.</li>
+<li><strong>The voluntarist coda.</strong> Pascal anticipates the obvious reply — "I cannot <em>make</em> myself believe." His answer: belief is not <em>directly</em> willed but can be <em>cultivated</em>. Act as if you believed — "take the holy water, have masses said" — follow the practices, keep the company of believers, and belief will come "naturally," as the passions are tamed by habit. The will reaches belief <em>indirectly</em>, through action.</li>
+</ul>
+<h3 id="objections"><a class="header" href="#objections">Objections</a></h3>
+<p>The Wager is ingenious but faces three serious objections:</p>
+<ul>
+<li><strong>The many-gods objection.</strong> The matrix assumes a <em>binary</em>: the Christian God or no God. But there are indefinitely many <em>possible</em> deities, some of whom reward <em>different</em> beliefs, or <em>punish</em> the calculating Christian believer, or reward <em>honest unbelief</em>. Once the alternatives proliferate, the expected-value computation is scrambled — wagering for <em>this</em> God may incur the infinite <em>penalty</em> of <em>another</em>. Pascal's argument, run from a <em>neutral</em> starting point, does not single out <em>which</em> God to bet on.</li>
+<li><strong>The doxastic-voluntarism objection.</strong> If belief cannot be <em>chosen</em> (see <a href="#doxastic-voluntarism">below</a>), the Wager can at most recommend <em>acting</em> so as to <em>induce</em> belief — and a God who reads the <em>self-interested, calculating motive</em> behind such induced belief might be <em>unimpressed</em>, even offended. Belief adopted as a <em>bet</em> may not be the <em>faith</em> that is supposed to be rewarded.</li>
+<li><strong>The mixed-strategy and infinite-utility objections.</strong> With <em>infinite</em> utilities the arithmetic misbehaves. If the reward is infinite, then <em>any</em> strategy that yields a <em>non-zero probability</em> of belief — believing fervently, believing half-heartedly, or even tossing a coin and believing if it lands heads — has <em>infinite</em> expected value too, since <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span> for any <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">ϵ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>. So the Wager fails to recommend <em>wholehearted</em> belief over a token or probabilistic one (Duff, Hájek): every degree of belief "wins" equally, which trivialises the result. The mathematics of infinite expectations is genuinely pathological.</li>
+</ul>
+<p>Defenders reply that the many-gods objection requires the <em>rival</em> deities to be <em>equally probable and equally motivated</em>, which the believer may deny on independent grounds, and that the infinite-utility problems can be eased by using <em>large finite</em> utilities (an afterlife of finite but enormous value), which preserves the practical recommendation without the pathologies — at the cost of the dominance the <em>infinite</em> version claimed.</p>
+<h2 id="jamess-will-to-believe"><a class="header" href="#jamess-will-to-believe">James's "will to believe"</a></h2>
+<p><strong>William James</strong> ("The Will to Believe," 1896) defends the <em>right</em> to believe on passional grounds, directly answering <a href="./religious-epistemology.html#the-ethics-of-belief">Clifford's</a> rule that one must never believe on insufficient evidence. James's key notion is a <strong>genuine option</strong> — a choice between hypotheses that is:</p>
+<ul>
+<li><strong>Living</strong> — both options are <em>real candidates</em> for the believer (not a dead, unappealing hypothesis);</li>
+<li><strong>Forced</strong> — the options are <em>exhaustive</em>, with <em>no third way</em>: not choosing has the <em>same practical upshot</em> as choosing one side (to <em>suspend</em> belief in God is, practically, to live <em>without</em> God, just as denying it would);</li>
+<li><strong>Momentous</strong> — the stake is <em>unique, weighty, and (relatively) irreversible</em>, not trivial or repeatable.</li>
+</ul>
+<p>James's thesis: <strong>when an option is genuine <em>and the evidence cannot decide it</em>, we have the right to let "our passional nature" settle the matter</strong> — indeed we <em>must</em>, since suspension is itself a passional choice. He turns Clifford's rule against itself: "<em>Do not believe anything upon insufficient evidence</em>" is not a <em>deliverance of evidence</em> but a <em>policy</em> — the policy of one who <em>fears error more than he loves truth</em>. That is one legitimate temperament, but not the only rational one; a person who <em>loves truth more than he fears error</em> may rationally <em>risk</em> belief. And in <em>forced, momentous</em> cases, the rule of perpetual suspension can be <em>self-defeating</em>: it guarantees we <em>miss</em> a truth (and the good bound up with it) if the hypothesis is <em>true</em>, for some goods — friendship, love, certain cooperative ventures, and (James suggests) the religious relationship — become <em>available only to those who first trust</em> without proof. "Faith in a fact can help create the fact."</p>
+<p>James is careful to <em>limit</em> the license: it applies <em>only</em> where the option is genuine <em>and</em> the evidence is <em>genuinely undecidable</em>. He does <em>not</em> license belief <em>against</em> the evidence, nor wishful thinking in ordinary, evidentially tractable matters (where Clifford is right). The religious hypothesis, James argues, is the <em>paradigm</em> of a genuine, forced, momentous, evidentially-open option — which is exactly why it is the case where the right to believe applies.</p>
+<h2 id="doxastic-voluntarism"><a class="header" href="#doxastic-voluntarism">Doxastic voluntarism</a></h2>
+<p>Both arguments presuppose, and are threatened by, a thesis about the <em>will and belief</em>: <strong>doxastic voluntarism</strong>, the claim that belief is (at least partly) under <em>voluntary control</em>. The worry is that belief is <em>not</em> something we can <em>decide</em> to have — try to believe, right now, that there is a pink elephant in the room; you <em>cannot</em> simply <em>will</em> it. Belief seems <em>responsive to evidence</em>, not to <em>choice</em>; it <em>happens to us</em> in light of how things seem. If so:</p>
+<ul>
+<li><strong>Pascal's Wager</strong> cannot recommend <em>believing</em> (an act not in our power), only <em>acting</em> so as to <em>cultivate</em> belief over time — which Pascal concedes and builds in, but which weakens "believe!" to "embark on a regimen that may <em>produce</em> belief."</li>
+<li><strong>James's</strong> "will to believe" must likewise be read as <em>indirect</em>: the will <em>permits</em> and <em>sustains</em> a belief toward which one is already inclined in a genuinely open option, rather than <em>manufacturing</em> belief from nothing. James's actual target is the <em>suppression</em> of a belief one is drawn to, in deference to Clifford's rule — and <em>that</em> suppression <em>is</em> within voluntary reach.</li>
+</ul>
+<p>Most philosophers accept at least <strong>indirect voluntarism</strong>: we cannot believe <em>at will</em> on the spot, but we <em>can</em> influence our beliefs over time by choosing what to attend to, investigate, and practise. Both pragmatic arguments are best understood as operating at this <em>indirect</em> level — recommending not an <em>act of believing</em> but a <em>direction of the will and life</em> that shapes belief.</p>
+<h2 id="where-the-pragmatic-arguments-sit"><a class="header" href="#where-the-pragmatic-arguments-sit">Where the pragmatic arguments sit</a></h2>
+<p>The pragmatic arguments occupy a distinctive niche: they concede the <a href="./religious-epistemology.html">epistemic</a> question may be <em>undecidable</em> and argue that belief can still be <em>rational to adopt</em> on <em>practical</em> grounds — a move only available <em>because</em> they shift from <em>truth</em> to <em>the rationality of believing</em>. <strong>Pascal's Wager</strong> gives the <em>prudential</em> version (belief as the dominant bet under infinite stakes), powerful in structure but blunted by the <strong>many-gods</strong>, <strong>infinite-utility</strong>, and <strong>voluntarism</strong> objections; <strong>James</strong> gives the <em>permissive</em> version (the <em>right</em>, in genuine and evidentially-open options, to let the passional nature decide), a direct and influential answer to <a href="./religious-epistemology.html#the-ethics-of-belief">Clifford's evidentialism</a>. Both must reckon with <strong>doxastic voluntarism</strong>, and both end up operating at the level of the <em>will's indirect influence</em> on belief rather than belief-on-command. They are not arguments that God <em>exists</em> but contributions to <a href="../faith-and-reason.html">faith and reason</a>: defenses of the <em>rationality of religious commitment</em> where proof is unavailable — close cousins of <a href="./reformed-epistemology.html">Reformed epistemology</a>, which reaches a similar conclusion (belief can be rational without evidence) by an <em>epistemic</em> rather than a <em>prudential</em> route.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/epistemology/miracles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/language/religious-language.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/epistemology/miracles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/language/religious-language.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

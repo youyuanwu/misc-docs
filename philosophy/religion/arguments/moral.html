@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Moral Argument - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments/moral.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-moral-argument"><a class="header" href="#the-moral-argument">The Moral Argument</a></h1>
+<p>The <strong>moral argument</strong> infers God from the existence of morality itself: if there are <em>objective</em> moral values and duties — if some things are really wrong, independently of what anyone thinks — then (the argument claims) there must be a God to ground them, because no merely natural fact could confer genuine, categorical <em>authority</em> on a moral demand. Unlike the <a href="./cosmological.html">cosmological</a> and <a href="./teleological.html">teleological</a> arguments, which start from features of the external world, the moral argument starts from the deliverances of <em>conscience</em>, and it has a distinctive practical appeal: it speaks to the felt absoluteness of obligation. It is also the argument most tightly bound to a counter-argument, the <strong><a href="../ethics/religion-and-morality.html">Euthyphro dilemma</a></strong>, which many take to show that morality cannot depend on God after all.</p>
+<p>This page sets out Kant's practical version and the modern <em>metaethical</em> version (Adams, Craig), distinguishes the argument from the separate claim that <em>atheists cannot be moral</em>, and then turns to the Euthyphro dilemma and the secular-ethics challenge that are its principal obstacles.</p>
+<hr />
+<h2 id="two-forms-of-the-argument"><a class="header" href="#two-forms-of-the-argument">Two forms of the argument</a></h2>
+<p>The label covers two quite different arguments that should not be confused.</p>
+<h3 id="kants-practical-postulate"><a class="header" href="#kants-practical-postulate">Kant's practical postulate</a></h3>
+<p><strong>Kant</strong> did <em>not</em> argue that God is needed to <em>ground</em> moral truth — for him morality is autonomous, binding on any rational agent through the Categorical Imperative regardless of God. His argument is <strong>practical</strong>: morality commands us to seek the <em>highest good</em> (<em>summum bonum</em>), the union of perfect virtue with the happiness it deserves. But we can neither achieve perfect virtue within a finite life nor guarantee that virtue is rewarded with happiness — nature is indifferent to desert. For the moral enterprise to be <em>rational</em> rather than absurd, we must <strong>postulate</strong> what would make the highest good attainable: <strong>immortality</strong> (time enough to perfect virtue) and <strong>God</strong> (a power that proportions happiness to virtue). God is thus a <em>postulate of practical reason</em> — not proven to exist, but something the moral agent is rationally entitled, indeed required, to believe in to avoid the incoherence of pursuing an impossible end. (Compare the <a href="../../freewill/introduction.html">free-will</a> postulate, which Kant treats the same way.)</p>
+<h3 id="the-metaethical-value-grounding-argument"><a class="header" href="#the-metaethical-value-grounding-argument">The metaethical (value-grounding) argument</a></h3>
+<p>The version dominant today is <strong>metaethical</strong>: it argues that God is the best — or the only — <em>explanation</em> of objective morality. Its canonical form (Craig):</p>
+<ol>
+<li>If God does not exist, objective moral values and duties do not exist.</li>
+<li>Objective moral values and duties <em>do</em> exist.</li>
+<li>Therefore God exists.</li>
+</ol>
+<p>The work is in premise 1, defended by elimination: if morality is objective (premise 2, taken as a strongly held datum — that the torture of innocents is <em>really</em> wrong, not merely disapproved), what could <em>make</em> it so? Natural facts (pleasure, survival, social contract, evolved sentiment) seem unable to generate <em>categorical</em>, <em>authoritative</em>, <em>prescriptive</em> obligations — an "ought" that binds you whether or not you care. Evolution explains why we <em>feel</em> bound but, if that is the whole story, <strong>debunks</strong> the objectivity (it would have instilled <em>whatever</em> dispositions aided reproduction). A <em>personal</em> God, by contrast, can be the source of authoritative commands and the standard of goodness. So the best explanation of objective morality is theism.</p>
+<h2 id="divine-command-theory"><a class="header" href="#divine-command-theory">Divine Command Theory</a></h2>
+<p>The metaethical argument is usually backed by a <strong>metaethics</strong>: <strong>Divine Command Theory (DCT)</strong>, on which moral obligations <em>are</em> (or are constituted by) God's commands — an act is obligatory because God commands it, wrong because God forbids it. DCT gives moral duties exactly the features that puzzle the naturalist: they are <em>prescriptive</em> (commands are intrinsically action-guiding), <em>authoritative</em> (issued by a competent authority with standing over us), and <em>objective</em> (independent of our attitudes). It is the natural partner of the moral argument: if DCT is the right account of obligation, then no God means no obligations.</p>
+<p>The classic objection to DCT — and to the moral argument that leans on it — is the <strong>Euthyphro dilemma</strong>.</p>
+<h2 id="the-euthyphro-dilemma"><a class="header" href="#the-euthyphro-dilemma">The Euthyphro dilemma</a></h2>
+<p>In Plato's <em>Euthyphro</em>, Socrates asks: <em>is the pious loved by the gods because it is pious, or pious because it is loved by the gods?</em> Transposed to DCT:</p>
+<blockquote>
+<p><strong>Is an action good because God commands it, or does God command it because it is good?</strong></p>
+</blockquote>
+<p>Both horns appear fatal:</p>
+<ul>
+<li><strong>First horn — good <em>because</em> commanded (the arbitrariness horn).</strong> If actions are good <em>solely</em> because God commands them, then morality is <em>arbitrary</em>: had God commanded cruelty, cruelty would be good. "God is good" reduces to the empty "God does what God commands," and God's goodness can no longer be <em>praised</em> (it is true by definition). Worse, it seems possible that gratuitous torture <em>could</em> have been obligatory — a conclusion most find a <em>reductio</em>.</li>
+<li><strong>Second horn — commanded <em>because</em> good (the autonomy horn).</strong> If God commands actions <em>because</em> they are already good, then goodness is a standard <em>independent</em> of God, to which God himself defers. Morality then does not depend on God after all — the first premise of the moral argument is false, and an atheist can help herself to the same independent standard.</li>
+</ul>
+<h3 id="the-modified-dct-reply"><a class="header" href="#the-modified-dct-reply">The modified-DCT reply</a></h3>
+<p>The most influential theist response, <strong>Robert Adams's</strong> <em>modified divine command theory</em>, threads between the horns by distinguishing <strong>goodness</strong> (value) from <strong>obligation</strong> (duty):</p>
+<ul>
+<li><strong>The good</strong> is not commanded into being; it is grounded in <strong>God's own nature</strong> — God <em>is</em> the supreme good, the standard of value, and finite things are good by resembling or participating in that nature. So goodness is neither arbitrary (it is fixed by God's <em>unchanging, essentially loving</em> nature, not by sheer will) nor independent of God (it <em>is</em> God's nature).</li>
+<li><strong>Obligation</strong> — what we are <em>required</em> to do — is grounded in the <strong>commands of this essentially loving God</strong>. Because the commander is <em>essentially</em> good and loving, the arbitrariness worry lapses: such a God <em>cannot</em> command gratuitous cruelty, since that would contradict the very nature that constitutes the good.</li>
+</ul>
+<p>The dilemma is thus claimed to be a <em>false</em> one: there is a third option — goodness is <em>neither</em> independent of God <em>nor</em> a product of arbitrary will, but identical with God's nature. The critic presses back: either God's nature is good <em>by some standard</em> (re-opening the second horn at one remove — why is <em>this</em> nature good?) or "God's nature is the standard of goodness" is <em>stipulative</em> and the arbitrariness returns one level up. Whether grounding value in God's nature genuinely escapes the dilemma or merely relocates it is the heart of the <a href="../ethics/religion-and-morality.html">religion-and-morality</a> debate.</p>
+<h2 id="can-atheists-be-moral--a-distinction"><a class="header" href="#can-atheists-be-moral--a-distinction">"Can atheists be moral?" — a distinction</a></h2>
+<p>The moral argument is frequently confused with an offensive and irrelevant claim, and the confusion must be cleared. The argument is <em>not</em> that atheists cannot <em>behave</em> morally or <em>know</em> right from wrong. Defenders concede readily that atheists can be — often are — morally exemplary, and can have full <em>epistemic</em> access to moral truths. The claim is <strong>ontological / explanatory</strong>, not epistemological or behavioural:</p>
+<ul>
+<li><strong>Epistemology</strong> (knowing what is right) — atheists have it; conscience does not depend on belief in God.</li>
+<li><strong>Ontology</strong> (what <em>makes</em> things right) — this, the argument contends, requires God.</li>
+</ul>
+<p>So "atheists can be good" is fully compatible with the moral argument; the theist's claim is that the atheist enjoys objective morality while <em>lacking an account of its foundation</em> — living, as it were, on borrowed metaphysical capital. The atheist's task is therefore not to display moral behaviour but to <em>provide the missing foundation</em> without God.</p>
+<h2 id="the-secular-ethics-challenge"><a class="header" href="#the-secular-ethics-challenge">The secular-ethics challenge</a></h2>
+<p>The decisive question for premise 1 is whether objective morality <em>can</em> be grounded without God. The atheist has several well-developed options, and their availability is what keeps the moral argument from being a proof:</p>
+<ul>
+<li><strong>Non-natural moral realism / Platonism</strong> (Moore, the "Cornell realists," Parfit, Enoch): objective moral facts exist as <em>sui generis</em>, non-natural features of reality, neither reducible to natural facts <em>nor</em> dependent on God — abstract truths on a par with mathematical ones. If moral facts can be brute necessary truths, premise 1 fails: morality is objective <em>and</em> godless.</li>
+<li><strong>Naturalist realism</strong> (Railton, the neo-Aristotelians, Foot's "natural goodness"): moral facts are constituted by natural facts about flourishing, well-being, or rational agency, knowable by ordinary inquiry.</li>
+<li><strong>Kantian constructivism</strong> (Korsgaard, Scanlon): objectivity is grounded in the constitutive demands of rational agency or in what no one could reasonably reject, not in any external commander.</li>
+<li><strong>Contractarianism and evolved cooperation</strong>: morality is the rational output of mutually beneficial agreement, with an evolutionary backstory explaining moral motivation.</li>
+</ul>
+<p>Against all of these stands the <strong>debunking</strong> worry from the other side: <strong>Nietzsche</strong> and <strong>Mackie</strong> argued that <em>if</em> God (or any transcendent ground) goes, objective values go with him — Mackie's "argument from queerness" holds that objective, intrinsically prescriptive values would be metaphysically <em>odd</em> entities unlike anything else in a naturalistic world, so we should be <strong>moral error theorists</strong> and deny that any moral claims are true. Notably, this is the moral argument's <em>first premise accepted</em> — "no God, no objective morality" — but its <em>conclusion reversed</em>: the error theorist takes the absence of God to show morality is an illusion, where the theist takes the reality of morality to show there is a God. <strong>Dostoevsky's</strong> "if God does not exist, everything is permitted" (Ivan Karamazov) is the literary form of the shared premise. Which way to run the <em>modus</em> — <em>tollens</em> (no God, so no real morality) or <em>ponens</em> (real morality, so God) — depends entirely on how confident one is in objective morality versus in atheism, and on whether the secular groundings above succeed.</p>
+<h2 id="where-the-moral-argument-sits"><a class="header" href="#where-the-moral-argument-sits">Where the moral argument sits</a></h2>
+<p>The moral argument trades the external evidence of the <a href="./cosmological.html">cosmological</a> and <a href="./teleological.html">teleological</a> arguments for the inner evidence of obligation, and its logic is a <strong>standoff over which premise is more certain</strong>: the theist runs <em>modus ponens</em> (objective morality exists, so God does); Nietzsche and the error theorist run <em>modus tollens</em> (no God, so objective morality is an illusion) — both granting the shared conditional that morality needs a transcendent ground. The argument's strength is the vividness of moral experience; its weakness is that the shared conditional is <em>exactly</em> what the secular realist denies, offering <a href="#the-secular-ethics-challenge">Platonist, naturalist, or constructivist groundings</a> of objective morality without God. And even granting the conditional, the <strong><a href="#the-euthyphro-dilemma">Euthyphro dilemma</a></strong> threatens to show that morality cannot rest on <em>divine command</em> without becoming arbitrary — a threat the <a href="#the-modified-dct-reply">modified DCT</a> of Adams answers by grounding goodness in God's <em>nature</em>, with the debate then turning on whether that move escapes the dilemma or merely relocates it. The full development belongs to <a href="../ethics/religion-and-morality.html">religion and morality</a>; as a theistic argument, it is, like its siblings, one weighted strand in a <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/arguments/teleological.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/arguments/religious-experience.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/arguments/teleological.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/arguments/religious-experience.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

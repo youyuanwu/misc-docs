@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Evil - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/evil/problem-of-evil.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-evil"><a class="header" href="#the-problem-of-evil">The Problem of Evil</a></h1>
+<p>The <strong>problem of evil</strong> is the most powerful of the <a href="../arguments-against-theism.html">arguments against theism</a> and the central difficulty of the philosophy of religion: the existence of suffering and wickedness seems flatly incompatible with — or at least strong evidence against — the existence of the <a href="../concept-of-god.html">omnipotent, omniscient, perfectly good God</a> of classical theism. Its force is unique among atheological arguments because it proceeds entirely from premises the <em>theist already accepts</em> (God's nature) together with a datum <em>no one can deny</em> (the world contains evil). It is not a sceptic's external challenge but an <em>internal</em> tension in theism itself, and it has been felt as such by believers from the author of Job to Dostoevsky.</p>
+<p>This page states the problem in its two principal forms — the <strong>logical</strong> (deductive) problem and the <strong>evidential</strong> (inductive/probabilistic) problem — distinguishes the kinds of evil and the key notion of <em>gratuitous</em> evil, and clarifies the crucial methodological distinction between a <strong>defense</strong> and a <strong>theodicy</strong>. The responses themselves — free-will, soul-making, skeptical theism, and the rest — are developed in <a href="./theodicies.html">theodicies and defenses</a>; the related challenge from God's <em>hiddenness</em> (rather than suffering) is taken up in <a href="./divine-hiddenness.html">divine hiddenness</a>.</p>
+<hr />
+<h2 id="the-inconsistent-triad"><a class="header" href="#the-inconsistent-triad">The inconsistent triad</a></h2>
+<p>The problem in its starkest form, as <strong>Epicurus</strong> is reputed to have posed it and <strong>Hume</strong> sharpened it (through Philo in the <em>Dialogues</em>):</p>
+<blockquote>
+<p>Is God willing to prevent evil, but not able? Then he is impotent. Is he able, but not willing? Then he is malevolent. Is he both able and willing? Whence then is evil?</p>
+</blockquote>
+<p>This presents theism with an apparently <strong>inconsistent triad</strong> — three claims that cannot all be true:</p>
+<ol>
+<li>God is <strong>omnipotent</strong> (able to prevent any evil).</li>
+<li>God is <strong>omnibenevolent</strong> (wills to prevent every evil he can).</li>
+<li><strong>Evil exists.</strong></li>
+</ol>
+<p>The atheist argues that (3) is undeniable, so one of (1) or (2) must be surrendered — and a being lacking either omnipotence or perfect goodness is not the God of <a href="../concept-of-god.html">classical theism</a>. The theist must show that the triad is <em>not</em> genuinely inconsistent: that (1), (2), and (3) can all be true together. Everything turns on the hidden assumptions needed to <em>derive</em> a contradiction from the three.</p>
+<h2 id="the-logical-problem-of-evil"><a class="header" href="#the-logical-problem-of-evil">The logical problem of evil</a></h2>
+<p>The <strong>logical</strong> (or <em>deductive</em> or <em>a priori</em>) problem, pressed most forcefully by <strong>J.L. Mackie</strong> ("Evil and Omnipotence," 1955), claims that the triad is <em>strictly logically inconsistent</em> — that the mere existence of <em>any</em> evil whatever entails that the classical God does not exist. The claim is very strong: not that evil makes God <em>improbable</em>, but that the propositions "an omnipotent, omnibenevolent God exists" and "evil exists" are <em>contradictory</em>, like "this figure is a square" and "this figure has three sides."</p>
+<p>But the triad is not <em>explicitly</em> contradictory; to derive a contradiction one needs bridging premises. Mackie supplies:</p>
+<ul>
+<li><strong>(P1)</strong> A good being always eliminates evil as far as it can.</li>
+<li><strong>(P2)</strong> An omnipotent being can do anything (logically possible).</li>
+</ul>
+<p>From these plus (1) and (2) it follows that an omnipotent, perfectly good being would eliminate evil <em>entirely</em> — so if such a being exists, no evil does, contradicting (3).</p>
+<h3 id="plantingas-free-will-defense-and-the-collapse-of-the-logical-problem"><a class="header" href="#plantingas-free-will-defense-and-the-collapse-of-the-logical-problem">Plantinga's free-will defense and the collapse of the logical problem</a></h3>
+<p>The logical problem is now widely regarded as a <em>failure</em>, and the reason is <strong>Alvin Plantinga's Free Will Defense</strong> (<em>God, Freedom, and Evil</em>, 1974). Plantinga's strategy is modest but decisive: to defeat a claim of <em>strict inconsistency</em>, he need not show <em>why</em> God permits evil, nor even that his story is <em>true</em> — he need only exhibit a <em>logically possible</em> proposition <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> such that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span></span></span></span> and (3) are jointly consistent. Any such <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> shows the set is not contradictory.</p>
+<p>His candidate: it is <em>possible</em> that God could not create a world containing <strong>moral good</strong> (the great good of free creatures freely choosing the good) <em>without also</em> permitting <strong>moral evil</strong> (those creatures sometimes freely choosing wrongly), because whether a free creature goes right or wrong is <em>up to the creature</em>, not to God — even an omnipotent being cannot <em>make</em> someone <em>freely</em> do anything. If, possibly, every creature God could create would go wrong at least once (Plantinga's notorious notion of <strong>transworld depravity</strong>), then a world with free creatures and <em>some</em> moral evil may be the price of a world with moral good — and a perfectly good, omnipotent God might have sufficient reason to permit it.</p>
+<p>The key amendment is to the bridging premises: a good being eliminates evil as far as it can <em>unless it has a morally sufficient reason to permit it</em>, and an omnipotent being can do anything <em>logically possible</em> — but <em>making someone freely choose rightly is not logically possible</em>. With these corrections the deductive contradiction cannot be derived. Mackie himself effectively conceded that the logical argument, as a <em>proof</em> of inconsistency, does not succeed — a notable moment in the field. (Whether the free-will <em>defense</em> extends to a full <em>theodicy</em>, and whether it covers <em>natural</em> evil, is the subject of <a href="./theodicies.html">theodicies</a>.)</p>
+<p>The collapse of the <em>logical</em> problem is why the action has decisively shifted to the <em>evidential</em> problem.</p>
+<h2 id="the-evidential-problem-of-evil"><a class="header" href="#the-evidential-problem-of-evil">The evidential problem of evil</a></h2>
+<p>The <strong>evidential</strong> (or <em>inductive</em>, <em>probabilistic</em>, <em>a posteriori</em>) problem concedes Plantinga's point — that evil is not <em>strictly inconsistent</em> with God — but argues that the <em>kinds</em>, <em>quantities</em>, and <em>distribution</em> of evil we actually observe constitute strong <em>evidence against</em> God's existence, making theism <em>improbable</em> even if not impossible. It is the far more serious challenge, because <em>bare logical consistency</em> is cold comfort: a hypothesis can be consistent with the data yet rendered wildly improbable by them.</p>
+<h3 id="rowes-evidential-argument"><a class="header" href="#rowes-evidential-argument">Rowe's evidential argument</a></h3>
+<p><strong>William Rowe's</strong> formulation (1979) is canonical. It hinges on <strong>gratuitous evil</strong> — evil that serves no greater good, that an omnipotent being could have prevented without thereby losing some greater good or permitting some equally bad or worse evil:</p>
+<ol>
+<li>There exist instances of intense suffering that an omnipotent, omniscient being could have prevented without thereby losing some greater good or permitting some evil equally bad or worse. <em>(There is gratuitous evil.)</em></li>
+<li>An omnipotent, omniscient, wholly good being would prevent the occurrence of any gratuitous evil. <em>(A perfectly good God permits an evil only if it is necessary to a greater good.)</em></li>
+<li>Therefore, there does not exist an omnipotent, omniscient, wholly good being.</li>
+</ol>
+<p>Premise 2 is the theist's own principle (God permits no <em>pointless</em> suffering). The contested premise is <strong>1</strong>, and Rowe supports it inductively with cases of apparently <em>pointless</em> suffering. His famous example: a <strong>fawn</strong> trapped in a distant forest fire, burned and dying in agony over days, unseen by any human, its suffering serving no discernible purpose. Even if <em>we</em> cannot prove it serves no good, it <em>appears</em> gratuitous, and — Rowe argues — we are entitled to move from "we can see no greater good served" to "there <em>is</em> (probably) no greater good served," just as we are generally entitled to trust careful observation. The sheer scale of such seemingly purposeless suffering — animal pain across hundreds of millions of years of evolution before any humans existed, the Holocaust, childhood cancers — makes it <em>probable</em> that <em>some</em> of it is gratuitous, and hence that the classical God does not exist.</p>
+<h3 id="the-noseeum-inference-and-skeptical-theism"><a class="header" href="#the-noseeum-inference-and-skeptical-theism">The "noseeum" inference and skeptical theism</a></h3>
+<p>The decisive question is whether premise 1's inference is legitimate: from <em>"we can see no justifying good"</em> to <em>"there is no justifying good."</em> Critics dub this a <strong>"noseeum" inference</strong> ("I no see-um, so there ain't none"), and <strong>skeptical theism</strong> (Wykstra, Alston, Bergmann) attacks it head-on. Wykstra's <strong>CORNEA</strong> principle: we are entitled to move from "I see no <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>" to "there is no <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>" <em>only if</em>, were there an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>, we would <em>likely</em> see it. But given the vast gap between divine and human cognition, we have <em>no reason to expect</em> to discern God's reasons for permitting a given evil even if such reasons exist — they may lie centuries downstream or in goods we cannot conceive, much as a toddler cannot see the point of a painful injection. So our failure to <em>see</em> a justifying good is <em>not</em> good evidence that there is <em>none</em>; the noseeum inference is unwarranted, and premise 1 is unsupported.</p>
+<p>The evidential debate thus largely becomes a debate over <strong>skeptical theism</strong> — whether the appeal to divine inscrutability successfully blocks Rowe's inference, and at what cost (the worry that the same skepticism, consistently applied, would undermine <em>all</em> our moral knowledge and even our trust that God is good). This is pursued in <a href="./theodicies.html">theodicies and defenses</a>.</p>
+<h2 id="kinds-of-evil-and-key-distinctions"><a class="header" href="#kinds-of-evil-and-key-distinctions">Kinds of evil and key distinctions</a></h2>
+<p>Several distinctions structure every discussion:</p>
+<ul>
+<li><strong>Moral evil</strong> — suffering and wrongdoing brought about by the free choices of moral agents (murder, cruelty, injustice). This is the evil the <a href="./theodicies.html">free-will defense</a> most directly addresses.</li>
+<li><strong>Natural evil</strong> — suffering caused by natural processes with no human agency (earthquakes, disease, predation, the burning fawn). This is <em>harder</em> for theism, since the free-will defense does not obviously apply — what free choice explains a tsunami? (Responses: natural laws as a necessary good, soul-making, free <em>fallen angels</em>, or natural evil as the by-product of a law-governed world; see <a href="./theodicies.html">theodicies</a>.)</li>
+<li><strong>Gratuitous (pointless) evil</strong> — evil not necessary to any greater good. As Rowe's argument shows, the theist is committed to denying that <em>any</em> evil is <em>truly</em> gratuitous; the evidential problem presses on whether that denial is credible given what we observe.</li>
+<li><strong>Horrendous evils</strong> (Marilyn McCord Adams) — evils so extreme (genocide, the torture and murder of a child) that they threaten to render the <em>victim's</em> life not worth living, posing a problem that abstract "greater good" theodicies seem obscene to address; Adams argues the response must be not a <em>general</em> theodicy but God's <em>defeating</em> such evils within the individual's life through intimate goods.</li>
+</ul>
+<p>A further distinction concerns the <em>aim</em> of a response:</p>
+<ul>
+<li><strong>Defense vs. theodicy.</strong> A <strong>defense</strong> aims only to show that God and evil are <em>logically consistent</em> (or that the evidential argument fails) — it offers a <em>possible</em> reason God <em>might</em> have, without claiming it is the <em>actual</em> one. A <strong>theodicy</strong> is more ambitious: it offers an account of the <em>actual</em> reasons a good God <em>does</em> permit evil — a <em>justification</em> of God's ways (Greek <em>theos</em> + <em>dikē</em>, the "justice of God"; the term is Leibniz's). Plantinga's free-will <em>defense</em> answers the <em>logical</em> problem with mere possibility; answering the <em>evidential</em> problem credibly seems to require something closer to a <em>theodicy</em>. The distinction matters because a defense can succeed while every theodicy fails: it may be that we <em>cannot say</em> why God permits evil (the defense and <a href="#the-noseeum-inference-and-skeptical-theism">skeptical theism</a> suffice for consistency) even though no positive <em>justification</em> convinces.</li>
+</ul>
+<h2 id="where-the-problem-of-evil-sits"><a class="header" href="#where-the-problem-of-evil-sits">Where the problem of evil sits</a></h2>
+<p>The problem of evil is the hinge of the entire theism debate. Its <strong>logical</strong> form — the claim that evil is <em>strictly inconsistent</em> with God — is widely conceded to have <em>failed</em>, defeated by Plantinga's <a href="./theodicies.html">free-will defense</a>, which needs only the bare <em>possibility</em> of a morally sufficient reason. But this is a thin victory, and the real contest is the <strong>evidential</strong> form: whether the <em>amount</em>, <em>kinds</em>, and <em>apparent pointlessness</em> of suffering make God <em>improbable</em>. That debate turns on the legitimacy of the <strong><a href="#the-noseeum-inference-and-skeptical-theism">noseeum inference</a></strong> — Rowe's move from <em>seeing</em> no justifying good to there <em>being</em> none — and hence on <strong>skeptical theism</strong>, with its own costs for our moral knowledge. The problem also feeds directly into the <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a> calculus: it is the heaviest weight on the atheist's side of the scale, which any net assessment of the <a href="../arguments-for-theism.html">arguments for theism</a> must absorb. The constructive theistic responses — <a href="./theodicies.html">free-will, soul-making, skeptical theism, and the appeal to mystery</a> — and the distinct but parallel problem of <a href="./divine-hiddenness.html">divine hiddenness</a> carry the argument forward.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/arguments/other-arguments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/evil/theodicies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/arguments/other-arguments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/evil/theodicies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Arguments from Consciousness and Reason - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments/consciousness-and-reason.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="arguments-from-consciousness-and-reason"><a class="header" href="#arguments-from-consciousness-and-reason">Arguments from Consciousness and Reason</a></h1>
+<p>A cluster of more recent and more <em>theoretical</em> <a href="../arguments-for-theism.html">theistic arguments</a> turns not on the existence or order of the physical world but on the existence of <strong>minds</strong> within it — on the fact that the universe contains <em>consciousness</em>, and that it contains <em>reason</em> reliable enough to grasp truth. The thought is that subjective experience and rational cognition are precisely the features of reality that a purely physical, undirected process is least equipped to produce or to vindicate, and that they are far more <em>at home</em> in a theistic universe, where mind is fundamental, than in a naturalistic one, where it is a late and accidental by-product. These arguments thus engage directly the <a href="../../../general/quantum-mechanics.html">philosophy of mind</a> and the standing of <a href="../arguments-against-theism.html">naturalism</a>.</p>
+<p>This page sets out the <strong>argument from consciousness</strong> (Swinburne), the <strong>argument from reason</strong> (Lewis), and its sharpest modern descendant, <strong>Plantinga's evolutionary argument against naturalism (EAAN)</strong>, together with the principal naturalist replies.</p>
+<hr />
+<h2 id="the-argument-from-consciousness"><a class="header" href="#the-argument-from-consciousness">The argument from consciousness</a></h2>
+<p><strong>Richard Swinburne</strong> offers consciousness as a strand in his <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>. The argument exploits the notorious <strong>hard problem of consciousness</strong> — the apparent unbridgeable gap between <em>physical</em> facts (neurons, electrochemistry) and <em>phenomenal</em> facts (what it is <em>like</em> to see red, to feel pain). In outline:</p>
+<ol>
+<li>Conscious mental states — qualia, subjective experience — exist and are not (the argument claims) <em>reducible</em> to or <em>entailed</em> by physical facts: a complete physical description of the brain leaves out <em>what the experience is like</em>.</li>
+<li>Their correlation with brain states is therefore not something physical science can <em>explain</em>; the <strong>psychophysical laws</strong> linking matter to mind are not derivable from physics and are, from a naturalistic standpoint, brute, contingent, and extraordinarily specific.</li>
+<li>A <em>personal</em> explanation is available and better: a God who values conscious agents has reason to bring about, and to <em>connect</em> by reliable laws, brains and the rich mental lives they support.</li>
+<li>So the existence of consciousness, and the orderly mind–body correlation, is <em>more probable given theism</em> than given naturalism, and confirms theism.</li>
+</ol>
+<p>The argument is strongest if some form of <strong>dualism</strong> or <strong>property dualism</strong> is correct — if consciousness is genuinely <em>non-physical</em>. The naturalist replies along familiar lines from the philosophy of mind: <strong>physicalism</strong> (consciousness <em>is</em> a physical/functional property, the hard problem a confusion), <strong>emergence</strong> (consciousness arises naturally from sufficiently organised matter, no God required), or <strong>panpsychism</strong> (experience is a fundamental feature of matter itself — increasingly taken seriously, and a <em>naturalistic</em> way to make mind fundamental without God). If any of these succeeds, premise 1 or 2 fails. The dispute thus inherits the unresolved state of the <a href="../../../general/quantum-mechanics.html">mind–body problem</a>: the theist needs the hard problem to be <em>intractable for naturalism</em>, which is contested.</p>
+<h2 id="the-argument-from-reason"><a class="header" href="#the-argument-from-reason">The argument from reason</a></h2>
+<p>A distinct and in some ways deeper argument concerns not <em>experience</em> but <em>rationality</em> — and it is a <strong>self-undermining</strong> argument against naturalism rather than a direct argument for God. <strong>C.S. Lewis</strong> (<em>Miracles</em>, 1947) gave the popular form; its ancestry runs through Balfour and Haldane:</p>
+<blockquote>
+<p>If naturalism is true, then every belief — including the belief <em>in</em> naturalism — is the product of <em>non-rational</em> causes (ultimately, blind physics and chemistry in the brain). But a belief produced wholly by non-rational causes, with no regard for whether it is <em>true</em>, cannot be <em>rationally held</em> or count as <em>knowledge</em>. So if naturalism is true, no belief is rationally grounded — including naturalism itself. Naturalism is therefore self-refuting.</p>
+</blockquote>
+<p>The key move is the distinction between the <strong>cause</strong> of a belief (the physical process that produces it) and its <strong>ground</strong> (the reasons that justify it). Reasoning requires that one belief be caused <em>by</em> another <em>in virtue of</em> a logical relation between their contents — that we believe a conclusion <em>because</em> it follows. But on naturalism, mental states have causal efficacy (if any) only through their <em>physical</em> properties, not their <em>semantic</em> content; the <em>meaning</em> of a thought seems causally inert. If so, no belief is ever held <em>because of</em> the reasons for it, and rational inference — the very thing the naturalist relies on to argue for naturalism — is an illusion.</p>
+<h2 id="plantingas-eaan"><a class="header" href="#plantingas-eaan">Plantinga's EAAN</a></h2>
+<p><strong>Alvin Plantinga</strong> sharpened the argument from reason into a rigorous <strong>evolutionary argument against naturalism</strong> (EAAN). The target is the conjunction of <strong>naturalism (N)</strong> and <strong>evolution (E)</strong>, and the claim is that this conjunction is <strong>self-defeating</strong>. The argument concerns the probability that our cognitive faculties are <strong>reliable (R)</strong> — that they generally produce true beliefs — <em>given</em> N and E:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">is low, or inscrutable.</span></span></span></span></span></span></p>
+<p>The reasoning: natural selection rewards <em>adaptive behaviour</em>, not <em>true belief</em>. Selection "sees" only what an organism <em>does</em>, not what it <em>believes</em>; belief influences fitness only via its effect on behaviour. But behaviour is a product of belief <em>together with</em> desire, and indefinitely many <em>belief–desire pairs</em> yield the <em>same</em> adaptive behaviour. Plantinga's example: a creature that flees tigers may do so because it believes the tiger dangerous and wants to live, <em>or</em> because it believes the tiger is a cuddly pet it wants to <em>pet</em> but believes the best way to pet it is to run away — the behaviour (fleeing) is identical and equally fitness-enhancing, while the beliefs are wildly false. Since adaptiveness <em>underdetermines</em> truth, there is no reason to expect selection to have tuned our belief-forming faculties for <em>truth</em> rather than mere fitness; so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span> is low or cannot be assessed.</p>
+<p>The argument then turns reflexive — this is the "self-defeat":</p>
+<ol>
+<li>If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span> is low, then anyone who <em>accepts</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> has a <strong>defeater</strong> for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> — a reason to doubt that their own faculties are reliable.</li>
+<li>But a defeater for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> is a defeater for <em>every</em> belief those faculties produce — including belief in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> itself.</li>
+<li>So <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> cannot be <em>rationally</em> accepted: it saws off the branch it sits on.</li>
+</ol>
+<p>Crucially, the theist faces <em>no</em> parallel defeater: a God who creates us in his image, <em>for</em> knowing, gives reason to expect reliable faculties, so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">theism</span></span><span class="mclose">)</span></span></span></span> is high. The EAAN does not directly prove God; it argues that <em>naturalism</em> is irrational to hold, leaving theism as the worldview that can underwrite the trust in reason that <em>everyone</em>, including the naturalist, must presuppose.</p>
+<h2 id="naturalist-replies"><a class="header" href="#naturalist-replies">Naturalist replies</a></h2>
+<p>The EAAN has generated a large critical literature; the main lines:</p>
+<ul>
+<li><strong>Truth-tracking is itself adaptive.</strong> Against the underdetermination claim: in cognitively sophisticated, <em>flexible</em> creatures, <em>generally true</em> beliefs are by far the most reliable route to adaptive behaviour across the open-ended range of situations evolution must handle. The "cuddly tiger" stories work for <em>one</em> behaviour but multiply into incoherence across a whole web of beliefs and novel circumstances; a piecemeal-false belief system would mislead constantly. So selection <em>does</em>, indirectly but robustly, favour reliable faculties — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span> is <em>high</em>. (Plantinga's rejoinder: this assumes content is causally relevant to behaviour, which on naturalism — especially given worries about the <a href="#the-argument-from-reason">causal efficacy of semantic content</a> — is exactly what is in question.)</li>
+<li><strong>Local reliability suffices, and is all we have anyway.</strong> Even granting global scepticism is <em>possible</em>, our faculties are <em>demonstrably</em> reliable enough in the domains we test (science works, predictions succeed); the bare <em>probability</em> on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">&amp;</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> is outweighed by this first-order evidence. (Plantinga: using the faculties to vindicate the faculties is the very circularity the defeater blocks.)</li>
+<li><strong>The defeater is self-defeating or over-general</strong> (Fitelson–Sober and others): the argument's own probabilistic premises must be grasped by the faculties it impugns; and a parallel argument could be mounted against <em>any</em> metaphysics, including theism (could a deceiving or indifferent process not equally afflict a theist's faculties?). The conditional-probability claims, critics argue, are far more <em>inscrutable</em> than Plantinga allows — which, if so, blocks the inference to a <em>low</em> value.</li>
+<li><strong>Companions in guilt.</strong> The argument proves too much: if it works, it threatens to make <em>all</em> empirical reasoning rest on a prior, un-argued trust in our faculties — which is just the familiar problem of the <a href="../epistemology/religious-epistemology.html">criterion / epistemic circularity</a>, not a special defect of naturalism.</li>
+</ul>
+<h2 id="where-these-arguments-sit"><a class="header" href="#where-these-arguments-sit">Where these arguments sit</a></h2>
+<p>The arguments from consciousness and reason represent the <em>theoretical</em> wing of natural theology: where the <a href="./cosmological.html">cosmological</a> and <a href="./teleological.html">teleological</a> arguments point to the world's existence and order, these point <em>inward</em>, to the existence of <em>minds</em> and the trustworthiness of <em>thought</em>, and contend that mind is more intelligible if it is <em>fundamental</em> (theism) than if it is <em>derivative</em> (naturalism). The <strong>argument from consciousness</strong> is hostage to the <a href="../../../general/quantum-mechanics.html">mind–body problem</a>: it is forceful only if physicalism, emergence, and panpsychism all fail to explain experience, which is unsettled. <strong>Plantinga's EAAN</strong> is the most discussed and most ingenious — a genuine <em>reductio</em> attempt that, if sound, would make naturalism self-refuting and so do more than any cumulative strand could — but it stands or falls on the contested claim that natural selection would <em>not</em> favour reliable belief, and on the prior worry about whether <em>semantic content</em> can be causally efficacious at all. Neither argument is a proof; both function, like the others, as strands in a <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a> — and both turn, in the end, on questions in the philosophy of mind as much as in the philosophy of religion.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/arguments/religious-experience.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/arguments/other-arguments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/arguments/religious-experience.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/arguments/other-arguments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

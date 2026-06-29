@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Classical Theism in the Three Abrahamic Traditions - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/traditions/abrahamic.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="classical-theism-in-the-three-abrahamic-traditions"><a class="header" href="#classical-theism-in-the-three-abrahamic-traditions">Classical Theism in the Three Abrahamic Traditions</a></h1>
+<p>The <a href="../concept-of-god.html">classical concept of God</a> — simple, eternal, immutable, omnipotent, omniscient, the necessary creator — was not the product of any one religion but the <em>joint achievement</em> of philosophers working in <strong>Judaism</strong>, <strong>Christianity</strong>, and <strong>Islam</strong>, in close and often explicit conversation across the three. The medieval synthesis of biblical monotheism with Greek (chiefly Aristotelian and Neoplatonic) philosophy was a <em>shared</em> project: Jewish, Christian, and Muslim thinkers read, translated, criticised, and built upon one another, and the <a href="../arguments-for-theism.html">arguments</a> and <a href="../attributes/coherence-of-theism.html">attributes</a> treated throughout these notes bear the marks of all three. This page traces that cross-pollination — the <em>falsafa</em> tradition of Islam, the negative theology of Judaism, and the Christian scholastic synthesis.</p>
+<p>It complements the <a href="../context/history.html">history</a> page (chronological) by focusing on the <em>interaction</em> of the traditions, and the <a href="../concept-of-god.html">concept of God</a> and <a href="../attributes/coherence-of-theism.html">attributes</a> pages (which it historically grounds).</p>
+<hr />
+<h2 id="islamic-philosophy-kalām-and-falsafa"><a class="header" href="#islamic-philosophy-kalām-and-falsafa">Islamic philosophy: kalām and falsafa</a></h2>
+<p>Islamic thought developed two distinct modes of theological reasoning:</p>
+<ul>
+<li><strong>Kalām</strong> (dialectical theology). The <strong>Mu'tazila</strong> ("rationalist") and <strong>Ash'arī</strong> schools debated God's attributes, justice, and human freedom. The Mu'tazila stressed divine <em>justice</em> and <em>unity</em> — arguing that reason can know good and evil, that God <em>must</em> do what is just (a near-<a href="../ethics/religion-and-morality.html">intellectualist</a> view), and that humans have real freedom (else God's punishments are unjust). The <strong>Ash'arīs</strong> (al-Ash'arī, al-Ghazālī) countered with a stronger <em>voluntarism</em> and <em>occasionalism</em>: good and evil are what God <em>commands</em> (<a href="../ethics/religion-and-morality.html">divine-command</a> ethics), and God is the <em>sole</em> true cause (<a href="../metaphysics/divine-action.html">occasionalism</a>) — human "acquisition" (<em>kasb</em>) of God-created acts, a distinctive position in the <a href="../../freewill/introduction.html">free-will</a> debate. The kalām also produced the <strong><a href="../arguments/cosmological.html">Kalām cosmological argument</a></strong> (al-Kindī, al-Ghazālī): the world cannot have an infinite past, so it began, so it has a cause.</li>
+<li><strong>Falsafa</strong> (philosophy proper). The Arabic Aristotelians transmitted and transformed Greek philosophy:
+<ul>
+<li><strong>al-Fārābī</strong> and especially <strong>Ibn Sīnā (Avicenna</strong>, d. 1037) built a grand Neoplatonised-Aristotelian system. Avicenna's signature contribution is the <strong>distinction between essence and existence</strong> and the <strong><a href="../arguments/cosmological.html">contingency argument</a></strong>: beings are divided into the <em>possible/contingent</em> (whose essence does not entail existence — they are "possible in themselves, necessary through another") and the <strong>Necessary Existent</strong> (<em>wājib al-wujūd</em>), whose essence <em>is</em> existence, which exists by its own nature and is the ground of all else. This is one of the most important arguments in the history of natural theology and directly shaped <a href="#christian-scholasticism">Aquinas's</a> essence/existence metaphysics and <a href="../arguments/cosmological.html">Leibniz's contingency argument</a>.</li>
+<li><strong>al-Ghazālī</strong> (d. 1111), in <em>The Incoherence of the Philosophers</em>, mounted a powerful <em>critique</em> of the falāsifa — attacking their claims about the world's eternity and necessary causation, and defending <a href="../metaphysics/divine-action.html">occasionalism</a> and the possibility of <a href="../epistemology/miracles.html">miracles</a> (his analysis of causation as mere <em>constant conjunction</em> strikingly anticipates <a href="../epistemology/miracles.html">Hume</a>).</li>
+<li><strong>Ibn Rushd (Averroes</strong>, d. 1198) replied to al-Ghazālī in <em>The Incoherence of the Incoherence</em>, defending Aristotle and a more robust natural causation, and reflecting on the relation of <a href="../faith-and-reason.html">philosophy and revelation</a> (the "double truth" attributed to him, and the view that philosophy and scripture are two routes to one truth). Averroes's commentaries on Aristotle became <em>the</em> authority — "the Commentator" — for the Latin scholastics.</li>
+</ul>
+</li>
+</ul>
+<h2 id="jewish-philosophy-maimonides-and-negative-theology"><a class="header" href="#jewish-philosophy-maimonides-and-negative-theology">Jewish philosophy: Maimonides and negative theology</a></h2>
+<p>Medieval Jewish philosophy reached its height with <strong>Moses Maimonides</strong> (<strong>Rambam</strong>, d. 1204), writing in Arabic and deeply engaged with the <em>falsafa</em>. His <em>Guide of the Perplexed</em> sought to reconcile Torah with Aristotelian philosophy, and his most influential contribution to the philosophy of religion is a rigorous <strong>negative theology</strong> (the <em><a href="../language/religious-language.html">via negativa</a></em>):</p>
+<ul>
+<li>Because God is absolutely <em>one</em> and <em>simple</em> (<a href="../attributes/goodness-and-simplicity.html">divine simplicity</a>), and utterly unlike creatures, <em>no positive attribute</em> can be predicated of God <em>literally</em> without compromising his unity and transcendence. To say "God is wise" or "God is powerful" cannot mean God <em>has</em> wisdom or power as <em>properties</em> (that would introduce plurality into the divine).</li>
+<li>So positive predications must be reinterpreted as <strong>negations</strong> (God is "living" = God is <em>not</em> inanimate; "one" = <em>not</em> multiple) or as statements about God's <em>effects/actions</em> (God is "merciful" = God <em>acts</em> as a merciful person would), <em>not</em> about God's <em>essence</em>. We can know <em>that</em> God is and <em>what God does</em>, but of God's <em>essence</em> we can only say what it is <em>not</em>.</li>
+</ul>
+<p>Maimonides' negative theology is the most thoroughgoing in the Abrahamic traditions, a direct influence on <a href="#christian-scholasticism">Aquinas</a> (who tempered it with <a href="../language/religious-language.html">analogy</a>) and a key text for the <a href="../language/religious-language.html">religious-language</a> debate. Earlier Jewish thinkers — <strong>Saadia Gaon</strong> (kalām-influenced) and the Neoplatonist <strong>Ibn Gabirol</strong> (Avicebron, whose <em>Fons Vitae</em> was read by Christians as the work of a Muslim or Christian) — show the same cross-traditional traffic.</p>
+<h2 id="christian-scholasticism"><a class="header" href="#christian-scholasticism">Christian scholasticism</a></h2>
+<p>Latin Christendom inherited this rich Arabic and Jewish material — Aristotle <em>and</em> Avicenna, Averroes, and Maimonides — chiefly through the 12th–13th century translations, and synthesised it:</p>
+<ul>
+<li><strong>Anselm</strong> (d. 1109), earlier and working from Augustine, gave the <a href="../arguments/ontological.html">ontological argument</a> and the <a href="../concept-of-god.html">perfect-being method</a>.</li>
+<li><strong>Thomas Aquinas</strong> (d. 1274) achieved the great synthesis. His <a href="../arguments/cosmological.html">Five Ways</a> draw on Aristotle (the unmoved mover), Avicenna (the contingency argument, essence/existence — God as <em>ipsum esse subsistens</em>), and Maimonides; his theory of <strong><a href="../language/religious-language.html">analogy</a></strong> mediates between Maimonides' pure negation and a naive univocity; his account of <a href="../faith-and-reason.html">faith and reason</a> (reason establishes the <em>preambles</em>, faith the <em>mysteries</em>) is the classic <em>synthesis</em> model; and his treatment of <a href="../attributes/goodness-and-simplicity.html">divine simplicity</a>, <a href="../attributes/eternity.html">eternity</a>, <a href="../attributes/omniscience.html">omniscience</a>, and <a href="../metaphysics/divine-action.html">providence</a> is the touchstone of classical theism. Aquinas is, in a real sense, <em>unintelligible without</em> his Muslim and Jewish predecessors — he cites "Rabbi Moses" (Maimonides) and "the Commentator" (Averroes) constantly.</li>
+<li>The later scholastics — <strong>Duns Scotus</strong> (the <em>univocity</em> of being, against Aquinas's analogy; the <a href="../arguments/ontological.html">modal</a> refinement of the ontological argument) and <strong>William of Ockham</strong> (nominalism, the <a href="../attributes/omniscience.html">hard/soft-fact</a> solution to foreknowledge, <a href="../ethics/religion-and-morality.html">divine-command</a> voluntarism) — carried the debates forward and set the stage for the early-modern transformations.</li>
+</ul>
+<h2 id="a-shared-project"><a class="header" href="#a-shared-project">A shared project</a></h2>
+<p>The historical lesson is that <strong>classical theism is interreligious</strong>. The same arguments and attributes were forged in a centuries-long, cross-confessional conversation:</p>
+<ul>
+<li>The <a href="../arguments/cosmological.html">cosmological argument</a> passed from Aristotle through the Muslim <em>falāsifa</em> (Avicenna's contingency argument, al-Ghazālī's kalām) and Maimonides to Aquinas and on to Leibniz.</li>
+<li><a href="../attributes/goodness-and-simplicity.html">Divine simplicity</a> and <a href="../language/religious-language.html">negative theology</a> were developed jointly by Neoplatonists, Maimonides, Avicenna, and Aquinas.</li>
+<li>The <a href="../attributes/omniscience.html">foreknowledge</a>, <a href="../attributes/omnipotence.html">omnipotence</a>, and <a href="../../freewill/introduction.html">free-will</a> debates ran in <em>parallel</em> (Ash'arī occasionalism and <em>kasb</em>; Molinist middle knowledge; Ockhamist soft facts) across all three traditions.</li>
+<li>The <a href="../faith-and-reason.html">faith-and-reason</a> question (Averroes, Maimonides, Aquinas) received its classic <em>synthesis</em> answers from thinkers in all three faiths.</li>
+</ul>
+<p>This shared inheritance is also why the <a href="../pluralism/religious-pluralism.html">problem of religious diversity</a> is <em>internal</em> as well as <em>external</em>: the three traditions agree on a vast common <em>philosophical</em> theology while dividing sharply on <em>revelation</em> and <em>salvation</em> — a structure that the <a href="../pluralism/religious-pluralism.html">pluralism</a> debate must address.</p>
+<h2 id="where-the-abrahamic-traditions-sit"><a class="header" href="#where-the-abrahamic-traditions-sit">Where the Abrahamic traditions sit</a></h2>
+<p>The <a href="../concept-of-god.html">classical concept of God</a> and the <a href="../arguments-for-theism.html">arguments</a> and <a href="../attributes/coherence-of-theism.html">attribute-debates</a> that fill these notes are the deposit of a <strong>shared Abrahamic project</strong> — Greek philosophy wedded to biblical/Quranic monotheism through the joint labour of Muslim <em>falāsifa</em> (Avicenna's <a href="../arguments/cosmological.html">contingency argument</a> and essence/existence metaphysics, al-Ghazālī's <a href="../arguments/cosmological.html">Kalām</a> and <a href="../metaphysics/divine-action.html">occasionalism</a>, Averroes's Aristotelianism), Jewish philosophers (Maimonides' <a href="../language/religious-language.html">negative theology</a> and <a href="../attributes/goodness-and-simplicity.html">simplicity</a>), and Christian scholastics (Anselm's <a href="../arguments/ontological.html">ontological argument</a>, Aquinas's grand synthesis, Scotus and Ockham's refinements). Recognising this cross-pollination corrects the parochial impression that natural theology is a <em>Christian</em> invention, situates the <a href="../context/history.html">Western canon</a> in its true multi-confessional setting, and frames the <a href="../pluralism/religious-pluralism.html">diversity problem</a> as a division <em>within</em> a shared philosophical monotheism as much as between it and the <a href="./non-western.html">non-Western</a> conceptions. The <a href="./mysticism.html">mysticism</a> of the three traditions — Kabbalah, Christian and Sufi mysticism — is the experiential counterpart to this shared philosophical theology.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/traditions/non-western.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/traditions/mysticism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/traditions/non-western.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/traditions/mysticism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

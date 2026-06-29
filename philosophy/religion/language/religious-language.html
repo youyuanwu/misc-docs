@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Religious Language - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/language/religious-language.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="religious-language"><a class="header" href="#religious-language">Religious Language</a></h1>
+<p>Before asking whether "God is good" is <em>true</em> or <em>known</em>, there is a prior question: what does it <em>mean</em>? Religious language uses ordinary words — <em>good</em>, <em>wise</em>, <em>powerful</em>, <em>loves</em>, <em>exists</em>, <em>father</em> — of a being said to be infinite, immaterial, timeless, and simple. If those words keep their ordinary sense, they seem <em>false</em> or <em>category-mistaken</em> (an immaterial being has no <em>hands</em>, a timeless one cannot <em>act</em>); if they lose it entirely, religious talk says <em>nothing</em>. This is the <strong>semantic question</strong> of the <a href="../introduction.html">three that organize the field</a>, and for a stretch of the twentieth century it was thought to be <em>decisive</em>: if religious sentences are literally <em>meaningless</em>, then the <a href="../arguments-for-theism.html">arguments for</a> and <a href="../arguments-against-theism.html">against</a> God, and the <a href="../evil/problem-of-evil.html">problem of evil</a>, are all disputes about <em>nonsense</em>.</p>
+<p>This page sets out the <strong>verificationist</strong> challenge and the falsification debate (Flew's gardener; the Flew–Hare–Mitchell exchange), the classical theories that make God-talk <em>meaningful but non-literal</em> (analogy, the <em>via negativa</em>, symbol, metaphor), and the <strong>Wittgensteinian</strong> reconception of religious language as a "language-game." The further question of whether religious claims are <em>true/false</em> at all (cognitivism vs. non-cognitivism, realism vs. anti-realism) is taken up in <a href="./realism-antirealism.html">realism and anti-realism</a>.</p>
+<hr />
+<h2 id="the-verificationist-challenge"><a class="header" href="#the-verificationist-challenge">The verificationist challenge</a></h2>
+<p>The sharpest attack came from <strong>logical positivism</strong> and its <strong>verification principle</strong> (the Vienna Circle; <strong>A.J. Ayer</strong>, <em>Language, Truth and Logic</em>, 1936): a statement is <strong>factually/cognitively meaningful</strong> only if it is either <em>analytic</em> (true by definition, like mathematics) or <em>empirically verifiable</em> (confirmable, at least in principle, by sense experience). Statements meeting neither test are not <em>false</em> but <strong>meaningless</strong> — pseudo-statements that <em>look</em> like assertions but express no proposition.</p>
+<p>Ayer's verdict on theology was blunt: "God exists," "God loves us," and equally "God does <em>not</em> exist" are <em>all</em> cognitively meaningless, because <em>no possible experience</em> would confirm or disconfirm them. Religious language is, on this view, in the same boat as metaphysics generally — <em>neither true nor false</em>, but empty (at most, an <em>expression</em> of feeling). This is a more radical attack than the <a href="../evil/problem-of-evil.html">problem of evil</a>: it does not say theism is <em>false</em> but that it never managed to <em>say</em> anything.</p>
+<p>The verification principle, however, <em>self-destructed</em>. Applied to <em>itself</em>, it is neither analytic nor empirically verifiable — so by its own criterion the verification principle is <em>meaningless</em>. Attempts to weaken it (to "confirmability in principle") either let metaphysics and theology back in or excluded legitimate science (universal laws, the past, other minds, are not strictly verifiable either). With the collapse of the principle, the <em>blanket</em> verificationist dismissal lost its force — but it bequeathed a sharper, more durable challenge: the <em>falsification</em> version.</p>
+<h2 id="the-falsification-debate"><a class="header" href="#the-falsification-debate">The falsification debate</a></h2>
+<p><strong>Antony Flew</strong> ("Theology and Falsification," 1950s) recast the challenge around <strong>Popper's</strong> falsifiability: a genuine <em>assertion</em> about reality must <em>rule something out</em> — there must be some conceivable state of affairs <em>incompatible</em> with it, such that, were it to obtain, the assertion would be <em>false</em>. Flew's worry: religious believers seem to let <em>nothing</em> count against their claims. He adapts <strong>John Wisdom's</strong> parable:</p>
+<blockquote>
+<p>Two explorers find a clearing with both flowers and weeds. One says a <em>gardener</em> tends it. They watch — no gardener appears. The believer says the gardener is <em>invisible</em>. They set traps, electrified fences, bloodhounds — nothing is detected. Still the believer says: an <em>invisible, intangible, eternally elusive</em> gardener tends the garden. At last the skeptic asks: <em>"How does what you call an invisible, intangible, eternally elusive gardener differ from no gardener at all?"</em></p>
+</blockquote>
+<p>Flew's point: as believers qualify "God loves us" against <em>every</em> apparent counter-evidence (a child dying of cancer is met with "God's love is not merely human love…"), the assertion "dies the death of a thousand qualifications" — it is <em>eroded</em> until it forbids nothing and so <em>asserts</em> nothing. If no conceivable suffering could <em>count against</em> "God loves us," the sentence is not a factual claim.</p>
+<p>The <strong>University discussion</strong> (Flew, <strong>R.M. Hare</strong>, <strong>Basil Mitchell</strong>) gave the classic replies:</p>
+<ul>
+<li><strong>R.M. Hare — the "blik."</strong> Hare concedes religious utterances are not <em>falsifiable assertions</em> but denies they are <em>meaningless</em>. They express a <strong>blik</strong> — an unfalsifiable <em>fundamental attitude</em> or frame through which one sees the world (his example: the paranoid who is <em>certain</em> all dons want to murder him, whom no friendly don can reassure — <em>that</em> is an unfalsifiable blik, and we all have <em>sane</em> ones, e.g. trust in the uniformity of nature). Bliks are not factual claims, but they <em>matter</em> and differ (sane vs. insane). Religion is a blik. <em>Objection:</em> this seems to <em>concede</em> Flew's point — that religion makes no factual claim — and to reduce God-talk to attitude, which most believers reject (they mean to assert that God <em>really</em> exists). It slides toward <a href="./realism-antirealism.html">non-realism</a>.</li>
+<li><strong>Basil Mitchell — the partisan.</strong> Mitchell agrees religious claims <em>are</em> assertions and that evil <em>does</em> count against "God loves us" — but argues believers can <em>rationally maintain</em> them despite counter-evidence, as one trusts a friend. His parable: in wartime, a partisan meets a <strong>Stranger</strong> who tells him he is on the partisan's side; thereafter the Stranger is <em>sometimes seen helping the resistance, sometimes apparently aiding the enemy</em>. The partisan, having once trusted, holds "he is on our side" <em>through</em> the ambiguous evidence — not letting it be <em>conclusively</em> falsified, yet acknowledging it as <em>evidence against</em> that he must bear. Faith is like this: the believer <em>counts</em> evil against God's love (so the claim <em>is</em> falsifiable in principle, contra Flew) but does not treat it as <em>decisive</em> (so the claim survives, contra the demand for easy falsification). This preserves religious language as <em>genuinely assertoric</em> while explaining its resilience — the most influential of the three replies.</li>
+</ul>
+<h2 id="analogy-negation-symbol-metaphor"><a class="header" href="#analogy-negation-symbol-metaphor">Analogy, negation, symbol, metaphor</a></h2>
+<p>Independently of the modern verification debate, the tradition long recognised that God-talk <em>cannot</em> be literal-univocal and developed theories of <em>how</em> it means. The problem: if "wise" means the <em>same</em> applied to Socrates and to God (<strong>univocal</strong>), we anthropomorphise and limit God; if it means something <em>wholly different</em> (<strong>equivocal</strong>), we say nothing and cannot reason about God at all.</p>
+<ul>
+<li><strong>Analogy (Aquinas).</strong> Between univocity and equivocity lies <strong>analogical</strong> predication. When we say "God is good," "good" is used neither in <em>exactly</em> the human sense nor in a <em>totally</em> unrelated one, but in a <em>proportionally related</em> sense. Two forms: the <strong>analogy of attribution</strong> (a quality is named from its <em>cause</em> or <em>source</em> — as food is "healthy" because it <em>causes</em> health in the body, God is "good" as the <em>cause</em> of all goodness) and the <strong>analogy of proper proportionality</strong> (goodness is to God as goodness is to creatures, each proportioned to the kind of being that has it — divine goodness is to the divine nature as human goodness is to human nature). Analogy lets religious language be <em>meaningful and partly informative</em> without either caging God in human concepts or collapsing into nonsense. It is the mainstream Catholic account.</li>
+<li><strong>The <em>via negativa</em> (apophatic theology).</strong> <strong>Maimonides</strong>, Pseudo-Dionysius, and the mystical tradition hold that God so exceeds our concepts that we can only say what God is <em>not</em> — not finite, not mutable, not corporeal, not ignorant. Positive predications are reinterpreted as <em>negations of privations</em> (God is "living" = God is not inanimate). This safeguards divine transcendence and the <a href="../epistemology/religious-experience.html">ineffability</a> of mystical experience, but risks emptiness: a being of which <em>only</em> negations are true threatens to become an unknowable blank (Aquinas's worry about pure negation, which motivates analogy as a positive supplement).</li>
+<li><strong>Symbol (Tillich).</strong> <strong>Paul Tillich</strong> holds that religious language is <strong>symbolic</strong>: a religious symbol "participates in the reality to which it points" and opens up levels of reality (and of the self) otherwise closed. The <em>only</em> non-symbolic statement we can make about God, for Tillich, is that God is <strong>"being-itself"</strong> (the <em>ground of being</em>), not <em>a</em> being; everything else — God as "father," "king," "person" — is symbol. Symbols, unlike signs, cannot be replaced at will and "die" when they lose their power. <em>Objection:</em> if <em>all</em> positive God-talk is symbolic and only "being-itself" is literal, it is unclear that anything <em>determinate</em> (and <em>true/false</em>) is being asserted — Tillich's view edges toward the <a href="./realism-antirealism.html">non-realist</a>.</li>
+<li><strong>Metaphor.</strong> Modern theology (Sallie McFague, Janet Soskice) treats much religious language as <strong>metaphor</strong> — "God is a rock," "a shepherd," "a fortress" — irreducibly figurative yet <em>cognitively significant</em> (metaphors can <em>say</em> things no literal paraphrase captures, as in poetry and science). The question is whether metaphor is <em>reducible</em> (a decorative stand-in for a literal claim) or <em>irreducible but still referential</em> (Soskice's "reality depicting" without literal description), which connects to the <a href="./realism-antirealism.html">realism debate</a>.</li>
+</ul>
+<h2 id="wittgensteinian-language-games"><a class="header" href="#wittgensteinian-language-games">Wittgensteinian language-games</a></h2>
+<p>The later <strong>Wittgenstein's</strong> philosophy of language reframed the whole question. Meaning is <strong>use</strong>: words have meaning within <strong>language-games</strong> embedded in <strong>forms of life</strong> — rule-governed practices (giving orders, joking, praying, thanking) — and a word's sense is fixed by its <em>role</em> in such a practice, not by naming an object or stating a verifiable fact. <strong>D.Z. Phillips</strong> and other "Wittgensteinian" philosophers of religion applied this:</p>
+<ul>
+<li>Religious language is its <em>own</em> language-game, with its own "grammar," learned by participating in the religious form of life (worship, prayer, confession). To understand "God exists" is to understand its <em>use</em> in that practice — <em>not</em> to treat it as a quasi-scientific hypothesis about an extra object whose probability the <a href="../arguments-for-theism.html">arguments</a> assess.</li>
+<li>The verificationist (and, ironically, the natural theologian) <em>misunderstand the grammar</em> of religious language by importing the standards of <em>one</em> game (empirical fact-stating) into <em>another</em>. "Does God exist?" asked as if about a hidden physical entity is a <em>grammatical</em> confusion; within the religious game, belief in God is more like a commitment, an orientation, a "picture" that regulates a life.</li>
+</ul>
+<p>This is liberating but double-edged. It <em>protects</em> religious language from external (verificationist) refutation — and from the <a href="../evil/problem-of-evil.html">problem of evil</a> as a <em>factual</em> disproof — by denying that religion competes with science at all. But critics (including many theists) charge that it <strong>deflates</strong> religion into a self-contained practice cut off from <em>truth</em>: if "God exists" makes no claim assessable from <em>outside</em> the game, it seems to slide into <strong><a href="./realism-antirealism.html">non-realism</a></strong> (Phillips is often, though he resisted it, read this way), abandoning the believer's conviction that God <em>really, mind-independently</em> exists. The cost of immunity from refutation is the loss of factual content — the same trade-off the <a href="../faith-and-reason.html">independence model of faith and reason</a> faces.</p>
+<h2 id="where-religious-language-sits"><a class="header" href="#where-religious-language-sits">Where religious language sits</a></h2>
+<p>The semantic question is <em>logically prior</em> to the existence and knowledge questions: if religious sentences are <strong>meaningless</strong> (<a href="#the-verificationist-challenge">verificationism</a>) or make <strong>no factual claim</strong> (Hare's blik, <a href="#wittgensteinian-language-games">Wittgensteinian</a> and <a href="./realism-antirealism.html">non-realist</a> readings), then the <a href="../arguments-for-theism.html">arguments for God</a> and the <a href="../evil/problem-of-evil.html">problem of evil</a> are confused from the start. The <em>verificationist</em> attack collapsed with its self-refuting principle, and the <em>falsification</em> challenge was met — most persuasively by <strong>Mitchell</strong> — by showing that religious assertions <em>can</em> be genuine, evidence-sensitive claims that are nonetheless rationally resilient. The constructive theories — <strong>analogy</strong>, the <strong>via negativa</strong>, <strong>symbol</strong>, <strong>metaphor</strong> — secure that God-talk is <em>meaningful but non-literal</em>, occupying the middle ground between an anthropomorphic univocity that <em>limits</em> God and an equivocity that <em>empties</em> the words. The <strong>Wittgensteinian</strong> turn offers the most radical reframing, protecting religious language from external refutation at the risk of severing it from <em>truth</em>. Which of these is right determines whether one is a <strong>realist</strong> or <strong>non-realist</strong> about God — the question taken up next — and it conditions everything in the <a href="../epistemology/religious-epistemology.html">epistemology</a> (one cannot be <em>justified</em> in believing what one cannot <em>meaningfully state</em>) and in the <a href="../pluralism/religious-pluralism.html">pluralism</a> debate (whether rival traditions <em>contradict</em> one another depends on whether their language <em>asserts</em> incompatible facts).
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/epistemology/pragmatic-arguments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/language/realism-antirealism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/epistemology/pragmatic-arguments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/language/realism-antirealism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

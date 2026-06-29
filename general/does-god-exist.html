@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Does God Exist? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/general/does-god-exist.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="does-god-exist"><a class="header" href="#does-god-exist">Does God Exist?</a></h1>
+<p><em>A plain-language introduction for the curious reader. No philosophy
+background is needed — only a willingness to think carefully about one of
+the oldest and largest questions anyone has ever asked.</em></p>
+<hr />
+<h2 id="the-question-in-30-seconds"><a class="header" href="#the-question-in-30-seconds">The question in 30 seconds</a></h2>
+<p>"Is there a God?" sounds simple, but it hides three different questions that often get tangled together:</p>
+<ul>
+<li><strong>Is it true?</strong> Is there really a God — a being who made and sustains the world?</li>
+<li><strong>Can we know?</strong> Even if there is, could anyone be <em>justified</em> in believing it — by evidence, by experience, or otherwise?</li>
+<li><strong>What does it even mean?</strong> When we say "God is good" or "God loves us," using everyday words about an invisible, infinite being — what are we actually claiming?</li>
+</ul>
+<p>People argue past each other constantly by mixing these up. Someone offers an <em>argument</em> (a "can we know?" move) and someone else replies that religion is really about <em>meaning</em> (a "what does it mean?" move). Keeping the three apart is the first step to thinking clearly. This page walks through the famous arguments on both sides in plain terms; the <a href="../philosophy/religion/README.html">technical pages</a> develop each one carefully.</p>
+<h2 id="first-which-god"><a class="header" href="#first-which-god">First: which "God"?</a></h2>
+<p>Before asking <em>whether</em> God exists, it helps to be clear <em>what</em> is being claimed. The usual target is the <strong>God of classical theism</strong>: a single being who is all-powerful, all-knowing, perfectly good, eternal, and the creator of everything else. Philosophers reached this picture by a simple rule — God is the <em>greatest possible being</em>, so God has every good quality to the highest possible degree.</p>
+<p>But that is not the only option people mean by "God":</p>
+<ul>
+<li>A <strong>deist's</strong> God created the universe and then left it alone — no miracles, no intervention.</li>
+<li>A <strong>pantheist</strong> (like Spinoza) says God just <em>is</em> the universe, or nature itself.</li>
+<li>Other traditions point to an <strong>impersonal</strong> ultimate reality — Brahman in <a href="../philosophy/religion/traditions/non-western.html">Hinduism</a>, the Dao in Daoism — that is not a "person" at all.</li>
+</ul>
+<p>This matters because an argument that works against one "God" may miss another, and the <a href="#the-strongest-argument-against-the-problem-of-evil">problem of evil</a> bites hardest against the <em>all-powerful, all-good</em> classical God specifically. (More: <a href="../philosophy/religion/concept-of-god.html">the concept of God</a>.)</p>
+<h2 id="the-famous-arguments-for-god"><a class="header" href="#the-famous-arguments-for-god">The famous arguments <em>for</em> God</a></h2>
+<p>For centuries people have offered arguments that reason should lead us to God. None is a knockout, but several are genuinely interesting. The main ones:</p>
+<h3 id="the-first-cause-argument-cosmological"><a class="header" href="#the-first-cause-argument-cosmological">The "first cause" argument (cosmological)</a></h3>
+<p>Everything around us depends on something else for its existence. The tree came from a seed, the seed from a parent tree, and so on. But — the argument runs — this can't go back forever without <em>something</em> that doesn't depend on anything else: a first cause, a being that simply <em>exists by its own nature</em> and holds everything else up. That, the argument says, is God.</p>
+<p>The big objection: <em>why</em> must the chain stop at God? Why not stop at the universe itself and call <em>it</em> the brute fact that just <em>is</em>? Defenders reply that the universe looks like the kind of thing that <em>could</em> have been otherwise (and so needs explaining), while God is supposed to be the one thing that <em>couldn't</em> not exist. (More: <a href="../philosophy/religion/arguments/cosmological.html">cosmological arguments</a>.)</p>
+<h3 id="the-design-argument-teleological"><a class="header" href="#the-design-argument-teleological">The "design" argument (teleological)</a></h3>
+<p>The world looks extraordinarily <em>fine-tuned</em>. The eye, the wing — and, more powerfully, the basic constants of physics — seem precisely set up to allow life. Tweak the numbers a little and no stars, no chemistry, no us. Surely, the argument goes, this points to a designer.</p>
+<p>Two big replies. For <em>living things</em>, <strong>Darwin</strong> showed that evolution can produce the appearance of design with no designer — slow, blind natural selection does the work. For the <em>physics</em>, many scientists suggest a <strong>multiverse</strong>: if there are vastly many universes with different settings, <em>some</em> will happen to allow life, and of course we find ourselves in one of those. Whether that really explains the fine-tuning, or just relocates the puzzle, is hotly debated. (More: <a href="../philosophy/religion/arguments/teleological.html">design arguments</a>.)</p>
+<h3 id="the-from-the-very-idea-of-god-argument-ontological"><a class="header" href="#the-from-the-very-idea-of-god-argument-ontological">The "from the very idea of God" argument (ontological)</a></h3>
+<p>The strangest and most ingenious argument. God is by definition the greatest conceivable being. But a being that <em>really exists</em> is greater than one that exists only in imagination. So the greatest conceivable being must <em>really exist</em> — otherwise it wouldn't be the greatest. Existence seems to be squeezed out of the very definition.</p>
+<p>Almost everyone senses a trick here, though pinning it down is hard. <strong>Kant's</strong> famous reply: <em>existing</em> isn't a quality you can add to a description, like "blue" or "heavy" — saying something exists is a different kind of claim altogether. (More: <a href="../philosophy/religion/arguments/ontological.html">the ontological argument</a>.)</p>
+<h3 id="the-morality-needs-a-foundation-argument-moral"><a class="header" href="#the-morality-needs-a-foundation-argument-moral">The "morality needs a foundation" argument (moral)</a></h3>
+<p>Some things — torturing a child for fun — seem <em>really</em>, <em>objectively</em> wrong, not just disapproved of. But what could make morality objectively binding? Not mere human opinion or evolution, the argument says; only something like God could ground a <em>real</em> moral law.</p>
+<p>The classic puzzle here is the <strong><a href="../philosophy/religion/ethics/religion-and-morality.html">Euthyphro dilemma</a></strong>: is something good <em>because</em> God commands it (then God could have commanded cruelty — morality seems arbitrary), or does God command it <em>because</em> it's good (then goodness doesn't really depend on God after all)? And many philosophers think morality can be objective <em>without</em> God. (More: <a href="../philosophy/religion/arguments/moral.html">the moral argument</a>.)</p>
+<h3 id="i-have-experienced-god-religious-experience"><a class="header" href="#i-have-experienced-god-religious-experience">"I have experienced God" (religious experience)</a></h3>
+<p>Across all cultures, vast numbers of people report <em>experiencing</em> God — a sense of presence, of being loved, of the holy. If we generally trust our experiences, why not these? The trouble: different traditions report <em>incompatible</em> things (a personal God, an impersonal absolute, no god at all), and there is no independent way to check. (More: <a href="../philosophy/religion/arguments/religious-experience.html">the argument from religious experience</a>.)</p>
+<h3 id="the-rope-not-a-chain-strategy"><a class="header" href="#the-rope-not-a-chain-strategy">The "rope, not a chain" strategy</a></h3>
+<p>No single argument proves God. But defenders (like <strong>Richard Swinburne</strong>) say that misses the point: each argument is a <em>strand</em>, and several weak strands can make a strong rope. The existence of an orderly, fine-tuned universe containing conscious, moral beings who report experiencing God is — they argue — <em>more likely</em> if there's a God than if there isn't, even though no one strand settles it. Critics reply that the <a href="#the-strongest-argument-against-the-problem-of-evil">problem of evil</a> is a very heavy strand pulling the <em>other</em> way. (More: <a href="../philosophy/religion/arguments-for-theism.html">arguments for theism</a>.)</p>
+<h2 id="the-strongest-argument-against-the-problem-of-evil"><a class="header" href="#the-strongest-argument-against-the-problem-of-evil">The strongest argument <em>against</em>: the problem of evil</a></h2>
+<p>Here is the single most powerful reason to doubt God, and it has troubled believers themselves for as long as anyone has believed:</p>
+<blockquote>
+<p>If God is all-powerful, he <em>could</em> prevent all suffering.
+If God is perfectly good, he <em>would want</em> to prevent all suffering.
+Yet the world is full of suffering — much of it horrific and apparently pointless.</p>
+</blockquote>
+<p>So how can such a God exist? This is devastating precisely because it doesn't rely on any outside assumption — it uses the believer's <em>own</em> description of God and one fact nobody can deny: there is terrible suffering, from genocides to children's cancers to animals burning in forest fires no one ever sees.</p>
+<p>Believers have offered serious replies — called <strong>theodicies</strong>:</p>
+<ul>
+<li><strong>Free will.</strong> Much evil is the price of genuine freedom: a world of free creatures who can truly love and do right must also be able to choose wrong. (But this struggles with <em>natural</em> evils like earthquakes and disease, which no one chose.)</li>
+<li><strong>Soul-making.</strong> A world with hardship is needed to grow real virtues — courage, compassion, forgiveness — that a painless paradise couldn't produce. (But much suffering seems to <em>crush</em> people rather than ennoble them.)</li>
+<li><strong>We can't see the whole picture.</strong> Maybe God has reasons we're in no position to grasp, as a small child can't understand why a loving parent allows a painful injection.</li>
+</ul>
+<p>None fully satisfies everyone, which is why this remains the heart of the debate. (More: <a href="../philosophy/religion/evil/problem-of-evil.html">the problem of evil</a> and <a href="../philosophy/religion/evil/theodicies.html">theodicies</a>.) A close cousin asks why, if God wants a relationship with us, God stays so <em>hidden</em> from sincere seekers — the problem of <a href="../philosophy/religion/evil/divine-hiddenness.html">divine hiddenness</a>.</p>
+<h2 id="other-reasons-people-doubt"><a class="header" href="#other-reasons-people-doubt">Other reasons people doubt</a></h2>
+<ul>
+<li><strong>Religion can be explained without God.</strong> Thinkers like <strong>Feuerbach</strong>, <strong>Marx</strong>, and <strong>Freud</strong> argued that belief in God is a <em>projection</em> — of our ideals, our social needs, or a childlike wish for a protective father. Modern psychology adds that our brains are wired to "detect agents" everywhere, which may make belief in unseen beings come naturally whether or not any exist. <em>But</em> — and this is important — explaining <em>why</em> people believe something doesn't show it's <em>false</em>. (More: <a href="../philosophy/religion/pluralism/critiques-of-religion.html">critiques of religion</a>.)</li>
+<li><strong>So many religions, all disagreeing.</strong> If God were obvious, why do sincere, intelligent people across the world believe such different things — and mostly just inherit the religion they were born into? (More: <a href="../philosophy/religion/pluralism/religious-pluralism.html">religious diversity</a>.)</li>
+</ul>
+<h2 id="do-you-even-need-arguments"><a class="header" href="#do-you-even-need-arguments">Do you even <em>need</em> arguments?</a></h2>
+<p>Here's a twist that reframes everything. Maybe believing in God doesn't <em>require</em> arguments at all.</p>
+<p>Think about how you believe in the external world, or other people's minds, or your own memories — you don't <em>prove</em> these; you just find yourself believing them, reasonably, without evidence. Some philosophers (<strong>Alvin Plantinga</strong> and "Reformed epistemology") argue belief in God can be like that: a <em>basic</em>, reasonable belief that doesn't need to be propped up by arguments, perhaps grounded in a kind of innate sense of the divine.</p>
+<p>Others go the practical route. <strong>Pascal's Wager</strong> says: since reason can't settle it, treat it as a bet — if you believe and God exists, you gain everything; if you believe and you're wrong, you lose little. So bet on God. (Critics ask: <em>which</em> God? And can you really make yourself believe something as a bet?) <strong>William James</strong> argued that for a genuinely life-shaping choice that the evidence can't decide, you have the <em>right</em> to let your heart settle it. (More: <a href="../philosophy/religion/faith-and-reason.html">faith and reason</a>.)</p>
+<h2 id="so-does-god-exist"><a class="header" href="#so-does-god-exist">So... does God exist?</a></h2>
+<p>Honestly: philosophy does not hand us a verdict, and anyone who tells you the question is <em>easy</em> — in either direction — isn't taking it seriously. What philosophy <em>can</em> do is sharpen the question and show you the real moves:</p>
+<ul>
+<li>The classic <strong>arguments for God</strong> don't <em>prove</em> it, but several are more serious than skeptics often admit — especially as a cumulative case.</li>
+<li>The <strong>problem of evil</strong> is the strongest reason for doubt, and the believer's replies are real but incomplete.</li>
+<li>Much may turn on the <strong>prior question</strong> of whether belief even <em>needs</em> arguments, and on what you already find plausible.</li>
+</ul>
+<p>Where you land depends on how you weigh suffering against order, how much you trust religious experience, how you read the silence of the universe — and perhaps on things that aren't purely intellectual at all. The honest result is not a proof but a <em>map</em>: a clear view of the best reasons on each side, so that whatever you believe, you believe it with your eyes open.</p>
+<p>If you want to go deeper, the technical treatment starts at <a href="../philosophy/religion/README.html">Philosophy of Religion</a> — beginning with <a href="../philosophy/religion/introduction.html">what the field is</a> and <a href="../philosophy/religion/concept-of-god.html">what we mean by "God"</a>, then the <a href="../philosophy/religion/arguments-for-theism.html">arguments</a>, the <a href="../philosophy/religion/evil/problem-of-evil.html">problem of evil</a>, and <a href="../philosophy/religion/epistemology/religious-epistemology.html">how religious belief could be justified</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../general/free-will.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../philosophy/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../general/free-will.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../philosophy/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../build/mermaid.min.js"></script>
+        <script src="../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

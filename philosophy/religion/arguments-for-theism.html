@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Arguments for Theism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments-for-theism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="arguments-for-theism"><a class="header" href="#arguments-for-theism">Arguments for Theism</a></h1>
+<p>The <strong>arguments for the existence of God</strong> — the enterprise of <strong>natural theology</strong>, the attempt to establish or support theism by reason from premises not drawn from revelation — form the historical core of the philosophy of religion. They divide into a small number of recurring families, each isolating a different feature of the world (or of the concept of God itself) and arguing that it points to a divine source: the sheer existence of contingent things, their evident order, the bare concept of a perfect being, the authority of morality, the testimony of religious experience. No single argument commands assent, but their <em>cumulative</em> weight is, for many theists, the real case.</p>
+<p>This page is the <strong>map</strong>. It classifies the arguments, states each in capsule form with a pointer to its <a href="./arguments/ontological.html">own page</a>, and explains the two strategic choices that shape how the case is built: whether each argument aims to <em>demonstrate</em> or merely to <em>raise the probability</em> of theism, and whether the arguments are meant to stand alone or to combine into a <a href="#the-cumulative-case-strategy">cumulative case</a>. The companion page sets out the <a href="./arguments-against-theism.html">arguments against</a>.</p>
+<hr />
+<h2 id="a-taxonomy-of-the-arguments"><a class="header" href="#a-taxonomy-of-the-arguments">A taxonomy of the arguments</a></h2>
+<p>The classical distinction, due to <strong>Kant</strong>, is between arguments that proceed <em>independently of experience</em> and those that start <em>from</em> it:</p>
+<ul>
+<li><strong>A priori arguments</strong> reason from concepts alone, without appeal to any observed feature of the world. The sole major instance is the <strong><a href="./arguments/ontological.html">ontological argument</a></strong>: from the very <em>concept</em> of God as the greatest conceivable (or a maximally perfect, or a necessary) being, that such a being must exist.</li>
+<li><strong>A posteriori arguments</strong> start from some observed fact and argue that God is its best or required explanation. The major families:
+<ul>
+<li>The <strong><a href="./arguments/cosmological.html">cosmological argument</a></strong> — from the existence of contingent things, or the fact that <em>anything</em> exists, or that the universe began, to a first cause or necessary being.</li>
+<li>The <strong><a href="./arguments/teleological.html">teleological / design argument</a></strong> — from the order, complexity, or fine-tuning of the world to an intelligent designer.</li>
+<li>The <strong><a href="./arguments/moral.html">moral argument</a></strong> — from the existence of objective moral values or obligations to a divine ground or lawgiver.</li>
+<li>The <strong><a href="./arguments/religious-experience.html">argument from religious experience</a></strong> — from the widespread, apparently perceptual experience of God to its veridicality.</li>
+<li><strong><a href="./arguments/other-arguments.html">Further arguments</a></strong> — from consciousness, reason, beauty, desire, miracles, the applicability of mathematics, and common consent.</li>
+</ul>
+</li>
+</ul>
+<p>A cross-cutting distinction concerns the <em>strength</em> claimed:</p>
+<ul>
+<li><strong>Demonstrative</strong> arguments purport to be <em>valid deductions from certain premises</em> — proofs, in the strict sense (Anselm's and Aquinas's self-understanding).</li>
+<li><strong>Probabilistic / inductive</strong> arguments claim only to make theism <em>more probable than not</em>, or more probable than its denial — they are inferences to the best explanation, weighed like scientific hypotheses (Swinburne).</li>
+</ul>
+<p>The modern consensus, even among theists, is that the demonstrative ambition mostly fails — each classical "proof" has a contested premise — and that the live question is the <em>probabilistic</em> one: does the total evidence favour theism?</p>
+<h2 id="the-arguments-in-capsule"><a class="header" href="#the-arguments-in-capsule">The arguments in capsule</a></h2>
+<h3 id="the-ontological-argument-a-priori"><a class="header" href="#the-ontological-argument-a-priori">The ontological argument <em>(a priori)</em></a></h3>
+<p>From the concept of God as <strong>that than which nothing greater can be conceived</strong> (Anselm), or as a <strong>maximally perfect being</strong>, to God's existence: a being that exists in reality is greater than one existing only in the understanding, so the greatest conceivable being cannot exist <em>only</em> in the understanding. <strong>Plantinga's</strong> modal version argues that if a maximally great being is <em>possible</em>, then (in the modal logic S5) it exists necessarily and hence actually. The perennial objection, from <strong>Kant</strong>, is that <em>existence is not a predicate</em> — not a great-making property that could be packed into a concept. Full treatment: <a href="./arguments/ontological.html">the ontological argument</a>.</p>
+<h3 id="the-cosmological-argument-a-posteriori"><a class="header" href="#the-cosmological-argument-a-posteriori">The cosmological argument <em>(a posteriori)</em></a></h3>
+<p>From the existence of the contingent world to a being that explains it. Three sub-families: the <strong>contingency</strong> argument (Leibniz: by the <a href="./arguments/cosmological.html">Principle of Sufficient Reason</a>, the totality of contingent things needs an explanation outside itself — a <em>necessary</em> being); the <strong>causal/first-cause</strong> argument (Aquinas's first three Ways: a regress of caused causes requires an uncaused first cause); and the <strong><a href="./arguments/cosmological.html">Kalām</a></strong> argument (al-Ghazālī, revived by Craig: whatever begins to exist has a cause; the universe began to exist; so it has a cause). Objections cluster on causation (Hume, Kant), the <strong>fallacy of composition</strong>, and "why not stop at the universe itself?". Full treatment: <a href="./arguments/cosmological.html">cosmological arguments</a>.</p>
+<h3 id="the-teleological--design-argument-a-posteriori"><a class="header" href="#the-teleological--design-argument-a-posteriori">The teleological / design argument <em>(a posteriori)</em></a></h3>
+<p>From observed order to an intelligent orderer. <strong>Paley's</strong> watch-on-the-heath analogy infers a designer from biological contrivance; <strong>Hume</strong> had already pressed the decisive objections (weak analogy, the possibility of order without design, the leap to a <em>single, perfect</em> designer). After Darwin removed the need for a biological designer, the argument's centre of gravity shifted to <strong>cosmic fine-tuning</strong>: the physical constants lie in the extraordinarily narrow range permitting life, which (it is argued) is better explained by design than by chance — to which the standard reply is the <strong>multiverse</strong> plus the <strong>anthropic principle</strong>. Full treatment: <a href="./arguments/teleological.html">teleological arguments</a>.</p>
+<h3 id="the-moral-argument-a-posteriori"><a class="header" href="#the-moral-argument-a-posteriori">The moral argument <em>(a posteriori)</em></a></h3>
+<p>From the existence of objective moral values and duties to a divine foundation for them. <strong>Kant</strong> argued that morality requires us to <em>postulate</em> God (and immortality) to make sense of the highest good; modern versions (Adams, Craig) argue that objective moral obligation is best explained as the command or nature of God. The pivotal objection is the <strong><a href="./ethics/religion-and-morality.html">Euthyphro dilemma</a></strong>: is the good good <em>because</em> God wills it (then morality is arbitrary) or does God will it <em>because</em> it is good (then morality is independent of God)? Full treatment: <a href="./arguments/moral.html">the moral argument</a>.</p>
+<h3 id="the-argument-from-religious-experience-a-posteriori"><a class="header" href="#the-argument-from-religious-experience-a-posteriori">The argument from religious experience <em>(a posteriori)</em></a></h3>
+<p>From the vast body of human experience that <em>seems</em> to be of God — mystical union, the numinous, a sense of presence — to the reality of its object. <strong>Swinburne's</strong> Principle of Credulity holds that, absent special reason for doubt, experiences should be taken at face value; <strong>Alston</strong> models the experience of God on ordinary perception. Objections: the <em>conflicting</em> deliverances of different traditions, the availability of <a href="./pluralism/critiques-of-religion.html">naturalistic explanations</a>, and the non-checkability of the alleged perceptions. Full treatment: <a href="./arguments/religious-experience.html">the argument from religious experience</a>.</p>
+<h3 id="further-arguments"><a class="header" href="#further-arguments">Further arguments</a></h3>
+<p>Smaller or more specialised: from <strong>consciousness</strong> and from <strong>reason</strong> (Plantinga's evolutionary argument against naturalism), from <strong>beauty</strong>, from <strong>desire</strong> (Lewis), from <strong>miracles</strong>, from the <strong>unreasonable effectiveness of mathematics</strong>, and from <strong>common consent</strong>. Individually modest, several are offered as strands in the cumulative case. Full treatment: <a href="./arguments/other-arguments.html">other arguments</a>.</p>
+<h2 id="the-cumulative-case-strategy"><a class="header" href="#the-cumulative-case-strategy">The cumulative-case strategy</a></h2>
+<p>No classical argument is a knock-down proof, and critics treat this as fatal. But theists since <strong>Newman</strong> and, rigorously, <strong>Richard Swinburne</strong> (<em>The Existence of God</em>, 1979) reply that this misreads the logic. The arguments are <strong>evidence</strong>, not proofs, and evidence <em>accumulates</em>. The natural framework is <strong>Bayesian <a href="../../logic/proof-theory.html">confirmation theory</a></strong>: each consideration <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> confirms theism <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> to the extent that it is more probable given God than given no God,</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">whenever each</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">¬</span><span class="mord mathnormal">h</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">h</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.</span></span></span></span></span></p>
+<p>Several individually weak arguments can jointly raise the posterior probability of theism above <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, just as several weak strands make a strong rope, or several pieces of circumstantial evidence convict. Swinburne argues that the existence of a contingent universe, its order and fine-tuning, consciousness, moral awareness, providence, and religious experience are each <em>more to be expected</em> if there is a God than if there is not, and that their conjunction (with the simplicity of theism as a hypothesis weighing in its favour as a prior) makes God's existence <em>more probable than not</em>.</p>
+<p>Two cautions about the strategy:</p>
+<ul>
+<li><strong>Strands can be redundant or even subtractive.</strong> Evidence only accumulates if the pieces are <em>independent</em> and each genuinely raises the likelihood ratio; a critic will argue that some "strands" are explained away together (e.g. by evolution and cosmology) or that the <a href="./evil/problem-of-evil.html">problem of evil</a> is a powerful piece of evidence on the <em>other</em> side that the cumulative case must net against.</li>
+<li><strong>The prior matters.</strong> The verdict depends heavily on the prior probability assigned to theism and on the <strong>simplicity</strong> of theism as a hypothesis — both contested. The atheist runs the <em>same</em> Bayesian machinery to the opposite conclusion, treating <a href="./evil/problem-of-evil.html">evil</a> and <a href="./evil/divine-hiddenness.html">divine hiddenness</a> as decisive disconfirmation.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>Natural theology offers not one argument but a <strong>portfolio</strong>: an a priori route (the <a href="./arguments/ontological.html">ontological argument</a>) and several a posteriori routes (the <a href="./arguments/cosmological.html">cosmological</a>, <a href="./arguments/teleological.html">teleological</a>, <a href="./arguments/moral.html">moral</a>, and <a href="./arguments/religious-experience.html">experiential</a> arguments), each isolating a different explanandum. The honest modern assessment is that none is a demonstration, and the real debate has shifted to the <em>probabilistic</em> question — whether, on the <strong><a href="#the-cumulative-case-strategy">cumulative</a></strong> balance of all the evidence, theism is the better explanation of the world we find. That balance cannot be struck without putting the other side of the ledger on the scale: the <a href="./arguments-against-theism.html">arguments against theism</a>, above all the <a href="./evil/problem-of-evil.html">problem of evil</a>. And even a successful argument would settle only the <em>metaphysical</em> question; whether <em>belief</em> requires such arguments at all is the separate issue of <a href="./faith-and-reason.html">faith and reason</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/religion/concept-of-god.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/religion/arguments-against-theism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/religion/concept-of-god.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/religion/arguments-against-theism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

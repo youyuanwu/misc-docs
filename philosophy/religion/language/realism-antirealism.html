@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Realism and Anti-Realism about God - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/language/realism-antirealism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="realism-and-anti-realism-about-god"><a class="header" href="#realism-and-anti-realism-about-god">Realism and Anti-Realism about God</a></h1>
+<p>The theories of <a href="./religious-language.html">religious language</a> raised a question they could not settle: when a believer says "God exists," is she <strong>asserting a fact</strong> — claiming that there really is, mind-independently, such a being — or doing something else: expressing an attitude, committing to a way of life, participating in a practice? <strong>Religious realism</strong> holds the former; <strong>religious anti-realism</strong> (or <strong>non-realism</strong>) holds that religious statements, though meaningful and important, are <em>not</em> in the business of describing a mind-independent supernatural reality. The dispute decides what is even <em>at issue</em> in the <a href="../arguments-for-theism.html">existence debate</a>: for the realist, the <a href="../arguments-for-theism.html">arguments</a> and the <a href="../evil/problem-of-evil.html">problem of evil</a> concern a genuine fact; for the non-realist, they largely miss the point of religion.</p>
+<p>This page distinguishes cognitivism from non-cognitivism and realism from anti-realism, surveys the main anti-realist positions (expressivism, instrumentalism, fictionalism, Cupitt's non-realism, Dewey's naturalistic religion), and weighs the objection that anti-realism <em>changes the subject</em>.</p>
+<hr />
+<h2 id="two-distinctions"><a class="header" href="#two-distinctions">Two distinctions</a></h2>
+<p>Two orthogonal distinctions structure the debate and are often conflated:</p>
+<ul>
+<li><strong>Cognitivism vs. non-cognitivism</strong> — about <em>meaning</em>. <strong>Cognitivism</strong>: religious sentences express <strong>propositions</strong> that are <em>truth-apt</em> (capable of being true or false), genuine assertions. <strong>Non-cognitivism</strong>: religious sentences are <em>not</em> truth-apt — they do something other than state facts (express emotion, prescribe action, voice a commitment), so the question "is it <em>true</em>?" does not properly arise (compare emotivism in <a href="../ethics/religion-and-morality.html">metaethics</a>: "stealing is wrong" = "boo to stealing!").</li>
+<li><strong>Realism vs. anti-realism</strong> — about <em>truth-makers</em>. Among <em>cognitivists</em> (who agree religious claims are truth-apt), <strong>realists</strong> hold that what makes "God exists" true (if it is) is a <strong>mind-independent</strong> reality — God exists whether or not anyone believes it, just as electrons do. <strong>Anti-realists</strong> hold that, insofar as religious claims are "true," their truth is <em>constituted by</em> something mind-dependent — human practice, the religious community, the believer's form of life — not by a supernatural entity "out there."</li>
+</ul>
+<p>The positions:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Truth-apt?</th><th>Mind-independent God?</th></tr></thead><tbody>
+<tr><td><strong>Realism</strong></td><td>yes</td><td>yes</td></tr>
+<tr><td><strong>Cognitivist anti-realism</strong></td><td>yes</td><td>no (truth is practice-/community-constituted)</td></tr>
+<tr><td><strong>Non-cognitivism / expressivism</strong></td><td>no</td><td>n/a (no fact asserted)</td></tr>
+<tr><td><strong>Fictionalism</strong></td><td>yes (but accepted as <em>useful fiction</em>, not believed true)</td><td>no</td></tr>
+<tr><td><strong>Error theory / atheism</strong></td><td>yes</td><td>no — and the claims are <em>false</em></td></tr>
+</tbody></table>
+</div>
+<p>Note that <em>atheism</em> and <em>religious anti-realism</em> differ sharply: the atheist is a <em>realist</em> who thinks the (truth-apt, mind-independent) claim "God exists" is <strong>false</strong>; the anti-realist thinks the question "is there really such a being?" is the <em>wrong</em> question to ask of religious language.</p>
+<h2 id="varieties-of-religious-anti-realism"><a class="header" href="#varieties-of-religious-anti-realism">Varieties of religious anti-realism</a></h2>
+<ul>
+<li><strong>Expressivism / non-cognitivism.</strong> Religious utterances express attitudes, commitments, or "bliks" (<a href="./religious-language.html#the-falsification-debate">Hare</a>) rather than state facts. "God is love" voices a stance toward the world, not a description of a being. This is the most deflationary reading and slides naturally out of the <a href="./religious-language.html#wittgensteinian-language-games">Wittgensteinian</a> view of religious language as a practice with its own grammar.</li>
+<li><strong>Wittgensteinian non-realism</strong> (often associated with <strong>D.Z. Phillips</strong>, who resisted the label). Religious belief is a <em>form of life</em> with its own internal "grammar"; "God exists" has its sense <em>within</em> the practice of worship and is not a hypothesis about an extra object assessable from outside. To ask whether God <em>really</em> exists, in the realist's external sense, is to misunderstand the grammar — to play the wrong language-game. Phillips insisted this was <em>not</em> reductive (he denied he was saying God is "merely" a human projection), but critics read it as a sophisticated non-realism: the "reality" of God is the reality of the practice and the love it expresses.</li>
+<li><strong>Instrumentalism / pragmatism — Dewey.</strong> <strong>John Dewey</strong> (<em>A Common Faith</em>, 1934) detaches "the religious" from "religion" and from the supernatural. "God," for Dewey, can be reinterpreted as the <em>unity of ideal ends</em> that move us to action — the active relation between the ideal and the actual — not a supernatural being. Religious experience is a <em>quality</em> of natural experience (the consummatory, the devoted), and faith is loyalty to ideals, not assent to metaphysical claims. This is a <em>naturalistic</em> religion without a mind-independent God.</li>
+<li><strong>Non-realism — Don Cupitt.</strong> <strong>Don Cupitt</strong> (<em>Taking Leave of God</em>, 1980; the "Sea of Faith" movement) explicitly advocates <strong>theological non-realism</strong>: God is not an objective being but a <em>unifying symbol</em> of our highest spiritual ideals and values, a regulative ideal internal to the religious life. To "believe in God" is to commit oneself to the religious way of life and its values, not to assert a cosmic fact. Cupitt embraces what Phillips resisted: God is a human creation, and that is <em>enough</em>.</li>
+<li><strong>Fictionalism.</strong> A position from the philosophy of <a href="../../../logic/category-theory.html">mathematics</a> and <a href="../ethics/religion-and-morality.html">metaethics</a> applied to religion: religious claims are <em>truth-apt</em> and <em>taken literally false</em> (there is no God), yet it is <em>valuable</em> to <em>accept</em> and <em>immerse oneself in</em> the religious "fiction" — to participate in its practices, narratives, and consolations — without <em>believing</em> it true, as one is moved by a novel. The religious fictionalist <em>engages</em> with religion while <em>withholding belief</em> in its metaphysics. (A real option for those who find religion <em>valuable</em> but its claims <em>incredible</em>.)</li>
+</ul>
+<h2 id="the-motivations-for-anti-realism"><a class="header" href="#the-motivations-for-anti-realism">The motivations for anti-realism</a></h2>
+<p>Why give up mind-independent realism? Several pressures push in this direction:</p>
+<ul>
+<li><strong>The <a href="./religious-language.html">semantic difficulties</a>.</strong> If literal God-talk is incoherent and <em>all</em> positive predication is <a href="./religious-language.html">symbol</a> or <a href="./religious-language.html">metaphor</a> (Tillich's "being-itself"), it is a short step to denying there is a determinate <em>fact</em> being asserted.</li>
+<li><strong>The <a href="../evil/problem-of-evil.html">problem of evil</a> and <a href="../evil/divine-hiddenness.html">hiddenness</a>.</strong> A non-realist God — a symbol of ideals — is <em>immune</em> to these arguments, which target a <em>real, mind-independent</em> omnipotent agent. Anti-realism <em>dissolves</em> the atheological case (at the cost of conceding what it sought to defend).</li>
+<li><strong>The <a href="../pluralism/critiques-of-religion.html">critiques of religion</a>.</strong> If Feuerbach is <em>right</em> that "God" is the projected human essence, one may <em>accept</em> the analysis and <em>re-purpose</em> it: yes, God is a human projection — and a <em>valuable</em> one to live by (Cupitt's move). Anti-realism turns the debunking critique into a <em>program</em>.</li>
+<li><strong><a href="../pluralism/religious-pluralism.html">Religious diversity</a>.</strong> If religions are practices/forms of life rather than competing factual hypotheses, their apparent <em>contradictions</em> dissolve — each is "true" within its own life, none false (a non-realist gloss on <a href="../pluralism/religious-pluralism.html">pluralism</a>).</li>
+</ul>
+<h2 id="the-objection-changing-the-subject"><a class="header" href="#the-objection-changing-the-subject">The objection: changing the subject</a></h2>
+<p>The standing objection to <em>all</em> forms of religious anti-realism is that they <strong>change the subject</strong> — they describe something other than what the historical religious traditions, and ordinary believers, <em>mean</em> and <em>intend</em>:</p>
+<ul>
+<li>Believers overwhelmingly take themselves to be asserting that God <em>really, objectively</em> exists — that the universe was <em>actually</em> created, that there <em>is</em> a being who hears prayer, that one will <em>really</em> survive death. The realism is not incidental; it is what is <em>prayed to</em>, <em>trusted</em>, <em>worshipped</em>. A "God" who is only a symbol of human ideals is not the God of Abraham, of the creeds, or of the worshipper on her knees.</li>
+<li>Anti-realism can look like <strong>atheism with the vocabulary retained</strong> — the substance of naturalism dressed in religious clothing. The non-realist "keeps the music while denying the words"; the critic asks why, if there is no God, one should not simply <em>say so</em> rather than redefine "God" into a value one already holds (the <strong>"why bother?"</strong> objection).</li>
+<li>The realist presses a <strong>dilemma</strong>: either religious claims are factual (then realism is right, and the question is whether they are <em>true</em> — back to the <a href="../arguments-for-theism.html">arguments</a> and <a href="../evil/problem-of-evil.html">evil</a>) or they are not (then anti-realism is, in substance, a <em>form of unbelief</em> that has changed the meaning of the words). Either way, anti-realism does not provide a <em>third</em> thing the tradition was after.</li>
+</ul>
+<p>The anti-realist replies that the <em>realist's</em> God — an invisible super-object whose existence the <a href="../arguments-for-theism.html">arguments</a> probe like a scientific hypothesis — is <em>itself</em> a distortion (a modern, post-Enlightenment misreading), and that the <em>deepest</em> religious thinkers (the mystics, the apophatic tradition, the <a href="./religious-language.html">via negativa</a>) already denied that God is "a being among beings." On this telling, non-realism <em>recovers</em> an older, truer understanding rather than abandoning religion. The dispute thus loops back to <a href="./religious-language.html">religious language</a> and to what the tradition "really" meant — a contested historical and interpretive question with no neutral arbiter.</p>
+<h2 id="where-realism-and-anti-realism-sit"><a class="header" href="#where-realism-and-anti-realism-sit">Where realism and anti-realism sit</a></h2>
+<p>The realism/anti-realism question determines what the <em>entire field</em> is about. For the <strong>realist</strong> — the default of classical theism and of ordinary belief — "God exists" asserts a mind-independent fact, and the <a href="../arguments-for-theism.html">arguments for</a> and <a href="../arguments-against-theism.html">against</a> God, the <a href="../evil/problem-of-evil.html">problem of evil</a>, and the <a href="../epistemology/religious-epistemology.html">epistemology of belief</a> all concern <em>whether that fact obtains</em>. For the <strong>anti-realist</strong> — expressivist, Wittgensteinian, Deweyan, Cupittian, or fictionalist — religious language <em>does</em> something other than describe a supernatural reality, and the existence debate is <em>misconceived</em>; the cost is the <strong>changing-the-subject</strong> objection, the charge that what survives is no longer the God of worship but a human ideal in religious dress. The choice is downstream of the <a href="./religious-language.html">philosophy of religious language</a> (whether God-talk is assertoric) and upstream of everything else: a non-realist has <em>dissolved</em> rather than <em>answered</em> the <a href="../evil/problem-of-evil.html">problem of evil</a> and the <a href="../pluralism/religious-pluralism.html">diversity</a> problem, while a realist must <em>face</em> them. These notes, like the tradition they survey, proceed on the <strong>realist</strong> assumption — that the question "is there a God?" is a real question with a real answer — while registering that the assumption is itself one of the things philosophy of religion puts in question.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/language/religious-language.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/metaphysics/divine-action.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/language/religious-language.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/metaphysics/divine-action.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

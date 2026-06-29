@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cosmological Arguments - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments/cosmological.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="cosmological-arguments"><a class="header" href="#cosmological-arguments">Cosmological Arguments</a></h1>
+<p>The <strong>cosmological arguments</strong> are the family of <em>a posteriori</em> <a href="../arguments-for-theism.html">arguments for God</a> that begin from the most general fact imaginable — that <em>something exists</em>, that there is a contingent world at all — and argue that this fact cannot be self-explanatory: it requires a being outside the series of dependent things, a <strong>first cause</strong> or <strong>necessary being</strong>, to account for it. Where the <a href="./ontological.html">ontological argument</a> reasons from a concept and the <a href="./teleological.html">design argument</a> from the world's <em>order</em>, the cosmological argument reasons from its <em>sheer existence and contingency</em>. It is the most resilient of the theistic arguments — versions run from Aristotle through Aquinas and Leibniz to a vigorous contemporary revival — because its starting datum is one no one can deny.</p>
+<p>This page distinguishes the three sub-families (<strong>contingency</strong>, <strong>first-cause</strong>, and <strong>Kalām</strong>), states each carefully, and works through the standard objections: the assault on the <strong>Principle of Sufficient Reason</strong>, the Humean and Kantian critiques of causation, the <strong>fallacy of composition</strong>, the coherence of an <strong>actual infinite</strong>, and the "why not stop at the universe itself?" rejoinder.</p>
+<hr />
+<h2 id="three-families"><a class="header" href="#three-families">Three families</a></h2>
+<p>The arguments share a skeleton — <em>contingent/caused things exist → a regress of explanations cannot go on forever or in a circle → therefore a terminus of a special kind</em> — but differ in what drives the regress and what the terminus is:</p>
+<div class="table-wrapper"><table><thead><tr><th>Family</th><th>Starting datum</th><th>Driving principle</th><th>Terminus</th></tr></thead><tbody>
+<tr><td><strong>Contingency</strong> (Leibniz, Aquinas' Third Way)</td><td>contingent beings exist</td><td>Principle of Sufficient Reason</td><td>a <em>necessary</em> being</td></tr>
+<tr><td><strong>First cause</strong> (Aquinas' first two Ways)</td><td>things are caused/moved</td><td>no infinite <em>essentially-ordered</em> regress</td><td>an uncaused cause / unmoved mover</td></tr>
+<tr><td><strong>Kalām</strong> (al-Ghazālī, Craig)</td><td>the universe <em>began</em></td><td>whatever begins has a cause</td><td>a <em>temporal</em> first cause</td></tr>
+</tbody></table>
+</div>
+<p>The first two are <strong>"vertical"</strong> — they concern a hierarchy of <em>dependence</em> that holds at each instant (a <em>here-and-now</em> causal sustaining), so the terminus is a being that grounds the world's existence <em>now</em>, and the argument does not need the world to have a beginning. The Kalām is <strong>"horizontal"</strong> — it concerns a <em>temporal</em> sequence reaching back, so it needs the universe to have begun and infers a cause of that beginning.</p>
+<h2 id="the-argument-from-contingency-leibniz"><a class="header" href="#the-argument-from-contingency-leibniz">The argument from contingency (Leibniz)</a></h2>
+<p><strong>Leibniz's</strong> version is the cleanest. It rests on the <strong>Principle of Sufficient Reason (PSR)</strong>:</p>
+<blockquote>
+<p>For every fact (or every truth, or every existing thing), there is a sufficient reason why it is so and not otherwise.</p>
+</blockquote>
+<p>The argument:</p>
+<ol>
+<li>Every contingent being has a sufficient reason for its existence (PSR).</li>
+<li>The reason for a contingent being is either within it or in another being.</li>
+<li>No contingent being contains the reason for its own existence (it might not have existed).</li>
+<li>The totality of contingent beings is itself contingent (it might not have existed), so it too needs a reason.</li>
+<li>This reason cannot lie <em>within</em> the totality (that would be circular) or in <em>another contingent</em> being (it would be part of the totality). So it must lie in a <strong>non-contingent — necessary — being</strong>, which exists by the necessity of its own nature.</li>
+<li>This necessary being is God. ∎</li>
+</ol>
+<p>The argument's power is that it does not depend on the world having a beginning; even an <em>eternal</em> contingent universe would still need a reason <em>why it exists at all</em> rather than nothing — Leibniz's famous question, <strong>"Why is there something rather than nothing?"</strong> The necessary being is invoked not as a <em>first event in time</em> but as the answer to that question.</p>
+<h2 id="the-first-cause-argument-aquinas"><a class="header" href="#the-first-cause-argument-aquinas">The first-cause argument (Aquinas)</a></h2>
+<p><strong>Aquinas's</strong> first three of the <strong>Five Ways</strong> (<em>Summa Theologiae</em> I, q.2) are cosmological. The First Way argues from <strong>motion</strong> (change): things are moved by others, and a regress of <em>movers moved by another</em> cannot be infinite, so there is a first <strong>Unmoved Mover</strong>. The Second Way runs the same structure on <strong>efficient causation</strong>: a first <strong>Uncaused Cause</strong>. The Third Way is a contingency argument (from "possibles" that come to be and pass away) to a <strong>necessary</strong> being.</p>
+<p>The crucial and often-misunderstood point is that the regress Aquinas rejects is an <strong>essentially ordered (per se)</strong> causal series, not an accidentally ordered (<em>per accidens</em>) one:</p>
+<ul>
+<li>An <strong>accidental</strong> series is ordered in <em>time</em>, with each member's causal activity independent of its predecessor's continuing: a father begets a son who begets a grandson — the grandfather can die and the chain still runs. Aquinas does <em>not</em> claim such a series must be finite; he allowed (against most of his contemporaries) that the world might, for all <em>philosophy</em> can show, be eternal.</li>
+<li>An <strong>essential</strong> series is ordered in <em>being</em>, simultaneous, with each member exercising its causal power <em>only because</em> a prior member is <em>here and now</em> sustaining it: the hand moves the stick that moves the stone; the stone's motion derives <em>entirely</em> from a source it does not possess in itself. Such a series, Aquinas argues, <em>cannot</em> regress infinitely, because <em>no</em> member has the relevant power on its own — an infinite chain of borrowers with no lender never gets the loan. There must be a first member that has the power <em>underivatively</em>.</li>
+</ul>
+<p>So the terminus is not a being that acted <em>first long ago</em> but one that sustains the dependent order <em>at every moment</em> — closer to Leibniz's necessary being than to a starting gun.</p>
+<h2 id="the-kalām-cosmological-argument"><a class="header" href="#the-kalām-cosmological-argument">The Kalām cosmological argument</a></h2>
+<p>The <strong>Kalām</strong> (from the Arabic for the medieval Islamic "theology/dialectic") argument descends from <strong>al-Kindī</strong> and <strong>al-Ghazālī</strong> and was revived and made famous by <strong>William Lane Craig</strong>. Unlike the previous two, it <em>does</em> turn on the universe's having a beginning:</p>
+<ol>
+<li>Whatever begins to exist has a cause.</li>
+<li>The universe began to exist.</li>
+<li>Therefore the universe has a cause.</li>
+</ol>
+<p>Craig then argues, by conceptual analysis of what such a cause must be (causing the beginning of <em>all</em> space, time, and matter), that it is uncaused, beginningless, changeless, immaterial, timeless, spaceless, enormously powerful, and — since only a free agent can produce a temporal effect from a timeless state — <em>personal</em>.</p>
+<p>The distinctive support is for premise 2, and comes in two forms:</p>
+<ul>
+<li><strong>Philosophical:</strong> an <strong>actual infinite</strong> cannot exist in reality, because it generates absurdities — illustrated by <strong>Hilbert's Hotel</strong>, a hotel with infinitely many <em>occupied</em> rooms that can nonetheless accommodate infinitely many new guests (move the guest in room <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> to room <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mord mathnormal">n</span></span></span></span>, freeing all odd rooms), and from which infinitely many guests can depart leaving the same number behind. If a beginningless past were real, it would be an actual infinite of elapsed events; so the past must be finite — the universe began.</li>
+<li><strong>Scientific:</strong> the <strong>Big Bang</strong> cosmology, the thermodynamic arrow (a beginningless universe would already have reached equilibrium), and the <strong>Borde–Guth–Vilenkin theorem</strong>, which (Craig argues) shows that any universe with average positive expansion has a past boundary — a beginning — even granting inflation or a multiverse.</li>
+</ul>
+<h2 id="the-objections"><a class="header" href="#the-objections">The objections</a></h2>
+<p>Each family inherits its own pressure points, and the modern debate is largely about these.</p>
+<h3 id="1-against-the-principle-of-sufficient-reason"><a class="header" href="#1-against-the-principle-of-sufficient-reason">1. Against the Principle of Sufficient Reason</a></h3>
+<p>The PSR is the engine of the contingency argument, and it is the most attacked premise. <strong>Hume</strong> and, sharply, <strong>Russell</strong> (in his BBC debate with Copleston) reply that the demand for a sufficient reason can simply be <em>refused</em>:</p>
+<blockquote>
+<p>"I should say that the universe is just there, and that's all." — Russell</p>
+</blockquote>
+<p>The universe, or its existence, may be a <strong>brute fact</strong> — something with no explanation at all. Worse, a <em>strong</em> PSR (every fact has an explanation) seems to entail that <em>every</em> truth is necessary (van Inwagen's argument: if the conjunction of all contingent truths had an explanation, that explanation would itself be contingent and so part of the conjunction, explaining itself — impossible — or necessary, making all contingent truths necessary, collapsing contingency). The theist's reply is to weaken the PSR (to <em>contingent existing things</em> rather than <em>all facts</em>) or to argue that "the universe is just there" is not an <em>explanation</em> but a <em>refusal to explain</em>, and that refusing to explain the most striking fact of all is intellectually arbitrary.</p>
+<h3 id="2-against-causation-hume-kant"><a class="header" href="#2-against-causation-hume-kant">2. Against causation (Hume, Kant)</a></h3>
+<p>The first-cause and Kalām arguments assume robust principles of causation. <strong>Hume</strong> argued that we can <em>conceive</em> an event without a cause (we can imagine something beginning to exist <em>ex nihilo</em> without contradiction), so "everything that begins has a cause" is not a <em>necessary</em> truth but at best an empirical generalisation — and one we have no warrant to extend to the <em>beginning of the universe</em>, an event utterly unlike the within-universe causings from which we learned the principle. <strong>Kant</strong> added that causality is a <em>category of the understanding</em> that structures our experience of the phenomenal world; applying it <em>beyond</em> all possible experience, to a first cause of the world as a whole, is an illegitimate transcendent use of reason that generates <strong>antinomies</strong> (he held one could prove <em>both</em> that the world has and has not a beginning).</p>
+<h3 id="3-the-fallacy-of-composition"><a class="header" href="#3-the-fallacy-of-composition">3. The fallacy of composition</a></h3>
+<p>The contingency argument moves from "each contingent thing needs a cause" to "the <em>totality</em> of contingent things needs a cause." Critics (Hume, Russell) charge a <strong>fallacy of composition</strong>: inferring a property of the whole from the same property of each part, like arguing that because every brick is small the wall is small, or because every human has a mother the human race has a mother. Perhaps each thing in the universe is caused <em>by another thing in the universe</em>, and the <em>series as a whole</em> needs no external cause — every member is explained, so nothing is left over to explain. The theist replies that this commits the converse error: explaining each member by another member leaves the <em>existence of the whole series</em> unexplained — Leibniz's point that even an infinite chain of contingent things is still a <em>contingent</em> chain whose existence is not thereby accounted for. Whether "the existence of the totality" is a genuine further fact needing explanation, or an illusion of double-counting, is the crux.</p>
+<h3 id="4-the-actual-infinite-and-why-not-the-universe"><a class="header" href="#4-the-actual-infinite-and-why-not-the-universe">4. The actual infinite and "why not the universe?"</a></h3>
+<p>Against the Kalām specifically: many philosophers and mathematicians deny that <strong>actual infinites</strong> are impossible. Since <strong>Cantor</strong>, the <a href="../../../logic/set-theory-zfc.html">transfinite</a> is a consistent and central part of mathematics; Hilbert's Hotel is <em>counterintuitive</em> but not <em>contradictory</em> — it shows only that infinite sets behave unlike finite ones (a proper subset can be equinumerous with the whole), which is a <em>theorem</em>, not a paradox. If actual infinites are possible, a beginningless past cannot be ruled out <em>a priori</em>, and premise 2 must rest entirely on contested empirical cosmology (and the BGV theorem's interpretation is disputed; quantum-gravity models with no initial boundary exist).</p>
+<p>Against <em>all</em> the families is the <strong>"why not stop at the universe itself?"</strong> objection: every cosmological argument reaches a terminus that is <em>itself</em> unexplained — an uncaused cause, a necessary being whose necessity is just <em>asserted</em>. If we are permitted to halt the regress at a being whose existence requires no further explanation, why not halt it one step earlier, at the <em>universe</em>, and treat <em>it</em> as the necessary or brute terminus? The theist's answer is that the universe is manifestly <em>contingent</em> (it could have been otherwise, or not existed) and <em>composite/changing</em>, whereas only a being that exists <em>by its own nature</em> — necessary, simple, immutable (see <a href="../attributes/goodness-and-simplicity.html">aseity and simplicity</a>) — is the kind of thing that <em>could</em> be a genuine stopping point. Whether that distinction is principled or <em>ad hoc</em> is the perennial standoff.</p>
+<h2 id="where-the-cosmological-argument-sits"><a class="header" href="#where-the-cosmological-argument-sits">Where the cosmological argument sits</a></h2>
+<p>The cosmological argument is the most durable theistic argument because its premise — that a contingent world exists — is undeniable, and its conclusion — a necessary, self-existent ground of that world — captures something close to the core of the <a href="../concept-of-god.html">classical concept of God</a> (aseity, necessity). Its fate turns on two deep and unresolved questions of general metaphysics, <em>not</em> on anything peculiar to religion: whether the <strong><a href="#1-against-the-principle-of-sufficient-reason">Principle of Sufficient Reason</a></strong> holds or the world's existence is a <strong>brute fact</strong>, and whether the regress of explanation must, or even can, terminate in something <em>other</em> than the universe itself. Even granting it full success, the argument delivers only a necessary first cause — it is silent about that being's <em>goodness, knowledge, or concern</em>, which is why it is typically run alongside the <a href="./teleological.html">teleological</a> and <a href="./moral.html">moral</a> arguments in a <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>, and why the <a href="../evil/problem-of-evil.html">problem of evil</a> remains untouched by it.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/arguments/ontological.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/arguments/teleological.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/arguments/ontological.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/arguments/teleological.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

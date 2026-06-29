@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Religion, Time, and Cosmology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/metaphysics/time-and-cosmology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="religion-time-and-cosmology"><a class="header" href="#religion-time-and-cosmology">Religion, Time, and Cosmology</a></h1>
+<p>The relation of God to <strong>time</strong> and to the <strong>cosmos</strong> ties together several threads of the philosophy of religion: the <a href="../arguments/cosmological.html">cosmological argument's</a> beginning of the universe, the doctrine of <a href="./divine-action.html">creation</a>, the <a href="../attributes/eternity.html">eternity</a> of God, and the <a href="../arguments/teleological.html">fine-tuning</a> of physical constants. Underlying all of these is a question in the metaphysics of time itself — whether time <em>passes</em> (the <strong>A-theory</strong>) or is a tenseless manifold (the <strong>B-theory</strong>) — whose answer constrains how God can be related to time, whether the universe can have a "beginning," and whether <a href="../attributes/eternity.html">timeless eternity</a> is coherent. This is the page where philosophy of religion meets <a href="../../../physics/README.html">physics and cosmology</a> most directly.</p>
+<p>This page treats creation and the beginning of time (Augustine), the A-theory/B-theory dispute and its bearing on divine eternity, and the metaphysical reading of fine-tuning and cosmology.</p>
+<hr />
+<h2 id="creation-and-the-beginning-of-time"><a class="header" href="#creation-and-the-beginning-of-time">Creation and the beginning of time</a></h2>
+<p>A perennial puzzle, posed already by the critics Augustine answered: <strong>"What was God doing before he created the world?"</strong> The flippant answer ("preparing hell for those who ask") and the serious one both appear in Augustine's <em>Confessions</em> XI, and the serious one is profound:</p>
+<blockquote>
+<p>The question is malformed, because <strong>time itself is part of creation</strong>. God did not create the world <em>in</em> time, at some moment with empty time stretching before it; God created the world <em>with</em> time — "the world was made, not in time, but simultaneously with time." There was no "before" creation, because "before" is a temporal relation and there was no time in which God waited.</p>
+</blockquote>
+<p>This is a remarkable anticipation of modern relativistic cosmology, in which time is a feature of spacetime that itself "begins" at the initial singularity — there is no "before the Big Bang" in the standard model, for the same reason there is no "north of the North Pole." The convergence is striking and is exploited by the <a href="../arguments/cosmological.html">Kalām cosmological argument</a> (the universe, including time, began to exist, so has a cause <em>of its beginning</em>) and resisted by no-boundary proposals (Hawking–Hartle) on which the early universe has no sharp temporal edge.</p>
+<p>Augustine's move also dissolves the "delay" objection to creation: one cannot ask <em>why</em> God created <em>when</em> he did (why not sooner?), since there is no temporal "when" external to creation at which the choice was made. And it forces the question of God's own relation to time: if time <em>began</em>, is God <em>in</em> it (everlasting, with creation a genuine new act) or <em>outside</em> it (timeless, willing the whole temporal order in one eternal act)? — the <a href="../attributes/eternity.html">eternity</a> question.</p>
+<h2 id="the-a-theory-and-the-b-theory-of-time"><a class="header" href="#the-a-theory-and-the-b-theory-of-time">The A-theory and the B-theory of time</a></h2>
+<p>The metaphysics of time, independent of religion, comes in two great families (after McTaggart's A-series and B-series):</p>
+<ul>
+<li><strong>The A-theory (tensed / dynamic time).</strong> Temporal passage is <em>objective and real</em>: there is a privileged, moving <strong>present</strong>; the future is <em>open</em> and <em>becomes</em>, the present <em>is</em>, the past <em>was</em> and is fixed. Tensed facts ("it is <em>now</em> 2026," "the battle is <em>past</em>") are irreducible features of reality. <strong>Presentism</strong> (only the present exists) and the <strong>growing-block</strong> view (past and present are real, the future is not) are A-theories.</li>
+<li><strong>The B-theory (tenseless / static time).</strong> All times — past, present, future — are <em>equally real</em> (eternalism / the "block universe"), and there is <em>no</em> objective passage or privileged present; "now" is <em>indexical</em>, like "here," picking out the time of utterance, not a metaphysically special moment. Temporal relations are <em>tenseless</em> ("earlier than," "later than"); the appearance of "flow" is a feature of <em>consciousness</em>, not of time itself. The B-theory is widely thought to fit <strong>special relativity</strong>, in which <a href="../../../physics/SR/README.html">simultaneity is relative</a> and there is no observer-independent global "now."</li>
+</ul>
+<p>This abstract dispute has sharp theological consequences, because <em>which theory is true</em> determines <em>which model of divine eternity</em> is available.</p>
+<h2 id="time-and-divine-eternity"><a class="header" href="#time-and-divine-eternity">Time and divine eternity</a></h2>
+<p>The connections (developed in <a href="../attributes/eternity.html">eternity</a>) run as follows:</p>
+<ul>
+<li><strong>Timeless eternity requires the B-theory.</strong> A <a href="../attributes/eternity.html">timeless God</a> to whom <em>all</em> times are <em>equally and tenselessly present</em> makes ready sense if all times are <em>equally real</em> (eternalism) and there is <em>no</em> objective "now" being missed. But if the <strong>A-theory</strong> is true — if there is a real, moving present and an open future — then a timeless God seems <em>unable to know what is happening now</em> (the <a href="../attributes/eternity.html">tensed-knowledge objection</a>) and unable to be <em>present to</em> a present that genuinely <em>passes</em>. So classical <a href="../attributes/eternity.html">timelessness</a> is <em>hostage to</em> the B-theory.</li>
+<li><strong>An open future favours an everlasting, temporal God.</strong> If the <strong>A-theory</strong> holds and the future is <em>ontologically open</em>, then <a href="../attributes/omniscience.html">open theism's</a> claim that there are <em>no truths yet</em> about <a href="../../freewill/libertarianism.html">free future</a> acts gains metaphysical backing, and an <em>everlasting</em> (in-time) God who experiences passage and responds to a becoming world fits naturally. The <a href="../attributes/omniscience.html">foreknowledge problem</a> then takes its sharpest form (an open future cannot be <em>fore</em>known), and the Boethian timeless solution is unavailable.</li>
+<li><strong>The <a href="../arguments/cosmological.html">Kalām argument</a> needs the A-theory.</strong> Craig defends the Kalām <em>and</em> the A-theory together: only if temporal <em>becoming</em> is real did the universe genuinely <em>come into being</em> (rather than tenselessly <em>existing</em> with a finite earlier boundary, as the B-theory would have it). On a strict B-theory, the universe does not "begin to exist" in the sense the argument needs — it simply <em>has</em> a first time, as a ruler has a first inch, without any <em>coming-to-be</em>. So the cosmological argument's force depends on contested metaphysics of time.</li>
+</ul>
+<p>Thus the A/B-theory question is a <em>hidden variable</em> behind the <a href="../attributes/eternity.html">eternity</a>, <a href="../attributes/omniscience.html">omniscience</a>, and <a href="../arguments/cosmological.html">cosmological-argument</a> debates: a theist's commitments there are <em>constrained</em> by, and constrain, her metaphysics of time.</p>
+<h2 id="fine-tuning-and-cosmology-metaphysically-read"><a class="header" href="#fine-tuning-and-cosmology-metaphysically-read">Fine-tuning and cosmology, metaphysically read</a></h2>
+<p>The <a href="../arguments/teleological.html">fine-tuning</a> data — the life-permitting values of the physical constants and the <a href="../arguments/teleological.html">low-entropy</a> initial condition — raise a <em>metaphysical</em> question beyond the design argument's <em>epistemic</em> one:</p>
+<ul>
+<li><strong>The initial low-entropy state.</strong> The universe began in an extraordinarily <em>ordered</em> (low-entropy) state, the precondition for the thermodynamic arrow of time and for all subsequent structure (Penrose's <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>-in-<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">123</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>). <em>Why</em> the universe started so ordered is, on naturalism, a brute and staggering improbability; theism reads it as the <em>intended</em> initial condition of a creator — a metaphysical, not merely probabilistic, point about the <em>direction</em> and <em>informational richness</em> built into creation from its first moment.</li>
+<li><strong>The multiverse as metaphysics.</strong> The <a href="../arguments/teleological.html">multiverse reply</a> to fine-tuning is not only a probabilistic move but a <em>metaphysical posit</em> — an enormous (perhaps infinite) ensemble of universes — that raises its own questions: does it merely <em>relocate</em> the need for explanation (a fine-tuned universe-generating mechanism)? Is an <em>actual infinity</em> of universes coherent (the <a href="../arguments/cosmological.html">Kalām</a> worries about the actual infinite recur)? The theist argues the multiverse is no more parsimonious or testable than God; the naturalist that it follows from independently motivated physics (inflation, the string landscape).</li>
+<li><strong>Beginning vs. dependence.</strong> As with <a href="./divine-action.html">creation</a>, one must separate <em>whether the universe began</em> (a cosmological-empirical question, bearing on the <a href="../arguments/cosmological.html">Kalām</a>) from <em>whether it depends on God</em> (a metaphysical question, the <a href="../arguments/cosmological.html">Leibnizian contingency argument's</a> concern). A past-eternal or no-boundary universe would <em>still</em> be contingent and so, the theist argues, still in need of a <a href="../attributes/goodness-and-simplicity.html">necessary ground</a> — creation as <em>dependence</em>, not <em>temporal start</em>.</li>
+</ul>
+<h2 id="where-time-and-cosmology-sit"><a class="header" href="#where-time-and-cosmology-sit">Where time and cosmology sit</a></h2>
+<p>The metaphysics of time and cosmology is the <em>substructure</em> beneath several headline debates. <strong>Augustine's</strong> insight that <em>time is created with the world</em> dissolves the "before creation" puzzle, anticipates relativistic cosmology, and frames creation as either a <em>temporal beginning</em> (the <a href="../arguments/cosmological.html">Kalām</a> reading) or a <em>timeless dependence</em> (the classical reading). The <strong>A-theory / B-theory</strong> dispute is the hidden variable: <a href="../attributes/eternity.html">timeless divine eternity</a> and a strict-becoming reading of the <a href="../arguments/cosmological.html">Kalām</a> require <em>opposite</em> answers (B-theory for the former, A-theory for the latter), and an open future (<a href="../attributes/omniscience.html">A-theory</a>) reshapes the <a href="../attributes/omniscience.html">foreknowledge problem</a> and favours an <a href="../attributes/eternity.html">everlasting</a>, <a href="../attributes/omniscience.html">open-theist</a> God. And the <a href="../arguments/teleological.html">fine-tuning</a> and low-entropy data, read <em>metaphysically</em>, press the choice between a <em>created, intended</em> cosmos and a <em>brute or multiverse</em> one. The lesson, as throughout the <a href="../attributes/coherence-of-theism.html">attributes</a>, is that the theist's options form an <em>interlocking package</em>: positions on time, eternity, foreknowledge, creation, and the cosmological argument cannot be chosen independently. This connects the philosophy of religion outward to the <a href="../../../physics/README.html">physics of spacetime</a> and back to the <a href="../arguments-for-theism.html">arguments for God</a>.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/metaphysics/afterlife.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/ethics/religion-and-morality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/metaphysics/afterlife.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/ethics/religion-and-morality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Miracles and Testimony - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/epistemology/miracles.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="miracles-and-testimony"><a class="header" href="#miracles-and-testimony">Miracles and Testimony</a></h1>
+<p>A <strong>miracle</strong> — an event that exceeds the productive power of nature and is attributed to God — has long played a double role in religion: as a <a href="../arguments/other-arguments.html">direct argument</a> for God's existence, and, more importantly, as the <em>authentication</em> of a revelation (the miracle stories of the founders, the Resurrection as the warrant of Christianity). The philosophical question is <strong>epistemic</strong>: under what conditions, if any, could the <em>testimony</em> that a miracle occurred make it <em>rational to believe</em> one did? The classic treatment is <strong>David Hume's</strong> "Of Miracles" (<em>Enquiry</em>, Section X), whose argument that testimony can <em>never</em> establish a miracle has framed every subsequent discussion — and which modern <strong>Bayesian</strong> reconstructions have both formalised and contested.</p>
+<p>This page sets out the problem of <em>defining</em> a miracle, Hume's two-part argument and its critique of testimony, the Bayesian reconstruction (Earman's <em>Hume's Abject Failure</em>), and the Resurrection as the standard case study.</p>
+<hr />
+<h2 id="defining-a-miracle"><a class="header" href="#defining-a-miracle">Defining a miracle</a></h2>
+<p>Before asking whether miracles are <em>credible</em>, one must say what they <em>are</em>, and the definition shapes the debate:</p>
+<ul>
+<li><strong>Hume's definition:</strong> "a <em>transgression of a law of nature</em> by a particular volition of the Deity." A miracle is a <strong>violation</strong> of natural law — an event nature, left to itself, could not produce. This is the classical and most demanding conception, and it sets up Hume's argument: since a law of nature is, by definition, supported by <em>uniform</em> experience, a miracle is <em>maximally</em> improbable.</li>
+<li><strong>The "violation" worry.</strong> Critics (Mackie notwithstanding, and many theists) find "violation" problematic. If an event <em>occurs</em>, in what sense is a <em>law</em> "violated" — should we not revise the supposed law? A <em>law</em> that has exceptions when God acts is not really a universal law. Alternatives: a miracle is a <strong>non-natural event</strong> — one brought about by an agent (God) <em>not</em> part of the natural order, <em>not</em> a violation of law but an <em>input</em> to the system "from outside" (much as my raising my arm is not a violation of physics but the action of an agent within it). Or, with <strong>Aquinas</strong>, a miracle is what is done by divine power <em>outside the order usually observed in nature</em> — graded into events nature <em>could never</em> do, events nature <em>could</em> do but not <em>in this way/order</em>, and events nature <em>could</em> do but God does <em>without</em> the natural means.</li>
+<li><strong>The <em>significance</em> condition.</strong> Most accounts add that a genuine miracle is not a mere anomaly but a <em>sign</em> — religiously meaningful, expressive of divine purpose. A random unexplained event is not a miracle even if law-defying; the Resurrection or a healing <em>means</em> something.</li>
+</ul>
+<p>The definitional choice matters: on the <em>violation</em> conception Hume's improbability argument bites hardest; on the <em>non-natural-event</em> conception a miracle need not be antecedently <em>more</em> improbable than any other rare agent-caused event.</p>
+<h2 id="humes-argument"><a class="header" href="#humes-argument">Hume's argument</a></h2>
+<p>Hume's essay has <strong>two parts</strong>. Part I is the famous <em>in-principle</em> (a priori) argument; Part II is an <em>empirical</em> (a posteriori) argument that, <em>in fact</em>, no actual testimony has met the bar.</p>
+<h3 id="part-i--the-balance-of-probabilities"><a class="header" href="#part-i--the-balance-of-probabilities">Part I — the balance of probabilities</a></h3>
+<p>Hume frames belief from testimony as a <em>weighing</em> of probabilities. The credibility of testimony rests on our experience that testimony is <em>usually</em> reliable; the credibility of a <em>miracle</em> is undercut by our experience that the laws of nature are <em>uniform</em>. So:</p>
+<blockquote>
+<p>"A miracle is a violation of the laws of nature; and as a firm and unalterable experience has established these laws, the proof against a miracle, from the very nature of the fact, is as entire as any argument from experience can possibly be imagined."</p>
+</blockquote>
+<p>The <strong>maxim</strong> that follows:</p>
+<blockquote>
+<p>"No testimony is sufficient to establish a miracle, unless the testimony be of such a kind, that its falsehood would be more miraculous than the fact which it endeavours to establish."</p>
+</blockquote>
+<p>That is: believe the miracle only if it would be <em>even more</em> improbable that <em>all the witnesses are mistaken or lying</em> than that <em>the law-violating event occurred</em>. Since the uniform experience supporting a law of nature is (Hume holds) the strongest possible empirical proof, while testimony is routinely fallible, the falsehood of the testimony is essentially <em>never</em> more miraculous than the miracle. So the rational person, "proportioning his belief to the evidence," should <em>always</em> reject the miracle report. This is meant as a <em>standing</em> result about the <em>structure</em> of the evidence, not about any particular case.</p>
+<h3 id="part-ii--the-empirical-deficiencies"><a class="header" href="#part-ii--the-empirical-deficiencies">Part II — the empirical deficiencies</a></h3>
+<p>Hume then argues that, as a matter of fact, miracle testimony is <em>also</em> deficient on ordinary grounds: there has never been a miracle attested by sufficiently many witnesses of unquestioned good sense, education, and integrity; people have a natural <em>appetite</em> for wonder and the marvellous; miracle reports flourish chiefly among "ignorant and barbarous nations"; and the miracles of <em>rival religions</em> attest <em>contrary</em> systems and so <em>cancel one another</em> (a miracle supporting Christianity and one supporting Islam cannot both authenticate their incompatible doctrines, so each undermines the evidential force of the other).</p>
+<h2 id="critiques-of-hume"><a class="header" href="#critiques-of-hume">Critiques of Hume</a></h2>
+<p>Hume's argument has been pressed hard from several directions:</p>
+<ul>
+<li><strong>Circularity / question-begging.</strong> If "uniform experience" <em>against</em> miracles is what rules them out, Hume seems to <em>assume</em> that no miracle has ever occurred — for the experience is "uniform" only if every miracle report is <em>already</em> rejected. Whether a law is <em>exceptionless</em> is precisely what is in question; to treat the law as established by <em>uniform</em> experience is to presuppose the falsity of the reports one is assessing.</li>
+<li><strong>It proves too much against rare events.</strong> Babbage and others noted that, by Hume's logic, we should reject testimony for <em>any</em> sufficiently <em>unprecedented</em> event — yet science and history routinely (and rightly) accept well-attested <em>highly improbable</em> occurrences (a particular lottery outcome, a novel scientific anomaly). Antecedent improbability is <em>defeasible</em> by strong enough testimony; Hume's maxim, read as a <em>bar</em>, is too strong.</li>
+<li><strong>The weight of <em>converging independent</em> testimony.</strong> Hume underestimates how <em>multiple independent</em> witnesses can multiply credibility: even if each witness is individually unreliable, the probability that <em>many independent</em> witnesses <em>all</em> err <em>in the same way</em> can become vanishingly small — sometimes smaller than the prior improbability of the event. This is exactly the Bayesian point below.</li>
+<li><strong>Definitional escape.</strong> On the <em>non-natural-event</em> (rather than <em>violation</em>) conception, a miracle is not maximally improbable <em>given</em> that a God exists who might act — so the prior is set by the <a href="../arguments-for-theism.html">existence-of-God</a> question, not by "uniform experience" alone.</li>
+</ul>
+<h2 id="the-bayesian-reconstruction"><a class="header" href="#the-bayesian-reconstruction">The Bayesian reconstruction</a></h2>
+<p>The modern treatment formalises the whole dispute with <strong>Bayes's theorem</strong> (<a href="../../../logic/proof-theory.html">confirmation theory</a>). Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> = "the miracle occurred" and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> = "the testimony that it occurred." The posterior probability is</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The miracle is credible on the testimony — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span> high — when the <strong>likelihood ratio</strong></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>is large enough to overcome the <em>low prior</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span>. Hume's maxim is, in effect, the true observation that a <em>low prior</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> requires a <em>correspondingly tiny</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> — the probability that the testimony would arise <em>if the miracle had not occurred</em> must be even smaller than the prior against the miracle. <strong>John Earman</strong> (<em>Hume's Abject Failure</em>, 2000) — himself no friend of miracles — argues that Hume's <em>Part I</em> is, as a <em>general</em> result, a <em>failure</em>: there is <em>no</em> a priori bar, because <em>enough independent, reliable testimony can in principle drive <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> low enough</em> to make even a very improbable event credible. The question is <em>quantitative and empirical</em>, not settled by Hume's structural maxim. What survives is the <em>Part II</em> point, recast: <em>whether</em>, in any actual case, the testimony is <em>good enough</em> — numerous, independent, from reliable witnesses, without better naturalistic explanation — is a contingent matter to be assessed case by case. The interesting action is the <em>prior</em>: a convinced atheist sets <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> so low that almost no testimony suffices; a theist who antecedently grants a God <em>who might act</em> sets it high enough that good testimony can prevail. So the miracle debate is <em>downstream</em> of the <a href="../arguments-for-theism.html">existence-of-God</a> debate.</p>
+<h2 id="the-resurrection-as-a-case-study"><a class="header" href="#the-resurrection-as-a-case-study">The Resurrection as a case study</a></h2>
+<p>The Resurrection of Jesus is the standard test case (defended evidentially by Swinburne, the "minimal facts" argument of Habermas and Craig; contested by Ehrman and others). The dispute instantiates every element above:</p>
+<ul>
+<li><strong>The prior</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">Resurrection</span></span><span class="mclose">)</span></span></span></span>: near-zero for the naturalist; non-negligible for one who already finds <a href="../arguments-for-theism.html">theism probable</a> and sees a <em>fitting context</em> (the life and claims of Jesus) in which God <em>would</em> act — illustrating that the case turns on background commitments.</li>
+<li><strong>The likelihood ratio</strong>: defenders argue the "facts" (the empty tomb, the post-mortem appearances to many, the origin of the disciples' belief despite every disincentive) are <em>very improbable</em> unless the Resurrection occurred — i.e. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> is low. Critics offer naturalistic explanations (legend, hallucination, theft, misreport) that <em>raise</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span> and so collapse the ratio.</li>
+<li><strong>Hume's rival-religions cancellation</strong>: pressed by noting other traditions' miracle claims; answered by disputing their <em>comparable</em> attestation.</li>
+</ul>
+<p>The case shows that "did the miracle happen?" is not resolved by a Humean a priori verdict but by the joint assessment of <em>prior</em> (set by the <a href="../arguments-for-theism.html">theism debate</a>) and <em>testimonial likelihood</em> (set by history) — which is why believers and skeptics, assigning different priors, can rationally reach opposite verdicts on the <em>same</em> historical data.</p>
+<h2 id="where-miracles-sit"><a class="header" href="#where-miracles-sit">Where miracles sit</a></h2>
+<p>Miracles are where the <strong>epistemology of testimony</strong> meets the <strong>existence of God</strong>, and Hume's "Of Miracles" remains the fixed point. His <strong>Part I</strong> maxim — that no testimony can establish a miracle unless its falsehood would be <em>more</em> miraculous — captures a genuine Bayesian truth (a low prior demands a correspondingly tiny chance of false testimony) but <em>fails</em> as an a priori <em>bar</em>: as <strong>Earman</strong> shows, sufficient independent testimony can <em>in principle</em> overcome any finite improbability, so the question is <em>quantitative</em> and <em>case-by-case</em>, not closed in advance. The decisive variable is the <strong>prior</strong>, and the prior is fixed by the <a href="../arguments-for-theism.html">arguments for and against God</a>: to one who already judges theism improbable, miracle reports are nearly worthless; to one who grants a God who might act, good testimony can prevail — which is why the <a href="#the-resurrection-as-a-case-study">Resurrection</a> debate is, at bottom, <em>downstream</em> of the existence debate rather than an independent proof. Like the <a href="../arguments/religious-experience.html">argument from religious experience</a>, miracle testimony is thus best seen not as a free-standing demonstration but as evidence whose weight depends on one's antecedent <a href="../arguments-for-theism.html">credence in theism</a> — and, like all the <a href="./religious-epistemology.html">routes to religious knowledge</a>, as something the <a href="../evil/problem-of-evil.html">problem of evil</a> and <a href="../pluralism/religious-pluralism.html">religious diversity</a> press against from the other side.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/epistemology/religious-experience.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/epistemology/pragmatic-arguments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/epistemology/religious-experience.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/epistemology/pragmatic-arguments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

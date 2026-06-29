@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Eternity, Omnipresence, and Immutability - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/attributes/eternity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="eternity-omnipresence-and-immutability"><a class="header" href="#eternity-omnipresence-and-immutability">Eternity, Omnipresence, and Immutability</a></h1>
+<p>How is God related to <strong>time</strong> and <strong>change</strong>? Classical theism says God is <strong>eternal</strong>, <strong>immutable</strong> (changeless), and <strong>impassible</strong> (cannot be acted upon or suffer), and <strong>omnipresent</strong> (present to all things). But each of these attributes is in tension with the picture of God as a <em>personal</em> agent who <em>acts</em> in history, <em>responds</em> to prayer, <em>comes to know</em> what we have just freely done, and <em>loves</em> — and the tensions interlock: a <em>timeless</em> God seems unable to act <em>at</em> a moment or know <em>what is happening now</em>, while an <em>everlasting</em> God seems swept along by change. This is the <strong>Pascalian</strong> worry — the God of the philosophers against the God of <a href="../concept-of-god.html">faith</a> — in precise attribute form, and it bears directly on the <a href="./omniscience.html">foreknowledge problem</a> and on <a href="./goodness-and-simplicity.html">divine simplicity</a>.</p>
+<p>This page sets out the two models of divine eternity (timeless vs. everlasting), the Stump–Kretzmann attempt to make timeless action intelligible, and the tensions of immutability and impassibility with a responsive, loving God. It links the physics of <a href="../../../physics/SR/README.html">simultaneity</a> where the analogy is illuminating.</p>
+<hr />
+<h2 id="two-models-of-eternity"><a class="header" href="#two-models-of-eternity">Two models of eternity</a></h2>
+<p>"God is eternal" admits two sharply different readings:</p>
+<ul>
+<li><strong>Timeless eternity (atemporalism).</strong> God exists <em>wholly outside</em> time — without temporal location, succession, or duration. There is no before or after in God's life; God's existence is, in Boethius's classic phrase, <em>interminabilis vitae tota simul et perfecta possessio</em> — "the complete and perfect possession all at once of an endless life." All times are equally and timelessly present to God. This is the dominant classical view (Augustine, Boethius, Anselm, Aquinas), and it coheres with <a href="#immutability">immutability</a> and <a href="./goodness-and-simplicity.html">simplicity</a>: a being with no temporal parts cannot change.</li>
+<li><strong>Everlasting eternity (temporalism / <em>sempiternity</em>).</strong> God exists <em>in</em> time but <em>without beginning or end</em> — God endures through all time, with a past, present, and future, but never came to be and will never cease. Defended by many contemporary theists (Swinburne, Wolterstorff, the open theists), often precisely <em>because</em> it makes divine <em>action</em>, <em>response</em>, and <em>knowledge of the present</em> unproblematic — God acts <em>now</em>, and knows <em>now</em> what time it is.</li>
+</ul>
+<p>The choice is forced by other commitments. <strong>Timelessness</strong> secures classical immutability, simplicity, and a clean route through the <a href="./omniscience.html">foreknowledge problem</a> (God does not <em>fore</em>know; he timelessly knows) — but strains the notion of a God who acts and responds in time. <strong>Everlastingness</strong> secures a personal, responsive, temporally engaged God — but sacrifices strict immutability and reopens foreknowledge. The two attributes (eternity and personhood) pull in opposite directions, and most of the debate is about whether the strains of timelessness can be relieved.</p>
+<h2 id="can-a-timeless-god-act-and-know-the-present"><a class="header" href="#can-a-timeless-god-act-and-know-the-present">Can a timeless God act and know the present?</a></h2>
+<p>Two objections press hardest on <strong>timelessness</strong>, and both concern the <em>interface</em> between an atemporal God and a temporal world:</p>
+<ul>
+<li><strong>The action objection.</strong> Acting seems essentially temporal: to <em>create</em>, <em>speak</em>, <em>answer a prayer</em>, or <em>become incarnate</em> is to do something <em>at a time</em>, in response to a prior state. How can a being with no temporal location do anything <em>at</em> a moment, still less do <em>different</em> things at different moments while remaining changeless? The classical reply: God timelessly wills the <em>whole</em> temporal order, including which effects occur when; the <em>effects</em> are temporal and successive, but the <em>willing</em> is one timeless act. God does not first decide, then act, then see the result; the entire causal story is the single object of one eternal volition.</li>
+<li><strong>The knowledge objection</strong> (Kretzmann's problem). A timeless God cannot know <strong>tensed/indexical</strong> truths — <em>what is happening</em> now, that it is <em>now</em> 2026. Such truths change with the passing present, and knowing them requires being located <em>in</em> time. So either God does not know what time it is now (a gap in <a href="./omniscience.html">omniscience</a>) or God is not timeless. The temporalist takes this as decisive for everlastingness; the atemporalist replies that God timelessly knows the <em>complete tenseless</em> truth about which events occur at which times (the <strong>B-theory</strong> of time, on which tensed facts reduce to tenseless ones — see <a href="../metaphysics/time-and-cosmology.html">time and cosmology</a>), and that there is no further "now-fact" to be ignorant of. So timelessness tends to <em>require</em> a B-theoretic metaphysics of time.</li>
+</ul>
+<h2 id="et-simultaneity-stumpkretzmann"><a class="header" href="#et-simultaneity-stumpkretzmann">ET-simultaneity (Stump–Kretzmann)</a></h2>
+<p>The most discussed <em>defense</em> of timeless action is <strong>Eleonore Stump and Norman Kretzmann's</strong> (1981) notion of <strong>eternal–temporal (ET) simultaneity</strong>. The problem: if God's single eternal "now" is simultaneous with <em>every</em> temporal moment, and simultaneity is transitive, then all moments are simultaneous <em>with each other</em> — collapsing time. Stump and Kretzmann reply by defining a <em>new</em>, non-transitive simultaneity relation that holds <em>between</em> the eternal and temporal modes of existence (neither relatum being in the other's reference frame), explicitly modelled on the <strong>relativity of simultaneity</strong> in <a href="../../../physics/SR/README.html">special relativity</a>: just as, in SR, "simultaneous" is frame-relative and there is no absolute cross-frame simultaneity, ET-simultaneity is a relation across two incommensurable modes of being (eternity and time) that does <em>not</em> license inferring temporal simultaneity among the temporal events. Each temporal moment is present to eternity, without the moments being present to one another.</p>
+<p>The proposal is ingenious and influential but contested: critics (Fitzgerald, Lewis, Swinburne) argue the new relation is obscure or ad hoc, that the SR analogy breaks down (relativistic frames are still <em>temporal</em>, whereas eternity is supposed to be timeless), and that it does not finally explain how a genuinely atemporal being <em>acts</em> in time. The debate remains open and is the technical heart of the eternity literature.</p>
+<h2 id="immutability"><a class="header" href="#immutability">Immutability</a></h2>
+<p><strong>Immutability</strong> — God cannot change — comes in two strengths:</p>
+<ul>
+<li><strong>Strong immutability:</strong> God cannot change <em>in any respect</em> (the classical view, entailed by <a href="./goodness-and-simplicity.html">simplicity</a> and <a href="#two-models-of-eternity">timelessness</a>). A being with no temporal succession and no parts has nothing in which to change.</li>
+<li><strong>Weak immutability:</strong> God is <em>constant</em> in character, purposes, and faithfulness — God does not <em>waver</em> or <em>deteriorate</em> — but can change in his <em>relations</em> and <em>responses</em> to a changing world (the view that fits an everlasting, personal God).</li>
+</ul>
+<p>Strong immutability faces the <strong>Cambridge-change</strong> and <strong>responsiveness</strong> worries: scripture depicts God deliberating, relenting, responding to prayer, becoming angry, and — centrally for Christianity — <em>becoming</em> incarnate, all of which seem to involve real change. The classical theist replies that many such changes are mere <strong>Cambridge changes</strong> (God's "becoming" my creator when I am born is a change in <em>me</em>, a new relation, not a real change in God, as a pillar's "becoming" to my left is a change in me, not the pillar), and that scriptural depictions are <a href="../language/religious-language.html">analogical/anthropomorphic</a>. Whether <em>every</em> apparent divine response can be so redescribed — especially God's knowledge tracking our <a href="./omniscience.html">free choices</a> — is exactly where strong immutability is pressed.</p>
+<h2 id="impassibility"><a class="header" href="#impassibility">Impassibility</a></h2>
+<p><strong>Impassibility</strong> — God cannot be <em>acted upon</em>, cannot suffer or be moved by emotion caused from outside — is the most contested classical attribute today. It follows from strong immutability and from God's <a href="./goodness-and-simplicity.html">aseity</a> (nothing external can affect a wholly self-sufficient being). But it sits hard against the God of <a href="../concept-of-god.html">faith</a>: a God of <em>love</em> who is <em>unmoved</em> by his creatures' suffering, who cannot <em>sympathise</em> (literally "suffer with"), seems cold — and, for Christianity, the Cross seems to assert precisely a <em>suffering</em> God. The twentieth century saw a strong turn toward <strong>divine passibility</strong> (Moltmann's "crucified God," process theology's <a href="../concept-of-god.html">dipolar deity</a>, open theism), holding that a perfect <em>love</em> entails vulnerability and responsiveness, so that impassibility is not a perfection but a defect imported from Greek philosophy. Defenders of impassibility reply that a God buffeted by passions would be <em>less</em> than perfect — dependent, changeable, at the mercy of the world — and that God's love is <em>active</em> benevolence, not <em>passive</em> emotion. The dispute is a direct instance of the <a href="../concept-of-god.html">perfect-being method's</a> difficulty: <em>is</em> impassibility great-making, or is responsiveness?</p>
+<h2 id="omnipresence"><a class="header" href="#omnipresence">Omnipresence</a></h2>
+<p><strong>Omnipresence</strong> — God is present everywhere — is the spatial analogue of eternity and the least paradoxical of these attributes, but it too needs care. God is immaterial and not <em>located</em> (not spread out in space like a fluid, nor <em>contained</em> by any place); rather God is present to every place in the sense of (i) <em>knowing</em> all that occurs there, (ii) being <em>able to act</em> immediately at every point, and (iii) <em>sustaining</em> everything in being. Aquinas: God is in all things "by power, presence, and essence." The model parallels timeless eternity: as God transcends time yet is present to every moment, God transcends space yet is present to every place — a <em>non-spatial</em> presence grounding a spatial world. (Pantheism and panentheism, by contrast, locate God <em>as</em> or <em>in</em> the world; see <a href="../concept-of-god.html">the concept of God</a>.)</p>
+<h2 id="where-eternity-sits"><a class="header" href="#where-eternity-sits">Where eternity sits</a></h2>
+<p>The cluster of eternity, immutability, impassibility, and omnipresence is where the <strong>God of the philosophers</strong> and the <strong>God of faith</strong> come most visibly into tension. <strong>Timeless, strongly immutable, impassible</strong> classical theism buys a metaphysically pristine deity — simple, changeless, perfectly secure — and a clean solution to <a href="./omniscience.html">foreknowledge</a>, but must work hard (via <a href="#et-simultaneity-stump-kretzmann">ET-simultaneity</a>, Cambridge change, and <a href="../language/religious-language.html">analogical language</a>) to recover a God who <em>acts</em>, <em>responds</em>, and <em>loves</em>. <strong>Everlasting, weakly immutable, passible</strong> theism buys the personal, responsive God of worship directly, but surrenders simplicity and exhaustive providence. The choice cannot be made attribute-by-attribute: eternity, immutability, <a href="./goodness-and-simplicity.html">simplicity</a>, and <a href="./omniscience.html">omniscience</a> stand or fall together as <em>packages</em>, which is why the final question — whether <em>any</em> consistent package deserves the name "God" — belongs to <a href="./coherence-of-theism.html">the coherence of theism</a>. The remaining classical attributes, <strong>goodness</strong>, <strong>simplicity</strong>, and <strong>aseity</strong>, complete the set.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/attributes/omniscience.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/attributes/goodness-and-simplicity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/attributes/omniscience.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/attributes/goodness-and-simplicity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

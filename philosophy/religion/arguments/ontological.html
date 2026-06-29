@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Ontological Argument - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/arguments/ontological.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-ontological-argument"><a class="header" href="#the-ontological-argument">The Ontological Argument</a></h1>
+<p>The <strong>ontological argument</strong> is the most audacious and most disputed of all the <a href="../arguments-for-theism.html">arguments for God</a>: a purported <em>a priori</em> proof that God exists from the bare <em>concept</em> of God, with no appeal to any observed feature of the world. If it works, the existence of God is — like a theorem of <a href="../../../logic/first-order-logic.html">logic</a> — knowable by thought alone, and God's non-existence is not merely false but <em>impossible</em>. Its fascination is that it seems to conjure existence out of a definition; its notoriety is that almost everyone suspects this <em>cannot</em> be legitimate, yet locating the precise flaw has occupied logicians from Gaunilo to Gödel.</p>
+<p>This page gives Anselm's original two-stage argument, Descartes' and Leibniz's versions, the two classic objections (Gaunilo's parody and Kant's "existence is not a predicate"), and the modern <strong>modal</strong> reformulations of Plantinga and Gödel, where the action now is — and where the debate connects to <a href="../../../logic/higher-order-logic.html">modal logic</a> and the metaphysics of possibility.</p>
+<hr />
+<h2 id="anselms-argument"><a class="header" href="#anselms-argument">Anselm's argument</a></h2>
+<p><strong>Anselm of Canterbury</strong> (<em>Proslogion</em>, 1078) defines God as</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord text"><span class="mord">God</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">df</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">that than which nothing greater can be conceived</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord textit">aliquid quo nihil maius cogitari possit</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Note the definition is available even to the "fool" who <em>denies</em> God — to deny God, one must understand the concept, so God at least exists <em>in the understanding</em> (<em>in intellectu</em>). The argument then runs:</p>
+<ol>
+<li>God (the greatest conceivable being) exists at least in the understanding — even the fool grants this.</li>
+<li>It is greater to exist <em>in reality</em> (<em>in re</em>) as well as merely in the understanding than to exist in the understanding alone.</li>
+<li>Suppose God existed <em>only</em> in the understanding.</li>
+<li>Then we could conceive of a greater being — one just like God but also existing in reality.</li>
+<li>But then we could conceive something greater than <em>that than which nothing greater can be conceived</em> — a contradiction.</li>
+<li>Therefore God exists in reality as well as in the understanding. ∎</li>
+</ol>
+<p>The structure is a <strong>reductio</strong>: the assumption that the greatest conceivable being lacks real existence generates a being greater than the greatest conceivable being, which is incoherent.</p>
+<p><strong>Proslogion III</strong> adds a second, stronger argument often regarded as the more interesting: it is greater to exist <strong>necessarily</strong> (so as to be unable not to exist) than contingently. So the greatest conceivable being must exist <em>necessarily</em> — its non-existence is not merely false but inconceivable. This <strong>modal</strong> Anselm is the ancestor of the twentieth-century versions below.</p>
+<h2 id="gaunilos-reply-the-perfect-island"><a class="header" href="#gaunilos-reply-the-perfect-island">Gaunilo's reply: the perfect island</a></h2>
+<p>Anselm's contemporary, the monk <strong>Gaunilo</strong>, objected with a parody ("On Behalf of the Fool"). Run the same reasoning on the concept of the <strong>most perfect island</strong>: an island than which no greater can be conceived. It is greater to exist in reality than in the understanding alone; therefore the perfect island must exist. Since <em>this</em> conclusion is absurd, the <em>form</em> of reasoning must be invalid.</p>
+<p>Anselm's reply — and the standard defence — is that the parody <strong>disanalogy</strong>: an <em>island</em> has no intrinsic maximum (there is no greatest possible number of palm trees; any island can be bettered), so "greatest conceivable island" is an incoherent notion that never gets the argument started. God, by contrast, is defined by attributes — power, knowledge, goodness — that plausibly <em>do</em> have intrinsic maxima. Whether this reply succeeds depends on whether the divine perfections really are <em>maximisable</em> and <em>compossible</em> — exactly the worry pursued in the <a href="../attributes/coherence-of-theism.html">coherence of theism</a>.</p>
+<h2 id="descartes-and-leibniz"><a class="header" href="#descartes-and-leibniz">Descartes and Leibniz</a></h2>
+<p><strong>Descartes</strong> (<em>Fifth Meditation</em>) gives a cleaner version that makes the argument's logic explicit. God is a supremely perfect being; existence is a perfection; so existence belongs to the essence of God as surely as having three angles summing to two right angles belongs to the essence of a triangle. To conceive God lacking existence is as contradictory as conceiving a triangle whose angles fail to sum to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">180°</span></span></span></span> — the predicate is contained in the subject.</p>
+<p><strong>Leibniz</strong> noticed a gap: Descartes' argument shows only that <em>if</em> God's existence is <em>possible</em>, then God exists — it presupposes that the concept of a supremely perfect being is <strong>coherent</strong>. Leibniz tried to <em>supply</em> the missing premise by arguing that the perfections, being "simple, positive, and absolute" qualities, cannot conflict, so a being possessing all of them is possible. This <strong>possibility premise</strong> is precisely the load-bearing assumption that the modern modal versions isolate — and that critics attack.</p>
+<h2 id="kants-objection-existence-is-not-a-predicate"><a class="header" href="#kants-objection-existence-is-not-a-predicate">Kant's objection: existence is not a predicate</a></h2>
+<p>The most influential objection, due to <strong>Kant</strong> (<em>Critique of Pure Reason</em>), targets the shared assumption of <em>every</em> version — that existence is a <strong>property</strong> or "perfection" that a thing can possess or lack, and so can be packed into a concept. Kant denies it:</p>
+<blockquote>
+<p>"Being is obviously not a real predicate; that is, it is not a concept of something which could be added to the concept of a thing."</p>
+</blockquote>
+<p>To say "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> exists" is not to <em>describe</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> — not to add a feature to its concept — but to <strong>posit</strong> that the concept is <em>instantiated</em>. Kant's example: a hundred <em>real</em> thalers contain no more <em>coins-as-described</em> than a hundred <em>possible</em> thalers; existence adds nothing to the <em>concept</em>, only to my finances. Hence the predicate "exists" cannot be a great-making property whose presence in the concept of God guarantees an instance. In modern terms (Frege, Russell): existence is a <strong>second-order</strong> property — a property of <em>concepts/propositional functions</em>, expressed by the <a href="../../../logic/first-order-logic.html">quantifier</a> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span></span></span></span> — not a first-order property of objects. "God exists" says the concept <em>God</em> is instantiated; you cannot make a concept self-instantiating by definition.</p>
+<p>This is widely regarded as fatal to the <em>classical</em> (Anselmian/Cartesian) argument. The modal versions are, in part, attempts to evade it — by trading on <strong>necessary existence</strong> (or <em>modal status</em>), which is more plausibly a genuine property of things, rather than on bare existence.</p>
+<h2 id="the-modal-ontological-argument-plantinga"><a class="header" href="#the-modal-ontological-argument-plantinga">The modal ontological argument (Plantinga)</a></h2>
+<p><strong>Alvin Plantinga</strong> (<em>The Nature of Necessity</em>, 1974) recasts Anselm's <em>Proslogion III</em> using <strong>possible-worlds <a href="../../../logic/higher-order-logic.html">modal logic</a></strong>. Define:</p>
+<ul>
+<li><strong>Maximal excellence</strong>: a being is maximally excellent <em>in a world <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span></em> iff it is omnipotent, omniscient, and morally perfect <em>in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span></em>.</li>
+<li><strong>Maximal greatness</strong>: a being is maximally great iff it has maximal excellence in <em>every</em> possible world.</li>
+</ul>
+<p>The argument is then strikingly short:</p>
+<ol>
+<li>It is <em>possible</em> that there exists a being with maximal greatness. <em>(possibility premise)</em></li>
+<li>So there is a possible world <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> in which a maximally great being exists.</li>
+<li>A maximally great being is, by definition, maximally excellent in <em>every</em> world — so it is omnipotent, omniscient, and morally perfect in <em>every</em> world, including the actual one.</li>
+<li>Therefore a maximally great being exists in the actual world. ∎</li>
+</ol>
+<p>Formally, with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8034em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊</span></span></span></span> for possibility, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mord amsrm">□</span></span></span></span> for necessity, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> for "a maximally great being exists":</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">(hence </span></span><span class="mord mathnormal">G</span><span class="mord text"><span class="mord">)</span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>which is valid in the modal system <strong>S5</strong>, whose characteristic axiom <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8867em;vertical-align:-0.1944em;"></span><span class="mord amsrm">◊□</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8694em;vertical-align:-0.1944em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal">p</span></span></span></span> ("whatever is possibly necessary is necessary") does exactly the work: if a necessary being exists in <em>any</em> world, it exists in <em>every</em> world, because necessary existence does not vary across worlds. The argument is <strong>valid</strong>; everything rides on premise 1.</p>
+<h3 id="the-parity--symmetry-objection"><a class="header" href="#the-parity--symmetry-objection">The parity / symmetry objection</a></h3>
+<p>Plantinga himself concedes the argument does not <em>compel</em> assent, because the possibility premise can be <strong>mirrored</strong>. Consider <strong>"no-maximal-greatness"</strong>: it is <em>possible</em> that there is <em>no</em> maximally great being. But a maximally great being exists <em>necessarily or not at all</em> — so if its existence is <em>possible</em>, it is actual, and if its <em>non-existence</em> is possible, it is impossible. Thus:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:2em;"></span><span class="mord text"><span class="mord">but equally</span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord amsrm">◊</span><span class="mord">¬</span><span class="mord amsrm">□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">i.e. </span></span><span class="mord amsrm">◊□</span><span class="mord">¬</span><span class="mord mathnormal">G</span><span class="mord text"><span class="mord"> blocked, and </span></span><span class="mord amsrm">◊</span><span class="mord">¬</span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord amsrm">□</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">hence </span></span><span class="mord">¬</span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Both possibility premises are <em>prima facie</em> plausible, exactly one can be true, and the argument gives no independent reason to prefer the theist's. So Plantinga's verdict: the modal argument establishes not that theism is <em>true</em> but that belief in God is <em>rational</em> — it shows the existence of God follows from a premise (the bare possibility of a maximally great being) that a reasonable person may accept. Critics regard this as an admission that the argument cannot do the one thing an <em>argument</em> is for: move someone who does not already grant the conclusion.</p>
+<h2 id="gödels-ontological-proof"><a class="header" href="#gödels-ontological-proof">Gödel's ontological proof</a></h2>
+<p><strong>Kurt Gödel</strong> left a formalised version (circulated 1970, published posthumously) that supplies the Leibnizian possibility premise with an axiomatic theory of <strong>positive properties</strong> in third-order <a href="../../../logic/higher-order-logic.html">modal logic</a>. Sketch:</p>
+<ul>
+<li>A property may be <strong>positive</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>); the positive properties form an ultrafilter-like, logically coherent collection (axioms: positivity is closed under entailment, and for any property exactly one of it and its negation is positive).</li>
+<li><strong>God-like</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>): <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is God-like iff <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> has <em>every</em> positive property — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">ϕ</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">ϕ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ϕ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">))</span></span></span></span>.</li>
+<li>Being God-like is itself positive; a positive property is <strong>possibly instantiated</strong> (from the coherence of the positive properties); God-likeness is an <strong>essence</strong> of any God-like being; and <strong>necessary existence</strong> is positive.</li>
+<li>The theorems follow: possibly God exists, hence (the essence machinery plus an S5 step) <strong>necessarily</strong> God exists: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">◊</span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>.</li>
+</ul>
+<p>Gödel's proof is rigorous and has been <strong>machine-verified</strong> (Benzmüller and Paleo, 2013, who checked the derivation with automated theorem provers). But the same work exposed its Achilles' heel: <strong>modal collapse</strong>. The axioms entail that <em>every truth is necessary</em> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8694em;vertical-align:-0.1944em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal">p</span></span></span></span>) — collapsing the distinction between the contingent and the necessary, and with it any room for <a href="../../freewill/introduction.html">free</a> or contingent divine action. Repairs (Anderson, Hájek, Fitting) weaken the axioms to block the collapse, at the cost of complicating the once-elegant system. As with Plantinga, the formal validity is not in doubt; the contested premise is, once again, the claim that God-likeness (or maximal greatness) is <strong>possible</strong>.</p>
+<h2 id="where-the-ontological-argument-sits"><a class="header" href="#where-the-ontological-argument-sits">Where the ontological argument sits</a></h2>
+<p>The ontological argument is the purest test of whether existence can be reached by reason alone. Its history is a slow migration of the disputed premise: Anselm and Descartes were stopped by <strong>Kant's</strong> charge that <em>existence is not a predicate</em>; the modal turn (Plantinga, Gödel) evades Kant by trading on <em>necessary existence</em> and the resources of <strong><a href="../../../logic/higher-order-logic.html">S5 modal logic</a></strong>, producing arguments that are <em>demonstrably valid</em> — but at the price of relocating the entire weight onto a single <strong>possibility premise</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8034em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊□</span><span class="mord mathnormal">G</span></span></span></span>) that is no more obvious than the conclusion and can be met by a <em>symmetric</em> atheist premise. The honest verdict is that the argument, in all its forms, is <strong>conditionally</strong> sound — <em>if</em> a maximally great being is possible, it is actual — but cannot independently establish the antecedent, and so functions less as a proof than as a demonstration that theism, <em>if</em> coherent, is <em>necessarily</em> true. That makes the <a href="../attributes/coherence-of-theism.html">coherence of the divine attributes</a> — whether the concept of God is so much as possible — the real battleground, and it leaves the <em>a posteriori</em> <a href="./cosmological.html">cosmological</a> and <a href="./teleological.html">teleological</a> arguments to carry the empirical case.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/faith-and-reason.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/arguments/cosmological.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/faith-and-reason.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/arguments/cosmological.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Coherence of Theism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/attributes/coherence-of-theism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-coherence-of-theism"><a class="header" href="#the-coherence-of-theism">The Coherence of Theism</a></h1>
+<p>The pages on <a href="./omnipotence.html">omnipotence</a>, <a href="./omniscience.html">omniscience</a>, <a href="./eternity.html">eternity</a>, and <a href="./goodness-and-simplicity.html">goodness, simplicity, and aseity</a> each examined a single attribute and its internal strains. This capstone asks the <em>joint</em> question: are the divine attributes <strong>mutually consistent</strong> — can one being possess <em>all</em> of them <em>together</em>? This is the deepest form of the <a href="../arguments-against-theism.html">incoherence-of-attributes</a> strategy, and it cuts beneath the <a href="../arguments-for-theism.html">arguments for</a> and <a href="../arguments-against-theism.html">against</a> God's existence. For if the concept of God is <em>incoherent</em> — if "omnipotent, omniscient, perfectly good, eternal, simple, necessary being" describes an impossible object, like a round square — then God's non-existence is established <em>a priori</em>, no <a href="../evil/problem-of-evil.html">argument from evil</a> or empirical inquiry required, and the <a href="../arguments-for-theism.html">theistic arguments</a> (which would establish an impossible being) are unsound at a stroke.</p>
+<p>This page frames the coherence question, surveys the main <em>incompatible-properties</em> arguments, sets out Swinburne's program of defending coherence, and explains why the issue is logically <em>prior</em> to the existence debate.</p>
+<hr />
+<h2 id="why-coherence-comes-first"><a class="header" href="#why-coherence-comes-first">Why coherence comes first</a></h2>
+<p>The dialectical situation is stark and is well captured by the <strong>modal</strong> structure of the <a href="../arguments/ontological.html">ontological argument</a>. A maximally great being, if it exists, exists <em>necessarily</em>; so it exists in <em>every</em> possible world <em>or none</em>. Hence:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟷</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord amsrm">□</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">equivalently</span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord">¬</span><span class="mord amsrm">◊</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord amsrm">□</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mord">.</span></span></span></span></span></p>
+<p>If the concept of God is <em>coherent</em> (possibly instantiated), the theist is most of the way home; if it is <em>incoherent</em> (not possibly instantiated), the atheist is <em>all</em> the way home — God is <em>impossible</em>, not merely absent. So the <strong>possibility</strong> of God is the hinge, and an incompatible-properties argument tries to settle the question without ever weighing evidence: it aims to show <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord">¬</span><span class="mord amsrm">◊</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span></span></span></span> directly, by deriving a contradiction from the divine attributes alone.</p>
+<p>This makes the coherence question a powerful <strong>atheological</strong> strategy (Drange, Martin, Everitt) — and equally a precondition the <em>theist</em> must secure, since every <a href="../arguments-for-theism.html">argument for theism</a> presupposes that there is a coherent something for the argument to establish.</p>
+<h2 id="incompatible-properties-arguments"><a class="header" href="#incompatible-properties-arguments">Incompatible-properties arguments</a></h2>
+<p>These come in two grades, <em>within</em> a single attribute and <em>between</em> attributes.</p>
+<h3 id="within-an-attribute"><a class="header" href="#within-an-attribute">Within an attribute</a></h3>
+<ul>
+<li><strong><a href="./omnipotence.html">Omnipotence</a>:</strong> the stone paradox and the can-God-sin? puzzle — largely defused by restricting omnipotence to the <em>logically possible</em> and <em>compossible with God's nature</em>.</li>
+<li><strong><a href="./omniscience.html">Omniscience</a>:</strong> can a being that cannot learn, doubt, or err <em>know what it is like</em> to learn, doubt, or sin? Can a <a href="./eternity.html">timeless</a> being know <em>what time it is now</em>? The first is met by distinguishing propositional from experiential knowledge (or denying the latter is genuine <em>knowledge-that</em>); the second is the live tensed-knowledge problem.</li>
+</ul>
+<h3 id="between-attributes"><a class="header" href="#between-attributes">Between attributes</a></h3>
+<p>The more serious arguments allege that <em>pairs</em> of attributes cannot be jointly held:</p>
+<ul>
+<li><strong>Omniscience vs. immutability</strong> (Kretzmann's argument). An omniscient being knows <em>what time it is now</em>; what time it is <em>changes</em>; so an omniscient being's knowledge <em>changes</em>; so an omniscient being is <em>not</em> immutable. Conversely a strictly <a href="./eternity.html">immutable</a> being cannot track the moving present, so is not omniscient. The classical escape is <strong>timelessness</strong> plus a <strong>B-theory</strong> of time (there is no objective "now" to track) — which is why these attributes form a <em>package</em> (see <a href="./eternity.html">eternity</a>).</li>
+<li><strong>Omniscience vs. human freedom</strong> — the <a href="./omniscience.html">foreknowledge problem</a>: infallible foreknowledge of free acts seems to remove the freedom. (Strictly a tension between an attribute and a <em>further commitment</em> — <a href="../../freewill/libertarianism.html">libertarian free will</a> — rather than between two attributes, but it functions as a coherence worry for the <em>package</em> "omniscient creator of free agents.")</li>
+<li><strong>Omnipotence + omniscience vs. omnibenevolence</strong> — the <a href="../evil/problem-of-evil.html">problem of evil</a> in its <a href="../evil/problem-of-evil.html#the-logical-problem-of-evil">logical form</a>: the <a href="../evil/problem-of-evil.html#the-inconsistent-triad">inconsistent triad</a>. Now widely conceded to <em>fail</em> as a strict-inconsistency argument (Plantinga's <a href="../evil/theodicies.html">free-will defense</a>), but it is precisely an incompatible-properties argument, and the most important.</li>
+<li><strong>Perfect justice vs. perfect mercy.</strong> Justice gives each exactly what is deserved; mercy withholds deserved punishment. A being cannot, for the same act, both exact and remit the deserved penalty — so perfect justice and perfect mercy seem incompatible. The reply distinguishes <em>spheres</em> or appeals to atonement, but the tension is real and old.</li>
+<li><strong>Transcendence vs. omnipresence/immanence; eternity vs. agency; simplicity vs. the plurality of attributes.</strong> Each pair pulls against the other and is addressed in the <a href="./eternity.html">eternity</a> and <a href="./goodness-and-simplicity.html">simplicity</a> pages. The <a href="./goodness-and-simplicity.html">simplicity</a> objections are the most radical, since DDS <em>itself</em> (God <em>is</em> his attributes) is alleged to be incoherent — meaning the classical theist's chief <em>tool</em> for harmonising the attributes is accused of being the deepest incoherence of all.</li>
+</ul>
+<h2 id="swinburnes-defense-of-coherence"><a class="header" href="#swinburnes-defense-of-coherence">Swinburne's defense of coherence</a></h2>
+<p><strong>Richard Swinburne's</strong> <em>The Coherence of Theism</em> (1977) is the major sustained attempt to show the attributes are jointly consistent. His strategy is telling:</p>
+<ul>
+<li><strong>Define the attributes carefully and in a <em>mutually adjusted</em> way.</strong> Each attribute is glossed so as to be individually coherent and jointly compossible: <em>omnipotence</em> as the power to do whatever is logically possible and consistent with God's other properties; <em>omniscience</em> as knowing every <em>true</em> proposition it is logically possible to know; <em>perfect goodness</em> as always doing the best (or a good) action; and so on. Apparent contradictions often trace to <em>careless</em> definitions (unrestricted omnipotence, omniscience including the unknowable), which refinement removes.</li>
+<li><strong>Where classical attributes resist coherent joint definition, revise them.</strong> Swinburne is willing to <em>drop or weaken</em> the most problematic classical commitments — he rejects <a href="./goodness-and-simplicity.html">divine simplicity</a> (in the strong identity sense) and <a href="./eternity.html">timelessness</a>, opting for an <em>everlasting</em>, temporally-engaged, <a href="../concept-of-god.html">personal</a> God whose omniscience does <em>not</em> extend to the <a href="./omniscience.html">free future</a>. This <strong>theistic personalism</strong> trades metaphysical austerity for coherence and religious adequacy.</li>
+<li><strong>Net result:</strong> a <em>defensible</em> concept of God — not the full classical package, but a coherent maximal-being concept that the <a href="../arguments-for-theism.html">theistic arguments</a> can then aim to establish and to which the <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a> applies.</li>
+</ul>
+<p>The cost, as classical theists note, is that securing coherence by <em>abandoning</em> simplicity, timelessness, and exhaustive foreknowledge yields a God arguably <em>less</em> than the <em>id quo maius cogitari nequit</em> of <a href="../concept-of-god.html">perfect-being theology</a> — so the coherence debate doubles as a debate over <em>which</em> concept of God is the right target.</p>
+<h2 id="the-shape-of-the-verdict"><a class="header" href="#the-shape-of-the-verdict">The shape of the verdict</a></h2>
+<p>No incompatible-properties argument has won general assent as a <em>decisive</em> disproof, for a structural reason: the theist can almost always <strong>refine</strong> the offending attribute (restrict omnipotence, relocate "now"-knowledge, distinguish senses of goodness) to block the derivation. But refinement has a <em>price</em> — each adjustment moves the concept further from the simple, maximal, classical ideal, and the adjustments must be <em>mutually consistent</em>, which is hard to verify across the whole set. So the realistic options are:</p>
+<ul>
+<li><strong>Classical theism</strong> (Aquinas): keep simplicity, timelessness, immutability, and exhaustive providence as an interlocking package, and defend each tension (Cambridge change, <a href="./eternity.html">ET-simultaneity</a>, the <a href="./goodness-and-simplicity.html">truthmaker reading of simplicity</a>) — maximal coherence-by-mystery, contested at the <a href="./goodness-and-simplicity.html">simplicity</a> joint.</li>
+<li><strong>Theistic personalism</strong> (Swinburne, Plantinga): drop the most paradox-prone classical attributes for a coherent, <a href="./eternity.html">everlasting</a>, <a href="./goodness-and-simplicity.html">non-simple</a> personal God — coherence purchased by <em>revision</em>.</li>
+<li><strong>Atheological verdict</strong> (Martin, Drange): the <em>un</em>-revised classical concept <em>is</em> incoherent, and the revisions either fail or yield something that is no longer <em>God</em>.</li>
+</ul>
+<h2 id="where-coherence-sits"><a class="header" href="#where-coherence-sits">Where coherence sits</a></h2>
+<p>The coherence of theism is logically <em>prior</em> to the entire <a href="../arguments-for-theism.html">existence debate</a>: a coherent God is <em>possibly</em> instantiated and, given the <a href="./omniscience.html">modal</a> point, <em>necessarily</em> instantiated if at all, whereas an <em>incoherent</em> God is <em>impossible</em> and no evidence could establish him. The incompatible-properties arguments — within attributes (the <a href="./omnipotence.html">omnipotence</a> paradoxes), and especially between them (<a href="./omniscience.html">omniscience vs. freedom</a> and <a href="./eternity.html">immutability</a>, power-and-goodness vs. <a href="../evil/problem-of-evil.html">evil</a>, justice vs. mercy, <a href="./goodness-and-simplicity.html">simplicity</a> vs. plurality) — none of which has proven a <em>decisive</em> disproof, because the theist can refine the attributes; but each refinement migrates the concept from the <em>classical</em> package toward a more modest <a href="../concept-of-god.html">personal</a> deity. The standing question, which every later topic inherits, is therefore <em>twofold</em>: not only <em>whether</em> God exists, but <em>which coherent concept of God</em> — austere-classical or revised-personal — is the one whose existence is at issue. With the <em>nature</em> of God mapped, the section turns from metaphysics to the <a href="../epistemology/religious-epistemology.html">epistemology</a>: granted a coherent God, <em>how could anyone know</em> he exists?
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/attributes/goodness-and-simplicity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/epistemology/religious-epistemology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/attributes/goodness-and-simplicity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/epistemology/religious-epistemology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

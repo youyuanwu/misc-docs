@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Divine Hiddenness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/evil/divine-hiddenness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="divine-hiddenness"><a class="header" href="#divine-hiddenness">Divine Hiddenness</a></h1>
+<p>The <strong>problem of divine hiddenness</strong> is the youngest of the major <a href="../arguments-against-theism.html">arguments against theism</a> and, in the hands of its chief architect <strong>J.L. Schellenberg</strong> (<em>Divine Hiddenness and Human Reason</em>, 1993), one of the most discussed. Its datum is not the world's <em>suffering</em> but its <em>silence</em>: if a perfectly loving God existed, surely God would make his reality evident to every person open to relationship with him — yet there are sincere, thoughtful people who, through no fault of their own, simply do not find God, and remain in honest unbelief. The very <em>existence</em> of such "non-resistant nonbelief" is, the argument claims, evidence that no perfectly loving God exists. The problem is structurally a sibling of the <a href="./problem-of-evil.html">problem of evil</a> — a divine perfection (here <em>love</em> rather than <em>goodness</em>) seems to predict a state of affairs (universal access to God) that we do not observe — but it turns on a distinct datum and admits its own replies.</p>
+<p>This page states Schellenberg's argument precisely, distinguishes it from the problem of evil, and surveys the main theistic responses — that hiddenness serves <a href="./theodicies.html#soul-making-theodicy">soul-making</a> and free response, the appeal to divine purposes, the denial that non-resistant nonbelief exists, and the reframing of the relevant "love."</p>
+<hr />
+<h2 id="schellenbergs-argument"><a class="header" href="#schellenbergs-argument">Schellenberg's argument</a></h2>
+<p>The argument's power comes from grounding everything in the concept of a <em>perfectly loving</em> God — a God who, like an ideal parent, would always be <em>open</em> to personal relationship with his creatures and would want them to be able to participate in it. A standard regimentation:</p>
+<ol>
+<li>If a perfectly loving God exists, then God is <em>always open</em> to a personal relationship with any finite person capable of it.</li>
+<li>A person cannot be in a <em>conscious, positive relationship</em> with God without <em>believing that God exists</em>.</li>
+<li>So if a perfectly loving God exists, no capable person would ever be in a state of <em>non-resistant</em> (inculpable) nonbelief — God would ensure that everyone not <em>resisting</em> the relationship has the belief needed to enter it.</li>
+<li>But <strong>non-resistant nonbelief occurs</strong>: there are people who are <em>open</em> to God, not wilfully refusing him, who nonetheless do not believe God exists.</li>
+<li>Therefore no perfectly loving God exists.</li>
+</ol>
+<p>The crux concepts:</p>
+<ul>
+<li><strong>Non-resistant (inculpable) nonbelief.</strong> The argument does <em>not</em> rest on the <em>defiant</em> atheist who refuses God. It rests on the <em>seeker</em> — the person who would <em>welcome</em> a relationship with God, who has examined the evidence honestly, prayed to "a God who may be there," and still finds only silence. Such people, Schellenberg insists, plainly exist (former believers who lost faith despite wanting to keep it; sincere inquirers in every tradition; those raised with no exposure to theism at all).</li>
+<li><strong>The parent analogy.</strong> A loving parent does not <em>hide</em> from a child who needs and seeks them; a parent who <em>could</em> always be found but chose to remain undetectable, leaving the child in anxious doubt of their very existence, would <em>fail in love</em>. A perfectly loving God who permits non-resistant nonbelief is, by parity, failing in love — and so not perfectly loving, hence not God.</li>
+</ul>
+<h2 id="how-it-differs-from-the-problem-of-evil"><a class="header" href="#how-it-differs-from-the-problem-of-evil">How it differs from the problem of evil</a></h2>
+<p>Though parallel in form, the hiddenness argument is genuinely <em>independent</em> and, in some respects, <em>sharper</em>:</p>
+<ul>
+<li><strong>Different datum.</strong> The problem of evil starts from <em>suffering</em>; the hiddenness argument starts from <em>inculpable unbelief</em>. One could, in principle, solve one without the other.</li>
+<li><strong>It targets <em>love</em> specifically</strong>, not just <em>goodness</em> or <em>power</em>. This narrows the theist's escape routes: many <a href="./theodicies.html">theodicies for evil</a> appeal to <em>greater goods</em> requiring suffering, but it is far less clear what <em>greater good</em> could require a loving God to remain <em>unknown</em> to those who seek him — relationship with God is itself supposed to be the <em>greatest</em> good, so withholding the <em>belief</em> that makes it possible looks self-defeating.</li>
+<li><strong>The "noseeum" defense is weaker here.</strong> <a href="./theodicies.html#skeptical-theism">Skeptical theism</a> blunts the problem of evil by pleading our ignorance of God's reasons. But the hiddenness argument concerns God's <em>own self-revelation to persons who want it</em> — and it is harder to claim we cannot judge whether a <em>loving</em> being would make itself available to those longing for it, since openness to relationship is more transparent to us than the hidden goods served by remote suffering. (Schellenberg argues that <em>whatever</em> unknown goods hiddenness might serve, a truly loving God could secure them <em>while still</em> being believed-in, since belief is the bare <em>precondition</em> of the relationship, not an optional extra.)</li>
+</ul>
+<h2 id="theistic-responses"><a class="header" href="#theistic-responses">Theistic responses</a></h2>
+<h3 id="1-hiddenness-serves-a-greater-good-free-and-unforced-response"><a class="header" href="#1-hiddenness-serves-a-greater-good-free-and-unforced-response">1. Hiddenness serves a greater good (free and unforced response)</a></h3>
+<p>The dominant reply parallels <a href="./theodicies.html#soul-making-theodicy">soul-making</a>: God's "hiddenness" — the <em>religious ambiguity</em> of the world — is <em>necessary</em> for goods that overwhelming divine self-evidence would destroy.</p>
+<ul>
+<li><strong>Freedom of response (Hick, Swinburne, Murray).</strong> If God's existence were as <em>evident</em> as the sun, our response would be <em>coerced</em> — we would believe and obey out of overwhelmed compulsion, like subjects before an omnipotent tyrant, not freely turn to God in trust and love. <strong>Epistemic distance</strong> preserves the <em>free</em>, uncoerced, morally significant character of coming to faith; God remains hidden enough to leave <em>room</em> for a genuine, unforced "yes." Michael Murray adds that vivid awareness of an all-seeing, all-powerful God would <em>swamp</em> our moral freedom generally (who could <em>sin</em>, or act autonomously, under such a gaze?).</li>
+<li><strong>Soul-making and the value of seeking.</strong> The <em>search</em> itself — the struggle through doubt toward God — develops virtues (humility, longing, perseverance) that a too-easy certainty would foreclose; the journey is part of the good.</li>
+</ul>
+<p>Schellenberg's rejoinder: these explain at most why God might withhold <em>overwhelming proof</em> or <em>full understanding</em> — not why he would withhold the <em>minimal belief</em> required for the relationship to <em>begin</em>. A parent can be <em>present and known</em> to a child without <em>coercing</em> the child's love; indeed <em>only</em> a known parent can be freely loved. Coerced <em>belief</em> (that God exists) is not the same as coerced <em>love</em> (relationship, trust, obedience), and the argument requires only the former. So the free-response good seems securable <em>without</em> hiddenness.</p>
+<h3 id="2-the-denial-that-non-resistant-nonbelief-exists"><a class="header" href="#2-the-denial-that-non-resistant-nonbelief-exists">2. The denial that non-resistant nonbelief exists</a></h3>
+<p>A more direct response (associated with some in the Reformed tradition, drawing on Romans 1) <strong>denies premise 4</strong>: there <em>is</em> no genuinely <em>inculpable</em> nonbelief. On this view God <em>has</em> made himself sufficiently evident to all — through creation, conscience, the <em><a href="../epistemology/reformed-epistemology.html">sensus divinitatis</a></em> — so that all unbelief involves <em>some</em> culpable resistance, suppression, or self-deception, even if the unbeliever is not consciously aware of it.</p>
+<p>This is widely felt to be both <em>empirically</em> dubious and <em>morally</em> unattractive: it seems to <em>impugn the sincerity</em> of every honest seeker and lifelong inquirer, attributing hidden bad faith to people who, by every available sign, are <em>more</em> open and honest than many believers. It also risks unfalsifiability — <em>any</em> nonbelief is redescribed as secretly resistant. Schellenberg regards the sheer existence of thoughtful former believers who <em>desperately wanted</em> to keep their faith as decisive against it.</p>
+<h3 id="3-reframing-divine-love"><a class="header" href="#3-reframing-divine-love">3. Reframing divine love</a></h3>
+<p>A third strategy questions premise 1's conception of <em>love</em>. Perhaps perfect love does <em>not</em> entail constant openness to <em>conscious</em> relationship on <em>our preferred timetable</em>:</p>
+<ul>
+<li>God may have <em>reasons of timing</em> — making himself known to different people at different points in their lives or beyond death; present hiddenness need not be <em>permanent</em> (cf. Hick's <a href="./theodicies.html#soul-making-theodicy">universalist</a> afterlife, in which all are eventually brought into relationship).</li>
+<li><em>Propositional belief</em> that God exists may not be the <em>only</em> or <em>truest</em> mode of relationship; some (Paul Moser's "volitional" account) argue God is hidden to <em>casual</em> or <em>merely intellectual</em> seekers but reveals himself to those who become willing to be <em>transformed</em> — God seeks <em>worshippers</em>, not <em>spectators</em>, and "hides" from a stance that wants <em>evidence</em> without <em>surrender</em>.</li>
+</ul>
+<p>Critics reply that this either <em>redefines</em> love until it no longer resembles the loving openness the argument (and ordinary religious devotion) assumes, or smuggles back a <em>resistance</em> condition (premise-4 denial) under another name — implying the honest doubter "really" wants evidence-without-commitment, which again impugns sincere seekers.</p>
+<h2 id="where-divine-hiddenness-sits"><a class="header" href="#where-divine-hiddenness-sits">Where divine hiddenness sits</a></h2>
+<p>Divine hiddenness is the <em>epistemic</em> twin of the <a href="./problem-of-evil.html">problem of evil</a>: both argue that a divine perfection predicts a world unlike the one we find — evil tests God's <em>goodness and power</em>, hiddenness tests his <em>love</em>. Its distinctive bite is that the standard theistic escape routes are narrower: it is harder to name a <em>greater good</em> served by withholding the <em>bare belief</em> that makes relationship possible than to name goods served by permitting <em>suffering</em>, and <a href="./theodicies.html#skeptical-theism">skeptical theism</a> has less purchase on a God's openness to those who <em>seek</em> him than on the inscrutable purposes behind remote suffering. The theist's most promising lines — that overwhelming evidence would <em>coerce</em> response, that hiddenness is <em>temporary</em> or <em>stance-relative</em>, that there is no truly <em>non-resistant</em> unbelief — each face the charge that they either <em>over-explain</em> (securing free response would not require withholding <em>belief</em>) or <em>impugn the sincerity</em> of honest seekers. Like the problem of evil, hiddenness does not <em>refute</em> theism outright — <a href="../epistemology/reformed-epistemology.html">Reformed epistemology</a> and <a href="./theodicies.html#skeptical-theism">skeptical-theist</a> moves keep it from being a proof — but it adds a second substantial weight to the atheist side of the <a href="../arguments-for-theism.html#the-cumulative-case-strategy">cumulative case</a>, and it sharpens the question, pursued in <a href="../epistemology/religious-epistemology.html">religious epistemology</a>, of <em>how</em> — through evidence, experience, or <a href="../epistemology/reformed-epistemology.html">properly basic belief</a> — anyone is supposed to come to know God at all.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/evil/theodicies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/attributes/omnipotence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/evil/theodicies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/attributes/omnipotence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

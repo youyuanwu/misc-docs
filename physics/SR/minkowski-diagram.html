@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lorentz Transformation: Two Frames and an Event</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; padding: 1rem;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #fafafa; color: #222;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1b1b1f; color: #e6e6e6; }
+    .panel { background: #26262c !important; }
+  }
+  h1 { font-size: 1.2rem; margin: 0 0 .5rem; }
+  p  { margin: .25rem 0; font-size: .9rem; }
+  .wrap { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+  canvas { background: #fff; border: 1px solid #ccc; border-radius: 6px; touch-action: none; }
+  @media (prefers-color-scheme: dark) { canvas { background: #111; border-color: #333; } }
+  .panel { background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: .75rem 1rem; min-width: 220px; }
+  label { display: block; font-size: .85rem; margin: .6rem 0 .2rem; }
+  input[type=range] { width: 100%; }
+  table { border-collapse: collapse; font-size: .9rem; margin-top: .5rem; }
+  td { padding: 2px 8px; }
+  .S  { color: #1b6fc4; }
+  .Sp { color: #c43b1b; }
+  code { font-size: .9rem; }
+</style>
+</head>
+<body>
+  <h1>Lorentz Transformation — two frames and an event</h1>
+  <p>Drag the event <b>P</b> (in S). Slide <span class="Sp">β = v/c</span> to boost. <b>Top:</b> the overlay view — one shared origin, S′ axes tilt toward the 45° light line, skew read-off. <b>Bottom:</b> S and S′ drawn separately, each with its own axes. Drag any origin dot to reposition.</p>
+  <div class="wrap">
+    <canvas id="c0" width="360" height="360"></canvas>
+    <canvas id="c" width="720" height="420"></canvas>
+    <div class="panel">
+      <label for="beta">β = v/c = <span id="bval">0.50</span></label>
+      <input id="beta" type="range" min="-0.95" max="0.95" step="0.01" value="0.5" />
+      <table>
+        <tr><td class="S">ct</td><td class="S" id="ct">0</td></tr>
+        <tr><td class="S">x</td><td class="S" id="x">0</td></tr>
+        <tr><td class="Sp">ct′</td><td class="Sp" id="ctp">0</td></tr>
+        <tr><td class="Sp">x′</td><td class="Sp" id="xp">0</td></tr>
+        <tr><td>s²</td><td id="s2">0</td></tr>
+      </table>
+      <p style="margin-top:.6rem;font-size:.8rem;opacity:.8">
+        s² = (ct)²−x² is the same in both frames.
+      </p>
+    </div>
+  </div>
+
+<script>
+(function () {
+  const cv = document.getElementById("c"), g = cv.getContext("2d");
+  const cv0 = document.getElementById("c0"), g0 = cv0.getContext("2d");
+  const W = cv.width, H = cv.height, S = 32; // px per unit (separated view)
+  const slider = document.getElementById("beta");
+  let beta = parseFloat(slider.value);
+  let P = { x: 3, ct: 2 };                 // event in S units
+  const Oa = { x: W*0.27, y: H/2 };        // origin of frame S
+  const Ob = { x: W*0.73, y: H/2 };        // origin of frame S'
+  const O0 = { x: cv0.width/2, y: cv0.height/2 }, S0 = 26; // overlay origin/scale
+
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const grid = dark ? "#333" : "#e3e3e3", axis = dark ? "#888" : "#444";
+  const BLUE = "#1b6fc4", RED = "#c43b1b", LIGHT = dark ? "#caa800" : "#b59000";
+
+  const px = (O,x,ct) => ({ X: O.x + x*S, Y: O.y - ct*S });
+  const unit = (O,X,Y) => ({ x: (X-O.x)/S, ct: (O.y-Y)/S });
+  function ln(ctx,a,b,c,w){ ctx.strokeStyle=c; ctx.lineWidth=w||1; ctx.beginPath(); ctx.moveTo(a.X,a.Y); ctx.lineTo(b.X,b.Y); ctx.stroke(); }
+  function line(a,b,c,w){ ln(g,a,b,c,w); }
+  function dot(p,c,r){ g.fillStyle=c; g.beginPath(); g.arc(p.X,p.Y,r,0,7); g.fill(); }
+
+  // overlay view: shared origin O0, S orthogonal + S' tilted axes
+  function overlay(){
+    g0.clearRect(0,0,cv0.width,cv0.height);
+    const P0=(x,ct)=>({X:O0.x+x*S0,Y:O0.y-ct*S0});
+    for(let i=-5;i<=5;i++){ ln(g0,P0(i,-5),P0(i,5),grid); ln(g0,P0(-5,i),P0(5,i),grid); }
+    ln(g0,P0(-5,0),P0(5,0),axis,1.5); ln(g0,P0(0,-5),P0(0,5),axis,1.5);
+    ln(g0,P0(-5,-5),P0(5,5),LIGHT,1.5); ln(g0,P0(5,-5),P0(-5,5),LIGHT,1.5);
+    ln(g0,P0(-5*beta,-5),P0(5*beta,5),RED,1.5); ln(g0,P0(-5,-5*beta),P0(5,5*beta),RED,1.5);
+    const b2=1-beta*beta, tx=(beta*P.x-P.ct)/b2, fx={x:P.x+beta*tx,ct:P.ct+tx};
+    const tc=(beta*P.ct-P.x)/b2, fc={x:P.x+tc,ct:P.ct+beta*tc}, p=P0(P.x,P.ct);
+    g0.setLineDash([5,4]);
+    ln(g0,P0(0,P.ct),p,BLUE,1); ln(g0,P0(P.x,0),p,BLUE,1);
+    ln(g0,p,P0(fx.x,fx.ct),RED,1); ln(g0,p,P0(fc.x,fc.ct),RED,1);
+    g0.setLineDash([]);
+    g0.fillStyle=dark?"#eee":"#111"; g0.beginPath(); g0.arc(p.X,p.Y,5,0,7); g0.fill();
+    g0.font="12px system-ui";
+    g0.fillStyle=BLUE; g0.fillText("ct",O0.x+5,14); g0.fillText("x",cv0.width-12,O0.y-6);
+    g0.fillStyle=RED; g0.fillText("ct′",P0(5*beta,5).X+2,16); g0.fillText("x′",P0(5,5*beta).X-6,P0(5,5*beta).Y+14);
+  }
+  // separated frame
+  function frame(O,ex,ect,col,label){
+    for(let i=-5;i<=5;i++){ line(px(O,i,-5),px(O,i,5),grid); line(px(O,-5,i),px(O,5,i),grid); }
+    line(px(O,-5,0),px(O,5,0),axis,1.5); line(px(O,0,-5),px(O,0,5),axis,1.5);
+    line(px(O,-5,-5),px(O,5,5),LIGHT,1.5); line(px(O,5,-5),px(O,-5,5),LIGHT,1.5);
+    const p=px(O,ex,ect);
+    g.setLineDash([5,4]); line(px(O,0,ect),p,col,1); line(px(O,ex,0),p,col,1); g.setLineDash([]);
+    dot(p, dark?"#eee":"#111", 6); dot(px(O,ex,0),col,3); dot(px(O,0,ect),col,3);
+    dot(O,axis,6); g.strokeStyle=dark?"#1b1b1f":"#fff"; g.lineWidth=2; g.stroke();
+    g.fillStyle=col; g.font="13px system-ui"; g.fillText(label,O.x-12,O.y+4*S+18);
+    g.fillText(label==="S"?"ct":"ct′",O.x+5,O.y-4.6*S); g.fillText(label==="S"?"x":"x′",O.x+4.6*S,O.y-6);
+    g.fillStyle=dark?"#eee":"#111"; g.fillText("P",p.X+9,p.Y-7);
+  }
+  function draw(){
+    g.clearRect(0,0,W,H);
+    const ga=1/Math.sqrt(1-beta*beta), ctp=ga*(P.ct-beta*P.x), xp=ga*(P.x-beta*P.ct);
+    overlay();
+    frame(Oa, P.x, P.ct, BLUE, "S");
+    frame(Ob, xp, ctp, RED, "S′");
+    document.getElementById("ct").textContent=P.ct.toFixed(2);
+    document.getElementById("x").textContent=P.x.toFixed(2);
+    document.getElementById("ctp").textContent=ctp.toFixed(2);
+    document.getElementById("xp").textContent=xp.toFixed(2);
+    document.getElementById("s2").textContent=(P.ct*P.ct-P.x*P.x).toFixed(2);
+  }
+  slider.oninput=()=>{beta=parseFloat(slider.value);document.getElementById("bval").textContent=beta.toFixed(2);draw();};
+  let drag=null;
+  const at=(c,e)=>{const r=c.getBoundingClientRect();return{X:e.clientX-r.left,Y:e.clientY-r.top};};
+  cv.onpointerdown=e=>{const m=at(cv,e);
+    if(Math.hypot(m.X-Oa.x,m.Y-Oa.y)<16)drag="A";
+    else if(Math.hypot(m.X-Ob.x,m.Y-Ob.y)<16)drag="B";
+    else{drag="P";P=unit(Oa,m.X,m.Y);}
+    draw();cv.setPointerCapture(e.pointerId);};
+  cv.onpointermove=e=>{if(!drag)return;const m=at(cv,e);
+    if(drag==="A"){Oa.x=m.X;Oa.y=m.Y;}else if(drag==="B"){Ob.x=m.X;Ob.y=m.Y;}else P=unit(Oa,m.X,m.Y);
+    draw();};
+  cv.onpointerup=()=>drag=null;
+  cv0.onpointerdown=e=>{drag="P0";cv0.setPointerCapture(e.pointerId);const m=at(cv0,e);P={x:(m.X-O0.x)/S0,ct:(O0.y-m.Y)/S0};draw();};
+  cv0.onpointermove=e=>{if(drag!=="P0")return;const m=at(cv0,e);P={x:(m.X-O0.x)/S0,ct:(O0.y-m.Y)/S0};draw();};
+  cv0.onpointerup=()=>drag=null;
+  draw();
+})();
+</script>
+</body>
+</html>

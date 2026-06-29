@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Philosophy of Religion - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/README.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="philosophy-of-religion"><a class="header" href="#philosophy-of-religion">Philosophy of Religion</a></h1>
+<p>Reference notes on the <strong>philosophy of religion</strong> — the rational examination of the concepts, claims, and arguments arising from religious thought: whether there is a God or transcendent reality, whether such a being's nature is coherent, whether religious belief can be rational, and what follows for morality and meaning. These pages aim to be careful and self-contained, distinguishing the <em>metaphysical</em> question (is there a God?) from the <em>epistemic</em> question (can we know, and is belief justified?) and the <em>semantic</em> question (what does religious language mean?). They proceed philosophically — by argument and analysis — rather than devotionally, and apply the same standards to the case for and against theism.</p>
+<p>The section is being built up step by step. It cross-links to the <a href="../../logic/README.html">logic</a> pages where formal machinery (modal logic, set theory, confirmation theory) lives, to the <a href="../freewill/README.html">free will</a> section (with which it shares the foreknowledge problem, the free-will defense, and the Buddhist no-self), and to <a href="../../general/quantum-mechanics.html">quantum mechanics</a>.</p>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<h3 id="core"><a class="header" href="#core">Core</a></h3>
+<ul>
+<li><a href="./introduction.html">What Is Philosophy of Religion?</a> — the field defined: the three questions (metaphysical, epistemic, semantic), the map of positions (theism, atheism, agnosticism, deism, pantheism, panentheism, naturalism), and how philosophy of religion differs from theology, religious studies, and apologetics.</li>
+<li><a href="./concept-of-god.html">The Concept of God</a> — what is meant by "God": the classical-theistic omni-attributes, the perfect-being method (Anselm), the God of the philosophers vs. the God of faith (Pascal), the alternatives (deism, pantheism, panentheism, process and open theism, non-personal ultimates), and the internal tensions among the attributes.</li>
+<li><a href="./arguments-for-theism.html">Arguments for Theism</a> — a map of natural theology: the a priori / a posteriori and demonstrative / probabilistic distinctions, capsule statements of each argument, and the cumulative-case (Bayesian) strategy.</li>
+<li><a href="./arguments-against-theism.html">Arguments against Theism</a> — the atheological case: the problem of evil, divine hiddenness, the incoherence-of-attributes strategy, the projection/suspicion tradition (Feuerbach, Marx, Nietzsche, Freud, Durkheim, cognitive science of religion), and the burden of proof.</li>
+<li><a href="./faith-and-reason.html">Faith and Reason</a> — the epistemic standing of belief: the senses of "faith," the four models (conflict, fideism, synthesis, independence), evidentialism (Clifford) vs. fideism (Kierkegaard) and Reformed epistemology, and the pragmatic arguments (Pascal's Wager, James's will to believe).</li>
+</ul>
+<h3 id="arguments-for-gods-existence"><a class="header" href="#arguments-for-gods-existence">Arguments for God's existence</a></h3>
+<ul>
+<li><a href="./arguments/ontological.html">The Ontological Argument</a> — the a priori proof from the concept of God: Anselm, Gaunilo, Descartes, Leibniz, Kant's "existence is not a predicate," and the modern modal versions (Plantinga's S5 argument, Gödel's formalisation and modal collapse).</li>
+<li><a href="./arguments/cosmological.html">Cosmological Arguments</a> — from contingency and causation to a first cause: the Leibnizian (PSR), Thomist (essentially-ordered regress), and Kalām (al-Ghazālī, Craig) arguments, and the objections (PSR, Hume/Kant on causation, fallacy of composition, the actual infinite, "why not the universe?").</li>
+<li><a href="./arguments/teleological.html">Teleological / Design Arguments</a> — from order to a designer: Paley's watch, Hume's critique, the Darwinian turn, cosmic fine-tuning and the multiverse/anthropic reply, and the failure of Intelligent Design.</li>
+<li><a href="./arguments/moral.html">The Moral Argument</a> — from objective morality to God: Kant's practical postulate and the metaethical version, Divine Command Theory, the Euthyphro dilemma and Adams's modified DCT, and the secular-ethics challenge.</li>
+<li><a href="./arguments/religious-experience.html">The Argument from Religious Experience</a> — from the experience of God to its object: Swinburne's Principle of Credulity, Alston's perceptual model, and the objections (naturalistic explanation, conflicting traditions, disanalogies with perception).</li>
+<li><a href="./arguments/consciousness-and-reason.html">Arguments from Consciousness and Reason</a> — from mind to God: the argument from consciousness (Swinburne), the argument from reason (Lewis), and Plantinga's evolutionary argument against naturalism (EAAN).</li>
+<li><a href="./arguments/other-arguments.html">Other Theistic Arguments</a> — the long tail: miracles, beauty, desire (Lewis), the applicability of mathematics, common consent, the pragmatic arguments, and the transcendental/presuppositional strategy.</li>
+</ul>
+<h3 id="the-problem-of-evil"><a class="header" href="#the-problem-of-evil">The problem of evil</a></h3>
+<ul>
+<li><a href="./evil/problem-of-evil.html">The Problem of Evil</a> — the central argument against theism: the inconsistent triad, the logical problem (Mackie) and its collapse, the evidential problem (Rowe), gratuitous evil and the "noseeum" inference, and the defense/theodicy distinction.</li>
+<li><a href="./evil/theodicies.html">Defenses and Theodicies</a> — the theistic replies: the free-will defense (Plantinga), soul-making (Hick), the Augustinian/privation view, natural-law and greater-good theodicies, skeptical theism, the process and open-theist replies, and the appeal to mystery / antitheodicy.</li>
+<li><a href="./evil/divine-hiddenness.html">Divine Hiddenness</a> — Schellenberg's argument from non-resistant nonbelief, how it differs from the problem of evil, and the responses (free response, denial of inculpable nonbelief, reframing divine love).</li>
+</ul>
+<h3 id="the-divine-attributes"><a class="header" href="#the-divine-attributes">The divine attributes</a></h3>
+<ul>
+<li><a href="./attributes/omnipotence.html">Omnipotence</a> — the stone paradox; the logically-possible-only reading (Aquinas) vs. Descartes' universal possibilism; maximal power compossible with God's nature.</li>
+<li><a href="./attributes/omniscience.html">Omniscience, Foreknowledge, and Freedom</a> — the theological-fatalism argument (Pike) and the five responses (Ockhamism, Boethian eternity, Molinism, open theism, compatibilism); the deep link to free will.</li>
+<li><a href="./attributes/eternity.html">Eternity, Omnipresence, and Immutability</a> — timeless vs. everlasting eternity, ET-simultaneity (Stump–Kretzmann), immutability and impassibility vs. a responsive, loving God.</li>
+<li><a href="./attributes/goodness-and-simplicity.html">Goodness, Simplicity, and Aseity</a> — divine goodness and morality; divine simplicity and its modern critics (Plantinga); aseity, necessity, and the bootstrapping problem about abstract objects.</li>
+<li><a href="./attributes/coherence-of-theism.html">The Coherence of Theism</a> — whether the attributes are jointly consistent; the incompatible-properties strategy; Swinburne's defense; why coherence is prior to the existence debate.</li>
+</ul>
+<h3 id="religious-epistemology"><a class="header" href="#religious-epistemology">Religious epistemology</a></h3>
+<ul>
+<li><a href="./epistemology/religious-epistemology.html">Religious Epistemology</a> — the evidentialist objection and the ethics of belief; internalism vs. externalism; the de jure / de facto distinction; the "great pumpkin" objection.</li>
+<li><a href="./epistemology/reformed-epistemology.html">Reformed Epistemology</a> — Plantinga's properly basic belief, the <em>sensus divinitatis</em>, the warrant theory, and the objections (Great Pumpkin, circularity, diversity, defeaters).</li>
+<li><a href="./epistemology/religious-experience.html">The Epistemology of Religious Experience</a> — the numinous and the mystical (Otto, James, Stace); perennialism vs. constructivism; ineffability; reliability and cross-tradition conflict.</li>
+<li><a href="./epistemology/miracles.html">Miracles and Testimony</a> — defining a miracle; Hume's "Of Miracles" and its critique; the Bayesian reconstruction (Earman); the Resurrection as a case study.</li>
+<li><a href="./epistemology/pragmatic-arguments.html">Pragmatic and Prudential Arguments</a> — Pascal's Wager (and its objections), James's will to believe, and the problem of doxastic voluntarism.</li>
+</ul>
+<h3 id="religious-language"><a class="header" href="#religious-language">Religious language</a></h3>
+<ul>
+<li><a href="./language/religious-language.html">Religious Language</a> — the verificationist challenge and the falsification debate (Flew–Hare–Mitchell); analogy, the via negativa, symbol, metaphor; Wittgensteinian language-games.</li>
+<li><a href="./language/realism-antirealism.html">Realism and Anti-Realism about God</a> — cognitivism vs. non-cognitivism, realism vs. anti-realism; expressivism, fictionalism, Cupitt's non-realism, Dewey; the "changing the subject" objection.</li>
+</ul>
+<h3 id="religion-metaphysics-and-the-afterlife"><a class="header" href="#religion-metaphysics-and-the-afterlife">Religion, metaphysics, and the afterlife</a></h3>
+<ul>
+<li><a href="./metaphysics/divine-action.html">Divine Action and Creation</a> — creation ex nihilo; conservation and concurrence; primary/secondary causation and occasionalism; special divine action and the NIODA / quantum proposal.</li>
+<li><a href="./metaphysics/afterlife.html">The Afterlife and the Soul</a> — soul-immortality vs. bodily resurrection; the personal-identity problems; reincarnation and karma; near-death experiences; heaven, hell, and universalism.</li>
+<li><a href="./metaphysics/time-and-cosmology.html">Religion, Time, and Cosmology</a> — creation and the beginning of time (Augustine); the A-theory/B-theory dispute and divine eternity; the metaphysics of fine-tuning.</li>
+</ul>
+<h3 id="religion-and-morality"><a class="header" href="#religion-and-morality">Religion and morality</a></h3>
+<ul>
+<li><a href="./ethics/religion-and-morality.html">Religion and Morality</a> — the Euthyphro dilemma; Divine Command Theory and Adams's modification; the autonomy objection; natural law; can ethics stand without God?</li>
+<li><a href="./ethics/meaning-of-life.html">The Meaning of Life</a> — theistic vs. naturalistic accounts of meaning; absurdism (Camus) and the death of God (Nietzsche); whether mortality or immortality grounds meaning.</li>
+</ul>
+<h3 id="diversity-science-and-the-secular"><a class="header" href="#diversity-science-and-the-secular">Diversity, science, and the secular</a></h3>
+<ul>
+<li><a href="./pluralism/religious-pluralism.html">Religious Pluralism and Diversity</a> — exclusivism, inclusivism, pluralism; Hick's pluralistic hypothesis; the epistemology of religious disagreement; the particularist reply.</li>
+<li><a href="./pluralism/science-and-religion.html">Science and Religion</a> — Barbour's typology and NOMA; the "conflict thesis" as myth (Galileo); methodological naturalism; the genuine points of contact.</li>
+<li><a href="./pluralism/critiques-of-religion.html">Critiques of Religion and the Secular</a> — the masters of suspicion (Feuerbach, Marx, Nietzsche, Freud, Durkheim); the cognitive science of religion; whether debunking succeeds; the New Atheism.</li>
+</ul>
+<h3 id="comparative-and-non-western-philosophy-of-religion"><a class="header" href="#comparative-and-non-western-philosophy-of-religion">Comparative and non-Western philosophy of religion</a></h3>
+<ul>
+<li><a href="./traditions/non-western.html">Non-Western Philosophy of Religion</a> — Indian darśanas (Nyāya theism, Advaita non-dualism, karma and evil), Buddhist non-theism (dependent origination, no-self, Nāgārjuna), and Chinese conceptions (Tian, the Dao).</li>
+<li><a href="./traditions/abrahamic.html">Classical Theism in the Three Abrahamic Traditions</a> — the shared project of Jewish, Christian, and Islamic philosophical theology; kalām and falsafa; Maimonides; the scholastic synthesis.</li>
+<li><a href="./traditions/mysticism.html">Mysticism Across Traditions</a> — comparative mysticism; perennialism vs. constructivism; ineffability and the limits of language.</li>
+</ul>
+<h3 id="history-figures-and-method"><a class="header" href="#history-figures-and-method">History, figures, and method</a></h3>
+<ul>
+<li><a href="./context/history.html">A History of Philosophy of Religion</a> — ancient → medieval → early modern → nineteenth century → the twentieth-century collapse and analytic revival.</li>
+<li><a href="./context/method.html">Method in Philosophy of Religion</a> — analytic vs. continental; evidentialist vs. Reformed starting points; the role of experience and tradition; analytic theology; reflexive worries.</li>
+<li><a href="./context/figures.html">Key Figures</a> — a compact reference to the principal contributors, ancient to contemporary.
+</content></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/freewill/concepts/moral-responsibility.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/religion/introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/freewill/concepts/moral-responsibility.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/religion/introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

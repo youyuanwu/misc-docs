@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mysticism Across Traditions - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/religion/traditions/mysticism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="mysticism-across-traditions"><a class="header" href="#mysticism-across-traditions">Mysticism Across Traditions</a></h1>
+<p><strong>Mysticism</strong> — the pursuit and experience of direct union or contact with ultimate reality — is found in every major tradition: Christian (Eckhart, John of the Cross, Teresa of Ávila), Jewish (Kabbalah, the <em>Merkabah</em> and <em>Ein Sof</em>), Islamic (Sufism — Rumi, Ibn 'Arabi, al-Ghazālī), Hindu (the <em>Upaniṣads</em>, <a href="./non-western.html">Advaita</a>), Buddhist (the experience of <em>śūnyatā</em>, <em>satori</em>), and Daoist (union with the <a href="./non-western.html">Dao</a>). Its comparative study raises a sharp philosophical question that recurs throughout these notes: are the mystics of different traditions having the <em>same</em> experience differently described, or <em>different</em> experiences shaped by their differing beliefs? The answer bears on the <a href="../arguments/religious-experience.html">argument from religious experience</a>, on <a href="../pluralism/religious-pluralism.html">religious pluralism</a>, and on the <a href="../language/religious-language.html">limits of religious language</a>.</p>
+<p>This page gives a comparative overview, revisits the <strong>perennialism vs. constructivism</strong> debate in its cross-traditional form, and treats <strong>ineffability</strong> and the limits of language. (The <em>epistemology</em> of mystical experience — its reliability as a source of belief — is developed under <a href="../epistemology/religious-experience.html">religious experience</a>; this page is comparative and concerns its <em>nature</em> and <em>describability</em>.)</p>
+<hr />
+<h2 id="the-comparative-phenomenon"><a class="header" href="#the-comparative-phenomenon">The comparative phenomenon</a></h2>
+<p>Across traditions, mystical literature shows recurrent <em>family resemblances</em> — which is what makes "mysticism" a useful cross-cultural category and tempts the <em>perennialist</em> reading:</p>
+<ul>
+<li><strong>Union or identity with the ultimate.</strong> The Christian "union with God" and "deification" (<em>theosis</em>); the Sufi <em>fanā'</em> (annihilation of the self in God) and <em>baqā'</em> (subsistence in God); the Advaitin realisation <em>Tat tvam asi</em> ("<a href="./non-western.html">That thou art</a>" — identity of Ātman and Brahman); the Daoist merging with the <a href="./non-western.html">Dao</a>.</li>
+<li><strong>Loss or transformation of the self.</strong> A dissolution of the ordinary ego-boundary, reaching its most radical form in the Buddhist realisation of <a href="./non-western.html">no-self</a> (<em>anattā</em>) and emptiness.</li>
+<li><strong>Ineffability and paradox.</strong> A near-universal insistence that the experience <em>cannot be captured in words</em> and that ordinary concepts <em>break down</em> (below).</li>
+<li><strong>Noetic certainty and transformation.</strong> The conviction that one has <em>grasped the truth</em> (James's "<a href="../epistemology/religious-experience.html">noetic quality</a>"), and a consequent moral and spiritual <em>transformation</em> (which <a href="../pluralism/religious-pluralism.html">Hick</a> makes the <em>test</em> of authenticity).</li>
+</ul>
+<p>But the <em>descriptions</em> diverge sharply at the crucial point: a <em>personal</em> God met in <em>love</em> (theistic mysticism) versus an <em>impersonal</em> absolute (Brahman, the Dao) versus a <em>self-emptying</em> emptiness with <em>no</em> God or self at all (Buddhism). The whole debate is whether these divergences are <em>interpretive overlays</em> on a common core or <em>constitutive</em> of different experiences.</p>
+<h2 id="perennialism-vs-constructivism-revisited"><a class="header" href="#perennialism-vs-constructivism-revisited">Perennialism vs. constructivism (revisited)</a></h2>
+<p>The comparative material is exactly the battleground of the <a href="../epistemology/religious-experience.html">perennialism/constructivism</a> dispute introduced in the epistemology section; viewed <em>across traditions</em> it takes its sharpest form:</p>
+<ul>
+<li><strong>Perennialism</strong> (Aldous Huxley's "perennial philosophy," W.T. Stace, the Traditionalists): beneath the diverse theologies lies <em>one</em> universal mystical experience — typically the <em>introvertive</em> experience of pure, undifferentiated unity — which mystics then <em>clothe</em> in the doctrines of their tradition. Huxley: a single "Highest Common Factor" underlies all the great mysticisms. On this view the Christian, the Sufi, the Advaitin, and the Zen master <em>touch the same reality</em>; the conflict is in the <em>words</em>, not the <em>experience</em>. Perennialism underwrites <a href="../pluralism/religious-pluralism.html">Hick's pluralism</a> (all are responses to one Real) and strengthens the <a href="../arguments/religious-experience.html">argument from experience</a> (a convergent core would be powerful evidence).</li>
+<li><strong>Constructivism</strong> (Steven Katz: "there are NO pure, i.e. unmediated, experiences"): the mystic's <em>tradition, concepts, expectations, and training shape the experience itself</em>, not merely its description. A Jewish mystic, formed by a <em>personal</em>, covenantal God and a tradition that <em>forbids</em> claims of identity-with-God, has a <em>devekut</em> (cleaving, but never <em>merging</em>) experience that <em>constitutively differs</em> from the Advaitin's <em>identity</em> with Brahman or the Buddhist's <em>emptiness</em>. The very diversity of reports is <em>evidence</em> that the experiences <em>differ</em>, because experience is <em>always</em> conceptually mediated. Constructivism <em>explains the divergence</em> but <em>lowers</em> the evidential value of mysticism (if experience mirrors prior belief, it cannot independently <em>confirm</em> it).</li>
+</ul>
+<p>Moderate positions (Robert Forman's "Pure Consciousness Event," William Wainwright, Ninian Smart): perhaps the <em>introvertive</em>, <em>contentless</em> states (pure consciousness, empty of all objects) are <em>minimally</em> mediated and so cross-culturally similar — vindicating a <em>limited</em> perennialism — while the <em>theistic</em>, <em>visionary</em>, and <em>unitive-with-an-object</em> experiences are heavily <em>constructed</em>. On this view mysticism is <em>not</em> monolithic: some types are more tradition-neutral than others, and the perennialist and constructivist are each partly right about <em>different</em> kinds of mystical state.</p>
+<h2 id="ineffability-and-the-limits-of-language"><a class="header" href="#ineffability-and-the-limits-of-language">Ineffability and the limits of language</a></h2>
+<p>The most consistent claim of mystics everywhere is that the experience is <strong>ineffable</strong> — beyond the reach of language and concept. "The Dao that can be spoken is not the eternal <a href="./non-western.html">Dao</a>"; the <a href="./non-western.html">Advaitin's</a> Brahman is <em>neti neti</em> ("not this, not this"); Eckhart's Godhead beyond "God"; the Sufi's annihilation beyond description. This generates the <strong>paradox of ineffability</strong>: to <em>say</em> "it is ineffable" is to say <em>something</em>, and the mystics in fact write volumes. Resolutions (developed under <a href="../language/religious-language.html">religious language</a>):</p>
+<ul>
+<li>Ineffability concerns <em>adequate</em>, <em>literal</em>, <em>propositional</em> description: the experience can be <em>pointed at</em> — by negation, paradox, metaphor, poetry — but not <em>captured</em> in determinate concepts. Hence the mystics' characteristic recourse to the <strong><a href="../language/religious-language.html">via negativa</a></strong> (saying only what the ultimate is <em>not</em>), to <strong>paradox</strong> ("dazzling darkness," "the sound of one hand"), and to <strong>symbol</strong> and poetry (Rumi, John of the Cross).</li>
+<li>Ineffability marks the breakdown of the <strong>subject–object structure</strong> that ordinary language presupposes: in undifferentiated unity (or in <a href="./non-western.html">no-self</a>) there is no "object" set over against a "subject" to be predicated of, so the declarative form that language requires has nothing to latch onto.</li>
+</ul>
+<p>This makes mysticism the experiential root of the <a href="../language/religious-language.html">apophatic theology</a> of <em>every</em> tradition — Pseudo-Dionysius, <a href="./abrahamic.html">Maimonides</a>, the Sufis, the Daoists, the Advaitins all converge on the inadequacy of positive God-talk — and a central datum for the <a href="../language/religious-language.html">philosophy of religious language</a>: if the highest religious knowledge is <em>ineffable</em>, then <a href="../language/religious-language.html">religious language</a> is at best gesture, and the <a href="../language/religious-language.html">verificationist</a> demand for cognitive content is doubly hard to meet.</p>
+<h2 id="where-mysticism-sits"><a class="header" href="#where-mysticism-sits">Where mysticism sits</a></h2>
+<p>Mysticism is the <em>experiential</em> core of the traditions and the most direct putative <em>contact</em> with the ultimate, and its comparative study sharpens three of the field's central questions to a point. The <strong><a href="../epistemology/religious-experience.html">perennialism/constructivism</a></strong> debate decides whether the world's mystics — Christian, Sufi, Kabbalist, Advaitin, Buddhist, Daoist — touch <em>one</em> reality variously described (vindicating <a href="../pluralism/religious-pluralism.html">Hick's pluralism</a> and strengthening the <a href="../arguments/religious-experience.html">argument from experience</a>) or have <em>different</em> experiences manufactured by their traditions (explaining the <a href="../pluralism/religious-pluralism.html">diversity</a> but draining the evidential force), with the moderate view that <em>contentless</em> states are more uniform than <em>theistic</em> ones. The near-universal claim of <strong>ineffability</strong> makes mysticism the root of the <a href="../language/religious-language.html">apophatic / via negativa</a> tradition across <em>all</em> the faiths and a hard case for the <a href="../language/religious-language.html">philosophy of religious language</a>. And the mystics' recurrent dissolution of the <a href="./non-western.html">self</a> — radicalised in <a href="./non-western.html">Buddhist no-self</a> — connects to both the <a href="../metaphysics/afterlife.html">afterlife</a> and the <a href="../../freewill/introduction.html">free-will</a> discussions of personal identity. Mysticism thus binds together the <a href="./non-western.html">comparative</a>, <a href="../epistemology/religious-experience.html">epistemological</a>, <a href="../language/religious-language.html">linguistic</a>, and <a href="../pluralism/religious-pluralism.html">pluralist</a> threads of the whole field.
+</content></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/religion/traditions/abrahamic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/religion/context/history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/religion/traditions/abrahamic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/religion/context/history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
