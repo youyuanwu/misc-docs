@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Radical Interpretation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/10-interpretation/01-radical-interpretation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="radical-interpretation"><a class="header" href="#radical-interpretation">Radical Interpretation</a></h1>
+<p>How could an interpreter identify another speaker's meanings and beliefs without first
+possessing a dictionary? Davidson's <strong>radical interpretation</strong> begins with observable
+patterns of assent, circumstances, action, and shared environment. Meaning and belief
+must be assigned together.</p>
+<p>A compositional truth theory supplies interpretations for indefinitely many sentences.
+Principles of charity and triangulation constrain the theory so that it explains
+speakers as largely coherent and responsive to common causes.</p>
+<hr />
+<h2 id="the-interdependence-of-belief-and-meaning"><a class="header" href="#the-interdependence-of-belief-and-meaning">The interdependence of belief and meaning</a></h2>
+<p>Assent to "Gavagai is nearby" can reflect both what the sentence means and what the
+speaker believes. If the sentence is translated as "A rabbit is nearby," dissent might
+show different belief; if translated differently, it may show semantic difference.</p>
+<p>Neither factor can be fixed first without using the other. Interpretation seeks the
+best joint assignment:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">anin</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">s</span><span class="mclose">⟩</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">intelligible pattern of speech and action</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>This holism distinguishes radical interpretation from decoding an already known code.</p>
+<h2 id="truth-theory"><a class="header" href="#truth-theory">Truth theory</a></h2>
+<p>Davidson proposes a finitely axiomatized Tarskian theory that entails interpretive
+T-sentences:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">“Snow is white” is true iff snow is white</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The recursive theory models compositional competence. Isolated materially true
+biconditionals are insufficient; the whole theory must fit use and derive correct
+interpretations systematically.</p>
+<p><a href="../05-meaning/03-truth-conditional-semantics.html">Truth-Conditional Semantics</a> develops
+the formal program.</p>
+<h2 id="charity"><a class="header" href="#charity">Charity</a></h2>
+<p>The interpreter favours assignments making speakers:</p>
+<ul>
+<li>broadly consistent;</li>
+<li>mostly correct about salient surroundings;</li>
+<li>responsive to evidence;</li>
+<li>capable of rational action;</li>
+<li>in agreement on enough background to locate disagreement.</li>
+</ul>
+<p>Charity is not politeness or a claim of infallibility. Without substantial shared truth,
+there is too little basis for identifying the speaker's words as beliefs about a common
+world.</p>
+<h2 id="principle-of-humanity"><a class="header" href="#principle-of-humanity">Principle of humanity</a></h2>
+<p>A more permissive principle interprets others as reasoning as we might reasonably
+expect given their circumstances, history, and values. It allows systematic differences
+without classifying them immediately as irrational.</p>
+<p>Charity emphasizes truth and coherence; humanity emphasizes intelligibility from the
+agent's point of view. Interpretation may balance both.</p>
+<h2 id="triangulation"><a class="header" href="#triangulation">Triangulation</a></h2>
+<p>Two creatures responding similarly are not yet using concepts. Davidson's
+<strong>triangulation</strong> involves:</p>
+<ol>
+<li>one speaker;</li>
+<li>another interpreter or speaker;</li>
+<li>a shared worldly cause.</li>
+</ol>
+<p>Each correlates the other's responses with common objects. Public correction and joint
+attention locate the source of error and establish objective reference.</p>
+<p>Triangulation connects language, social interaction, and world without reducing meaning
+to bare causal covariance.</p>
+<h2 id="error-and-disagreement"><a class="header" href="#error-and-disagreement">Error and disagreement</a></h2>
+<p>If charity makes speakers mostly correct, can it accommodate radical error? Local error
+is identified against a background of agreement. Systematic scientific or cultural
+differences can be interpreted where enough practical and observational structure is
+shared.</p>
+<p>The controversial claim is that total error about everything is unintelligible. A
+belief system must be mostly connected to its causes and norms to count as a belief
+system.</p>
+<p>Critics argue this defines deep disagreement away or makes truth too dependent on
+interpretability.</p>
+<h2 id="circularity"><a class="header" href="#circularity">Circularity</a></h2>
+<p>Interpretation uses semantic notions to explain semantic notions:</p>
+<ul>
+<li>truth theories require translation in the metalanguage;</li>
+<li>charity presupposes judgments of truth;</li>
+<li>identifying shared causes presupposes object individuation;</li>
+<li>rationality standards require interpretation.</li>
+</ul>
+<p>Davidson's response is holistic rather than reductive. Meaning, belief, truth, and
+action are mutually constrained; none is reduced independently to non-intentional facts.</p>
+<p>This is informative if the total pattern sharply restricts acceptable theories. It is
+empty if any behaviour can be rationalized after the fact.</p>
+<h2 id="indeterminacy"><a class="header" href="#indeterminacy">Indeterminacy</a></h2>
+<p>More than one truth theory may fit all evidence. Davidson can treat differences without
+explanatory consequences as not genuine differences in meaning.</p>
+<p>This response is less sceptical than Quine's. Charity, shared causes, and rationality
+provide constraints beyond stimulus dispositions. Whether they yield unique reference
+is considered in <a href="../06-reference/07-reference-indeterminacy.html">Reference Indeterminacy</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Radical interpretation establishes that assigning meaning is inseparable from treating
+speakers as rational agents in a shared world. Its strengths are compositionality,
+public evidence, and integration of belief with action.</p>
+<p>Its pressures are:</p>
+<ul>
+<li>idealizing rationality;</li>
+<li>culturally local standards;</li>
+<li>circularity;</li>
+<li>multiple fitting theories;</li>
+<li>difficulty with systematic error.</li>
+</ul>
+<p>The method is strongest as a constitutive constraint on interpretation, not an
+algorithm guaranteed to produce one translation manual.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/06-uptake-and-speech-act-failure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/10-interpretation/02-radical-translation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/06-uptake-and-speech-act-failure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/10-interpretation/02-radical-translation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

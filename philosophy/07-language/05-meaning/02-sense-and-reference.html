@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sense and Reference - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/02-sense-and-reference.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="sense-and-reference"><a class="header" href="#sense-and-reference">Sense and Reference</a></h1>
+<p>Two expressions can refer to the same thing without having the same cognitive
+significance. "Hesperus" and "Phosphorus" both name Venus, yet the discovery that
+Hesperus is Phosphorus was informative. If meaning were exhausted by reference, the
+identity would say no more than "Venus is Venus."</p>
+<p>Frege's distinction between <strong>sense</strong> (<em>Sinn</em>) and <strong>reference</strong> (<em>Bedeutung</em>) was
+designed to explain this difference while preserving compositional semantics. An
+expression's reference is what it stands for; its sense is the way that referent is
+presented. Sense determines reference without being reducible to a private image or an
+associated description.</p>
+<p>The distinction set the agenda for modern philosophy of language. It explains identity
+statements and substitution failure, but it also raises hard questions: what kind of
+thing is a sense, how fine-grained are senses, and do names contribute senses to
+truth-conditions at all?</p>
+<hr />
+<h2 id="the-identity-puzzle"><a class="header" href="#the-identity-puzzle">The identity puzzle</a></h2>
+<p>Compare:</p>
+<ol>
+<li>Hesperus is Hesperus.</li>
+<li>Hesperus is Phosphorus.</li>
+</ol>
+<p>Both are of the form <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>, and both are true because the names refer to Venus. The
+first is trivial for a competent speaker; the second was an empirical astronomical
+discovery. A purely referential semantics appears to assign them the same content.</p>
+<p>Frege's solution distinguishes:</p>
+<ul>
+<li><strong>reference:</strong> the object designated, Venus;</li>
+<li><strong>sense:</strong> the mode under which the object is presented.</li>
+</ul>
+<p>"Hesperus" presents Venus as the bright body visible in the evening; "Phosphorus"
+presents it as the bright body visible in the morning. The identity is informative
+because it connects two senses previously taken to determine different objects.</p>
+<p>The familiar descriptions illustrate the difference but need not be definitions of
+the names. A sense is intended to be an objective, shareable route to a referent, not
+whatever words one individual happens to associate with it.</p>
+<h2 id="sense-is-not-mental-imagery"><a class="header" href="#sense-is-not-mental-imagery">Sense is not mental imagery</a></h2>
+<p>Speakers can associate different images with the same expression and still understand
+one another. A mental image is:</p>
+<ul>
+<li>private to a subject;</li>
+<li>variable from occasion to occasion;</li>
+<li>often more detailed or less precise than linguistic content; and</li>
+<li>unavailable for many expressions, including logical vocabulary.</li>
+</ul>
+<p>Frege therefore located senses in neither the external object nor an individual's
+psychological episode. They are shareable contents available to different thinkers.
+This anti-psychologism explains communication but creates an ontological question:
+what are senses, and how do speakers stand in cognitive relations to them?</p>
+<p>The ontology of candidate contents is considered in
+<a href="../../04-ontology/08-abstracta/04-propositions.html">Propositions and Other Abstracta</a>.
+The semantic issue here is the role a sense would play whether construed as an
+abstract object, a structured content, or a theoretical relation.</p>
+<h2 id="the-reference-of-complete-sentences"><a class="header" href="#the-reference-of-complete-sentences">The reference of complete sentences</a></h2>
+<p>Frege extended the distinction compositionally. The reference of a complete
+declarative sentence is its truth value, <strong>the True</strong> or <strong>the False</strong>. Its sense is a
+<strong>thought</strong>: the truth-evaluable content expressed.</p>
+<p>This proposal can initially seem strange. Sentences appear to say that snow is white,
+not to name the object True. Frege's motivation is substitution. If a component is
+replaced by another with the same reference, the reference of the whole should remain
+unchanged. Replacing "Hesperus" by "Phosphorus" preserves the sentence's truth value,
+even when it changes cognitive significance.</p>
+<p>The view separates two jobs:</p>
+<ul>
+<li>reference supports extensional composition and truth-functional relations;</li>
+<li>sense carries what a thinker grasps and what an assertion presents as true.</li>
+</ul>
+<p>Later theories often retain this division while rejecting truth values as what
+sentences denote. They may treat sentences as expressing propositions or having
+truth-conditions directly.</p>
+<h2 id="compositionality-and-the-context-principle"><a class="header" href="#compositionality-and-the-context-principle">Compositionality and the context principle</a></h2>
+<p>Frege is associated with two principles that can pull in different directions.</p>
+<p>The <strong>principle of compositionality</strong> says that the sense of a complex expression is
+determined by the senses of its parts and their arrangement. It explains how finite
+speakers understand novel sentences.</p>
+<p>The <strong>context principle</strong> says never to ask for the meaning of a word in isolation, but
+only in the context of a proposition. It blocks the assumption that every meaningful
+word names an independently identifiable object.</p>
+<p>The principles are compatible if sentence context identifies the semantic role of each
+category while composition explains how those roles combine. The context principle
+constrains analysis; it need not make whole sentences semantically primitive.</p>
+<h2 id="substitution-in-ordinary-extensional-contexts"><a class="header" href="#substitution-in-ordinary-extensional-contexts">Substitution in ordinary extensional contexts</a></h2>
+<p>Leibniz's Law permits substitution of identicals without changing truth:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">∴</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>If Hesperus is Phosphorus, then "Hesperus is visible" and "Phosphorus is visible"
+cannot differ in truth merely because of the name used. Ordinary extensional contexts
+therefore appear sensitive to reference rather than sense.</p>
+<p>This is one reason direct-reference theorists argue that a name's semantic
+contribution is its bearer. Frege can agree about the reference of the whole while
+maintaining that the sentences express different thoughts because their components
+have different senses.</p>
+<p>Whether that difference belongs to semantic content, cognitive significance, or a
+pragmatic mode of presentation remains disputed.</p>
+<h2 id="belief-contexts-and-indirect-reference"><a class="header" href="#belief-contexts-and-indirect-reference">Belief contexts and indirect reference</a></h2>
+<p>Substitution can fail inside reports of thought:</p>
+<blockquote>
+<p>Leila believes that Hesperus appears in the evening.</p>
+</blockquote>
+<p>Leila may not believe:</p>
+<blockquote>
+<p>Leila believes that Phosphorus appears in the evening.</p>
+</blockquote>
+<p>The names co-refer, yet replacing one with the other can turn a true belief report
+false. Such contexts are <strong>intensional</strong> or <strong>opaque</strong>.</p>
+<p>Frege's proposal is that in indirect discourse an expression refers to its customary
+sense. The embedded name contributes its mode of presentation, because that is part of
+how the subject represents the object. The reference shift blocks substitution.</p>
+<p>The solution preserves compositionality but creates an apparent hierarchy. If an
+expression in ordinary use refers to an object and in indirect use refers to its
+sense, then reports about reports may require senses of senses. A general semantics
+must specify these shifts without an uncontrolled proliferation of entities.</p>
+<h2 id="empty-names"><a class="header" href="#empty-names">Empty names</a></h2>
+<p>What is the status of "Odysseus," "Vulcan," or "the present king of France" when
+nothing answers to the expression? If a name's meaning is only its bearer, reference
+failure threatens meaninglessness. A Fregean sense can remain available even when it
+determines no referent.</p>
+<p>This explains why speakers can understand and reason with an empty name. It does not
+by itself determine the truth value of every containing sentence. Frege sometimes
+allowed truth-value gaps and elsewhere proposed stipulating a conventional referent.
+Contemporary options include:</p>
+<ul>
+<li>gappy propositions;</li>
+<li>free logics without existential commitment from names;</li>
+<li>descriptive analyses;</li>
+<li>pretense or fictional operators; and</li>
+<li>abstract fictional artifacts as referents.</li>
+</ul>
+<p>The ontological consequences are developed in
+<a href="../../04-ontology/05-existence/04-negative-existentials.html">Negative Existentials and Empty Names</a>.</p>
+<h2 id="the-challenge-from-direct-reference"><a class="header" href="#the-challenge-from-direct-reference">The challenge from direct reference</a></h2>
+<p>Kripke's modal, epistemic, and semantic arguments challenge the idea that an ordinary
+description associated with a name gives its meaning.</p>
+<ul>
+<li><strong>Modal:</strong> Aristotle might not have taught Alexander, but the teacher of Alexander
+could not have failed to teach Alexander. The name and description behave
+differently across possibilities.</li>
+<li><strong>Epistemic:</strong> if "Gödel" meant <em>the prover of incompleteness</em>, "Gödel proved
+incompleteness" would appear knowable merely through competence. It is empirical.</li>
+<li><strong>Semantic:</strong> if Schmidt proved the theorem and Gödel stole it, ordinary uses of
+"Gödel" still refer to Gödel rather than whoever satisfies the description.</li>
+</ul>
+<p>Direct-reference theories conclude that a name contributes its bearer, fixed through a
+causal-historical chain rather than a descriptive sense. Because names are <strong>rigid
+designators</strong>, a true identity between names is necessary even when known a
+posteriori.</p>
+<p>These arguments are strongest against descriptive analyses of reference. They do not
+by themselves eliminate every notion of sense. A theorist may retain modes of
+presentation to explain cognition while denying that they determine reference or enter
+the proposition expressed.</p>
+<h2 id="fine-grained-senses"><a class="header" href="#fine-grained-senses">Fine-grained senses</a></h2>
+<p>How finely should senses be distinguished? If any expressions a rational speaker could
+fail to identify have different senses, distinctions proliferate. A person may know
+that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">12</span></span></span></span> but not recognize a complicated expression as denoting 12. Logically or
+necessarily equivalent sentences can differ greatly in cognitive value.</p>
+<p>Fine grain helps explain belief but creates problems:</p>
+<ul>
+<li>speakers may never share exactly the same sense;</li>
+<li>composition becomes difficult to state finitely;</li>
+<li>identity criteria for senses become obscure;</li>
+<li>communication may require only partial overlap; and</li>
+<li>semantic content begins to track every difference in reasoning.</li>
+</ul>
+<p>Coarser theories preserve shared content but must explain ignorance and discovery
+through something other than semantic difference: files, guises, acquaintance
+relations, mental representations, or pragmatic modes of presentation.</p>
+<h2 id="two-dimensional-approaches"><a class="header" href="#two-dimensional-approaches">Two-dimensional approaches</a></h2>
+<p>Two-dimensional semantics refines the Fregean intuition by associating expressions
+with two kinds of intension. Roughly:</p>
+<ul>
+<li>one dimension tracks how reference is fixed under different possible actual
+circumstances;</li>
+<li>another tracks the referent across counterfactual circumstances once the actual
+circumstance is fixed.</li>
+</ul>
+<p>The framework aims to represent both epistemic significance and modal rigidity. It can
+distinguish what a term picks out depending on which world is actual from what happens
+to its actual referent in counterfactual worlds.</p>
+<p>The approach is not a neutral translation of Frege. Different versions disagree about
+idealization, descriptivism, and whether the first dimension is genuinely semantic.
+Its importance is methodological: reference and cognitive significance need not be
+forced into a single undifferentiated value.</p>
+<h2 id="what-survives-frege"><a class="header" href="#what-survives-frege">What survives Frege</a></h2>
+<p>Few contemporary theories accept every part of Frege's system. Several lessons remain
+central:</p>
+<ol>
+<li>Reference alone does not transparently explain cognitive significance.</li>
+<li>Compositionality requires category-sensitive semantic values.</li>
+<li>Extensional and intensional contexts behave differently.</li>
+<li>Public content should not be identified with private imagery.</li>
+<li>A theory of reference and a theory of understanding may require different
+explanatory resources.</li>
+</ol>
+<p>The unresolved choice is whether sense belongs to public semantics, to a theory of
+thought, or to pragmatics and cognitive architecture. Direct reference makes the
+world-link clearer; Fregean structure makes differences in presentation clearer. A
+complete theory must account for both without merely naming the missing half.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/01-what-is-meaning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/03-truth-conditional-semantics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/01-what-is-meaning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/03-truth-conditional-semantics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

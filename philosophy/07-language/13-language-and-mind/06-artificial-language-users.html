@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Artificial Language Users - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/13-language-and-mind/06-artificial-language-users.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="artificial-language-users"><a class="header" href="#artificial-language-users">Artificial Language Users</a></h1>
+<p>Artificial systems can generate grammatical text, answer questions, translate, use
+context, and adapt to feedback. These capacities are genuine achievements. They do not
+by themselves settle whether a system communicates as a speaker, refers
+independently, understands, possesses original intentionality, or is conscious.</p>
+<p>The distinctions developed throughout this section provide a graded assessment rather
+than a single language-use threshold.</p>
+<hr />
+<h2 id="six-questions"><a class="header" href="#six-questions">Six questions</a></h2>
+<p>For an artificial system, ask separately:</p>
+<ol>
+<li>Does output conform to a public language?</li>
+<li>Does it compositionally generalize?</li>
+<li>Does it track context and discourse?</li>
+<li>Does it refer through world-involving relations?</li>
+<li>Does it have communicative intentions and commitments?</li>
+<li>Does it possess mental or phenomenal understanding?</li>
+</ol>
+<p>Evidence for one does not automatically establish the next.</p>
+<h2 id="public-sentence-meaning"><a class="header" href="#public-sentence-meaning">Public sentence meaning</a></h2>
+<p>An output can have ordinary English meaning because it is interpreted within English
+conventions. This does not require that every producing mechanism independently
+originate the meaning.</p>
+<p>Books and signs have derived content; their sentences remain meaningful. The question
+about the system is whether it also participates as an agent.</p>
+<h2 id="compositional-competence"><a class="header" href="#compositional-competence">Compositional competence</a></h2>
+<p>Novel combination, systematic substitution, scope sensitivity, and counterfactual
+generalization support genuine structural competence.</p>
+<p>Memorization and contamination are alternative explanations for isolated successes.
+Robust tests vary form, content, and context while preserving structure.</p>
+<h2 id="reference-and-grounding"><a class="header" href="#reference-and-grounding">Reference and grounding</a></h2>
+<p>Reference can depend on:</p>
+<ul>
+<li>training history;</li>
+<li>interaction with users;</li>
+<li>sensors and action;</li>
+<li>tool use;</li>
+<li>social deference;</li>
+<li>correction.</li>
+</ul>
+<p>Textual training already connects indirectly to human practices, but autonomous
+world-directed reference may require stable use across perception, action, and
+intervention.</p>
+<p>The general grounding debate is in
+<a href="../../06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html">The Chinese Room and Symbol
+Grounding</a>.</p>
+<h2 id="speaker-meaning"><a class="header" href="#speaker-meaning">Speaker meaning</a></h2>
+<p>Gricean speaker meaning requires recognizable communicative intention. A system
+optimized to predict text may produce useful messages without representing an audience
+or intending uptake.</p>
+<p>More agentic systems may:</p>
+<ul>
+<li>model users;</li>
+<li>maintain goals;</li>
+<li>choose utterances to inform;</li>
+<li>monitor misunderstanding;</li>
+<li>repair communication.</li>
+</ul>
+<p>These functions provide evidence of speaker-like intention without proving
+consciousness.</p>
+<h2 id="commitment-and-assertion"><a class="header" href="#commitment-and-assertion">Commitment and assertion</a></h2>
+<p>Fluent declaratives need not be assertions if the system cannot undertake commitments,
+track reasons, or distinguish report from simulation.</p>
+<p>Evidence for assertoric agency includes:</p>
+<ul>
+<li>stable endorsement;</li>
+<li>citation of grounds;</li>
+<li>retraction under defeat;</li>
+<li>consistency across contexts;</li>
+<li>calibrated uncertainty;</li>
+<li>accountability within an interaction.</li>
+</ul>
+<p>System design and institutional use can distribute responsibility among developers,
+operators, and system.</p>
+<h2 id="understanding"><a class="header" href="#understanding">Understanding</a></h2>
+<p>Understanding can be assessed through abilities:</p>
+<ul>
+<li>explain and apply;</li>
+<li>infer flexibly;</li>
+<li>translate;</li>
+<li>identify ambiguity;</li>
+<li>correct errors;</li>
+<li>connect words to action;</li>
+<li>learn new concepts.</li>
+</ul>
+<p>The Chinese Room challenges sufficiency of formal performance. Systems and robot replies
+emphasize whole architecture and grounding.</p>
+<p>No behavioural test is conclusive, but behaviour is not irrelevant. Attribution should
+use convergent evidence.</p>
+<h2 id="original-and-derived-intentionality"><a class="header" href="#original-and-derived-intentionality">Original and derived intentionality</a></h2>
+<p>If system content depends entirely on human interpretation, it is derived. Functional,
+teleological, and social theories may allow original content when a system uses
+representations for its own control and correction.</p>
+<p>The boundary can be gradual. Human content also depends on learning and community; mere
+causal origin in designers is not decisive.</p>
+<h2 id="consciousness"><a class="header" href="#consciousness">Consciousness</a></h2>
+<p>Semantic competence and consciousness are distinct. A system might understand
+functionally without phenomenal experience, or experience without linguistic mastery.</p>
+<p>The evidence and theories for machine consciousness remain in
+<a href="../../06-mind/13-nonhuman-minds/02-machine-minds.html">Machine Minds</a> and
+<a href="../../06-mind/13-nonhuman-minds/04-artificial-consciousness.html">Artificial Consciousness</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Avoid two shortcuts:</p>
+<ul>
+<li>fluent text proves full mentality;</li>
+<li>artificial origin makes understanding impossible.</li>
+</ul>
+<p>A responsible assessment specifies the target capacity and evidence:</p>
+<div class="table-wrapper"><table><thead><tr><th>Target</th><th>Relevant evidence</th></tr></thead><tbody>
+<tr><td>Linguistic competence</td><td>systematic novel use</td></tr>
+<tr><td>Context sensitivity</td><td>discourse tracking and repair</td></tr>
+<tr><td>Reference</td><td>stable world-involving correction</td></tr>
+<tr><td>Communication</td><td>audience modelling and goal-directed utterance</td></tr>
+<tr><td>Understanding</td><td>integrated inference, explanation, and application</td></tr>
+<tr><td>Agency</td><td>persistent goals and commitments</td></tr>
+<tr><td>Consciousness</td><td>theory-relative architectural and behavioural evidence</td></tr>
+</tbody></table>
+</div>
+<p>Artificial language use is a test case for theories of meaning, not a reason to collapse
+language, mind, agency, and experience into one label.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/13-language-and-mind/05-understanding-and-competence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/14-domains-and-applications/01-scientific-language.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/13-language-and-mind/05-understanding-and-competence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/14-domains-and-applications/01-scientific-language.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

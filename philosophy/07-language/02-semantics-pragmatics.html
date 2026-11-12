@@ -1,0 +1,435 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Semantics and Pragmatics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/02-semantics-pragmatics.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="semantics-and-pragmatics"><a class="header" href="#semantics-and-pragmatics">Semantics and Pragmatics</a></h1>
+<p>An utterance normally communicates more than a dictionary and grammar appear to put
+into its sentence. If someone says "Some of the guests arrived," listeners often infer
+that not all arrived. If a person at a dinner table asks "Can you pass the salt?", the
+utterance normally functions as a request rather than an inquiry into muscular
+capacity. If someone says "She is ready," the content remains incomplete until the
+conversation identifies both the person and what she is ready for.</p>
+<p>These cases motivate a distinction between <strong>semantics</strong>, the relatively stable
+contribution made by linguistic expressions and their arrangement, and <strong>pragmatics</strong>,
+the contribution of context, communicative intentions, shared assumptions, and
+inference. The distinction is indispensable, but its boundary is contested. Some
+context dependence is conventionally encoded; some is freely inferred; and disputed
+cases lie between.</p>
+<p>This page supplies a working map rather than a dogmatic partition. The following page
+compares broader <a href="03-theories-overview.html">theories of meaning</a>.
+Dedicated treatments develop <a href="08-pragmatics/01-speaker-meaning.html">speaker meaning</a>,
+<a href="08-pragmatics/02-conversational-implicature.html">conversational implicature</a>,
+<a href="08-pragmatics/03-presupposition.html">presupposition</a>,
+<a href="08-pragmatics/04-context-and-conversation.html">context and conversation</a>, and
+<a href="08-pragmatics/07-semantics-pragmatics-boundary.html">the disputed boundary</a>.</p>
+<hr />
+<h2 id="from-expression-to-communication"><a class="header" href="#from-expression-to-communication">From expression to communication</a></h2>
+<p>At least four notions of meaning should be separated.</p>
+<p><strong>Expression meaning</strong> is the conventional contribution associated with a word or
+construction in a language. The English word "and" differs from "or" even before
+either appears in a particular utterance.</p>
+<p><strong>Sentence meaning</strong> is the structured result of combining expression meanings
+according to syntax. An ambiguous sentence may have more than one such result.</p>
+<p><strong>Utterance content</strong> is what a sentence says on an occasion after context resolves
+relevant parameters. An utterance of "I am tired" concerns its speaker, not every
+possible user of "I."</p>
+<p><strong>Speaker meaning</strong> is what a speaker overtly intends an audience to recognize. It may
+include, but can exceed or depart from, utterance content. Sarcasm, hints, indirect
+requests, and deliberate ambiguity rely on this gap.</p>
+<p>A fifth category, <strong>communicative effect</strong>, concerns what an utterance actually causes.
+A warning may fail to warn, an accidental remark may offend, and a misunderstood
+instruction may still alter behaviour. Effect is neither semantic content nor
+intention.</p>
+<h2 id="a-provisional-distinction"><a class="header" href="#a-provisional-distinction">A provisional distinction</a></h2>
+<p>A useful starting point is:</p>
+<blockquote>
+<p><strong>Semantics</strong> studies conventional and compositionally determined content;
+<strong>pragmatics</strong> studies how interpreters use context and communicative reasoning to
+recover or enrich what a speaker conveys.</p>
+</blockquote>
+<p>This formulation is provisional for three reasons.</p>
+<p>First, semantics itself can be context-sensitive. Words such as "I," "here," and
+"today" conventionally instruct an interpreter to retrieve a speaker, place, or time
+from context. Contextual input does not automatically make a phenomenon pragmatic.</p>
+<p>Second, not every stable contribution affects truth-conditions. A conventional marker
+might indicate tone, evidential status, or discourse structure. Semantics cannot be
+identified without remainder with truth-conditional content.</p>
+<p>Third, pragmatic processes can appear necessary to obtain any complete proposition.
+"It is raining" is normally understood as raining at a contextually relevant place,
+although English contains no overt place expression. Whether the place is an
+unpronounced semantic variable or a pragmatic enrichment is a central dispute.</p>
+<p>The boundary should therefore be drawn by explanatory role, not by the slogan that
+semantics is context-free and pragmatics is contextual.</p>
+<h2 id="encoded-context-sensitivity"><a class="header" href="#encoded-context-sensitivity">Encoded context sensitivity</a></h2>
+<p>Indexicals provide the clearest case. A simple framework distinguishes <strong>character</strong>
+from <strong>content</strong>:</p>
+<ul>
+<li>the character of "I" is a rule that maps a context to its speaker;</li>
+<li>the content of "I" in a particular context is that speaker.</li>
+</ul>
+<p>The expression has a stable linguistic rule even though its referent varies. Similar
+rules apply, with complications, to "here," "now," "today," demonstratives such as
+"that," and tense.</p>
+<p>The distinction also separates the <strong>context of utterance</strong> from the
+<strong>circumstance of evaluation</strong>. "I am in Paris" as uttered by Ada in London concerns
+Ada because the utterance context fixes the speaker. It can then be evaluated relative
+to different possible circumstances when embedded under modality: Ada might have been
+in Paris. Changing the possible world of evaluation does not change who "I" referred
+to in the original utterance.</p>
+<p>Not all context-sensitive expressions behave as mechanically as "I." A demonstrative
+may depend on attention, gesture, salience, or speaker intention. Gradable adjectives
+such as "tall" require a comparison class and standard. Quantifiers often range over a
+contextually restricted domain. These cases ask how much contextual structure grammar
+encodes.</p>
+<h2 id="conversational-implicature"><a class="header" href="#conversational-implicature">Conversational implicature</a></h2>
+<p>Suppose a teacher says:</p>
+<blockquote>
+<p>Some students passed.</p>
+</blockquote>
+<p>Listeners commonly infer:</p>
+<blockquote>
+<p>Not all students passed.</p>
+</blockquote>
+<p>Yet the original claim is logically compatible with every student passing. The extra
+message is a standard example of <strong>conversational implicature</strong>. On a Gricean account,
+hearers assume that the speaker is cooperating and has made an appropriately
+informative contribution. If the speaker knew all passed, saying only "some" would be
+unexpected; hearers infer that the stronger claim is not available.</p>
+<p>Several diagnostics support a pragmatic treatment:</p>
+<ul>
+<li><strong>cancellability:</strong> "Some students passed - in fact, all did" is not contradictory;</li>
+<li><strong>reinforceability:</strong> "Some, but not all, passed" can state explicitly what was
+otherwise implied;</li>
+<li><strong>context dependence:</strong> where only some students were expected to pass, the same
+words may not carry the same inference;</li>
+<li><strong>calculability:</strong> the inference can be reconstructed from sentence content,
+alternatives, context, and conversational expectations.</li>
+</ul>
+<p>These are tendencies rather than infallible tests. Conventional implications can
+sometimes be denied metalinguistically, and familiar pragmatic inferences can become
+regular enough to look encoded. Evidence must come from patterns across constructions
+and contexts. The tests and scalar case are developed in
+<a href="08-pragmatics/02-conversational-implicature.html">Conversational Implicature</a>.</p>
+<h2 id="presupposition"><a class="header" href="#presupposition">Presupposition</a></h2>
+<p>Consider:</p>
+<blockquote>
+<p>Sam stopped smoking.</p>
+</blockquote>
+<p>The sentence normally presents Sam's prior smoking as background. That information
+tends to survive under several operators:</p>
+<ul>
+<li>Sam did not stop smoking.</li>
+<li>Did Sam stop smoking?</li>
+<li>Perhaps Sam stopped smoking.</li>
+</ul>
+<p>This <strong>projection</strong> distinguishes the background assumption from the main asserted
+content. If listeners did not already accept that Sam smoked, they may
+<strong>accommodate</strong> it by adding it to the conversational background.</p>
+<p>Presupposition straddles the semantics-pragmatics boundary. A semantic theory may give
+a trigger special definedness conditions or a partial truth value. A pragmatic theory
+may explain the effect through expectations about common ground and speaker
+commitment. Dynamic theories model sentence meanings as updates to an information
+state, allowing semantic composition and conversational change to interact.</p>
+<p>No one diagnostic settles the classification. Projection can be filtered:</p>
+<blockquote>
+<p>If Sam used to smoke, then he has stopped smoking.</p>
+</blockquote>
+<p>Here the antecedent supplies the background information, so the whole conditional need
+not presuppose it. Any adequate account must explain both persistence and filtering;
+see <a href="08-pragmatics/03-presupposition.html">Presupposition</a>.</p>
+<h2 id="speech-acts-and-force"><a class="header" href="#speech-acts-and-force">Speech acts and force</a></h2>
+<p>Sentences do not merely describe. Speakers assert, ask, command, promise, apologize,
+name, warn, and consent. <strong>Illocutionary force</strong> is the kind of act performed in
+uttering meaningful words.</p>
+<p>Grammatical mood and force often align:</p>
+<ul>
+<li>declarative form with assertion;</li>
+<li>interrogative form with questioning;</li>
+<li>imperative form with ordering or requesting.</li>
+</ul>
+<p>But the alignment is not identity. "Can you open the window?" is grammatically
+interrogative and literally concerns ability, yet convention and context normally
+make it an indirect request. "You will submit the form today" can function as a
+prediction, command, or threat. Identifying truth-conditional content does not by
+itself identify the act.</p>
+<p>Speech acts also depend on standing and circumstances. A promise requires an
+undertaking; a verdict requires institutional authority; a warning requires an
+appropriate danger and communicative orientation. Uptake may matter to whether an act
+succeeds. These are pragmatic and normative conditions, although they can become
+conventional features of constructions. The full framework begins with
+<a href="09-speech-acts/01-doing-things-with-words.html">Doing Things with Words</a>, followed by
+<a href="09-speech-acts/02-assertion.html">Assertion and Its Norms</a> and
+<a href="09-speech-acts/06-uptake-and-speech-act-failure.html">Uptake and Speech-Act Failure</a>.</p>
+<h2 id="three-positions-on-the-boundary"><a class="header" href="#three-positions-on-the-boundary">Three positions on the boundary</a></h2>
+<p><strong>Semantic minimalism</strong> holds that a sentence, after values are supplied for a
+relatively short list of grammatically controlled context-sensitive elements,
+expresses a minimal proposition. Further enrichment belongs to communication rather
+than semantics. The view protects a stable semantic core but may produce contents far
+removed from what speakers intuitively say.</p>
+<p><strong>Indexicalism</strong> allows more hidden or overt variables in logical form. Apparent free
+enrichment is semantic because context supplies values to grammatically represented
+slots. The challenge is to provide evidence for the proposed variables rather than
+adding one whenever content appears incomplete.</p>
+<p><strong>Contextualism</strong> allows pragmatic processes to help determine truth-conditional
+content even without a syntactically represented variable. The view tracks ordinary
+judgments about what was said but risks weakening compositional constraints and making
+semantic content difficult to distinguish from everything conveyed.</p>
+<p>The dispute is not merely terminological. It concerns what speakers know when they know
+a language, which aspects of interpretation grammar constrains, how communication
+succeeds, and which regularities a formal theory should encode. The competing views
+are assessed in <a href="08-pragmatics/07-semantics-pragmatics-boundary.html">The Semantics-Pragmatics
+Boundary</a>.</p>
+<h2 id="a-layered-working-model"><a class="header" href="#a-layered-working-model">A layered working model</a></h2>
+<p>Until individual phenomena force revision, the section uses the following sequence:</p>
+<pre class="mermaid">graph LR
+  E[Expression meanings] --&gt; C[Compositional sentence meaning]
+  C --&gt; X[Contextually determined content]
+  X --&gt; F[Illocutionary force]
+  X --&gt; I[Pragmatically inferred content]
+  F --&gt; U[Audience uptake and effects]
+  I --&gt; U
+</pre>
+<p>The arrows do not imply a strictly serial psychological process. They mark explanatory
+dependencies. Conventional meanings constrain composition; context helps determine
+what is said; force and inference shape what is communicated; uptake and effects
+depend on an audience.</p>
+<p>The model also leaves room for feedback. Expectations about a speech act can guide
+disambiguation, and discourse context changes after each contribution. Later pages
+will refine these interactions. For now, its main value is negative: it prevents
+truth-conditions, speaker intentions, force, implications, and effects from collapsing
+into one undifferentiated notion of meaning.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/07-language/01-introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/07-language/03-theories-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/07-language/01-introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/07-language/03-theories-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

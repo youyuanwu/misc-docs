@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Natural-Kind Terms and Semantic Externalism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/05-natural-kind-terms.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="natural-kind-terms-and-semantic-externalism"><a class="header" href="#natural-kind-terms-and-semantic-externalism">Natural-Kind Terms and Semantic Externalism</a></h1>
+<p>"Water," "gold," "tiger," and "electron" appear to classify things independently of
+what any one speaker believes. A person can competently use "gold" while being unable
+to distinguish it from pyrite, and a community can discover that many beliefs about a
+kind were false without concluding that it had always spoken about something else.</p>
+<p>Kripke and Putnam use these cases to argue that reference is not fixed solely by
+descriptions in a speaker's head. Natural-kind terms depend on historical contact with
+samples, environmental facts, and a division of linguistic labour. This is <strong>semantic
+externalism</strong>.</p>
+<p>The semantic thesis must be separated from a stronger metaphysical thesis. Externalism
+can hold even if kinds have complex, interest-sensitive, or cluster-based structures.
+The ontology of kinds is examined in
+<a href="../../04-ontology/07-particulars/06-natural-kinds.html">Natural Kinds</a>; this page asks
+how the terms refer.</p>
+<hr />
+<h2 id="descriptive-identification"><a class="header" href="#descriptive-identification">Descriptive identification</a></h2>
+<p>Before modern chemistry, speakers identified water through features such as:</p>
+<ul>
+<li>clear;</li>
+<li>drinkable;</li>
+<li>fills lakes and rivers;</li>
+<li>falls as rain;</li>
+<li>freezes and boils in familiar ways.</li>
+</ul>
+<p>A descriptive theory says "water" refers to whatever satisfies an associated
+description or cluster. The account explains how speakers recognize and communicate
+about samples.</p>
+<p>But superficial descriptions can be satisfied by a different substance, and many
+speakers possess incomplete or false criteria. Scientific discovery appears to reveal
+what water is rather than change the word to a wholly new subject.</p>
+<p>This motivates a distinction between:</p>
+<ul>
+<li><strong>stereotype or mode of presentation:</strong> features ordinary speakers associate with
+the term;</li>
+<li><strong>reference:</strong> the kind to which the practice is historically and environmentally
+connected.</li>
+</ul>
+<p>The stereotype guides identification without necessarily determining extension.</p>
+<h2 id="twin-earth"><a class="header" href="#twin-earth">Twin Earth</a></h2>
+<p>Putnam imagines a planet matching Earth in ordinary appearances and speaker psychology
+around 1750. The liquid in its lakes and taps behaves like water but has a different
+chemical structure, abbreviated XYZ.</p>
+<p>Oscar on Earth and Twin Oscar on Twin Earth are intrinsic duplicates. Each says:</p>
+<blockquote>
+<p>Water is wet.</p>
+</blockquote>
+<p>Putnam's judgment is:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord"><span class="mord text"><span class="mord">water</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mpunct">,</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord"><span class="mord text"><span class="mord">water</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">Tw</span><span class="mord mathnormal mtight">in</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mord">.</span></span></span></span></span></p>
+<p>Their terms differ in extension despite identical internal states and associated
+descriptions. As Putnam summarizes the result, "'meanings' just ain't in the head"
+("The Meaning of 'Meaning'," 1975).</p>
+<p>The case directly supports externalism about public linguistic reference. Extending it
+to mental content requires an additional claim that the content of thought inherits
+the linguistic or world-involving concept. That debate remains in
+<a href="../../06-mind/07-intentionality/02-internalism-and-externalism.html">Internalism and Externalism about Mental
+Content</a>.</p>
+<h2 id="ostension-and-samples"><a class="header" href="#ostension-and-samples">Ostension and samples</a></h2>
+<p>A natural-kind term may be introduced roughly as:</p>
+<blockquote>
+<p>Let "water" apply to this liquid and other samples of the same kind.</p>
+</blockquote>
+<p>The phrase <strong>same kind</strong> is crucial. Ostension alone underdetermines whether the term
+tracks:</p>
+<ul>
+<li>the sample;</li>
+<li>its colour;</li>
+<li>its chemical composition;</li>
+<li>a functional category such as drinkable liquid;</li>
+<li>a phase such as liquid water;</li>
+<li>a local source; or</li>
+<li>an arbitrary disjunction.</li>
+</ul>
+<p>Reference fixing presupposes classificatory intentions and a surrounding practice of
+induction and correction. Externalism is not bare causal contact.</p>
+<p>Later science can refine what sameness relation best explains the practice. That
+refinement may be discovery, conceptual revision, or both.</p>
+<h2 id="division-of-linguistic-labour"><a class="header" href="#division-of-linguistic-labour">Division of linguistic labour</a></h2>
+<p>Ordinary speakers cannot identify elms, aluminium, arthritis, or many chemical
+substances by expert criteria. They defer to specialists and to the wider linguistic
+community.</p>
+<p>Putnam's <strong>division of linguistic labour</strong> says that competence can be distributed:</p>
+<ul>
+<li>ordinary speakers know enough stereotype and syntax to participate;</li>
+<li>experts possess more reliable identification methods;</li>
+<li>institutions preserve samples, tests, and taxonomies;</li>
+<li>historical chains transmit the term; and</li>
+<li>the community jointly sustains reference.</li>
+</ul>
+<p>This explains partial understanding without making every speaker's idiosyncratic
+beliefs meaning-constitutive.</p>
+<p>Deference is not unlimited. Speakers can reject purported experts, communities can
+contain rival classifications, and technical uses can diverge from ordinary ones. A
+theory must identify which practice a use participates in rather than appeal vaguely to
+"the community."</p>
+<h2 id="social-externalism"><a class="header" href="#social-externalism">Social externalism</a></h2>
+<p>Burge's arthritis case shows externalism without a natural kind in the simple chemical
+sense. A patient believes arthritis can occur in the thigh. In the actual community,
+"arthritis" is restricted to joint inflammation, so the belief is false. In a
+counterfactual community where the same word covers joint and muscle ailments, an
+intrinsic duplicate would express a different concept.</p>
+<p>Content depends partly on communal norms and expert use. Error is possible because a
+speaker can incompletely understand a term while deferring to a practice.</p>
+<p>The mechanism differs from environmental externalism:</p>
+<ul>
+<li><strong>environmental:</strong> reference depends on substances or kinds causally encountered;</li>
+<li><strong>social:</strong> reference depends on a community's division of labour and standards.</li>
+</ul>
+<p>Many scientific terms involve both.</p>
+<h2 id="rigidity"><a class="header" href="#rigidity">Rigidity</a></h2>
+<p>Kripke extends rigid designation from names to natural-kind terms. If "water" rigidly
+designates the kind water, it picks out that kind in every possible world where the
+kind exists.</p>
+<p>In a counterfactual world where lakes contain XYZ, the liquid is not water even if it
+looks and functions like water. Conversely, water remains <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> under unusual
+appearances or environmental conditions.</p>
+<p>This differs from a description such as:</p>
+<blockquote>
+<p>the clear drinkable liquid filling local lakes.</p>
+</blockquote>
+<p>That description can select different substances in different worlds. The term and
+description therefore have different modal profiles.</p>
+<p>Rigidity is a semantic claim about designation across counterfactual evaluation. It
+does not by itself identify the essence of the kind.</p>
+<h2 id="necessary-a-posteriori-identities"><a class="header" href="#necessary-a-posteriori-identities">Necessary a posteriori identities</a></h2>
+<p>If "water" rigidly designates water and "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>" rigidly designates the chemical kind
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, then the discovered identity:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord text"><span class="mord">water</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span></span></p>
+<p>is necessary if true. The discovery is a posteriori because empirical investigation
+was needed to learn that the two terms co-refer.</p>
+<p>The argument has two stages:</p>
+<ol>
+<li><strong>Semantic:</strong> establish that the terms rigidly designate the same kind.</li>
+<li><strong>Metaphysical:</strong> apply the necessity of identity.</li>
+</ol>
+<p>Neither stage is supplied by chemistry alone. Chemistry provides structural facts and
+explanatory success. The claim that the ordinary term rigidly targets exactly that kind
+requires semantic and metaphysical premises.</p>
+<p>The complexities of water, isotopes, mixtures, and scientific classification are
+discussed in <a href="../../04-ontology/07-particulars/06-natural-kinds.html">Natural Kinds</a> and
+<a href="../../A-remarks/04-necessity-and-metaphysics.html">Necessity and Metaphysics</a>.</p>
+<h2 id="externalism-without-simple-essences"><a class="header" href="#externalism-without-simple-essences">Externalism without simple essences</a></h2>
+<p>Externalism does not require every kind to have one microstructural essence. A term
+could be externally anchored to:</p>
+<ul>
+<li>a homeostatic property cluster;</li>
+<li>an evolutionary lineage;</li>
+<li>a functional kind;</li>
+<li>a historically continuous practice;</li>
+<li>a plural scientific category; or</li>
+<li>a family of context-sensitive classifications.</li>
+</ul>
+<p>"Tiger" may track a biological lineage rather than a list of intrinsic properties.
+"Disease" may combine causal, functional, and evaluative dimensions. "Jade" divided
+into jadeite and nephrite when inquiry showed two structures under one ordinary label.</p>
+<p>These cases can produce <strong>reference refinement</strong> or <strong>reference splitting</strong> rather than
+the discovery of one hidden essence.</p>
+<p>The externalist core is that reference is not exhausted by individual conception. It
+can survive a more plural metaphysics of kinds.</p>
+<h2 id="qua-problem-and-interest"><a class="header" href="#qua-problem-and-interest">Qua problem and interest</a></h2>
+<p>Any sample instantiates indefinitely many properties. Why does a baptism target
+molecular composition rather than appearance, origin, function, or an arbitrary
+disjunction?</p>
+<p>Answers appeal to:</p>
+<ul>
+<li>explicit classificatory intention;</li>
+<li>explanatory and inductive practice;</li>
+<li>scientific investigation;</li>
+<li>naturalness or joint-carving;</li>
+<li>biological or practical interests; and</li>
+<li>later communal stabilization.</li>
+</ul>
+<p>If naturalness alone selects the referent, metasemantics depends on a substantive
+metaphysics of privileged properties. If interests alone select it, reference may
+become too relative. Most accounts combine world structure with the purposes of the
+classification.</p>
+<h2 id="reference-change-through-science"><a class="header" href="#reference-change-through-science">Reference change through science</a></h2>
+<p>Scientific inquiry sometimes preserves a term while revising belief:</p>
+<ul>
+<li>whales cease to count as fish in technical taxonomy;</li>
+<li>combustion is explained without phlogiston;</li>
+<li>atoms turn out to have internal structure;</li>
+<li>genes receive changing molecular and functional analyses.</li>
+</ul>
+<p>Was the old term always about the later referent, did reference change, or did the term
+fail to refer?</p>
+<p>Factors include:</p>
+<ul>
+<li>continuity of samples and explanatory role;</li>
+<li>degree of preserved inferential practice;</li>
+<li>explicit decisions by specialists;</li>
+<li>whether the old theory uniquely targeted anything;</li>
+<li>success of retrospective interpretation; and</li>
+<li>practical interests of historical inquiry.</li>
+</ul>
+<p>Causal continuity prevents every theory revision from changing the subject, but it
+does not guarantee reference through radical failure.</p>
+<h2 id="competence-and-stereotype"><a class="header" href="#competence-and-stereotype">Competence and stereotype</a></h2>
+<p>Putnam distinguishes knowing a term's full extension from possessing enough competence
+to use it. Ordinary competence may require:</p>
+<ul>
+<li>command of grammatical category;</li>
+<li>a socially recognized stereotype;</li>
+<li>ability to defer appropriately;</li>
+<li>participation in relevant correction practices; and</li>
+<li>intention to use the community's term.</li>
+</ul>
+<p>This permits semantic division of labour without saying that any noise copied from an
+expert is competent use.</p>
+<p>Stereotypes remain important to cognition and communication. "Water" evokes ordinary
+features that help speakers identify and discuss it. Externalism denies only that the
+individual stereotype fully fixes reference.</p>
+<h2 id="self-knowledge-and-transparency"><a class="header" href="#self-knowledge-and-transparency">Self-knowledge and transparency</a></h2>
+<p>A speaker may know:</p>
+<blockquote>
+<p>I am thinking that water is wet.</p>
+</blockquote>
+<p>without knowing that water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> or even whether their environment is Earth or Twin
+Earth. Externalism distinguishes knowing one's thought from knowing the facts that fix
+its content.</p>
+<p>The distinction preserves ordinary first-person authority but makes semantic knowledge
+less transparent. A person can be wrong about the extension, history, or expert norms
+partly constituting their words.</p>
+<p>This is unsurprising for public language: speakers routinely use inherited terms whose
+full criteria they do not know. The sharper mental-content problem is treated in the
+mind section.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Claim</th><th>Support</th><th>Pressure</th></tr></thead><tbody>
+<tr><td>Environment partly fixes reference</td><td>Twin Earth and sample-based introduction</td><td>qua problem and interest-relativity</td></tr>
+<tr><td>Community partly fixes competence</td><td>division of linguistic labour</td><td>contested experts and multiple communities</td></tr>
+<tr><td>Kind terms are rigid</td><td>modal difference from descriptions</td><td>assumes stable cross-world kind identity</td></tr>
+<tr><td>Identities can be necessary a posteriori</td><td>rigidity plus necessity of identity</td><td>exact scientific and semantic reading</td></tr>
+<tr><td>Error can coexist with competence</td><td>deference and partial understanding</td><td>threshold for genuine participation</td></tr>
+<tr><td>Reference can survive theory change</td><td>causal and social continuity</td><td>failed posits, splitting, and radical revision</td></tr>
+</tbody></table>
+</div>
+<p>Semantic externalism convincingly shows that individual descriptions do not exhaust
+reference. Its strongest defensible conclusion is relational: natural-kind terms are
+fixed through interactions among speakers, communities, historical chains, samples,
+and structured reality. Which factor dominates varies across terms, and no semantic
+slogan by itself supplies a universal metaphysics of kinds.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/04-empty-names.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/06-indexicals-demonstratives.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/04-empty-names.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/06-indexicals-demonstratives.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

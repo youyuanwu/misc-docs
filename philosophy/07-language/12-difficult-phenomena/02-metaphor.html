@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Metaphor and Non-Literal Meaning - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/12-difficult-phenomena/02-metaphor.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="metaphor-and-non-literal-meaning"><a class="header" href="#metaphor-and-non-literal-meaning">Metaphor and Non-Literal Meaning</a></h1>
+<p>"Juliet is the sun" does not classify Juliet as a star. "The argument collapsed"
+applies spatial language to reasoning. Metaphor can communicate determinate insights
+without a literal paraphrase that exhausts them.</p>
+<p>Theories treat metaphor as abbreviated comparison, semantic interaction, pragmatic
+speaker meaning, relevance-guided concept construction, or a cognitive mapping across
+domains. The cases range from novel literary metaphors to dead expressions whose
+figurative origins are no longer noticed.</p>
+<hr />
+<h2 id="literal-and-metaphorical-content"><a class="header" href="#literal-and-metaphorical-content">Literal and metaphorical content</a></h2>
+<p>A metaphor uses an expression outside its ordinary application to invite a related
+interpretation. It should be distinguished from:</p>
+<ul>
+<li>literal polysemy;</li>
+<li>idiom;</li>
+<li>hyperbole;</li>
+<li>irony;</li>
+<li>metonymy;</li>
+<li>analogy.</li>
+</ul>
+<p>Boundaries shift as uses conventionalize. "The foot of the mountain" may now be an
+ordinary lexical sense rather than an active metaphor.</p>
+<h2 id="comparison-theories"><a class="header" href="#comparison-theories">Comparison theories</a></h2>
+<p>A comparison view analyses:</p>
+<blockquote>
+<p>Juliet is the sun</p>
+</blockquote>
+<p>as roughly:</p>
+<blockquote>
+<p>Juliet is like the sun in relevant respects.</p>
+</blockquote>
+<p>This explains similarities but underdetermines which respects matter. Every pair of
+objects resembles in indefinitely many ways.</p>
+<p>Metaphor can also create rather than report perceived similarity. Calling a theory a
+"building" organizes attention around foundations, support, and collapse.</p>
+<h2 id="substitution-theories"><a class="header" href="#substitution-theories">Substitution theories</a></h2>
+<p>A substitution account replaces the metaphorical expression with a literal one:</p>
+<blockquote>
+<p>The argument collapsed</p>
+</blockquote>
+<p>might mean the argument failed.</p>
+<p>This works for conventional metaphors but often loses imagery, evaluation, and
+inferential possibilities. If a perfect paraphrase exists, the original's distinctive
+effect remains unexplained.</p>
+<h2 id="interaction-theories"><a class="header" href="#interaction-theories">Interaction theories</a></h2>
+<p>Interaction theories hold that the two domains reshape one another. A "wolf" metaphor
+selects and organizes beliefs about predation, danger, and social relation rather than
+substituting one property.</p>
+<p>The metaphor filters a system of associated commonplaces. This captures creativity
+but risks making content depend on stereotypes that vary among speakers.</p>
+<h2 id="gricean-pragmatics"><a class="header" href="#gricean-pragmatics">Gricean pragmatics</a></h2>
+<p>On a Gricean account, a blatantly false literal assertion overtly violates Quality.
+Assuming cooperation, the audience searches for a related speaker meaning.</p>
+<p>The account preserves literal semantics and explains contextual inference. It faces:</p>
+<ul>
+<li>metaphors that are literally true;</li>
+<li>rapid conventional interpretation;</li>
+<li>difficulty specifying inferred content;</li>
+<li>metaphor inside embedding.</li>
+</ul>
+<p>Not every metaphor is best treated as saying one thing while meaning another.</p>
+<h2 id="relevance-theory"><a class="header" href="#relevance-theory">Relevance theory</a></h2>
+<p>Relevance theory treats metaphor as lexical broadening or construction of an
+occasion-specific concept. "Bulldozer" applied to a person activates implications
+worth processing in context.</p>
+<p>Literal approximation, hyperbole, and metaphor form a continuum. Interpretation stops
+when sufficient relevant effects are achieved.</p>
+<p>The account is flexible but can become post hoc unless relevance and candidate
+implications are independently constrained.</p>
+<h2 id="conceptual-metaphor"><a class="header" href="#conceptual-metaphor">Conceptual metaphor</a></h2>
+<p>Cognitive theories identify systematic mappings:</p>
+<ul>
+<li>ARGUMENT IS WAR;</li>
+<li>TIME IS MONEY;</li>
+<li>THEORIES ARE BUILDINGS;</li>
+<li>MORE IS UP.</li>
+</ul>
+<p>These patterns organize ordinary expressions and reasoning, not just poetry. They
+suggest metaphor is part of conceptual structure.</p>
+<p>Critics question whether linguistic patterns always reveal stable mental mappings and
+whether bodily correlations explain abstract content fully.</p>
+<h2 id="truth-conditions"><a class="header" href="#truth-conditions">Truth conditions</a></h2>
+<p>Can metaphors be true or false? "No person is an island" seems true metaphorically.</p>
+<p>Options:</p>
+<ul>
+<li>only literal content has truth conditions; metaphor conveys implications;</li>
+<li>pragmatic enrichment produces metaphorical truth conditions;</li>
+<li>metaphor presents a perspective not reducible to propositions;</li>
+<li>different interpretations yield partially ordered contents.</li>
+</ul>
+<p>Disagreement and denial support some propositional content, while resistance to
+paraphrase suggests it may not be exhaustive.</p>
+<h2 id="creativity-and-paraphrase"><a class="header" href="#creativity-and-paraphrase">Creativity and paraphrase</a></h2>
+<p>A novel metaphor can yield open-ended insights. Paraphrases may capture central
+implications without replacing the metaphor.</p>
+<p>This resembles model use: one domain structures reasoning about another while remaining
+partial and purpose-sensitive.</p>
+<p>Open-endedness should not imply absence of constraint. Text, context, associations, and
+speaker purpose make some interpretations clearly better than others.</p>
+<h2 id="dead-metaphor"><a class="header" href="#dead-metaphor">Dead metaphor</a></h2>
+<p>Repeated metaphorical uses can lexicalize:</p>
+<ul>
+<li>branch of science;</li>
+<li>mouth of a river;</li>
+<li>grasp an idea.</li>
+</ul>
+<p>Speakers may process them without accessing the original source domain.</p>
+<p>Diachronic origin does not determine current semantics. A theory should distinguish
+live metaphorical inference from established polysemy.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Metaphor tests the semantics-pragmatics boundary because it combines stable lexical
+meaning, contextual adjustment, inference, cognition, and expressive effect.</p>
+<p>No single theory covers every case. Conventional metaphors may involve lexical senses;
+novel cases require pragmatic and cognitive construction; literary cases can exceed
+one paraphrasable proposition. The goal is a constrained continuum, not a forced choice
+between literal decoding and unconstrained association.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/12-difficult-phenomena/01-vagueness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/03-fictional-discourse.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/12-difficult-phenomena/01-vagueness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/03-fictional-discourse.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Relevance and Neo-Gricean Theories - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/08-pragmatics/05-relevance-and-neo-gricean-theories.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="relevance-and-neo-gricean-theories"><a class="header" href="#relevance-and-neo-gricean-theories">Relevance and Neo-Gricean Theories</a></h1>
+<p>Grice's maxims explain pragmatic inference through rational expectations, but their
+number, formulation, and psychological role remain disputed. Later theories simplify
+the architecture or make default inferences more explicit.</p>
+<p><strong>Relevance theory</strong> proposes one overarching principle: cognition and communication
+seek worthwhile effects for reasonable processing effort. <strong>Neo-Gricean</strong> theories use
+smaller sets of principles governing informativeness, stereotypical interpretation,
+and marked expression. Both seek a better account of how hearers move from encoded
+meaning to intended interpretation.</p>
+<hr />
+<h2 id="relevance-theory"><a class="header" href="#relevance-theory">Relevance theory</a></h2>
+<p>Relevance theory distinguishes:</p>
+<ul>
+<li><strong>cognitive effects:</strong> new conclusions, strengthened beliefs, contradiction or
+revision;</li>
+<li><strong>processing effort:</strong> resources required to obtain those effects.</li>
+</ul>
+<p>An input is more relevant when it yields greater worthwhile effects for less effort.
+Communication creates a presumption of <strong>optimal relevance</strong>: the utterance is worth
+the audience's attention and is the most relevant compatible with the speaker's
+abilities and preferences.</p>
+<p>Hearers follow a path of least effort, enriching and deriving implications until an
+adequately relevant interpretation is reached.</p>
+<h2 id="explicature-and-implicature"><a class="header" href="#explicature-and-implicature">Explicature and implicature</a></h2>
+<p>Relevance theory uses <strong>explicature</strong> for an explicitly communicated proposition
+developed from decoded linguistic form through pragmatic processes.</p>
+<p>Processes include:</p>
+<ul>
+<li>reference resolution;</li>
+<li>disambiguation;</li>
+<li>saturation of contextual parameters;</li>
+<li>enrichment;</li>
+<li>lexical narrowing or broadening.</li>
+</ul>
+<p>An <strong>implicature</strong> is a further communicated assumption or conclusion.</p>
+<p>This makes pragmatics partly constitutive of truth-evaluable content, not merely a
+post-semantic layer. It therefore supports contextualism.</p>
+<h2 id="loose-talk-metaphor-and-irony"><a class="header" href="#loose-talk-metaphor-and-irony">Loose talk, metaphor, and irony</a></h2>
+<p>"The bottle is empty" can be acceptable when negligible liquid remains. Lexical
+meaning is pragmatically loosened to a contextually adequate concept.</p>
+<p>Metaphor involves constructing an occasion-specific concept that yields relevant
+implications. Irony is often analysed as <strong>echoic use</strong>: the speaker echoes a thought
+or expectation while expressing dissociative attitude.</p>
+<p>This unified treatment handles continuities among literal approximation, hyperbole,
+metaphor, and irony. Critics worry that flexible occasion concepts weaken stable
+semantic constraints.</p>
+<h2 id="horns-principles"><a class="header" href="#horns-principles">Horn's principles</a></h2>
+<p>Horn compresses Gricean reasoning into two pressures:</p>
+<ul>
+<li><strong>Q-principle:</strong> say as much as you can, given quality and relevance;</li>
+<li><strong>R-principle:</strong> say no more than you must, relying on the hearer to enrich.</li>
+</ul>
+<p>Q supports upper-bounding inferences:</p>
+<blockquote>
+<p>Some passed</p>
+</blockquote>
+<p>suggests not all.</p>
+<p>R supports stereotypical enrichment:</p>
+<blockquote>
+<p>Ada broke a finger</p>
+</blockquote>
+<p>normally suggests one of Ada's own fingers.</p>
+<p>Communication balances speaker economy and hearer inference.</p>
+<h2 id="levinsons-heuristics"><a class="header" href="#levinsons-heuristics">Levinson's heuristics</a></h2>
+<p>Levinson proposes generalized pragmatic defaults:</p>
+<ul>
+<li><strong>Q:</strong> what is not said is not the case;</li>
+<li><strong>I:</strong> what is simply described is stereotypically exemplified;</li>
+<li><strong>M:</strong> marked expressions indicate marked situations.</li>
+</ul>
+<p>Compare:</p>
+<blockquote>
+<p>Ada caused the car to stop.</p>
+</blockquote>
+<p>The marked causative can suggest an indirect or unusual process, whereas "Ada stopped
+the car" suggests the normal method.</p>
+<p>Defaults explain rapid interpretation without a full derivation on every occasion.
+They must remain cancellable and context-sensitive.</p>
+<h2 id="default-versus-inference"><a class="header" href="#default-versus-inference">Default versus inference</a></h2>
+<p>Are generalized implicatures precomputed defaults or locally reasoned conclusions?</p>
+<p>Default theories predict:</p>
+<ul>
+<li>fast automatic enrichment;</li>
+<li>later cancellation;</li>
+<li>stable cross-context tendencies.</li>
+</ul>
+<p>Contextual inference theories predict early sensitivity to QUD, alternatives, and
+speaker knowledge.</p>
+<p>Experimental results are mixed and construction-specific. Processing cost does not map
+cleanly onto semantic status. A default can be implemented through learned predictive
+inference rather than a stored enriched meaning.</p>
+<h2 id="alternatives"><a class="header" href="#alternatives">Alternatives</a></h2>
+<p>Scalar reasoning depends on which alternatives are active. For "some," "all" is
+lexically salient. Other alternatives are supplied by grammar, focus, or context.</p>
+<p>Formal accounts use:</p>
+<ul>
+<li>lexical scales;</li>
+<li>focus alternatives;</li>
+<li>grammatically generated replacements;</li>
+<li>questions under discussion;</li>
+<li>exhaustification operators.</li>
+</ul>
+<p>The source of alternatives determines whether enrichment is semantic, grammatical, or
+pragmatic.</p>
+<h2 id="division-of-labour"><a class="header" href="#division-of-labour">Division of labour</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Central mechanism</th><th>Strength</th><th>Pressure</th></tr></thead><tbody>
+<tr><td>Grice</td><td>maxims and cooperative reasoning</td><td>transparent derivations</td><td>proliferation and idealization</td></tr>
+<tr><td>Relevance</td><td>optimal effects/effort</td><td>unified cognition and communication</td><td>measurement and over-flexibility</td></tr>
+<tr><td>Horn</td><td>Q/R economy</td><td>lexical-pragmatic generalizations</td><td>limited phenomenon coverage</td></tr>
+<tr><td>Levinson</td><td>generalized defaults</td><td>rapid stereotypical inference</td><td>cancellation and context sensitivity</td></tr>
+<tr><td>Grammatical exhaustification</td><td>compositional alternatives</td><td>embedding</td><td>pragmatic motivation</td></tr>
+</tbody></table>
+</div>
+<p>No one architecture is established for all phenomena. Scalar implicature, metaphor,
+reference resolution, and irony may rely on different mixtures of grammar, learned
+defaults, and general reasoning.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>The successor theories sharpen three questions:</p>
+<ol>
+<li>Which content is decoded and which inferred?</li>
+<li>Which inferences are default and which reconstructed from local purposes?</li>
+<li>How do processing constraints relate to normative interpretation?</li>
+</ol>
+<p>Relevance is indispensable as an explanatory constraint, but too elastic if any
+successful interpretation is declared relevant after the fact. Defaults capture robust
+patterns, but not if exceptions require a new stored rule each time. Theories earn
+explanatory force by predicting alternatives, effort, cancellation, and contextual
+variation independently.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/04-context-and-conversation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/06-lying-misleading-and-bullshit.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/04-context-and-conversation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/06-lying-misleading-and-bullshit.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

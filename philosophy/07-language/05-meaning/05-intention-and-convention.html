@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intention and Convention - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/05-intention-and-convention.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="intention-and-convention"><a class="header" href="#intention-and-convention">Intention and Convention</a></h1>
+<p>A speaker can communicate something without encoding it in the sentence uttered. At
+dinner, "The salt is out of reach" can be a request to pass it. A raised eyebrow can
+signal doubt. An invented sign can acquire a one-off meaning when its purpose is made
+recognizable. These cases suggest that communication depends fundamentally on
+intentions rather than on a fixed code.</p>
+<p>Grice's theory of <strong>non-natural meaning</strong> analyses speaker meaning through an overt
+intention to produce an effect by means of an audience's recognition of that very
+intention. It explains occasion-specific communication, implication, and indirect
+speech. It does not by itself explain how words have stable meanings across occasions.
+For that, intention-based accounts need a theory of convention.</p>
+<p>Lewis models conventions as stable solutions to recurring coordination problems.
+Together, Grice and Lewis suggest a division of labour: communicative intentions
+explain what a speaker means on an occasion; conventions explain why familiar
+expressions provide reliable means for making such intentions recognizable.</p>
+<hr />
+<h2 id="natural-and-non-natural-meaning"><a class="header" href="#natural-and-non-natural-meaning">Natural and non-natural meaning</a></h2>
+<p>Grice begins by distinguishing two uses of "means."</p>
+<p><strong>Natural meaning</strong> concerns indication:</p>
+<blockquote>
+<p>Those spots mean measles.</p>
+</blockquote>
+<p>If the spots really mean measles in this sense, it follows that measles is present.
+The relation is factive and does not depend on anyone intending to communicate.</p>
+<p><strong>Non-natural meaning</strong> concerns communication:</p>
+<blockquote>
+<p>The three rings of the bell mean that the bus is full.</p>
+</blockquote>
+<p>The signal can mean that the bus is full even if the bell was rung in error and the bus
+is not full. Non-natural meaning permits falsity and depends on agents or conventions.
+It is the target of Grice's analysis.</p>
+<p>The distinction prevents a causal indicator from being treated automatically as a
+linguistic sign. Smoke naturally indicates fire under suitable conditions; a smoke
+signal communicates only within an intentional or conventional practice.</p>
+<h2 id="speaker-meaning"><a class="header" href="#speaker-meaning">Speaker meaning</a></h2>
+<p>A first approximation says:</p>
+<blockquote>
+<p>A speaker <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> means something by an utterance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> intends <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> to produce an
+effect in an audience.</p>
+</blockquote>
+<p>This is too weak. Secretly causing an audience to become nervous, or leaving evidence
+intended to mislead an investigator, need not be communication. The intended route
+matters.</p>
+<p>Grice's central idea is <strong>reflexive intention</strong>. Roughly, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> means that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span>
+when:</p>
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> intends an audience <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to produce a response related to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>;</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> intends <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to recognize that intention; and</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> intends <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>'s recognition to be at least part of the reason for the response.</li>
+</ol>
+<p>For an assertion, the intended response may be belief; for a request, an action or
+intention to act. Communication is overt influence: the audience is meant to recognize
+what the speaker is trying to do.</p>
+<h2 id="why-recognition-matters"><a class="header" href="#why-recognition-matters">Why recognition matters</a></h2>
+<p>Suppose Ada leaves Ben's umbrella by the door so that he will take it, but she does not
+want him to notice that she arranged this. Her action is intentional influence, not a
+request in the Gricean sense. Its success depends on concealing the intention.</p>
+<p>By contrast, if Ada points to the umbrella and looks toward the rain, success depends
+on Ben recognizing her intention that he take it. Recognition is not incidental; it
+is the communicative mechanism.</p>
+<p>The analysis explains why communication can occur without a shared language. Gesture,
+demonstration, and improvised signs work when the intention is sufficiently
+recognizable. It also explains how conventional sentences can communicate more than
+they encode.</p>
+<h2 id="difficulties-for-intention-analysis"><a class="header" href="#difficulties-for-intention-analysis">Difficulties for intention analysis</a></h2>
+<h3 id="over-complexity"><a class="header" href="#over-complexity">Over-complexity</a></h3>
+<p>Ordinary speakers, children, and spontaneous conversational partners may not represent
+nested intentions explicitly. If communication requires conscious reasoning about
+another person's recognition of an intention, the account is psychologically
+implausible.</p>
+<p>A defender can treat the analysis as specifying the structure of the act rather than a
+conscious calculation. Speakers can possess practical social competence without
+formulating its conditions.</p>
+<h3 id="audience-response"><a class="header" href="#audience-response">Audience response</a></h3>
+<p>Different speech acts aim at different responses. Assertions need not aim to cause
+belief: a teacher may remind students of something they already know, and a witness may
+put a fact on record for an audience expected to remain sceptical.</p>
+<p>The intended effect may therefore be uptake, recognition of commitment, or provision
+of a reason rather than a specific psychological change. Refining the response makes
+the theory more flexible but less reductive.</p>
+<h3 id="complex-and-open-audiences"><a class="header" href="#complex-and-open-audiences">Complex and open audiences</a></h3>
+<p>Written works, public signs, broadcasts, and online posts may address indefinite future
+audiences. Institutional communication can persist beyond its author's intentions.
+Joint authors may have no single detailed intention.</p>
+<p>These cases favour conventions and public norms as partly independent of occurrent
+speaker psychology.</p>
+<h3 id="accidental-and-unsuccessful-communication"><a class="header" href="#accidental-and-unsuccessful-communication">Accidental and unsuccessful communication</a></h3>
+<p>A speaker can reveal information unintentionally, and an audience can understand a
+meaning the speaker failed competently to express. Conversely, a well-formed
+communicative intention can fail through ignorance or ambiguity.</p>
+<p>The theory must distinguish:</p>
+<ul>
+<li>what the expression means;</li>
+<li>what the speaker meant;</li>
+<li>what the audience reasonably interpreted; and</li>
+<li>what effect occurred.</li>
+</ul>
+<p>No one intention determines all four.</p>
+<h2 id="from-speaker-meaning-to-expression-meaning"><a class="header" href="#from-speaker-meaning-to-expression-meaning">From speaker meaning to expression meaning</a></h2>
+<p>Even a successful analysis of one-off speaker meaning leaves a genetic question: how
+do repeatable expression types acquire stable meanings?</p>
+<p>A simple answer appeals to regularity. Speakers repeatedly use expression <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> to mean
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span>, and audiences repeatedly interpret it that way. But accidental regularity is not
+yet convention. Everyone may leave a building through the same door merely because it
+is the only door.</p>
+<p>Convention must explain:</p>
+<ul>
+<li>why conformity is expected;</li>
+<li>why each person's conformity depends partly on others';</li>
+<li>how deviation can be criticized;</li>
+<li>how a practice can begin and change; and</li>
+<li>why speakers can exploit the convention for indirect or novel communication.</li>
+</ul>
+<h2 id="coordination-problems"><a class="header" href="#coordination-problems">Coordination problems</a></h2>
+<p>Lewis analyses convention through recurring <strong>coordination problems</strong>. Several
+patterns of action would benefit everyone if participants converged, but no one option
+is uniquely required independently of what others do.</p>
+<p>Driving on the left and driving on the right are standard examples. Either convention
+can solve the problem; mixing them is dangerous. Language contains analogous cases.
+Many possible sounds could be used for water. Once a community converges on "water,"
+each speaker has reason to continue because others do.</p>
+<p>In simplified form, a regularity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> is a convention in population <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> when:</p>
+<ul>
+<li>nearly everyone conforms to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> in recurring situations;</li>
+<li>nearly everyone expects nearly everyone else to conform;</li>
+<li>each prefers to conform on condition that others do;</li>
+<li>alternative regularities could have served the coordinating role; and</li>
+<li>these facts are appropriately mutually expected or commonly known.</li>
+</ul>
+<p>Different formulations weaken or revise the common-knowledge requirement, but the
+central idea is conditional preference sustained by expectations.</p>
+<h2 id="signaling-systems"><a class="header" href="#signaling-systems">Signaling systems</a></h2>
+<p>Lewis's signaling games provide a simple model. A sender observes a state, chooses a
+signal, and a receiver chooses an action. Their interests align when the action fits
+the state.</p>
+<pre class="mermaid">graph LR
+  W[World state] --&gt; S[Sender chooses signal]
+  S --&gt; R[Receiver interprets signal]
+  R --&gt; A[Receiver chooses action]
+  A --&gt; O[Shared outcome]
+</pre>
+<p>A stable pairing between states, signals, and responses can emerge as an equilibrium.
+Nothing about one signal intrinsically requires one meaning; the mapping is sustained
+by coordinated practice.</p>
+<p>The model clarifies arbitrariness and stability, but natural language exceeds simple
+signaling:</p>
+<ul>
+<li>speakers' interests can conflict;</li>
+<li>signals combine compositionally;</li>
+<li>the same form serves many contexts;</li>
+<li>speakers discuss absent, abstract, and impossible matters;</li>
+<li>audiences evaluate reasons rather than merely choose actions; and</li>
+<li>linguistic norms persist amid partial misunderstanding.</li>
+</ul>
+<p>Signaling theory is a model of one foundation for convention, not a complete semantics.</p>
+<h2 id="common-knowledge-and-regress"><a class="header" href="#common-knowledge-and-regress">Common knowledge and regress</a></h2>
+<p>Coordination appears to require expectations about expectations:</p>
+<ul>
+<li>I expect you to interpret "water" in the familiar way.</li>
+<li>I expect you to expect me to use it that way.</li>
+<li>I expect you to expect me to expect you to interpret it that way.</li>
+</ul>
+<p><strong>Common knowledge</strong> idealizes this nested structure. Real speakers do not consciously
+represent an infinite hierarchy. Shared perceptual access, public training,
+institutional practices, and defaults can provide practical substitutes.</p>
+<p>The same issue affects reflexive intention. An analysis can state constitutive
+relations more complex than the representations agents explicitly token. It must still
+connect the idealization to capacities actual speakers could acquire and exercise.</p>
+<h2 id="conventional-meaning-is-not-speaker-meaning"><a class="header" href="#conventional-meaning-is-not-speaker-meaning">Conventional meaning is not speaker meaning</a></h2>
+<p>The distinction explains several familiar cases.</p>
+<p><strong>Malapropism.</strong> A speaker uses the wrong word but their intended message remains
+recoverable. Speaker meaning diverges from conventional expression meaning.</p>
+<p><strong>Sarcasm.</strong> The sentence conventionally expresses one proposition while the speaker
+communicates a contrary evaluation through context and recognizable intention.</p>
+<p><strong>Lying.</strong> A speaker uses conventional meaning correctly to assert something they
+believe false. Semantic competence is intact despite deceptive intention.</p>
+<p><strong>Code creation.</strong> Speakers can stipulate a temporary signal when the intention and
+mapping are overt. Repetition may turn the local arrangement into a convention.</p>
+<p>These cases show why reducing conventional meaning to what one speaker intends on one
+occasion fails. They also show why convention alone cannot explain everything
+communicated.</p>
+<h2 id="circularity"><a class="header" href="#circularity">Circularity</a></h2>
+<p>A reductive program hopes to derive expression meaning from speaker meaning and speaker
+meaning from non-semantic intentions. Circularity threatens at both stages.</p>
+<p>To intend that an audience believe that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, a speaker already entertains the content
+that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>. The theory may reduce linguistic meaning to mental content, but it has not
+yet explained content in general. That issue belongs to
+<a href="../../06-mind/07-intentionality/01-aboutness.html">Intentionality and Aboutness</a>.</p>
+<p>At the conventional level, identifying the relevant regularity may require describing
+participants as using a sign with a meaning. A non-circular account must characterize
+the practice through actions, expectations, and world-directed purposes without
+smuggling the semantic relation into its premises.</p>
+<p>Reduction of public language to thought can still be informative even if it is not a
+reduction of all intentionality.</p>
+<h2 id="normativity"><a class="header" href="#normativity">Normativity</a></h2>
+<p>Conventions explain why coordination rewards conformity, but semantic mistakes are not
+always prudential failures. A speaker can misuse a term even when no immediate
+coordination suffers. Experts can correct an entire population's classification, and
+minority innovations can eventually become correct.</p>
+<p>Possible sources of semantic normativity include:</p>
+<ul>
+<li>constitutive rules of the practice;</li>
+<li>commitments undertaken in assertion;</li>
+<li>standards implicit in correction and teaching;</li>
+<li>successful reference to shared objects; and</li>
+<li>rational requirements on interpretation.</li>
+</ul>
+<p>Conditional preference is therefore at most part of the explanation. Linguistic
+conventions are embedded in inquiry, inference, and institutions, not merely repeated
+solutions to symmetric games.</p>
+<h2 id="a-division-of-labour"><a class="header" href="#a-division-of-labour">A division of labour</a></h2>
+<p>Intention and convention make their strongest contribution when assigned different
+roles:</p>
+<div class="table-wrapper"><table><thead><tr><th>Explanatory target</th><th>Primary resource</th></tr></thead><tbody>
+<tr><td>What the speaker communicates here</td><td>reflexive communicative intention</td></tr>
+<tr><td>How the audience recovers it</td><td>recognition, context, and pragmatic inference</td></tr>
+<tr><td>Why an expression is a reusable means</td><td>convention and shared expectations</td></tr>
+<tr><td>Why a name or kind term reaches its referent</td><td>convention plus causal and social history</td></tr>
+<tr><td>How complex sentence content is generated</td><td>syntax and compositional semantics</td></tr>
+<tr><td>Why use can be correct or mistaken</td><td>public norms, inquiry, and world-involvement</td></tr>
+</tbody></table>
+</div>
+<p>The table is not a proof that these resources fit together without tension. It states
+the burden on a comprehensive theory. Grice explains how communication can outrun a
+code; Lewis explains how a code can be stable without being natural. Neither alone
+explains every dimension of meaning.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/04-use-and-language-games.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/06-inferentialism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/04-use-and-language-games.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/06-inferentialism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

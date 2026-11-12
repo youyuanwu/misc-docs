@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Meaning as Use and Language-Games - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/04-use-and-language-games.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="meaning-as-use-and-language-games"><a class="header" href="#meaning-as-use-and-language-games">Meaning as Use and Language-Games</a></h1>
+<p>A word is not normally understood by pairing a sound with an object and then carrying
+that pairing into every context. "Game" applies to chess, tag, solitaire, professional
+football, and improvised play despite the absence of one obvious feature shared by
+all. "Pain" is learned amid injury, comfort, avowal, and response rather than by
+privately inspecting an inner object and attaching a label. Logical and mathematical
+expressions acquire roles through practices of inference and calculation.</p>
+<p>The later Wittgenstein's formulation that "the meaning of a word is its use in the
+language" (<em>Philosophical Investigations</em>, §43) redirects attention from hidden
+entities to these public practices. Meaning is not an object accompanying a word but
+the word's place in rule-governed human activity. The proposal illuminates learning,
+normativity, and the diversity of language, but it must not be reduced to frequency or
+observable behaviour. It also faces questions about composition, reference, novelty,
+and the possibility of criticizing established use.</p>
+<hr />
+<h2 id="from-the-picture-theory-to-use"><a class="header" href="#from-the-picture-theory-to-use">From the picture theory to use</a></h2>
+<p>The early Wittgenstein of the <em>Tractatus</em> treated a proposition as a logical picture
+of a possible state of affairs. A proposition shares logical form with what it
+represents; understanding it is grasping the condition under which it would be true.
+This belongs broadly with truth-conditional approaches.</p>
+<p>The later <em>Philosophical Investigations</em> resists the assumption that all meaningful
+expressions work by naming objects or picturing facts. The opening target is an
+Augustinian picture of language: words name things, and sentences combine names. That
+picture fits some uses but fails as a universal model.</p>
+<p>Consider:</p>
+<ul>
+<li>orders and responses on a building site;</li>
+<li>questions, jokes, greetings, and prayers;</li>
+<li>calculating, describing, pretending, and storytelling;</li>
+<li>teaching a child a colour word;</li>
+<li>reporting pain; and</li>
+<li>inventing rules for a game.</li>
+</ul>
+<p>These activities do not all reduce to naming or fact-stating. The mistake is not using
+a referential model where it works, but demanding that every expression conform to it.</p>
+<h2 id="language-games"><a class="header" href="#language-games">Language-games</a></h2>
+<p>A <strong>language-game</strong> is a simplified or actual practice in which words, actions, rules,
+and purposes belong together. The term emphasizes that speaking is part of an
+activity, not the manipulation of an autonomous code.</p>
+<p>A builder's call "Slab!" can function as an order to bring a slab. Its role depends on
+training, recurring circumstances, and coordinated action. Treating it as an elliptical
+declarative sentence may be possible, but doing so can obscure the practice that gives
+the call its point.</p>
+<p>Language-games serve two methodological roles:</p>
+<ol>
+<li>They display the plurality of things done with words.</li>
+<li>They locate standards of correct use within practices speakers can learn and share.</li>
+</ol>
+<p>The analogy with games should not imply that language is optional entertainment or
+that every practice has an explicit rulebook. Games themselves range from codified
+competition to improvised play. What matters is patterned participation with
+distinctions between going on correctly and incorrectly.</p>
+<h2 id="forms-of-life"><a class="header" href="#forms-of-life">Forms of life</a></h2>
+<p>Language-games are embedded in a <strong>form of life</strong>: the biological capacities, habits,
+institutions, environments, and practical concerns that make the activity intelligible.
+A command matters because people act; colour terms matter within perception,
+classification, and coordination; pain language belongs to patterns of injury,
+avowal, treatment, and care.</p>
+<p>This blocks an infinite regress in which every rule requires a further interpretation.
+At some point explanation reaches how speakers simply go on as a matter of shared
+training and practice.</p>
+<p>The stopping point is not a brute frequency. It includes standards internal to the
+practice. A novice can make a mistake even if the mistake is common, because correction
+and justification belong to the activity.</p>
+<h2 id="family-resemblance"><a class="header" href="#family-resemblance">Family resemblance</a></h2>
+<p>Traditional analysis seeks necessary and sufficient conditions for a concept.
+Wittgenstein's example of <strong>games</strong> suggests a different structure. Board games, card
+games, athletic games, children's games, and solitary games overlap in many respects,
+but no single property appears in every case. Their unity is a network of
+<strong>family resemblances</strong>.</p>
+<p>Family resemblance explains flexible extension without requiring arbitrary homonymy.
+A concept can have central cases, overlapping similarities, and open-ended uses.</p>
+<p>The idea should not become a refusal to analyse. Some concepts do have sharp
+definitions, especially within technical practices. Even for open-textured concepts,
+a theory can investigate prototypes, inferential relations, purposes, and boundaries.
+The claim is that one uniform essence should not be demanded in advance.</p>
+<h2 id="rule-following"><a class="header" href="#rule-following">Rule-following</a></h2>
+<p>Meaning appears normative: understanding "add 2" distinguishes continuing</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">6</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span></span></span></span></span></p>
+<p>from writing an arbitrary next number. Yet any finite history of performance is
+compatible with many rules. An interpretation of a rule can itself be interpreted in
+different ways, threatening a regress.</p>
+<p>Wittgenstein's response is not that communal agreement votes mathematical answers into
+truth. It is that following a rule is a practice manifested in training, correction,
+agreement in judgments, and the ability to continue without consulting a fresh
+interpretation at every step. A signpost guides only within a practice of using
+signposts.</p>
+<p>This theme becomes the rule-following scepticism developed in
+<a href="08-meaning-scepticism.html">Meaning Scepticism and Rule-Following</a>. The present point is
+constructive: use is structured by standards that exist through practice rather than
+through a private mental item attached to every sign.</p>
+<h2 id="private-language"><a class="header" href="#private-language">Private language</a></h2>
+<p>Imagine someone who records "S" whenever a private sensation occurs, where the
+sensation is in principle accessible only to that person. A private ostensive
+definition is supposed to fix the sign's meaning by inwardly attending to the
+sensation.</p>
+<p>The problem is a standard of correctness. On later occasions, whatever seems to the
+diarist to match the original sensation counts as matching. There is no distinction
+between correct remembrance and seeming correct, so the proposed rule lacks an
+independent application standard.</p>
+<p>This does not deny private experiences or first-person authority. It challenges the
+idea of a language whose signs are grounded solely by objects only one person could in
+principle identify. Public pain language can concern private experience because its use
+is learned and corrected within shared life.</p>
+<p>The corresponding issues about experience and self-knowledge are developed in
+<a href="../../06-mind/00-README.html">Philosophy of Mind</a>.</p>
+<h2 id="use-is-not-frequency"><a class="header" href="#use-is-not-frequency">Use is not frequency</a></h2>
+<p>"Meaning is use" is easily caricatured as:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">meaning</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">most frequent observable behaviour</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>That cannot preserve error, innovation, or rare but correct applications. Philosophical
+use includes:</p>
+<ul>
+<li>circumstances of appropriate application;</li>
+<li>inferential consequences;</li>
+<li>contrasts with neighbouring expressions;</li>
+<li>responses and corrections;</li>
+<li>purposes served within an activity; and</li>
+<li>counterfactual uses a competent speaker would recognize.</li>
+</ul>
+<p>Frequency data can reveal patterns of use, but no raw count determines which dimensions
+are meaning-constitutive. Corpus evidence requires interpretation, as the
+<a href="../04-method-and-evidence.html">method page</a> explains.</p>
+<h2 id="is-use-theory-behaviourism"><a class="header" href="#is-use-theory-behaviourism">Is use theory behaviourism?</a></h2>
+<p>Use is publicly manifest, but a use theory need not identify meaning with bodily
+movement. Understanding involves abilities, sensitivities, expectations, and
+participation in norms. These can be displayed behaviourally without being reducible
+to a finite list of stimulus-response pairs.</p>
+<p>Nor does public criteria imply that mental episodes are unreal. It changes the order
+of explanation. The meaning of "pain" is not secured by privately naming an
+incorrigibly identified object and then inferred outward. The public practice supplies
+the concept through which sensations are described.</p>
+<p>A remaining challenge is to connect public criteria with novel thought and silent
+understanding. If a speaker has never used a construction aloud but can interpret it
+correctly, the relevant notion of use must include competence and counterfactual
+capacity, not performance alone.</p>
+<h2 id="compositionality"><a class="header" href="#compositionality">Compositionality</a></h2>
+<p>Natural language is productive. A pure catalogue of practices for whole utterances
+would not explain understanding of new combinations. Use theorists therefore need an
+account of how uses of parts contribute to uses of wholes.</p>
+<p>Several strategies are available:</p>
+<ul>
+<li>grammatical rules are themselves parts of linguistic practice;</li>
+<li>inferential roles compose through introduction and elimination patterns;</li>
+<li>constructions have conventional functions that combine with lexical roles; and</li>
+<li>sentence understanding is an ability to use the result across variable contexts.</li>
+</ul>
+<p>The challenge is to make these claims precise without reverting to exactly the
+independent meanings the use theory hoped to replace. Formal semantics may provide the
+compositional structure while use supplies its public grounding. That division of
+labour is compatible with taking both seriously.</p>
+<h2 id="reference-and-truth"><a class="header" href="#reference-and-truth">Reference and truth</a></h2>
+<p>If meaning is use, how do words reach the world? A community could consistently use
+"water" under systematic illusion. Actual use patterns alone seem compatible with
+different referents.</p>
+<p>One answer treats reference and truth as internal to practices of inquiry, correction,
+and interaction with the environment. Successful use is not merely verbal agreement;
+speakers test, intervene, defer to experts, and revise classifications.</p>
+<p>Another answer makes use only one metasemantic factor alongside causal history and
+environment. This hybrid preserves external constraint while explaining why a causal
+link becomes linguistic rather than merely informational.</p>
+<p>The risk for a pure use theory is <strong>semantic idealism</strong>: if community practice fixes
+all correctness, the community appears unable to be systematically wrong. The risk for
+an externalist correction is that use ceases to be the complete theory of meaning.</p>
+<h2 id="conservatism-and-critical-distance"><a class="header" href="#conservatism-and-critical-distance">Conservatism and critical distance</a></h2>
+<p>Grounding meaning in established practice can make existing usage seem authoritative.
+But speakers criticize inherited categories, expose presuppositions, and deliberately
+revise concepts. How can a use theory explain justified reform?</p>
+<p>The resources are internal:</p>
+<ul>
+<li>practices contain conflicting aims and standards;</li>
+<li>new cases reveal tensions among established applications;</li>
+<li>speakers can distinguish a term's current use from the use they recommend;</li>
+<li>metalinguistic negotiation is itself a practice; and</li>
+<li>practical consequences can supply reasons for revision.</li>
+</ul>
+<p>Still, an account that says only "meaning is whatever the community does" lacks the
+normative distance required to evaluate a community. Use theory is strongest as an
+account of how meanings are sustained, not as a complete ethics of which meanings
+should be sustained.</p>
+<h2 id="what-the-use-approach-establishes"><a class="header" href="#what-the-use-approach-establishes">What the use approach establishes</a></h2>
+<p>The durable lessons are methodological:</p>
+<ol>
+<li>Do not assume all words name entities.</li>
+<li>Examine expressions within the activities where they function.</li>
+<li>Treat understanding as practical mastery, not merely association with an inner
+item.</li>
+<li>Locate standards of correction in shareable practices.</li>
+<li>Expect multiple kinds of linguistic function rather than one essence.</li>
+<li>Do not infer that every meaningful utterance states a truth-evaluable proposition.</li>
+</ol>
+<p>These lessons constrain truth-conditional and referential theories without eliminating
+them. A formal account may explain composition, a causal account may explain reference,
+and an intention-based account may explain communication. Meaning as use asks what
+makes any of those structures part of a living language.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/03-truth-conditional-semantics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/05-intention-and-convention.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/03-truth-conditional-semantics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/05-intention-and-convention.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Verificationism and Manifestation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/07-verificationism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="verificationism-and-manifestation"><a class="header" href="#verificationism-and-manifestation">Verificationism and Manifestation</a></h1>
+<p>What would count as understanding a sentence whose truth could never, even in
+principle, affect any possible inquiry or use? Verificationist theories answer that
+meaning must be connected to conditions under which a claim can be verified,
+confirmed, proved, or warranted. A purported factual difference that could make no
+difference to any possible evidence is suspected of failing to express a genuine
+factual content.</p>
+<p>The label covers importantly different projects. Logical positivists proposed a
+criterion separating cognitively meaningful claims from metaphysical
+pseudo-statements. Operationalists tied scientific concepts to measurement procedures.
+Dummett argued that knowledge of meaning must be manifestable in speakers' use and
+therefore challenged truth-conditions that outrun every possible capacity for
+recognition. Constructive semantics explains mathematical statements through proofs.</p>
+<p>These views share an epistemic orientation but should not be conflated. A criterion of
+meaningfulness, a theory of sentence meaning, and a theory of warranted assertion are
+different claims.</p>
+<hr />
+<h2 id="the-verification-principle"><a class="header" href="#the-verification-principle">The verification principle</a></h2>
+<p>A strong logical-positivist formulation says:</p>
+<blockquote>
+<p>A declarative sentence is cognitively meaningful only if it is analytic or
+empirically verifiable in principle.</p>
+</blockquote>
+<p>Analytic claims are true through logical form and meaning. Synthetic claims must make
+some possible experiential difference. Statements satisfying neither condition are
+not merely false; they fail to state a factual proposition.</p>
+<p>The principle was directed against speculative metaphysics, theology, and other
+discourse thought to outrun possible evidence. It also aimed to clarify science by
+connecting theoretical language to observation.</p>
+<p>The strongest form quickly proves too restrictive. Universal laws, claims about the
+distant past, other minds, and theoretical entities are not conclusively verified by
+finite observations. Even ordinary claims often remain revisable.</p>
+<p>Weaker formulations replace decisive verification with:</p>
+<ul>
+<li>confirmation to some degree;</li>
+<li>testability in conjunction with auxiliary assumptions;</li>
+<li>possible observational consequences;</li>
+<li>contribution to an empirically testable theory; or</li>
+<li>a procedure for warranted assertion.</li>
+</ul>
+<p>As the principle weakens, more legitimate science survives, but excluded metaphysics
+can return. The criterion must be neither so strong that it rejects science nor so weak
+that every claim passes.</p>
+<h2 id="meaningfulness-is-not-truth"><a class="header" href="#meaningfulness-is-not-truth">Meaningfulness is not truth</a></h2>
+<p>Verificationism does not say that only verified claims are true. At minimum, it says
+that understanding a factual claim requires grasping what would count for or against
+it. A sentence can be meaningful and presently undecided.</p>
+<p>Three notions must be separated:</p>
+<ol>
+<li><strong>actual verification:</strong> evidence has been obtained;</li>
+<li><strong>verifiability in principle:</strong> relevant evidence could be obtained under some
+possible conditions;</li>
+<li><strong>verification conditions:</strong> a specification of what would warrant assertion.</li>
+</ol>
+<p>A claim about an unobserved region may lack actual verification while having clear
+verification conditions. A claim constructed so that no possible observation could
+bear on it presents the sharper challenge.</p>
+<p>The phrase "in principle" carries much of the burden. If it permits idealized infinite
+inquiry or capacities no finite agent could exercise, verification begins to resemble
+ordinary truth-conditions. If restricted to actual human capacities, meaning varies
+with technology and cognitive limitation.</p>
+<h2 id="the-self-application-problem"><a class="header" href="#the-self-application-problem">The self-application problem</a></h2>
+<p>Is the verification principle itself analytic or empirically verifiable? It does not
+look like either. Applied to itself, the strong principle appears cognitively
+meaningless.</p>
+<p>A defender can respond that the principle is:</p>
+<ul>
+<li>a proposal for how to use "cognitively meaningful";</li>
+<li>a methodological rule rather than a factual assertion;</li>
+<li>a recommendation for constructing scientific language; or</li>
+<li>a philosophical explication evaluated by fruitfulness rather than verification.</li>
+</ul>
+<p>These responses avoid simple self-refutation by changing the principle's status. They
+also surrender the claim that verificationism is an empirically established discovery
+about all meaningful language. It becomes a revisionary or methodological proposal
+whose adoption requires independent reasons.</p>
+<h2 id="holism-and-theoretical-terms"><a class="header" href="#holism-and-theoretical-terms">Holism and theoretical terms</a></h2>
+<p>Individual scientific sentences are rarely tested alone. Predictions depend on
+background theories, instrument assumptions, initial conditions, and statistical
+models. When prediction fails, evidence does not dictate which component to revise.</p>
+<p>This <strong>confirmation holism</strong> challenges sentence-by-sentence verification conditions.
+Theoretical terms such as "electron" contribute to a network whose empirical content
+emerges through the network's consequences.</p>
+<p>A sophisticated verificationism can take whole theories or structured clusters as the
+unit of confirmation. But semantic holism follows: if meaning depends on total
+confirmation role, changes elsewhere in theory can change the content of a term. Stable
+reference and communication across theory change become difficult to explain.</p>
+<p>The issue parallels inferentialism's distinction between local and global role.</p>
+<h2 id="operationalism"><a class="header" href="#operationalism">Operationalism</a></h2>
+<p><strong>Operationalism</strong> defines a scientific concept through procedures for measuring it.
+Length might be tied to operations involving rods, clocks, or light signals; a
+psychological construct to a specified task.</p>
+<p>The approach promotes clarity and exposes empty appeals to unmeasured quantities. It
+also faces multiple-operation problems:</p>
+<ul>
+<li>different procedures can measure the same quantity;</li>
+<li>one procedure can be affected by several quantities;</li>
+<li>improved instruments should refine measurement without changing the subject;</li>
+<li>theoretical relations can explain why operations agree or diverge; and</li>
+<li>measurement presupposes background theory.</li>
+</ul>
+<p>Treating each operation as defining a different concept fragments science. Treating the
+operations as evidence for one underlying quantity moves beyond strict operational
+definition.</p>
+<p>Operationalization is indispensable methodology; operationalism as a complete theory
+of meaning is much stronger.</p>
+<h2 id="dummetts-manifestation-argument"><a class="header" href="#dummetts-manifestation-argument">Dummett's manifestation argument</a></h2>
+<p>Dummett recasts the issue through what speakers can manifest in linguistic practice.
+Knowledge of meaning is practical and publicly attributable. If understanding a
+sentence consists in knowledge of its truth-condition, that knowledge must be
+displayable in use.</p>
+<p>For decidable sentences, a speaker can manifest understanding by recognizing
+verification or falsification under appropriate conditions. But a
+<strong>verification-transcendent</strong> truth-condition may obtain even though no possible
+speaker could recognize that it does.</p>
+<p>The argument can be set out as follows:</p>
+<ol>
+<li>Understanding is a capacity speakers can acquire and manifest.</li>
+<li>A theory of meaning should explain that capacity.</li>
+<li>Knowledge of wholly recognition-transcendent truth-conditions could not be
+manifested in use.</li>
+<li>Therefore such truth-conditions cannot by themselves constitute a speaker's
+understanding.</li>
+</ol>
+<p>The conclusion motivates <strong>assertibility conditions</strong> or verification conditions as
+the basis of meaning. It does not follow merely from the positivist criterion, and it
+need not classify every traditional metaphysical sentence as nonsense.</p>
+<h2 id="semantic-anti-realism"><a class="header" href="#semantic-anti-realism">Semantic anti-realism</a></h2>
+<p>Dummett connects theories of meaning to disputes about realism. A realist about a class
+of statements holds that each has a determinate truth value fixed independently of our
+capacity to recognize it. An anti-realist asks whether understanding can be explained
+through conditions for warranted assertion instead.</p>
+<p>This is usually <strong>local</strong> rather than global. One might be realist about ordinary
+observable objects but anti-realist about unrestricted mathematical statements, the
+remote past, or some disputed domain.</p>
+<p>The debate is semantic before it is ontological:</p>
+<ul>
+<li>What counts as understanding statements in the domain?</li>
+<li>Are truth-conditions recognition-transcendent?</li>
+<li>Can competent use manifest grasp of them?</li>
+<li>Which logical laws are justified by the resulting semantics?</li>
+</ul>
+<p>Anti-realism in this sense is not the claim that speakers create reality. It is a claim
+about the explanation of content and truth in a domain.</p>
+<h2 id="proof-as-meaning"><a class="header" href="#proof-as-meaning">Proof as meaning</a></h2>
+<p>The constructive treatment of mathematics gives verificationism its clearest formal
+case. Under the Brouwer-Heyting-Kolmogorov interpretation:</p>
+<ul>
+<li>a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> is a proof of each conjunct;</li>
+<li>a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> includes a proof of one disjunct and identifies which;</li>
+<li>a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> transforms any proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> into a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>;</li>
+<li>a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> supplies a witness and a proof that it satisfies <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>;</li>
+<li>a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> gives a method producing a proof for each case.</li>
+</ul>
+<p>Meaning is given by what counts as a construction or proof. This validates
+<a href="../../../logic/04-intuitionistic-logic.html">intuitionistic logic</a>, not unrestricted
+classical logic.</p>
+<p>Excluded middle,</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord mathnormal">p</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>is not generally assertible because a construction would need either a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> or
+a proof that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> leads to absurdity. Lack of a proof of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is not itself a proof of
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord mathnormal">p</span></span></span></span>.</p>
+<p>The connection shows how a theory of meaning can constrain logic. Classical logic
+treats bivalence as independent of recognition; constructive semantics ties assertion
+to available proof.</p>
+<h2 id="truth-versus-warranted-assertibility"><a class="header" href="#truth-versus-warranted-assertibility">Truth versus warranted assertibility</a></h2>
+<p>If meaning is given by verification, what becomes of truth?</p>
+<p>One option identifies truth with ideal warranted assertibility. Another treats truth
+as a regulative notion approached through increasingly good verification. A third
+retains truth but denies that it alone explains understanding.</p>
+<p>Each faces pressure. Warrant can change with evidence while truth appears stable.
+Well-warranted claims can be false, and true claims can remain unwarranted. Ideal
+warrant may be defined only by converging on truth, making the account circular.</p>
+<p>Anti-realists can distinguish present warrant from canonical verification and can
+allow mistakes about whether verification has been achieved. Still, the difference
+between evidence and truth is one of the strongest motivations for realism.</p>
+<h2 id="universal-and-historical-claims"><a class="header" href="#universal-and-historical-claims">Universal and historical claims</a></h2>
+<p>No finite sequence of observations conclusively verifies a universal law:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Nor can present observation directly verify every claim about an inaccessible past.
+Strict verificationism would render much ordinary and scientific discourse
+meaningless.</p>
+<p>Responses include:</p>
+<ul>
+<li>probabilistic confirmation rather than conclusive verification;</li>
+<li>verification through consequences of an integrated theory;</li>
+<li>defeasible criteria for warranted assertion;</li>
+<li>idealized procedures extending beyond present capacities; and</li>
+<li>treating universal claims as rules for expectation rather than descriptions of an
+independently completed totality.</li>
+</ul>
+<p>Each response preserves more discourse by moving away from the strongest principle.
+The remaining view may be a theory of evidential significance rather than a reduction
+of meaning.</p>
+<h2 id="other-minds-and-private-experience"><a class="header" href="#other-minds-and-private-experience">Other minds and private experience</a></h2>
+<p>Claims about another person's experience are not conclusively verified by behaviour,
+and first-person experience is not publicly observable in the same way as movement.
+An overly strict criterion threatens to make ordinary psychological language
+meaningless.</p>
+<p>Behaviour, testimony, shared circumstances, intervention, and explanatory integration
+provide defeasible evidence. The lesson can be that verification is richer than direct
+observation, not that mental claims lack content.</p>
+<p>Conversely, the private-language discussion shows why a purely private act of
+verification cannot by itself establish a repeatable linguistic standard. Verification
+conditions must be connected to practices in which correctness can be distinguished
+from seeming correct. See
+<a href="04-use-and-language-games.html">Meaning as Use and Language-Games</a>.</p>
+<h2 id="falsification"><a class="header" href="#falsification">Falsification</a></h2>
+<p>Popper's falsifiability criterion concerns demarcation of empirical science, not
+directly linguistic meaningfulness. A universal claim may be falsifiable by one
+counterexample without being conclusively verifiable. Some meaningful scientific
+claims are difficult to test individually because auxiliaries mediate predictions.</p>
+<p>Flew's application to religious language asks whether a claim excludes any possible
+state of affairs. If no evidence could count against it, perhaps it asserts nothing
+factual. The full domain-specific debate remains in
+<a href="../../02-religion/10-language/01-religious-language.html">Religious Language</a>.</p>
+<p>Verification and falsification share a demand for evidential difference, but they have
+different logical structures and original purposes.</p>
+<h2 id="relation-to-inferentialism"><a class="header" href="#relation-to-inferentialism">Relation to inferentialism</a></h2>
+<p>Verification conditions can be understood as part of an inferential role:</p>
+<ul>
+<li>observations or proofs entitle assertion;</li>
+<li>the assertion licenses consequences;</li>
+<li>incompatible evidence requires withdrawal;</li>
+<li>challenges demand reasons.</li>
+</ul>
+<p>This connects verificationism with <a href="06-inferentialism.html">Inferentialism</a>. The
+difference is emphasis. Verificationism privileges conditions for warranted entry into
+assertion; inferentialism also emphasizes consequences, incompatibilities, and
+normative relations among claims.</p>
+<p>Both face the analytic-synthetic pressure. If all accepted evidential inferences
+constitute meaning, mistaken background theory becomes semantically immune to
+correction. If only selected inferences count, the selection needs justification.</p>
+<h2 id="what-remains-of-verificationism"><a class="header" href="#what-remains-of-verificationism">What remains of verificationism</a></h2>
+<p>The original universal criterion is not a successful test of all meaningful language.
+Its durable contributions are more limited:</p>
+<ol>
+<li>A factual claim should make some difference to inquiry, inference, or possible
+evidence.</li>
+<li>A theory of meaning must explain abilities speakers can manifest, not merely assign
+inaccessible conditions.</li>
+<li>Operational definitions clarify methods even when they do not exhaust concepts.</li>
+<li>Verification-transcendent truth raises a genuine explanatory problem for accounts
+of understanding.</li>
+<li>Constructive mathematics shows that proof-conditional meaning can support a rigorous
+alternative logic.</li>
+<li>Evidential equivalence can reveal that an apparent factual dispute requires
+metasemantic or practical clarification.</li>
+</ol>
+<p>These lessons constrain truth-conditional semantics without showing that truth reduces
+to present verification. The strongest position is a local and explicit one: specify
+the domain, the relevant notion of verification, how competence manifests, and why the
+result should revise truth-conditional explanation there.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Ayer, A. J. <em>Language, Truth and Logic</em> (1936).</li>
+<li>Carnap, Rudolf. "The Elimination of Metaphysics Through Logical Analysis of
+Language" (1932).</li>
+<li>Dummett, Michael. <em>Truth and Other Enigmas</em> (1978).</li>
+<li>Dummett, Michael. <em>The Logical Basis of Metaphysics</em> (1991).</li>
+<li>Waismann, Friedrich. "Verifiability" (1945).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/06-inferentialism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/08-meaning-scepticism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/06-inferentialism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/08-meaning-scepticism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

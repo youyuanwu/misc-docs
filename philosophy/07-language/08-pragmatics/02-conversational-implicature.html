@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Conversational Implicature - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/08-pragmatics/02-conversational-implicature.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="conversational-implicature"><a class="header" href="#conversational-implicature">Conversational Implicature</a></h1>
+<p>When a speaker says "Some students passed," listeners often infer that not all passed.
+When asked whether a colleague is a good philosopher, a referee who replies "Her
+handwriting is excellent" conveys a negative assessment without stating one.</p>
+<p>These are <strong>conversational implicatures</strong>: contents communicated through rational
+inference from what was said, context, and expectations about conversation. They are
+not straightforward entailments or conventional meanings.</p>
+<p>Grice's theory explains how speakers can deliberately exploit shared expectations.
+The central tests - calculability, cancellability, non-detachability, and
+reinforceability - diagnose pragmatic content but are defeasible rather than mechanical.</p>
+<hr />
+<h2 id="the-cooperative-principle"><a class="header" href="#the-cooperative-principle">The Cooperative Principle</a></h2>
+<p>Grice proposes:</p>
+<blockquote>
+<p>Make your conversational contribution such as is required, at the stage at which it
+occurs, by the accepted purpose or direction of the exchange.</p>
+</blockquote>
+<p>This <strong>Cooperative Principle</strong> is not a moral command. It is an interpretive
+presumption that contributions are relevantly connected to a recognizable exchange.</p>
+<p>The principle is articulated through maxims.</p>
+<h3 id="quantity"><a class="header" href="#quantity">Quantity</a></h3>
+<ul>
+<li>Make the contribution as informative as required.</li>
+<li>Do not make it more informative than required.</li>
+</ul>
+<h3 id="quality"><a class="header" href="#quality">Quality</a></h3>
+<ul>
+<li>Do not say what you believe false.</li>
+<li>Do not say what lacks adequate evidence.</li>
+</ul>
+<h3 id="relation"><a class="header" href="#relation">Relation</a></h3>
+<ul>
+<li>Be relevant.</li>
+</ul>
+<h3 id="manner"><a class="header" href="#manner">Manner</a></h3>
+<ul>
+<li>Avoid obscurity and unnecessary ambiguity.</li>
+<li>Be brief and orderly where appropriate.</li>
+</ul>
+<p>Real conversations depart from these formulations. Their role is to make pragmatic
+reasoning explicit, not to supply etiquette.</p>
+<h2 id="observance-violation-and-flouting"><a class="header" href="#observance-violation-and-flouting">Observance, violation, and flouting</a></h2>
+<p>A speaker can relate to a maxim in different ways.</p>
+<ul>
+<li><strong>Observe:</strong> comply straightforwardly.</li>
+<li><strong>Violate covertly:</strong> mislead while appearing compliant.</li>
+<li><strong>Opt out:</strong> explicitly decline to contribute.</li>
+<li><strong>Clash:</strong> one maxim cannot be satisfied without sacrificing another.</li>
+<li><strong>Flout:</strong> conspicuously fail to comply so the audience searches for an implicated
+content.</li>
+</ul>
+<p>The handwriting response flouts Relation. Assuming the referee remains cooperative,
+the audience infers that no relevant praise of philosophical ability can be offered.</p>
+<p>Implicature depends on recognizable flouting, not mere irrelevance.</p>
+<h2 id="deriving-an-implicature"><a class="header" href="#deriving-an-implicature">Deriving an implicature</a></h2>
+<p>A simplified derivation:</p>
+<ol>
+<li>The speaker said <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>.</li>
+<li>They could be expected to follow conversational expectations.</li>
+<li>Saying <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> would be puzzling or insufficient unless they intended <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+<li>They have not opted out, and nothing blocks the inference.</li>
+<li>Therefore the speaker implicated <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+</ol>
+<p>The content must be <strong>calculable</strong> in principle from accessible premises. Hearers need
+not consciously rehearse the derivation.</p>
+<p>Background beliefs matter. The same sentence can implicate different things in
+different activities.</p>
+<h2 id="scalar-implicature"><a class="header" href="#scalar-implicature">Scalar implicature</a></h2>
+<p>Lexical items form informational scales:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">so</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mclose">⟩</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mclose">⟩</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">m</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>If a speaker chooses a weaker item while a stronger relevant alternative was available,
+hearers may infer that the stronger claim is not assertible.</p>
+<p>From:</p>
+<blockquote>
+<p>Some students passed</p>
+</blockquote>
+<p>infer:</p>
+<blockquote>
+<p>The speaker is not in a position to assert that all passed.</p>
+</blockquote>
+<p>In many contexts this strengthens to:</p>
+<blockquote>
+<p>Not all passed.</p>
+</blockquote>
+<p>The epistemically cautious inference and the strong negative inference should be
+distinguished. A speaker may lack knowledge whether all passed.</p>
+<h2 id="cancellation"><a class="header" href="#cancellation">Cancellation</a></h2>
+<p>Conversational implicatures are normally cancellable:</p>
+<blockquote>
+<p>Some students passed - indeed, all did.</p>
+</blockquote>
+<p>The continuation is not a logical contradiction, though it may sound marked.</p>
+<p>Cancellation can be:</p>
+<ul>
+<li><strong>explicit:</strong> directly denying the implication;</li>
+<li><strong>contextual:</strong> setting a context where it does not arise.</li>
+</ul>
+<p>For example, if only some passing is required for a team award, "Some students passed"
+may be fully informative without suggesting not all.</p>
+<p>Failure of smooth cancellation can result from conventionalization, discourse
+incoherence, or strong expectations; it does not alone prove semantic entailment.</p>
+<h2 id="non-detachability"><a class="header" href="#non-detachability">Non-detachability</a></h2>
+<p>Many conversational implicatures depend on what is said rather than the exact wording.
+Replacing an expression with a synonym tends to preserve the implication.</p>
+<p>Manner implicatures are exceptions. Saying:</p>
+<blockquote>
+<p>Ada produced a series of sounds corresponding closely to the score</p>
+</blockquote>
+<p>rather than "Ada sang the song" may imply an unusual or defective performance because
+of the marked wording.</p>
+<p>Thus non-detachability is characteristic of content-based implicatures, not universal.</p>
+<h2 id="reinforceability"><a class="header" href="#reinforceability">Reinforceability</a></h2>
+<p>An implicature can often be stated explicitly without redundancy:</p>
+<blockquote>
+<p>Some, but not all, students passed.</p>
+</blockquote>
+<p>The added phrase reinforces what was otherwise inferred.</p>
+<p>Conventional content can also be emphasized, so reinforceability is not decisive. In
+combination with cancellation and contextual variability, it supports a pragmatic
+analysis.</p>
+<h2 id="generalized-and-particularized-implicature"><a class="header" href="#generalized-and-particularized-implicature">Generalized and particularized implicature</a></h2>
+<p>A <strong>generalized conversational implicature</strong> arises across ordinary contexts without
+special background:</p>
+<blockquote>
+<p>Ada entered a house.</p>
+</blockquote>
+<p>often suggests it was not Ada's house.</p>
+<p>A <strong>particularized implicature</strong> depends on a specific context. At a petrol station,
+"The garage around the corner is open" can implicate that petrol is available there.</p>
+<p>The distinction is gradual. Repeated pragmatic inference can become default-like or
+conventionalized.</p>
+<h2 id="conventional-implicature"><a class="header" href="#conventional-implicature">Conventional implicature</a></h2>
+<p>Some expressions contribute non-truth-conditional content conventionally. Compare:</p>
+<blockquote>
+<p>Ada is poor but honest.</p>
+</blockquote>
+<blockquote>
+<p>Ada is poor and honest.</p>
+</blockquote>
+<p>They may have the same truth-conditions, while "but" conventionally signals contrast.
+The contribution is not calculated from a maxim on each occasion and is difficult to
+cancel while retaining the same use.</p>
+<p>This is often called <strong>conventional implicature</strong>, though theories differ over whether
+it belongs to semantics, expressive meaning, or multidimensional content.</p>
+<p>The category should not be confused with conversational implicature merely because
+both can leave at-issue truth conditions unchanged.</p>
+<h2 id="embedded-implicatures"><a class="header" href="#embedded-implicatures">Embedded implicatures</a></h2>
+<p>Implicatures can appear inside larger constructions:</p>
+<blockquote>
+<p>If some students passed, the instructor will be relieved.</p>
+</blockquote>
+<p>Can "some" be locally strengthened to <em>some but not all</em> inside the antecedent?
+Embedded readings challenge a purely global post-utterance inference.</p>
+<p>Responses include:</p>
+<ul>
+<li>local pragmatic enrichment;</li>
+<li>grammatical alternatives computed compositionally;</li>
+<li>exhaustification operators in syntax;</li>
+<li>context-sensitive strengthening.</li>
+</ul>
+<p>Scalar implicature therefore lies near the semantics-pragmatics boundary. Its
+cancellability does not prove it is computed only after complete sentence meaning.</p>
+<h2 id="implicature-and-irony"><a class="header" href="#implicature-and-irony">Implicature and irony</a></h2>
+<p>Irony can be analysed as overt dissociation from literal content:</p>
+<blockquote>
+<p>What wonderful weather.</p>
+</blockquote>
+<p>said during a storm.</p>
+<p>The audience recognizes that a sincere literal assertion would violate Quality and
+infers a contrary or critical attitude.</p>
+<p>Not all irony communicates the simple negation. Tone, echo, target, and evaluative
+stance matter. Relevance-theoretic and echoic accounts often handle these dimensions
+better than a single maxim violation.</p>
+<h2 id="implicature-under-conflict"><a class="header" href="#implicature-under-conflict">Implicature under conflict</a></h2>
+<p>Adversarial speakers can exploit expectations without being cooperative in purpose.
+A negotiator withholds information, a propagandist frames alternatives, and a liar
+relies on Quality while violating it.</p>
+<p>The Gricean framework requires only enough presumed rational coordination for
+interpretation. Deception works because audiences expect relevance and sincerity.</p>
+<p>When trust collapses entirely, implicatures become unstable because the audience no
+longer knows which expectations the speaker intends to exploit.</p>
+<h2 id="experimental-and-cross-linguistic-evidence"><a class="header" href="#experimental-and-cross-linguistic-evidence">Experimental and cross-linguistic evidence</a></h2>
+<p>Scalar inferences vary by:</p>
+<ul>
+<li>context;</li>
+<li>task;</li>
+<li>processing time;</li>
+<li>age;</li>
+<li>scale;</li>
+<li>grammatical position;</li>
+<li>language.</li>
+</ul>
+<p>This supports a pragmatic component while showing that "some means not all" is too
+simple. Some theories model the inference through grammar plus alternatives; others
+through general reasoning.</p>
+<p>Evidence should distinguish availability, preferred interpretation, and processing
+cost. A truth-value judgment alone may conflate them.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Conversational implicature explains how communication outruns encoded content while
+remaining systematic. Its core ingredients are:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">what is said</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">alternatives</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">context</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">conversational expectations</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The classic diagnostics are clusters of evidence, not definitions. Difficult cases
+include embedded strengthening, conventionalized implications, irony, and adversarial
+speech. These do not erase the semantic-pragmatic distinction; they show that pragmatic
+reasoning can be structured, rapid, and partly grammar-sensitive.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/01-speaker-meaning.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/03-presupposition.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/01-speaker-meaning.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/03-presupposition.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

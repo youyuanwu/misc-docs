@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Propositions and Truth-Bearers - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/07-content-and-composition/02-propositions.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="propositions-and-truth-bearers"><a class="header" href="#propositions-and-truth-bearers">Propositions and Truth-Bearers</a></h1>
+<p>Different sentences can say the same thing:</p>
+<blockquote>
+<p>Snow is white.</p>
+</blockquote>
+<blockquote>
+<p>Schnee ist weiss.</p>
+</blockquote>
+<p>A person can believe what another asserts despite speaking a different language. A
+claim can remain true after the utterance has ended. These observations motivate
+<strong>propositions</strong>: shareable, truth-evaluable contents expressed by sentences and
+targeted by attitudes.</p>
+<p>Propositions are assigned several roles, and no role automatically entails the others.
+They may be sentence meanings, assertion contents, objects of belief, bearers of truth,
+and values manipulated by formal semantics. A theory must determine whether one entity
+can do all this work and at what grain.</p>
+<p>This page concerns semantic roles. The question what propositions are - abstract
+objects, structures, sets of worlds, facts, or dispensable posits - remains in
+<a href="../../04-ontology/08-abstracta/04-propositions.html">Propositions and Other
+Abstracta</a>.</p>
+<hr />
+<h2 id="why-posit-propositions"><a class="header" href="#why-posit-propositions">Why posit propositions?</a></h2>
+<h3 id="cross-linguistic-sameness"><a class="header" href="#cross-linguistic-sameness">Cross-linguistic sameness</a></h3>
+<p>Two non-synonymous sentence types in different languages can express the same content.
+The proposition is intended to be what they share.</p>
+<p>Translation is rarely exact, so sameness may be context-sensitive or partial. Still,
+the practice of translation presupposes comparison at a level beyond inscription and
+sound.</p>
+<h3 id="attitudes"><a class="header" href="#attitudes">Attitudes</a></h3>
+<p>Belief, hope, doubt, and fear appear relational:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Believes</span></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Different people can believe <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, and one person can entertain it through different
+sentences. Propositions provide objects for these attitudes.</p>
+<h3 id="assertion-and-disagreement"><a class="header" href="#assertion-and-disagreement">Assertion and disagreement</a></h3>
+<p>Speakers using different words can assert the same thing, agree with it, or contradict
+it. What is asserted must be distinguishable from the physical utterance and sentence
+type.</p>
+<h3 id="truth-and-falsity"><a class="header" href="#truth-and-falsity">Truth and falsity</a></h3>
+<p>An utterance event exists at a time and place, but what it says may be timelessly true
+or false. Propositions are candidates for the primary <strong>truth-bearers</strong>.</p>
+<h3 id="quantification"><a class="header" href="#quantification">Quantification</a></h3>
+<p>Ordinary discourse appears to quantify over contents:</p>
+<ul>
+<li>Everything Ada said was true.</li>
+<li>Ben believes something Chandra denies.</li>
+<li>There are claims no one has expressed.</li>
+</ul>
+<p>Paraphrase may avoid commitment, but the apparent explanatory utility is substantial.</p>
+<h2 id="sentence-types-and-tokens"><a class="header" href="#sentence-types-and-tokens">Sentence types and tokens</a></h2>
+<p>A <strong>sentence token</strong> is a concrete inscription or utterance. A <strong>sentence type</strong> is the
+repeatable linguistic pattern instantiated by tokens.</p>
+<p>Neither straightforwardly serves as the content.</p>
+<p>Tokens can be true only derivatively: a sound event is not itself how the world is.
+Types are context-sensitive. The type "I am tired" can be true as uttered by Ada and
+false as uttered by Ben at the same time.</p>
+<p>An <strong>interpreted sentence in context</strong> is a stronger candidate:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mclose">⟩</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> is a sentence, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span> a context, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> an interpreted language. This can do
+much proposition-like work without positing an independent abstract entity.</p>
+<p>It may still be too language-bound to explain cross-linguistic sameness and unexpressed
+contents.</p>
+<h2 id="utterance-contents"><a class="header" href="#utterance-contents">Utterance contents</a></h2>
+<p>The proposition expressed by an utterance depends on sentence meaning and context:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Content</span></span><span class="mopen">(</span><span class="mord mathnormal">u</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Character</span></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>An utterance of "I am here now" yields a content involving its speaker, location, and
+time. Different tokens of the same sentence type express different propositions.</p>
+<p>This content should be separated from:</p>
+<ul>
+<li>implicatures;</li>
+<li>presupposed background;</li>
+<li>illocutionary force;</li>
+<li>emotional or social effects; and</li>
+<li>every proposition an audience can infer.</li>
+</ul>
+<p>Otherwise "the proposition expressed" expands to everything communicated.</p>
+<h2 id="propositions-and-facts"><a class="header" href="#propositions-and-facts">Propositions and facts</a></h2>
+<p>A proposition can be false; a fact cannot. The proposition that snow is black is a
+possible object of belief but not a fact.</p>
+<p>One common distinction is:</p>
+<ul>
+<li>a <strong>proposition</strong> represents a way things are;</li>
+<li>a <strong>fact</strong> is a proposition's obtaining or the worldly state making it true.</li>
+</ul>
+<p>Truthmaker theories instead relate propositions to entities that make them true. The
+ontology and explanatory role of facts are treated in
+<a href="../../04-ontology/11-events/02-facts-and-states-of-affairs.html">Facts and States of
+Affairs</a> and
+<a href="../../04-ontology/11-events/03-truthmakers.html">Truthmakers</a>.</p>
+<p>Semantics need not decide that every true proposition corresponds to one fact. It must
+specify what truth applies to and how that content is evaluated.</p>
+<h2 id="propositions-as-sets-of-worlds"><a class="header" href="#propositions-as-sets-of-worlds">Propositions as sets of worlds</a></h2>
+<p>In intensional semantics, a proposition is often represented as the set of worlds at
+which it is true:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord text"><span class="mord"> is true at </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mclose">}</span><span class="mord">.</span></span></span></span></span></p>
+<p>This makes:</p>
+<ul>
+<li>entailment subset inclusion;</li>
+<li>conjunction intersection;</li>
+<li>disjunction union;</li>
+<li>negation complement;</li>
+<li>possibility non-emptiness; and</li>
+<li>necessity truth at every world.</li>
+</ul>
+<p>The representation is elegant for modal semantics. It is coarse-grained: necessarily
+equivalent propositions are identical. Every necessary truth corresponds to the set of
+all worlds.</p>
+<p>That is often unacceptable for belief and explanation. A person can believe one
+mathematical truth without believing every necessary truth.</p>
+<h2 id="structured-propositions"><a class="header" href="#structured-propositions">Structured propositions</a></h2>
+<p>A <strong>structured proposition</strong> contains constituents arranged in a way paralleling
+sentence structure.</p>
+<p>For "Ada admires Ben":</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mop"><span class="mord mathrm">admires</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mclose">⟩</span></span></span></span></span></p>
+<p>differs from:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mop"><span class="mord mathrm">admires</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>Russellian propositions contain objects and properties. Fregean propositions contain
+senses or modes of presentation.</p>
+<p>Structure distinguishes necessarily equivalent and co-referring contents more finely.
+It faces the <strong>unity problem</strong>: a proposition is not merely a list. What makes the
+constituents assertorically combined rather than collected?</p>
+<p>The alternatives are compared in
+<a href="03-structured-and-unstructured-content.html">Structured and Unstructured Content</a>.</p>
+<h2 id="truth-bearers"><a class="header" href="#truth-bearers">Truth-bearers</a></h2>
+<p>Candidates for primary truth-bearers include:</p>
+<ul>
+<li>sentence tokens;</li>
+<li>sentence types relative to languages;</li>
+<li>utterances;</li>
+<li>statements;</li>
+<li>judgments;</li>
+<li>beliefs;</li>
+<li>propositions; and</li>
+<li>facts.</li>
+</ul>
+<p>Propositions have advantages:</p>
+<ul>
+<li>one bearer can be expressed many times;</li>
+<li>truth does not vary with accidental features of tokens;</li>
+<li>false contents exist as candidates for evaluation;</li>
+<li>attitudes and assertions can share an object.</li>
+</ul>
+<p>Problems include:</p>
+<ul>
+<li>criteria of proposition identity;</li>
+<li>ontology and epistemic access;</li>
+<li>context sensitivity;</li>
+<li>granularity;</li>
+<li>unexpressed propositions; and</li>
+<li>whether all meaningful acts express propositions.</li>
+</ul>
+<p>Pluralism is possible. Propositions may be primary bearers while sentences and beliefs
+are derivatively true when they express or have a true proposition as content.</p>
+<h2 id="objects-of-belief"><a class="header" href="#objects-of-belief">Objects of belief</a></h2>
+<p>Substitution creates pressure on proposition grain:</p>
+<blockquote>
+<p>Lois believes that Superman can fly.</p>
+</blockquote>
+<p>may be true while:</p>
+<blockquote>
+<p>Lois believes that Clark Kent can fly.</p>
+</blockquote>
+<p>is false. If the embedded sentences express the same coarse Russellian proposition,
+belief cannot be a simple two-place relation between person and proposition.</p>
+<p>Responses include:</p>
+<ul>
+<li>fine-grained Fregean propositions;</li>
+<li>a three-place relation involving a mode of presentation;</li>
+<li>mental files or guises;</li>
+<li>context-sensitive attitude attribution;</li>
+<li>structured propositions containing different name meanings; and</li>
+<li>pragmatic explanations of reports.</li>
+</ul>
+<p>The theory of belief may need more structure than the semantics of ordinary extensional
+sentences. It does not follow that one notion of proposition must serve every purpose.</p>
+<h2 id="assertion-content"><a class="header" href="#assertion-content">Assertion content</a></h2>
+<p>Assertion undertakes commitment to a content. But how much content is asserted?</p>
+<p>Suppose someone says:</p>
+<blockquote>
+<p>It is raining.</p>
+</blockquote>
+<p>Possibilities include:</p>
+<ul>
+<li>a minimal proposition that it is raining at an unspecified place;</li>
+<li>a proposition containing the contextually relevant location;</li>
+<li>a richer proposition about present local conditions;</li>
+<li>no complete proposition until pragmatic enrichment occurs.</li>
+</ul>
+<p>The choice bears on contextualism and the semantics-pragmatics boundary. Assertion
+content should be rich enough to evaluate but not automatically include every
+implicature.</p>
+<p>Presuppositions complicate the picture: they may be commitments without being part of
+the main asserted proposition.</p>
+<h2 id="non-declaratives"><a class="header" href="#non-declaratives">Non-declaratives</a></h2>
+<p>Questions and imperatives challenge proposition-centered semantics.</p>
+<p>A question may denote:</p>
+<ul>
+<li>a set of possible answers;</li>
+<li>an issue partition over worlds;</li>
+<li>an inquisitive content; or</li>
+<li>a function from answers to propositions.</li>
+</ul>
+<p>An imperative may express:</p>
+<ul>
+<li>a desired or commanded proposition;</li>
+<li>a property of actions;</li>
+<li>a preference update; or</li>
+<li>a directive force applied to propositional content.</li>
+</ul>
+<p>Propositions remain useful components without exhausting meaning. A complete theory
+distinguishes content from force and generalizes semantic values by sentence type.</p>
+<h2 id="unexpressed-and-impossible-propositions"><a class="header" href="#unexpressed-and-impossible-propositions">Unexpressed and impossible propositions</a></h2>
+<p>Are there propositions no actual or possible language expresses? If propositions are
+language-independent ways things could be, likely yes. If they are abstractions from
+linguistic practice, perhaps not.</p>
+<p>Impossible contents create a sharper issue. "There is a largest prime" is impossible
+but meaningful. Sets of possible worlds collapse all impossibilities into the empty
+set. Structured or impossible-world accounts preserve differences.</p>
+<p>The choice depends on the explanatory target:</p>
+<ul>
+<li>modal evaluation may need only possible-world content;</li>
+<li>belief and reasoning require finer distinctions;</li>
+<li>linguistic understanding requires systematic structure;</li>
+<li>metaphysics may seek language-independent truth-bearers.</li>
+</ul>
+<h2 id="eliminating-propositions"><a class="header" href="#eliminating-propositions">Eliminating propositions</a></h2>
+<p>A nominalist may replace propositions with:</p>
+<ul>
+<li>interpreted sentence types;</li>
+<li>equivalence classes of synonymous sentences;</li>
+<li>utterance-event types;</li>
+<li>facts about speakers' dispositions;</li>
+<li>substitutional quantification over sentences; or</li>
+<li>a primitive sentential operator, "Ada believes that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>," without an object <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>.</li>
+</ul>
+<p>Each avoids abstract proposition objects but must recover sharing across languages,
+attitude logic, truth attribution, and unexpressed contents.</p>
+<p>Equivalence classes are especially circular if synonymy was to be explained through
+shared proposition.</p>
+<p>The indispensability case is therefore comparative: propositions are justified if
+they unify these roles better than paraphrases, not merely because grammar appears to
+quantify over them.</p>
+<h2 id="one-notion-or-several"><a class="header" href="#one-notion-or-several">One notion or several?</a></h2>
+<p>The explanatory roles pull toward different grains:</p>
+<div class="table-wrapper"><table><thead><tr><th>Role</th><th>Useful grain</th></tr></thead><tbody>
+<tr><td>Modal truth and entailment</td><td>sets of possible worlds</td></tr>
+<tr><td>Compositional sentence content</td><td>typed or structured values</td></tr>
+<tr><td>Cognitive significance</td><td>Fregean or hyperintensional content</td></tr>
+<tr><td>Belief explanation</td><td>modes of presentation or mental files</td></tr>
+<tr><td>Assertion and disagreement</td><td>contextually expressed public content</td></tr>
+<tr><td>Metaphysical truth-bearing</td><td>language-independent proposition</td></tr>
+</tbody></table>
+</div>
+<p>One theory may identify these levels; another may distinguish several notions of
+content. Multiplicity is not automatically a defect if the relations among levels are
+explicit.</p>
+<p>The minimal conclusion is functional: semantic theory needs stable, shareable,
+truth-evaluable contents. Whether those contents are propositions as entities, formal
+representations, or roles in a theory remains an open interface between language and
+ontology.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/01-compositionality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/03-structured-and-unstructured-content.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/01-compositionality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/03-structured-and-unstructured-content.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

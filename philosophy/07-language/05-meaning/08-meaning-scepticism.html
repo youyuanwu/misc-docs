@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Meaning Scepticism and Rule-Following - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/08-meaning-scepticism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="meaning-scepticism-and-rule-following"><a class="header" href="#meaning-scepticism-and-rule-following">Meaning Scepticism and Rule-Following</a></h1>
+<p>Suppose a person has calculated only finitely many additions. Asked for the first time
+to compute <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">68</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">57</span></span></span></span>, they answer 125. What fact about their past makes <strong>plus</strong> rather
+than a deviant function the rule they meant? Every finite history of examples agrees
+with indefinitely many functions on the cases already encountered.</p>
+<p>Kripke's influential reconstruction of Wittgenstein sharpens this into a sceptical
+challenge. Define <strong>quus</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mop"><span class="mord mathrm">quus</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">5</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">57</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">otherwise</span></span><span class="mord">.</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>If all past calculations involved smaller numbers, behaviour fits both plus and quus.
+Which fact determines that the new answer should be 125 rather than 5? The challenge
+is not merely underdetermination by external evidence. It asks what fact, even from the
+speaker's own perspective, constitutes meaning addition rather than quaddition.</p>
+<hr />
+<h2 id="the-sceptical-argument"><a class="header" href="#the-sceptical-argument">The sceptical argument</a></h2>
+<p>The argument combines finitude with normativity.</p>
+<ol>
+<li>A speaker's past applications and instructions are finite.</li>
+<li>Indefinitely many candidate rules agree with that finite history.</li>
+<li>Understanding a rule determines correct applications beyond the history.</li>
+<li>Therefore the constitutive fact cannot be merely the finite list of past
+applications.</li>
+</ol>
+<p>Appealing to an explicit formula does not immediately help. The signs in the formula
+must themselves be interpreted. "Use ordinary addition" can be read under a deviant
+interpretation of "ordinary," "addition," or its component symbols. If every sign
+requires a further interpreted sign, an infinite regress threatens.</p>
+<p>The sceptic concludes that no fact about the individual fixes one rule rather than all
+compatible alternatives. Generalized beyond arithmetic, no fact appears to determine
+what any expression means.</p>
+<h2 id="why-this-is-not-ordinary-uncertainty"><a class="header" href="#why-this-is-not-ordinary-uncertainty">Why this is not ordinary uncertainty</a></h2>
+<p>Ordinary scepticism asks how someone knows which rule another person follows. More
+evidence might answer it. The rule-following problem is <strong>constitutive</strong>: complete
+knowledge of the speaker's finite history, dispositions, and inner episodes is said to
+leave multiple rules compatible.</p>
+<p>Nor is the challenge that speakers occasionally misunderstand. Error presupposes a
+standard of correct use. The sceptic asks what establishes that standard.</p>
+<p>The issue can be stated as a three-way tension:</p>
+<ul>
+<li>meaning must extend beyond actual applications;</li>
+<li>meaning must make future applications correct or incorrect;</li>
+<li>no candidate descriptive fact appears both determinate and normative.</li>
+</ul>
+<h2 id="dispositionalism"><a class="header" href="#dispositionalism">Dispositionalism</a></h2>
+<p>A natural answer says that to mean addition is to be disposed to answer addition
+questions in the relevant way. The rule is not fixed by actual past behaviour but by
+counterfactual behaviour across possible cases.</p>
+<p>Several objections follow.</p>
+<h3 id="finitude"><a class="header" href="#finitude">Finitude</a></h3>
+<p>Human beings cannot calculate arbitrarily large sums. For some inputs a speaker has no
+disposition to answer because they would die, tire, or run out of memory. A
+mathematical rule has applications beyond the subject's physical capacity.</p>
+<h3 id="error"><a class="header" href="#error">Error</a></h3>
+<p>A person can be disposed to make a carrying mistake. If actual idealized disposition
+constitutes meaning, the habitual error threatens to become part of what the person
+means rather than an incorrect application.</p>
+<h3 id="idealization"><a class="header" href="#idealization">Idealization</a></h3>
+<p>The theory can appeal to what the speaker would do under ideal conditions. But which
+idealization? Ideal arithmetic competence yields addition only if the relevant
+standard of correctness has already been selected. Defining ideality semantically
+would be circular.</p>
+<h3 id="normativity"><a class="header" href="#normativity">Normativity</a></h3>
+<p>A disposition describes what a person would do, not what they ought to do. From the
+fact that someone is disposed to answer 125, it does not immediately follow that 125
+is correct.</p>
+<p>Dispositions remain evidence of understanding. The challenge is whether they
+constitute it without supplementary norms.</p>
+<h2 id="mental-instructions-and-interpretations"><a class="header" href="#mental-instructions-and-interpretations">Mental instructions and interpretations</a></h2>
+<p>Perhaps the speaker grasps an inner formula, image, algorithm, or intention that fixes
+the rule. Kripke's sceptic applies the same question to that item. A formula is a set
+of signs; an algorithm contains steps; an image can exemplify only finitely much. Each
+seems capable of deviant interpretation.</p>
+<p>An inner object could fix meaning if it had an intrinsic interpretation. But asserting
+that interpretation simply relocates the semantic fact the reduction was meant to
+explain.</p>
+<p>This is the force of Wittgenstein's claim that an interpretation by itself does not
+determine application. What stops the regress is not a final sign accompanied by an
+unmistakable mental glow.</p>
+<h2 id="primitive-meaning-facts"><a class="header" href="#primitive-meaning-facts">Primitive meaning facts</a></h2>
+<p>Another response accepts irreducible facts of the form:</p>
+<blockquote>
+<p>The speaker means addition by "plus."</p>
+</blockquote>
+<p>Such a fact would be normative and determinate without reduction to behaviour or
+disposition. The sceptic objects that it can appear metaphysically and epistemically
+mysterious. How does a finite state determine indefinitely many applications? What
+evidence reveals the fact, and how does it guide action?</p>
+<p>Primitivism is not inconsistent. Every explanation ends somewhere. Its cost is that it
+forgoes the hoped-for naturalistic or practice-based account of meaning. A satisfactory
+primitivism should say how meaning facts relate to learning, public correction, and
+causal explanation rather than merely label them primitive.</p>
+<h2 id="the-sceptical-solution"><a class="header" href="#the-sceptical-solution">The sceptical solution</a></h2>
+<p>Kripke distinguishes a <strong>straight solution</strong>, which identifies a fact satisfying the
+sceptic's demand, from a <strong>sceptical solution</strong>, which rejects that demand while
+vindicating ordinary meaning talk.</p>
+<p>On the sceptical solution, assertions that someone means addition are not descriptions
+of a private fact that determines every future application. They are licensed within a
+community's practice of:</p>
+<ul>
+<li>training speakers;</li>
+<li>checking responses;</li>
+<li>correcting deviations;</li>
+<li>projecting shared procedures;</li>
+<li>attributing understanding; and</li>
+<li>excluding unresponsive performances.</li>
+</ul>
+<p>Meaning claims have <strong>assertibility conditions</strong> grounded in communal practice rather
+than truth-conditions requiring a superlative individual fact.</p>
+<p>The solution is modelled on Hume's response to induction: sceptical argument defeats a
+certain philosophical picture, not the practice itself.</p>
+<h2 id="community-agreement"><a class="header" href="#community-agreement">Community agreement</a></h2>
+<p>A community supplies standards unavailable to a solitary individual. A learner's
+seeming-right can be checked against how competent participants continue, explain, and
+correct. Agreement in judgments stabilizes the distinction between following a rule
+and merely thinking one is following it.</p>
+<p>This does not mean that a majority makes any answer mathematically true. The claim
+concerns what makes a sign part of a rule-governed practice. Participants agree not
+only in verdicts but in techniques of proof, calculation, correction, and application.</p>
+<p>Several objections remain:</p>
+<ul>
+<li>a whole community could make a systematic mistake;</li>
+<li>communities change their rules;</li>
+<li>innovators can be correct against current consensus;</li>
+<li>agreement appears descriptive rather than normative; and</li>
+<li>solitary or isolated agents seem capable of following rules.</li>
+</ul>
+<p>A practice account must distinguish constituting a standard from infallibly satisfying
+it. Community is a site of norm-governed activity, not an oracle.</p>
+<h2 id="robinson-crusoe-and-solitary-rule-following"><a class="header" href="#robinson-crusoe-and-solitary-rule-following">Robinson Crusoe and solitary rule-following</a></h2>
+<p>Could an isolated person invent and follow a rule? Denying this outright seems too
+strong. A solitary mathematician can check one calculation against another, preserve
+records, notice inconsistency, and distinguish current inclination from an established
+procedure.</p>
+<p>A social account can reply that these capacities were acquired through prior
+participation in public practices. But a permanently isolated rational agent remains a
+conceptual possibility.</p>
+<p>The deeper point may be <strong>publicness in principle</strong> rather than current social
+presence. A rule must support repeatable standards, correction, and distinctions not
+exhausted by one present impression. Whether those standards require an actual
+community is further than the regress argument alone establishes.</p>
+<h2 id="wittgenstein-and-kripkenstein"><a class="header" href="#wittgenstein-and-kripkenstein">Wittgenstein and "Kripkenstein"</a></h2>
+<p>Kripke presents the sceptical paradox as "Wittgenstein's" and labels his reading an
+interpretation rather than a straightforward report. The distinction matters.</p>
+<p>Wittgenstein's own discussion emphasizes:</p>
+<ul>
+<li>interpretations do not determine themselves;</li>
+<li>rule-following is embedded in practices;</li>
+<li>training and agreement in judgments are conditions of language;</li>
+<li>there is a way of grasping a rule exhibited in obeying it; and</li>
+<li>philosophical puzzlement arises when rules are detached from their use.</li>
+</ul>
+<p>This need not amount to the global semantic scepticism that no meaning facts exist.
+Many interpreters read Wittgenstein as dissolving a mistaken demand for an
+interpretation that rails invisibly determine, not as replacing truth with communal
+assertibility.</p>
+<p>"Kripkenstein" names the specific sceptical argument and solution. Evaluating it should
+not settle exegesis of Wittgenstein by stipulation.</p>
+<h2 id="normativity-guidance-or-correctness"><a class="header" href="#normativity-guidance-or-correctness">Normativity: guidance or correctness?</a></h2>
+<p>Meaning is called normative in several senses:</p>
+<ol>
+<li><strong>Correctness:</strong> if "plus" means addition, some applications are correct and others
+incorrect.</li>
+<li><strong>Reasons:</strong> meaning may give a speaker reason to apply a term in one way.</li>
+<li><strong>Obligation:</strong> a speaker may be required to use an expression according to public
+standards.</li>
+<li><strong>Commitment:</strong> an assertion may undertake inferential responsibilities.</li>
+</ol>
+<p>The sceptical argument is strongest about correctness. It does not automatically show
+that semantic facts generate all-things-considered obligations. A person can have
+reason to lie or deliberately violate a convention while still knowing the literal
+meaning.</p>
+<p>Separating these senses prevents the debate from demanding more normativity than
+meaning requires.</p>
+<h2 id="finite-facts-and-infinite-reach"><a class="header" href="#finite-facts-and-infinite-reach">Finite facts and infinite reach</a></h2>
+<p>The quus case assumes that a finite base must uniquely determine an extension over
+indefinitely many cases. Similar problems arise for scientific laws, algorithms,
+grammars, and inductive projection. Meaning may not be uniquely defective.</p>
+<p>Responses appeal to structure rather than enumeration:</p>
+<ul>
+<li>a finite algorithm can specify unbounded outputs;</li>
+<li>simplicity can privilege some continuations;</li>
+<li>biological or social function can select a rule;</li>
+<li>causal history can constrain interpretation;</li>
+<li>rational coherence can compare global assignments; and</li>
+<li>primitive capacities can manifest general competence.</li>
+</ul>
+<p>Each response must avoid presupposing the intended interpretation. But the existence of
+multiple mathematically definable alternatives does not by itself show that all are
+equally eligible explanations of a speaker embedded in a world and practice.</p>
+<h2 id="what-the-challenge-establishes"><a class="header" href="#what-the-challenge-establishes">What the challenge establishes</a></h2>
+<p>Rule-following scepticism defeats several simple reductions:</p>
+<ul>
+<li>meaning is not a finite list of applications;</li>
+<li>actual disposition cannot by itself preserve error;</li>
+<li>an uninterpreted inner sign cannot terminate interpretation;</li>
+<li>intention cannot fix a rule merely by containing another representation; and</li>
+<li>normativity must be explained rather than read off causal regularity.</li>
+</ul>
+<p>It does not by itself establish that meaning is unreal or that majority agreement makes
+every application correct. Its constructive lesson is that understanding should be
+explained through a structured combination of capacity, practice, world-involvement,
+history, and standards of correction.</p>
+<p>That lesson supports <a href="04-use-and-language-games.html">meaning as use</a> while leaving room
+for truth-conditions, reference, and convention. The sceptical paradox remains a test
+for each: what makes one continuation correct, and how can finite speakers be answerable
+to it?</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/07-verificationism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/01-theories-of-reference.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/07-verificationism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/01-theories-of-reference.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

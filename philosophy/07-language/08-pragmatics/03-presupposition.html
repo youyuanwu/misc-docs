@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Presupposition - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/08-pragmatics/03-presupposition.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="presupposition"><a class="header" href="#presupposition">Presupposition</a></h1>
+<p>"Ada stopped smoking" presents Ada's earlier smoking as background while asserting a
+change. "The king of France is bald" treats a unique king as given. "Ben knows that the
+door is open" presents the door's being open as settled.</p>
+<p>These backgrounded contents are <strong>presuppositions</strong>. They tend to survive negation,
+questions, modality, and other embeddings; they can be accommodated when not already
+shared; and they project from clauses in patterns sensitive to discourse structure.</p>
+<p>Presupposition sits across semantics and pragmatics. Semantic theories use partial
+truth values or definedness conditions. Pragmatic theories explain backgrounding
+through common ground and conversational expectations. Dynamic theories treat meaning
+as context update and integrate both.</p>
+<hr />
+<h2 id="triggers"><a class="header" href="#triggers">Triggers</a></h2>
+<p>Common presupposition triggers include:</p>
+<ul>
+<li><strong>definite descriptions:</strong> "the editor" suggests a unique relevant editor;</li>
+<li><strong>change-of-state verbs:</strong> "stop" suggests the earlier activity;</li>
+<li><strong>factive verbs:</strong> "know," "discover," and "regret" suggest truth of the complement;</li>
+<li><strong>iteratives:</strong> "again" suggests a prior event;</li>
+<li><strong>clefts:</strong> "It was Ada who left" suggests someone left;</li>
+<li><strong>possessives:</strong> "Ben's bicycle" suggests an appropriate bicycle relation;</li>
+<li><strong>temporal clauses:</strong> "Before Ada left" suggests Ada left;</li>
+<li><strong>too/either:</strong> "Ben came too" suggests someone else came.</li>
+</ul>
+<p>Triggers vary in strength and projection. The category is not perfectly uniform.</p>
+<h2 id="constancy-under-negation"><a class="header" href="#constancy-under-negation">Constancy under negation</a></h2>
+<p>Compare:</p>
+<blockquote>
+<p>Ada stopped smoking.</p>
+</blockquote>
+<blockquote>
+<p>Ada did not stop smoking.</p>
+</blockquote>
+<p>Both tend to convey that Ada smoked before. The background survives ordinary negation,
+unlike the main asserted content.</p>
+<p>This <strong>constancy under negation</strong> is a classic diagnostic. It also appears under:</p>
+<ul>
+<li>questions;</li>
+<li>conditionals;</li>
+<li>possibility;</li>
+<li>commands.</li>
+</ul>
+<p>Diagnostics can conflict. Context can suspend a presupposition, and some entailments
+also survive certain embeddings. Constancy is evidence rather than a complete
+definition.</p>
+<h2 id="the-projection-problem"><a class="header" href="#the-projection-problem">The projection problem</a></h2>
+<p>A presupposition introduced inside a larger sentence sometimes becomes a presupposition
+of the whole:</p>
+<blockquote>
+<p>Ada believes that Ben stopped smoking.</p>
+</blockquote>
+<p>This can suggest that Ben smoked.</p>
+<p>But projection can be blocked:</p>
+<blockquote>
+<p>If Ben smoked, then he has stopped smoking.</p>
+</blockquote>
+<p>The antecedent supplies the background, so the conditional need not presuppose that Ben
+smoked.</p>
+<p>It can also be cancelled:</p>
+<blockquote>
+<p>Ada did not stop smoking - she never smoked.</p>
+</blockquote>
+<p>An adequate theory must predict when background content projects, is filtered, is
+locally accommodated, or is explicitly rejected.</p>
+<h2 id="semantic-presupposition"><a class="header" href="#semantic-presupposition">Semantic presupposition</a></h2>
+<p>On a semantic account, a sentence has a defined truth value only if its presupposition
+is satisfied.</p>
+<p>For "The <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>":</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">defined only if exactly one relevant </span></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord text"><span class="mord"> exists</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>If defined, it is true iff that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.</p>
+<p>This explains why both positive and negative forms retain the existence condition. It
+can be implemented with partial functions, a third truth value, or supervaluation.</p>
+<p>Problems include:</p>
+<ul>
+<li>ordinary speakers sometimes judge sentences false rather than gappy;</li>
+<li>presuppositions can be accommodated;</li>
+<li>context can cancel or repair them;</li>
+<li>projection through complex sentences needs special composition.</li>
+</ul>
+<p>Semantic accounts capture conventional triggering but require pragmatic support.</p>
+<h2 id="pragmatic-presupposition"><a class="header" href="#pragmatic-presupposition">Pragmatic presupposition</a></h2>
+<p>Stalnaker treats presupposition as what a speaker takes for granted in a conversation.
+The <strong>common ground</strong> is the set of propositions mutually accepted for current
+purposes.</p>
+<p>To presuppose <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is, roughly, to behave as though <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> belongs to that common ground.
+An utterance requiring <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is felicitous when interlocutors can treat it as settled.</p>
+<p>Advantages:</p>
+<ul>
+<li>accommodation is natural;</li>
+<li>backgrounding is tied to discourse purpose;</li>
+<li>speaker presupposition can diverge from sentence triggers;</li>
+<li>cancellation reflects explicit management of common ground.</li>
+</ul>
+<p>The theory must still explain why particular lexical items regularly impose particular
+requirements. Purely general pragmatics may underdescribe trigger-specific behaviour.</p>
+<h2 id="accommodation"><a class="header" href="#accommodation">Accommodation</a></h2>
+<p>If a speaker says:</p>
+<blockquote>
+<p>I have to pick up my sister.</p>
+</blockquote>
+<p>without previously mentioning a sister, listeners often add that the speaker has a
+sister to the common ground. This is <strong>accommodation</strong>.</p>
+<p>Accommodation is constrained:</p>
+<ul>
+<li>the assumption should be plausible or uncontroversial enough;</li>
+<li>it should support interpretation;</li>
+<li>it should not conflict with established information;</li>
+<li>local accommodation may be preferred under embedding;</li>
+<li>socially or epistemically costly assumptions can be challenged.</li>
+</ul>
+<p>Listeners can refuse:</p>
+<blockquote>
+<p>Wait - I did not know you had a sister.</p>
+</blockquote>
+<p>Accommodation therefore updates conversational background without turning
+presupposition into unchallengeable truth.</p>
+<h2 id="dynamic-semantics"><a class="header" href="#dynamic-semantics">Dynamic semantics</a></h2>
+<p>Dynamic semantics treats sentence meaning as a function from information states to
+information states:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">s</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6943em;vertical-align:-0.011em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8019em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>A presupposition is a condition on the input context. Assertion adds at-issue content
+to produce the output.</p>
+<p>This approach handles:</p>
+<ul>
+<li>discourse anaphora;</li>
+<li>projection;</li>
+<li>conditional filtering;</li>
+<li>accommodation;</li>
+<li>context change.</li>
+</ul>
+<p>It blurs a simple semantics-pragmatics division: context update is formally encoded in
+semantics, while actual accommodation and relevance remain pragmatic.</p>
+<h2 id="local-accommodation"><a class="header" href="#local-accommodation">Local accommodation</a></h2>
+<p>Sometimes a presupposition is accommodated only within an embedded environment:</p>
+<blockquote>
+<p>If Ada has a bicycle, she will regret that it is outside.</p>
+</blockquote>
+<p>The conditional need not globally presuppose that Ada has a bicycle. The information
+can be added locally while evaluating the consequent under the antecedent.</p>
+<p>Local accommodation prevents unwanted global commitment but can produce readings that
+feel marked. Preference among global, local, and no accommodation depends on coherence,
+informativeness, and processing.</p>
+<h2 id="presupposition-versus-entailment"><a class="header" href="#presupposition-versus-entailment">Presupposition versus entailment</a></h2>
+<p>"Ada stopped smoking" entails, or at least strongly implies, prior smoking on many
+analyses. Why call it presupposed rather than asserted?</p>
+<p>Differences include:</p>
+<ul>
+<li>projection under negation;</li>
+<li>background status;</li>
+<li>resistance to direct denial;</li>
+<li>lower prominence in answers to the current question;</li>
+<li>characteristic accommodation.</li>
+</ul>
+<p>At-issue content and presupposed content can both affect truth conditions. The
+distinction concerns discourse role and projection, not simply whether one is
+truth-conditional.</p>
+<h2 id="presupposition-versus-implicature"><a class="header" href="#presupposition-versus-implicature">Presupposition versus implicature</a></h2>
+<p>Both can be cancellable and context-sensitive.</p>
+<p>Conversational implicature is calculated from what was said and conversational
+expectations. Presupposition is more tightly associated with triggers and background
+requirements.</p>
+<p>Compare:</p>
+<blockquote>
+<p>Some students passed.</p>
+</blockquote>
+<p>The <em>not all</em> inference is readily cancelled.</p>
+<blockquote>
+<p>Ada stopped smoking.</p>
+</blockquote>
+<p>The prior-smoking content is harder to remove without correction or metalinguistic
+repair.</p>
+<p>The difference is graded in some cases. Repeated pragmatic inferences can become
+conventionalized.</p>
+<h2 id="factive-predicates"><a class="header" href="#factive-predicates">Factive predicates</a></h2>
+<p>"Ada knows that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>" presupposes or entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>:</p>
+<blockquote>
+<p>Ada knows that the door is open.</p>
+</blockquote>
+<p>The speaker normally commits to the door being open. Under negation:</p>
+<blockquote>
+<p>Ada does not know that the door is open.</p>
+</blockquote>
+<p>the commitment tends to persist.</p>
+<p>Some factives permit contextual suspension:</p>
+<blockquote>
+<p>If the door is not open, Ada does not know that it is.</p>
+</blockquote>
+<p>Theories debate whether factivity is lexical entailment with pragmatic projection,
+semantic presupposition, or a mixed phenomenon.</p>
+<h2 id="presupposition-and-disagreement"><a class="header" href="#presupposition-and-disagreement">Presupposition and disagreement</a></h2>
+<p>Backgrounding can make a claim harder to contest because denial of the main assertion
+leaves the presupposition untouched. Interlocutors can respond through:</p>
+<ul>
+<li>explicit rejection;</li>
+<li>clarification;</li>
+<li>presupposition denial;</li>
+<li>alternative framing;</li>
+<li>refusal to accommodate.</li>
+</ul>
+<p>This pragmatic effect does not make every presupposition manipulative. Efficient
+conversation requires shared background. The same mechanism can be exploited when
+controversial content is presented as settled.</p>
+<p>The general political development remains outside this section; the linguistic point
+is how background content enters and can be challenged.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>No single account explains every aspect:</p>
+<div class="table-wrapper"><table><thead><tr><th>Account</th><th>Strength</th><th>Pressure</th></tr></thead><tbody>
+<tr><td><strong>Semantic/partial</strong></td><td>trigger stability and definedness</td><td>accommodation and contextual repair</td></tr>
+<tr><td><strong>Pragmatic/common ground</strong></td><td>discourse use and cancellation</td><td>lexical regularity</td></tr>
+<tr><td><strong>Dynamic</strong></td><td>projection and context update</td><td>formal complexity and empirical choice</td></tr>
+<tr><td><strong>Hybrid</strong></td><td>distributes trigger, projection, and accommodation</td><td>boundary and redundancy</td></tr>
+</tbody></table>
+</div>
+<p>A hybrid is natural:</p>
+<ol>
+<li>lexical and constructional properties introduce requirements;</li>
+<li>compositional rules project or filter them;</li>
+<li>discourse context determines satisfaction;</li>
+<li>pragmatic reasoning manages accommodation and challenge.</li>
+</ol>
+<p>Presupposition is therefore not evidence that semantics and pragmatics cannot be
+distinguished. It is evidence that they interact at multiple stages.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/02-conversational-implicature.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/04-context-and-conversation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/02-conversational-implicature.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/04-context-and-conversation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

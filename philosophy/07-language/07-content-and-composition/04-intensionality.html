@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intensionality and Possible-Worlds Content - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/07-content-and-composition/04-intensionality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="intensionality-and-possible-worlds-content"><a class="header" href="#intensionality-and-possible-worlds-content">Intensionality and Possible-Worlds Content</a></h1>
+<p>The extension of "the tallest person" is whoever is tallest in the actual world. The
+same expression could pick out someone else had circumstances differed. The sentence
+"Ada might have won" is not evaluated only against actuality but against relevant
+possibilities. Belief reports resist substitution even when expressions have the same
+actual extension.</p>
+<p><strong>Intensional semantics</strong> represents these dependencies by assigning expressions
+values that vary across possible worlds, times, or other indices. An <strong>intension</strong> is,
+roughly, a function from circumstances of evaluation to extensions.</p>
+<p>The apparatus unifies modality, tense, conditionals, and attitude contexts. It does not
+settle what possible worlds are or show that every distinction in meaning reduces to
+truth across possibilities.</p>
+<hr />
+<h2 id="extension-and-intension"><a class="header" href="#extension-and-intension">Extension and intension</a></h2>
+<p>An expression's <strong>extension</strong> is its semantic value at a circumstance:</p>
+<ul>
+<li>a name: an object;</li>
+<li>a predicate: a set of objects;</li>
+<li>a sentence: a truth value.</li>
+</ul>
+<p>An <strong>intension</strong> maps circumstances to extensions. For a one-place predicate:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2146em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9646em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">in</span><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> is </span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord text"><span class="mord"> in </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mclose">}</span><span class="mord">.</span></span></span></span></span></p>
+<p>For a sentence:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2146em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9646em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">in</span><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span><span class="mpunct">,</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord text"><span class="mord"> is true at </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord text"><span class="mord"> is false at </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord">.</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>The sentence intension corresponds to a set of worlds. Predicate intensions vary their
+extensions across worlds.</p>
+<h2 id="why-extension-is-insufficient"><a class="header" href="#why-extension-is-insufficient">Why extension is insufficient</a></h2>
+<p>"Creature with a heart" and "creature with kidneys" may have the same actual extension.
+Still, it is possible for a creature to have one without the other. Their intensions
+differ because their extensions diverge at some worlds.</p>
+<p>Likewise, two actually true sentences need not have the same meaning. Intensions
+distinguish them by their modal profiles.</p>
+<p>Actual extension is therefore too coarse for counterfactual evaluation and many
+semantic relations. Intension enriches content without yet introducing internal
+structure.</p>
+<h2 id="modality"><a class="header" href="#modality">Modality</a></h2>
+<p>Possible-worlds semantics interprets necessity and possibility:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">wR</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mpunct">,</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">◊</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">∃</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">wR</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> is an accessibility relation encoding which worlds count as alternatives from
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>. Different constraints on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> produce different modal logics.</p>
+<p>Natural-language modality requires interpretation of the modal base and ordering
+source. "Must" can express logical, epistemic, legal, or practical necessity depending
+on context. Possible worlds supply the formal space; context helps determine which
+worlds are relevant.</p>
+<h2 id="rigid-and-non-rigid-terms"><a class="header" href="#rigid-and-non-rigid-terms">Rigid and non-rigid terms</a></h2>
+<p>A rigid designator has the same referent at every world where that referent exists. A
+proper name such as "Ada" is standardly treated as rigid.</p>
+<p>A description such as "the tallest person" is non-rigid: its extension can vary from
+world to world.</p>
+<p>This difference explains:</p>
+<blockquote>
+<p>Ada might not have been the tallest person.</p>
+</blockquote>
+<p>The name continues to designate Ada while the description may designate someone else.</p>
+<p>In intensional type theory, a rigid term has a constant individual concept; a
+non-rigid term maps worlds to different individuals.</p>
+<h2 id="de-re-and-de-dicto-modality"><a class="header" href="#de-re-and-de-dicto-modality">De re and de dicto modality</a></h2>
+<p>Compare:</p>
+<blockquote>
+<p>The tallest person might not have been tallest.</p>
+</blockquote>
+<p>On a <strong>de re</strong> reading, a particular actual person is said to possibly lack the
+property. On a <strong>de dicto</strong> reading, it is possible that whoever is uniquely tallest is
+not tallest, which is contradictory.</p>
+<p>The readings correspond to scope:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">◊</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>versus:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">◊</span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Intensional semantics makes scope interactions explicit. It does not by itself resolve
+the metaphysics of objects across worlds.</p>
+<h2 id="attitude-contexts"><a class="header" href="#attitude-contexts">Attitude contexts</a></h2>
+<p>Belief reports are intensional:</p>
+<blockquote>
+<p>Leila believes that Hesperus is visible.</p>
+</blockquote>
+<p>Substituting "Phosphorus" can change truth despite co-reference. Treating embedded
+clauses as ordinary possible-world intensions still predicts equivalence if the names
+are rigid and co-refer.</p>
+<p>Attitudes therefore require more than ordinary intensionality:</p>
+<ul>
+<li>fine-grained modes of presentation;</li>
+<li>structured propositions;</li>
+<li>impossible worlds;</li>
+<li>centered worlds;</li>
+<li>context-sensitive report standards; or</li>
+<li>relations to representations.</li>
+</ul>
+<p>Possible worlds explain sensitivity to alternatives but not every kind of opacity.</p>
+<h2 id="context-and-index"><a class="header" href="#context-and-index">Context and index</a></h2>
+<p>The <strong>context of utterance</strong> fixes indexical content; the <strong>index</strong> or circumstance of
+evaluation determines extension.</p>
+<p>For "I might have been elsewhere":</p>
+<ol>
+<li>context fixes "I" as the actual speaker;</li>
+<li>modal evaluation varies worlds and locations;</li>
+<li>the content concerns that speaker across alternatives.</li>
+</ol>
+<p>Conflating context with evaluation would let "I" shift to different speakers in each
+world.</p>
+<p>Indices may contain:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">a</span><span class="mclose">⟩</span></span></span></span></span></p>
+<p>for world, time, location, and agent. Whether all coordinates belong in one index
+depends on the phenomenon.</p>
+<h2 id="tense"><a class="header" href="#tense">Tense</a></h2>
+<p>Temporal semantics can treat sentence extensions as varying across times as well as
+worlds:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Past and future operators shift the time of evaluation. Alternatively, tense can be
+represented through explicit quantification over times.</p>
+<p>The formal choice affects iteration, temporal anaphora, and the interaction of tense
+with modality. It does not decide whether time genuinely passes or which ontology of
+time is correct. Those questions belong to
+<a href="../../03-spacetime/00-README.html">Philosophy of Space and Time</a>.</p>
+<h2 id="conditionals"><a class="header" href="#conditionals">Conditionals</a></h2>
+<p>Counterfactuals can be analysed through closest antecedent worlds:</p>
+<blockquote>
+<p>If the match had been struck, it would have lit.</p>
+</blockquote>
+<p>The conditional is true when relevant closest worlds where the match is struck are
+worlds where it lights.</p>
+<p>Similarity is context-sensitive and not reducible to crude overlap of facts. Laws,
+causal history, and conversational purpose affect which worlds count as closest.</p>
+<p>Indicative conditionals may require a different treatment through probability,
+supposition, or information update. Possible worlds provide a common representation
+without guaranteeing one analysis.</p>
+<h2 id="intensional-entities-and-types"><a class="header" href="#intensional-entities-and-types">Intensional entities and types</a></h2>
+<p>Montague-style semantics assigns higher-order types. If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> is the type of individuals
+and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> truth values, intensionalization adds a world type <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>:</p>
+<ul>
+<li>proposition: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">⟩</span></span></span></span>;</li>
+<li>property intension: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">⟩⟩</span></span></span></span>;</li>
+<li>individual concept: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">e</span><span class="mclose">⟩</span></span></span></span>.</li>
+</ul>
+<p>Lambda abstraction and function application compose these values. The formalism can
+represent quantification into modal contexts, attitudes, and intensional verbs.</p>
+<p>Typing is a modelling discipline, not an ontology. A semantic value of type
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">⟩</span></span></span></span> need not imply that speakers mentally manipulate set-theoretic
+functions.</p>
+<h2 id="does-semantics-require-possible-worlds"><a class="header" href="#does-semantics-require-possible-worlds">Does semantics require possible worlds?</a></h2>
+<p>Possible worlds can play several roles:</p>
+<ul>
+<li>concrete universes;</li>
+<li>abstract representations;</li>
+<li>maximal states of affairs;</li>
+<li>indices in a model;</li>
+<li>consistent descriptions;</li>
+<li>points in an information space.</li>
+</ul>
+<p>Formal semantics needs objects with the right structure for evaluation. It need not
+decide whether they are concrete or metaphysically fundamental.</p>
+<p>The ontological options and costs are developed in
+<a href="../../04-ontology/10-modality/02-possible-worlds.html">Possible Worlds</a>.</p>
+<p>Using a world variable is compatible with modal realism, ersatzism, fictionalism, or
+instrumental modelling, provided the interpretation of the formalism is made explicit.</p>
+<h2 id="limits-of-intensionality"><a class="header" href="#limits-of-intensionality">Limits of intensionality</a></h2>
+<p>Possible-world intensions remain too coarse for:</p>
+<ul>
+<li>distinct necessary truths;</li>
+<li>distinct impossibilities;</li>
+<li>mathematical cognition;</li>
+<li>explanatory and grounding contexts;</li>
+<li>quotation and syntactic form;</li>
+<li>subject matter; and</li>
+<li>some attitude reports.</li>
+</ul>
+<p>These are <strong>hyperintensional</strong> phenomena. They require distinctions finer than
+necessary equivalence.</p>
+<p>Intensional semantics should therefore be judged by target. It gives a powerful
+account of variation across possibilities. It is not a universal identity criterion
+for every content used in explanation.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Intensional semantics earns its central place because it:</p>
+<ul>
+<li>distinguishes actual extension from modal profile;</li>
+<li>gives compositional treatments of modality and tense;</li>
+<li>represents rigidity and scope;</li>
+<li>supplies formal values for propositions and properties;</li>
+<li>integrates context with circumstances of evaluation; and</li>
+<li>provides a common framework for counterfactuals and attitudes.</li>
+</ul>
+<p>Its open debts are metasemantic and hyperintensional. The framework assumes
+interpretations of primitive expressions and a space of indices, and it collapses
+contents that agree at every possible world. Those are reasons to supplement the
+framework, not to discard the distinctions it makes precise.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/03-structured-and-unstructured-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/05-hyperintensionality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/03-structured-and-unstructured-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/05-hyperintensionality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

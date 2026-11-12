@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of Philosophy of Language - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/15-context/01-history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-philosophy-of-language"><a class="header" href="#a-history-of-philosophy-of-language">A History of Philosophy of Language</a></h1>
+<p>Questions about names, predication, truth, interpretation, and rhetoric are as old as
+philosophy. The modern discipline emerged when logic, semantics, and analysis of
+ordinary language became central methods for philosophy itself.</p>
+<p>This history tracks changing problem structures rather than a single linear progress.</p>
+<hr />
+<h2 id="ancient-beginnings"><a class="header" href="#ancient-beginnings">Ancient beginnings</a></h2>
+<p>Plato's <em>Cratylus</em> asks whether names are correct by nature or convention. The dialogue
+also shows why etymology cannot guarantee knowledge of things.</p>
+<p>Aristotle distinguishes spoken sounds, mental affections, and things, develops
+categories and predication, and gives a systematic logic of terms and propositions.
+Truth involves saying of what is that it is.</p>
+<p>Stoic theories distinguish sign, signification, and object, including the <strong>lekton</strong>,
+an incorporeal sayable often compared cautiously with propositions.</p>
+<h2 id="late-antique-and-medieval-semantics"><a class="header" href="#late-antique-and-medieval-semantics">Late antique and medieval semantics</a></h2>
+<p>Medieval logicians develop theories of:</p>
+<ul>
+<li>signification;</li>
+<li>supposition, the contextual standing of terms;</li>
+<li>syncategorematic expressions;</li>
+<li>mental language;</li>
+<li>consequence;</li>
+<li>obligations and disputation.</li>
+</ul>
+<p>Supposition theory analyzes how a term such as "human" stands for individuals under
+different constructions. Medieval work anticipates quantification, use/mention, and
+semantic scope without simply reproducing modern formalism.</p>
+<p>Arabic and Islamic traditions develop accounts of signification, convention, mental
+content, metaphor, rhetoric, and interpretation while transmitting and transforming
+Aristotelian logic.</p>
+<h2 id="early-modern-ideas"><a class="header" href="#early-modern-ideas">Early modern ideas</a></h2>
+<p>Locke treats words as signs of ideas and diagnoses failures from unstable or obscure
+ideas. This mentalist account explains communication through shared signs but faces the
+problem of how private ideas secure public meaning and reference.</p>
+<p>Leibniz seeks a universal characteristic and calculus of reasoning. Port-Royal logic
+connects grammar, ideas, judgment, and generality.</p>
+<p>Empiricist and rationalist theories make language central to abstraction, knowledge,
+and philosophical error.</p>
+<h2 id="language-history-and-culture"><a class="header" href="#language-history-and-culture">Language, history, and culture</a></h2>
+<p>Herder and Humboldt emphasize language as historically developed activity shaping a
+community's articulation of experience. Languages are not merely alternative labels
+for one prior inventory.</p>
+<p>This tradition informs later hermeneutics and linguistic relativity while avoiding a
+simple claim that language imprisons thought.</p>
+<h2 id="frege-and-the-logical-turn"><a class="header" href="#frege-and-the-logical-turn">Frege and the logical turn</a></h2>
+<p>Frege distinguishes sense and reference, develops quantificational logic, and treats
+sentence meaning compositionally. Identity and attitude contexts make cognitive
+significance a central semantic problem.</p>
+<p>Russell analyzes descriptions through logical form, using logic to dissolve apparent
+reference to nonexistent objects.</p>
+<p>The resulting <strong>linguistic turn</strong> treats philosophical problems as answerable through
+analysis of language and logic.</p>
+<h2 id="logical-atomism-and-the-early-wittgenstein"><a class="header" href="#logical-atomism-and-the-early-wittgenstein">Logical atomism and the early Wittgenstein</a></h2>
+<p>Russell and the <em>Tractatus</em> connect proposition structure with possible fact structure.
+Meaningful propositions picture possible states of affairs; logical form makes
+representation possible.</p>
+<p>The program seeks an ideal analysis beneath misleading ordinary grammar.</p>
+<h2 id="logical-positivism"><a class="header" href="#logical-positivism">Logical positivism</a></h2>
+<p>The Vienna Circle connects meaning with verification and logical syntax. Metaphysical
+sentences are criticized as cognitively meaningless rather than merely false.</p>
+<p>Tarski's formal truth theory, Carnap's semantic systems, and debates about analyticity
+shape formal approaches even as the strong verification principle fails.</p>
+<h2 id="the-later-wittgenstein"><a class="header" href="#the-later-wittgenstein">The later Wittgenstein</a></h2>
+<p>The <em>Philosophical Investigations</em> replaces one logical essence with language-games,
+use, forms of life, family resemblance, rule-following, and public criteria.</p>
+<p>Philosophy becomes therapeutic clarification of how words function rather than
+construction of an ideal notation alone.</p>
+<h2 id="ordinary-language-philosophy"><a class="header" href="#ordinary-language-philosophy">Ordinary-language philosophy</a></h2>
+<p>Ryle diagnoses category mistakes. Austin studies performatives and speech acts.
+Strawson emphasizes presupposition and ordinary use against overly revisionary logical
+analysis. Grice recovers systematic distinctions between sentence meaning and speaker
+meaning.</p>
+<p>This movement treats ordinary language as evidence and a refined instrument, not as
+infallible doctrine.</p>
+<h2 id="reference-and-modality"><a class="header" href="#reference-and-modality">Reference and modality</a></h2>
+<p>Kripke and Putnam challenge descriptivism with rigidity, causal-historical reference,
+natural kinds, Twin Earth, and the necessary a posteriori.</p>
+<p>Externalism shifts meaning beyond individual psychology toward environment, history,
+and linguistic division of labour.</p>
+<h2 id="formal-semantics"><a class="header" href="#formal-semantics">Formal semantics</a></h2>
+<p>Montague grammar applies typed intensional logic to natural language. Generalized
+quantifiers, possible-world semantics, event semantics, and dynamic semantics develop
+compositional analyses of scope, modality, tense, anaphora, and discourse.</p>
+<p>Formal semantics becomes an empirical theory of natural-language structure rather than
+merely an application of model theory to artificial languages.</p>
+<h2 id="pragmatics"><a class="header" href="#pragmatics">Pragmatics</a></h2>
+<p>Gricean implicature, Stalnakerian common ground, presupposition theory, relevance
+theory, and neo-Gricean accounts explain how communication exceeds encoded content.</p>
+<p>The semantics-pragmatics boundary becomes a central dispute rather than a clean
+division assumed in advance.</p>
+<h2 id="interpretation-and-normativity"><a class="header" href="#interpretation-and-normativity">Interpretation and normativity</a></h2>
+<p>Quine's radical translation and Davidson's radical interpretation connect meaning with
+behaviour, charity, truth, and shared environment. Sellars and Brandom emphasize
+inferential roles and normative commitments.</p>
+<p>Rule-following debates ask what makes one continuation correct, while externalism asks
+what fixes reference beyond use.</p>
+<h2 id="contemporary-developments"><a class="header" href="#contemporary-developments">Contemporary developments</a></h2>
+<p>Current work combines:</p>
+<ul>
+<li>experimental and corpus methods;</li>
+<li>cross-linguistic semantics;</li>
+<li>dynamic and inquisitive frameworks;</li>
+<li>hyperintensional content;</li>
+<li>social and expressive meaning;</li>
+<li>conceptual engineering;</li>
+<li>multimodal and digital communication;</li>
+<li>artificial language systems.</li>
+</ul>
+<p>The field is now plural in method. Formal derivation, ordinary use, cognitive evidence,
+history, and social practice constrain one another without collapsing into one theory.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/14-domains-and-applications/07-digital-communication.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/15-context/02-ordinary-language-philosophy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/14-domains-and-applications/07-digital-communication.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/15-context/02-ordinary-language-philosophy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Definite Descriptions - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/02-definite-descriptions.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="definite-descriptions"><a class="header" href="#definite-descriptions">Definite Descriptions</a></h1>
+<p>Expressions of the form "the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>" appear to pick out an individual: "the author of
+<em>Middlemarch</em>," "the tallest building," "the present king of France." Yet descriptions
+behave unlike simple names. They encode a condition, interact systematically with
+quantifiers and negation, and can remain meaningful when nothing uniquely satisfies
+them.</p>
+<p>Russell's theory treats a definite description not as a referring expression but as
+quantificational structure. Strawson argues that ordinary uses instead presuppose a
+referent. Donnellan distinguishes attributive from referential uses, showing that a
+speaker can use a description to direct attention even when it is false of the intended
+object.</p>
+<p>The debate became a model for philosophy of language: apparent grammatical form may
+hide logical form, but formal analysis must still explain how expressions are actually
+used in context.</p>
+<hr />
+<h2 id="the-problem-of-apparent-denotation"><a class="header" href="#the-problem-of-apparent-denotation">The problem of apparent denotation</a></h2>
+<p>If "the present king of France" is a name-like expression, then:</p>
+<blockquote>
+<p>The present king of France is bald.</p>
+</blockquote>
+<p>appears to contain a non-denoting subject. One might conclude that the sentence is
+meaningless or lacks a truth value. But speakers understand it, can negate it, and can
+reason about why it fails.</p>
+<p>Descriptions create three connected puzzles:</p>
+<ol>
+<li><strong>Nonexistence:</strong> what happens when nothing satisfies the description?</li>
+<li><strong>Nonuniqueness:</strong> what happens when several things satisfy it?</li>
+<li><strong>Scope:</strong> how does the description interact with negation, modality, and other
+quantifiers?</li>
+</ol>
+<p>Russell answers all three by analysing the description away.</p>
+<h2 id="russells-quantificational-analysis"><a class="header" href="#russells-quantificational-analysis">Russell's quantificational analysis</a></h2>
+<p>"The <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>" has the logical form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>It says:</p>
+<ol>
+<li>at least one <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> exists;</li>
+<li>at most one <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> exists; and</li>
+<li>that object is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.</li>
+</ol>
+<p>Existence and uniqueness are part of the asserted content. The description is an
+<strong>incomplete symbol</strong>: it has no denotation in isolation but contributes through the
+quantificational structure of the whole sentence.</p>
+<p>For the king example, no object satisfies the first two clauses, so the sentence is
+false. No mysterious nonexistent monarch is required as a semantic value.</p>
+<p>The analysis exemplifies Russell's method of replacing misleading surface grammar with
+logical form.</p>
+<h2 id="negation-and-scope"><a class="header" href="#negation-and-scope">Negation and scope</a></h2>
+<p>The sentence:</p>
+<blockquote>
+<p>The present king of France is not bald.</p>
+</blockquote>
+<p>has two readings.</p>
+<p>On <strong>wide scope</strong> for the description:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">Ky</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>It says a unique king exists and is not bald. This is false.</p>
+<p>On <strong>wide scope</strong> for negation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">Ky</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>It says it is not the case that a unique king is bald. This is true when no king
+exists.</p>
+<p>Russell's theory explains why ordinary negation can feel ambiguous. The difference is
+not lexical meaning but quantifier scope.</p>
+<h2 id="primary-and-secondary-occurrence"><a class="header" href="#primary-and-secondary-occurrence">Primary and secondary occurrence</a></h2>
+<p>Russell distinguished a description's <strong>primary occurrence</strong>, where it takes wide
+scope, from a <strong>secondary occurrence</strong>, where it remains within the scope of another
+operator.</p>
+<p>Consider:</p>
+<blockquote>
+<p>Ada wants the winner to receive a prize.</p>
+</blockquote>
+<p>On one reading, there is a particular person who is the winner and whom Ada wants to
+receive a prize. On another, Ada wants whoever turns out uniquely to win to receive a
+prize, without having any particular person in mind.</p>
+<p>The distinction generalizes to belief, modality, and obligation. Quantificational
+analysis predicts readings by varying scope rather than positing lexical ambiguity.</p>
+<h2 id="descriptions-and-existence"><a class="header" href="#descriptions-and-existence">Descriptions and existence</a></h2>
+<p>Russell's analysis solves negative existentials:</p>
+<blockquote>
+<p>The present king of France does not exist.</p>
+</blockquote>
+<p>becomes:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">Ky</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The statement is true without a name that must denote a nonexistent object. This
+strategy underlies Russell's and Quine's treatment of apparent ontological commitment.</p>
+<p>The success for descriptions does not prove that ordinary proper names are disguised
+descriptions. Kripke's arguments target that further step. A language may contain both
+quantificational descriptions and directly referring names.</p>
+<h2 id="strawson-and-presupposition"><a class="header" href="#strawson-and-presupposition">Strawson and presupposition</a></h2>
+<p>Strawson objects that Russell confuses a sentence with uses of it. Someone who
+seriously utters "The present king of France is bald" in an ordinary contemporary
+context does not assert a false existential conjunction. The attempt to refer fails,
+and the question of truth or falsity may not arise.</p>
+<p>On a presuppositional treatment:</p>
+<ul>
+<li>the assertion is that the relevant king is bald;</li>
+<li>existence and uniqueness are presupposed background conditions;</li>
+<li>if the presupposition fails, the utterance may be infelicitous or truth-valueless.</li>
+</ul>
+<p>Evidence comes from projection. Existence appears to survive negation and questioning:</p>
+<ul>
+<li>The present king of France is not bald.</li>
+<li>Is the present king of France bald?</li>
+</ul>
+<p>Both continue to suggest that there is a present king. If existence were merely part
+of asserted content under ordinary negation, this persistence would require further
+explanation.</p>
+<p>Modern semantic accounts may represent the presupposition through partial functions,
+definedness conditions, or dynamic context update. Pragmatic accounts treat it as a
+requirement on common ground.</p>
+<h2 id="russell-versus-strawson"><a class="header" href="#russell-versus-strawson">Russell versus Strawson</a></h2>
+<p>The disagreement is partly about target.</p>
+<p>Russell offers a compositional analysis of a construction's truth-conditional
+contribution. Strawson emphasizes what speakers presuppose and accomplish in ordinary
+contexts. A theory can combine:</p>
+<ul>
+<li>Russellian quantificational content;</li>
+<li>presuppositional constraints on felicitous use; and</li>
+<li>pragmatic expectations about relevance and shared knowledge.</li>
+</ul>
+<p>The combination is not automatic. If existence is semantically asserted, a separate
+account must explain projection. If it is only presupposed, the theory must explain
+cases where speakers appear to deny or accommodate it explicitly.</p>
+<h2 id="donnellans-attributive-and-referential-uses"><a class="header" href="#donnellans-attributive-and-referential-uses">Donnellan's attributive and referential uses</a></h2>
+<p>Suppose a man is on trial for Smith's murder. Seeing the defendant behave strangely, a
+speaker says:</p>
+<blockquote>
+<p>Smith's murderer is insane.</p>
+</blockquote>
+<p>On an <strong>attributive</strong> use, the speaker says of whoever uniquely murdered Smith that
+they are insane. The description is essential to identifying the target.</p>
+<p>On a <strong>referential</strong> use, the speaker uses the description to direct attention to the
+defendant. If the defendant is innocent but insane, the speaker may have successfully
+said something about that person despite the description's falsity.</p>
+<p>Donnellan argues that Russell captures attributive use but not every referential use.
+The case motivates the distinction between semantic reference and speaker reference.</p>
+<h2 id="semantic-ambiguity-or-pragmatic-use"><a class="header" href="#semantic-ambiguity-or-pragmatic-use">Semantic ambiguity or pragmatic use?</a></h2>
+<p>Does "the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>" have two semantic meanings? A Russellian can deny ambiguity:</p>
+<ul>
+<li>semantically, the description remains quantificational;</li>
+<li>pragmatically, the speaker uses it to help an audience identify an object;</li>
+<li>what the speaker refers to can diverge from what uniquely satisfies the words.</li>
+</ul>
+<p>This preserves a unified semantics and treats referential use as a communicative
+achievement. Critics reply that some truth judgments track the intended object strongly
+enough to suggest truth-conditional effects.</p>
+<p>The dispute illustrates the <a href="../02-semantics-pragmatics.html">semantics-pragmatics
+boundary</a>: data about what a speaker communicated do not
+alone determine what the expression conventionally contributed.</p>
+<h2 id="incomplete-descriptions"><a class="header" href="#incomplete-descriptions">Incomplete descriptions</a></h2>
+<p>Ordinary descriptions are frequently not globally unique:</p>
+<blockquote>
+<p>The table is covered with books.</p>
+</blockquote>
+<p>There are many tables in the world. Russell's uniqueness clause appears false unless
+the description is enriched to something like <em>the contextually salient table here</em>.</p>
+<p>Possible analyses include:</p>
+<ul>
+<li><strong>implicit domain restriction:</strong> quantification ranges over contextually relevant
+objects;</li>
+<li><strong>descriptive completion:</strong> context supplies additional descriptive material;</li>
+<li><strong>salience:</strong> a ranking selects the most prominent satisfier;</li>
+<li><strong>situation restriction:</strong> uniqueness is evaluated within a relevant situation; and</li>
+<li><strong>pragmatic identification:</strong> semantic content is weaker while context identifies
+the intended object.</li>
+</ul>
+<p>Theories differ on whether the restriction is represented in syntax, supplied to a
+semantic parameter, or pragmatically inferred.</p>
+<p>Incomplete descriptions show that uniqueness must be relativized, but not that
+Russellian structure disappears.</p>
+<h2 id="plural-possessive-and-functional-descriptions"><a class="header" href="#plural-possessive-and-functional-descriptions">Plural, possessive, and functional descriptions</a></h2>
+<p>Natural language contains constructions beyond singular "the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>":</p>
+<ul>
+<li>"the students";</li>
+<li>"Ada's teacher";</li>
+<li>"the temperature of the sample";</li>
+<li>"the average taxpayer"; and</li>
+<li>"the first person to arrive."</li>
+</ul>
+<p>Some are plural, some relational, some functional, and some appear generic or
+statistical rather than referential. A complete semantics should not force them all
+into one singular template merely because English uses "the."</p>
+<p>Russell's lasting contribution is the method: analyse quantificational structure and
+scope explicitly. The exact analysis may vary by construction.</p>
+<h2 id="descriptions-under-modality"><a class="header" href="#descriptions-under-modality">Descriptions under modality</a></h2>
+<p>Descriptions are generally non-rigid. "The inventor of bifocals" picks out Benjamin
+Franklin in actuality, but another person could have invented bifocals.</p>
+<p>Compare:</p>
+<ol>
+<li>Benjamin Franklin might not have invented bifocals.</li>
+<li>The inventor of bifocals might not have invented bifocals.</li>
+</ol>
+<p>The first is naturally true. The second has:</p>
+<ul>
+<li>a de re reading about Franklin, true;</li>
+<li>a de dicto reading saying someone uniquely invented bifocals without inventing them,
+false.</li>
+</ul>
+<p>Scope distinguishes the readings. Names appear rigid where descriptions vary with the
+world of evaluation, forming a central argument against descriptivism about names.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Account</th><th>Existence/uniqueness</th><th>Empty case</th><th>Referential use</th><th>Main pressure</th></tr></thead><tbody>
+<tr><td><strong>Russellian</strong></td><td>asserted</td><td>false</td><td>pragmatic speaker reference</td><td>projection and ordinary judgments</td></tr>
+<tr><td><strong>Presuppositional</strong></td><td>background requirement</td><td>gap or infelicity</td><td>contextually natural</td><td>projection and accommodation details</td></tr>
+<tr><td><strong>Ambiguity view</strong></td><td>varies by reading</td><td>varies</td><td>semantically encoded</td><td>multiplication of meanings</td></tr>
+<tr><td><strong>Pragmatic hybrid</strong></td><td>semantic core plus use</td><td>theory-dependent</td><td>intention and salience</td><td>locating the boundary</td></tr>
+</tbody></table>
+</div>
+<p>Definite descriptions show why reference cannot be read directly from grammatical
+appearance. They also show why formal success is not the whole explanation: scope,
+presupposition, context, and speaker intention all contribute, and the theoretical task
+is to assign each to the right level.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/01-theories-of-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/03-proper-names.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/01-theories-of-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/03-proper-names.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

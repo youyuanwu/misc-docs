@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vagueness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/12-difficult-phenomena/01-vagueness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="vagueness"><a class="header" href="#vagueness">Vagueness</a></h1>
+<p>"Bald," "heap," "tall," and "red" have clear positive and negative cases but no obvious
+sharp boundary. Small changes that appear irrelevant can accumulate into an undeniable
+difference. <strong>Vagueness</strong> is the challenge of explaining this pattern without making
+ordinary predicates incoherent.</p>
+<p>The central puzzle is the <strong>sorites paradox</strong>. Competing theories locate the sharpness
+in an unknowable boundary, allow truth-value gaps or degrees, make truth depend on
+admissible precisifications, or explain tolerance through shifting context.</p>
+<p>This page concerns linguistic and semantic vagueness. Whether objects and identity can
+be genuinely indeterminate is treated in
+<a href="../../04-ontology/09-mereology/04-vagueness-and-gunk.html">Vagueness, Gunk, and
+Boundaries</a>.</p>
+<hr />
+<h2 id="borderline-cases"><a class="header" href="#borderline-cases">Borderline cases</a></h2>
+<p>A predicate is vague when it permits cases where competent speakers hesitate between
+application and non-application without merely lacking facts.</p>
+<p>Vagueness differs from:</p>
+<ul>
+<li><strong>ambiguity:</strong> several distinct meanings;</li>
+<li><strong>generality:</strong> one broad but precise extension;</li>
+<li><strong>ignorance:</strong> facts are missing but the criterion is sharp;</li>
+<li><strong>context sensitivity:</strong> context selects among precise or vague standards;</li>
+<li><strong>open texture:</strong> unforeseen cases require extension of a rule.</li>
+</ul>
+<p>These phenomena can interact. "Tall" is both vague and context-sensitive.</p>
+<h2 id="the-sorites"><a class="header" href="#the-sorites">The sorites</a></h2>
+<p>One grain is not a heap. Adding one grain never appears sufficient to turn a non-heap
+into a heap. By repeated applications:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mpunct">,</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">))</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>therefore:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord">1</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">000</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">000</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>The conclusion is false, so at least one premise or inference must fail.</p>
+<p>The paradox combines clear endpoints, <strong>tolerance</strong> under small change, and classical
+induction. Each major theory revises one component.</p>
+<h2 id="epistemicism"><a class="header" href="#epistemicism">Epistemicism</a></h2>
+<p>Epistemicism holds that vague predicates have sharp extensions, but speakers cannot
+know the boundary. There is a last non-bald hair count, though nothing reveals it.</p>
+<p>Strengths:</p>
+<ul>
+<li>preserves classical logic and bivalence;</li>
+<li>validates ordinary quantification;</li>
+<li>treats vagueness as extreme ignorance.</li>
+</ul>
+<p>Pressures:</p>
+<ul>
+<li>the boundary appears arbitrary;</li>
+<li>ignorance is unlike ordinary hidden facts;</li>
+<li>higher-order uncertainty needs explanation;</li>
+<li>use does not seem to determine one exact cutoff.</li>
+</ul>
+<p>Epistemicists appeal to complex use facts and margins for error: close cases cannot be
+known because reliable discrimination requires distance from the boundary.</p>
+<h2 id="supervaluationism"><a class="header" href="#supervaluationism">Supervaluationism</a></h2>
+<p>Supervaluationism represents a vague predicate through many admissible
+<strong>precisifications</strong>. A sentence is:</p>
+<ul>
+<li>supertrue if true on all precisifications;</li>
+<li>superfalse if false on all;</li>
+<li>otherwise indeterminate.</li>
+</ul>
+<p>"One million grains form a heap" can be supertrue even though no exact cutoff is
+privileged. Classical tautologies remain supertrue.</p>
+<p>The theory rejects truth-functionality for compounds at the supervaluation level and
+must explain admissibility without presupposing vagueness.</p>
+<h2 id="many-valued-and-fuzzy-approaches"><a class="header" href="#many-valued-and-fuzzy-approaches">Many-valued and fuzzy approaches</a></h2>
+<p>A many-valued theory assigns degrees:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mord">.</span></span></span></span></span></p>
+<p>Membership increases gradually rather than switching at one boundary.</p>
+<p>This models graded judgments and similarity. Problems include:</p>
+<ul>
+<li>truth degree is not obviously degree of baldness;</li>
+<li>precise numerical values can be as arbitrary as cutoffs;</li>
+<li>logical connectives need justified degree functions;</li>
+<li>some vague predicates are not naturally scalar.</li>
+</ul>
+<p>Degree semantics is especially useful where measurement and comparison structure are
+independently motivated.</p>
+<h2 id="contextualism"><a class="header" href="#contextualism">Contextualism</a></h2>
+<p>Contextual theories say standards shift during a sorites series. Attention to adjacent
+cases makes them count alike, but the conversational standard changes gradually.</p>
+<p>This explains tolerance and why explicit boundary questions alter judgments. It also
+risks predicting disagreement away: speakers can hold context fixed and still face
+borderline cases.</p>
+<p>A stable context can remain vague, so contextuality is at most part of the explanation.</p>
+<h2 id="subvaluation-and-gaps"><a class="header" href="#subvaluation-and-gaps">Subvaluation and gaps</a></h2>
+<p>Gap theories deny that every borderline statement is true or false. This blocks the
+sorites step or classical reasoning across indeterminate cases.</p>
+<p>The challenge is <strong>higher-order vagueness</strong>. If there is a sharp boundary between
+determinate and indeterminate cases, vagueness reappears at that boundary. Iterating
+gaps threatens an endless hierarchy.</p>
+<h2 id="higher-order-vagueness"><a class="header" href="#higher-order-vagueness">Higher-order vagueness</a></h2>
+<p>There are borderline borderline cases: uncertainty about whether a case is
+determinately bald. Any theory drawing a precise semantic line must explain why
+speakers cannot locate it.</p>
+<p>Responses include:</p>
+<ul>
+<li>iterated precisifications;</li>
+<li>epistemic limits;</li>
+<li>degree structures;</li>
+<li>rejection of sharp meta-level categories;</li>
+<li>contextual shifts.</li>
+</ul>
+<p>Higher-order vagueness is a principal test of whether a theory merely moves the
+boundary.</p>
+<h2 id="vagueness-and-composition"><a class="header" href="#vagueness-and-composition">Vagueness and composition</a></h2>
+<p>Vague expressions can compose:</p>
+<blockquote>
+<p>Ada is very tall.</p>
+</blockquote>
+<blockquote>
+<p>Ada is not clearly tall.</p>
+</blockquote>
+<blockquote>
+<p>Everyone in the group is tall.</p>
+</blockquote>
+<p>Modifiers, negation, and quantification interact with borderline status. Formal
+semantics must specify whether they operate on degrees, precisifications, partial truth
+values, or contextually selected standards.</p>
+<h2 id="pragmatic-uses"><a class="header" href="#pragmatic-uses">Pragmatic uses</a></h2>
+<p>Vagueness can be useful:</p>
+<ul>
+<li>efficient approximation;</li>
+<li>flexibility under limited information;</li>
+<li>postponing irrelevant precision;</li>
+<li>coordinating despite different thresholds.</li>
+</ul>
+<p>Speakers can also sharpen terms explicitly:</p>
+<blockquote>
+<p>For this regulation, "tall" means at least 180 cm.</p>
+</blockquote>
+<p>Stipulation removes vagueness for a purpose without discovering the ordinary word's
+hidden boundary.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Preserves</th><th>Main cost</th></tr></thead><tbody>
+<tr><td>Epistemicism</td><td>bivalence and classical logic</td><td>unknowable arbitrary boundary</td></tr>
+<tr><td>Supervaluationism</td><td>multiple admissible precisifications and classical validity</td><td>truth gaps and admissibility</td></tr>
+<tr><td>Many-valued</td><td>gradual transition</td><td>numerical structure and logic</td></tr>
+<tr><td>Contextualism</td><td>tolerance and shifting standards</td><td>residual vagueness</td></tr>
+<tr><td>Gap theory</td><td>no arbitrary positive/negative boundary</td><td>higher-order vagueness</td></tr>
+</tbody></table>
+</div>
+<p>No theory is cost-free because ordinary practice combines tolerance with clear
+endpoints. A good account must explain not only sorites reasoning but graded judgment,
+contextual standards, disagreement, and higher-order cases.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/11-truth-and-formal-semantics/07-semantic-paradoxes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/02-metaphor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/11-truth-and-formal-semantics/07-semantic-paradoxes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/02-metaphor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

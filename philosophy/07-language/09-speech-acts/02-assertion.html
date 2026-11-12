@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Assertion and Its Norms - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/09-speech-acts/02-assertion.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="assertion-and-its-norms"><a class="header" href="#assertion-and-its-norms">Assertion and Its Norms</a></h1>
+<p>Assertion presents a proposition as true and makes a speaker answerable for it. It is
+the central speech act for truth-conditional semantics, testimony, disagreement, and
+inquiry. Yet not every declarative utterance is an assertion: fiction, irony,
+supposition, rehearsal, and quotation use declarative forms without straightforwardly
+committing the speaker.</p>
+<p>Theories disagree over assertion's constitutive norm. Candidates include truth,
+knowledge, justified belief, and context-sensitive warrant. Another approach explains
+assertion through public commitment rather than one rule.</p>
+<hr />
+<h2 id="what-assertion-does"><a class="header" href="#what-assertion-does">What assertion does</a></h2>
+<p>To assert <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is ordinarily to:</p>
+<ul>
+<li>present <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> as true;</li>
+<li>add <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> to the conversational agenda;</li>
+<li>undertake responsibility for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>;</li>
+<li>make <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> available as a reason;</li>
+<li>license challenge and requests for justification;</li>
+<li>propose adding <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> to common ground.</li>
+</ul>
+<p>These functions distinguish assertion from merely causing belief. Planting evidence
+can cause belief without openly committing to a proposition.</p>
+<h2 id="force-and-declarative-form"><a class="header" href="#force-and-declarative-form">Force and declarative form</a></h2>
+<p>Declarative grammar often marks assertion:</p>
+<blockquote>
+<p>Ada arrived.</p>
+</blockquote>
+<p>But context can yield:</p>
+<ul>
+<li>theatrical recitation;</li>
+<li>fictional narration;</li>
+<li>ironic echo;</li>
+<li>conditional supposition;</li>
+<li>conjecture;</li>
+<li>reminder;</li>
+<li>answer;</li>
+<li>threat.</li>
+</ul>
+<p>Assertion is an illocutionary act, not a sentence type. Grammar supplies conventional
+evidence for force rather than guaranteeing it.</p>
+<h2 id="truth-norm"><a class="header" href="#truth-norm">Truth norm</a></h2>
+<p>The <strong>truth norm</strong> says:</p>
+<blockquote>
+<p>Assert <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> only if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> is true.</p>
+</blockquote>
+<p>It explains why false assertion is defective even when reasonable and sincere. Truth
+is also the aim of inquiry.</p>
+<p>Problems:</p>
+<ul>
+<li>speakers cannot directly ensure truth;</li>
+<li>blameless false assertions remain norm violations;</li>
+<li>truth alone permits lucky guesses;</li>
+<li>true but irrelevant assertions can be conversationally defective.</li>
+</ul>
+<p>The norm may state correctness rather than permission.</p>
+<h2 id="knowledge-norm"><a class="header" href="#knowledge-norm">Knowledge norm</a></h2>
+<p>The <strong>knowledge norm</strong> says:</p>
+<blockquote>
+<p>Assert <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> only if you know that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>.</p>
+</blockquote>
+<p>It explains challenges:</p>
+<blockquote>
+<p>How do you know?</p>
+</blockquote>
+<p>and the impropriety of:</p>
+<blockquote>
+<p>It is raining, but I do not know that it is.</p>
+</blockquote>
+<p>Knowledge rules out lucky true guesses and requires truth, belief, and adequate
+epistemic standing.</p>
+<p>Objections include reasonable assertions under uncertainty, lottery cases, and
+contexts where practical action permits less than knowledge.</p>
+<h2 id="justified-belief-and-warrant-norms"><a class="header" href="#justified-belief-and-warrant-norms">Justified-belief and warrant norms</a></h2>
+<p>Weaker views permit assertion when the speaker reasonably believes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> or has
+sufficient warrant.</p>
+<p>Advantages:</p>
+<ul>
+<li>accommodates fallible inquiry;</li>
+<li>explains blameless assertion;</li>
+<li>varies with evidential position.</li>
+</ul>
+<p>Pressure:</p>
+<ul>
+<li>a justified false assertion becomes fully proper despite failing truth;</li>
+<li>the required degree of warrant is unclear;</li>
+<li>context sensitivity may threaten one constitutive norm.</li>
+</ul>
+<p>A context-sensitive account sets the threshold by stakes and conversational purpose.</p>
+<h2 id="commitment-accounts"><a class="header" href="#commitment-accounts">Commitment accounts</a></h2>
+<p>Rather than define assertion by a prior epistemic norm, a commitment account says that
+asserting <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> undertakes responsibilities:</p>
+<ul>
+<li>defend <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> when challenged;</li>
+<li>accept recognized consequences;</li>
+<li>retract under defeating evidence;</li>
+<li>permit others to rely on the claim.</li>
+</ul>
+<p>Truth and knowledge norms may then regulate the commitment without constituting the
+act.</p>
+<p>This explains assertion in public normative practice and cases where institutional
+record matters more than belief production.</p>
+<h2 id="assertion-and-common-ground"><a class="header" href="#assertion-and-common-ground">Assertion and common ground</a></h2>
+<p>An assertion proposes adding <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> to common ground:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8019em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8019em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The audience can accept, reject, challenge, or postpone. Assertion changes the
+conversational score immediately by recording a commitment, even before acceptance.</p>
+<p>This distinction prevents speaker commitment from being identified with shared belief.</p>
+<h2 id="presupposition"><a class="header" href="#presupposition">Presupposition</a></h2>
+<p>Assertion foregrounds at-issue content while presupposition backgrounds other
+commitments.</p>
+<blockquote>
+<p>Ada stopped smoking.</p>
+</blockquote>
+<p>asserts cessation and presupposes earlier smoking.</p>
+<p>Both can be challenged differently:</p>
+<ul>
+<li>"No, she still smokes" rejects assertion.</li>
+<li>"Wait, she never smoked" rejects presupposition.</li>
+</ul>
+<p>The distinction matters for which content the speaker directly undertakes to defend.</p>
+<h2 id="conjecture-and-hedging"><a class="header" href="#conjecture-and-hedging">Conjecture and hedging</a></h2>
+<blockquote>
+<p>Perhaps Ada arrived.</p>
+</blockquote>
+<blockquote>
+<p>I suspect Ada arrived.</p>
+</blockquote>
+<p>These acts present content with reduced commitment. Hedges can modify force, evidential
+status, or semantic modality.</p>
+<p>A binary assertion/non-assertion model may miss graded commitments. Still, hedged
+claims are not merely weaker propositions; they publicly position the speaker toward
+an issue.</p>
+<h2 id="fiction"><a class="header" href="#fiction">Fiction</a></h2>
+<p>Fictional narration uses declarative sentences without ordinary assertion of their
+contents. An author can assert framing claims while inviting imagination of internal
+claims.</p>
+<p>The difference is not sentence meaning alone. Genre, convention, pretense, and
+intention suspend ordinary truth commitment.</p>
+<p>Within a fiction, narrators can assert relative to the story, and unreliable narrators
+complicate the relation between narration and fictional truth.</p>
+<h2 id="irony"><a class="header" href="#irony">Irony</a></h2>
+<p>An ironic speaker may utter:</p>
+<blockquote>
+<p>Excellent work.</p>
+</blockquote>
+<p>without asserting literal praise. They echo or display a content while communicating
+criticism.</p>
+<p>If assertion were determined solely by declarative form and literal semantics, irony
+would count as lying. Recognizable dissociation changes force.</p>
+<h2 id="online-posting"><a class="header" href="#online-posting">Online posting</a></h2>
+<p>Posting, sharing, quoting, and reacting create uncertain commitments.</p>
+<ul>
+<li>Original declarative posting often functions as assertion.</li>
+<li>Sharing may endorse, question, archive, or merely draw attention.</li>
+<li>Quotation can distance the user.</li>
+<li>Automated reposting may lack a speaker intention.</li>
+<li>Interface design supplies conventional cues.</li>
+</ul>
+<p>No universal rule makes every displayed sentence an assertion by its account holder.
+Interpretation depends on action type, framing, and platform practice.</p>
+<h2 id="assertion-and-lying"><a class="header" href="#assertion-and-lying">Assertion and lying</a></h2>
+<p>Lying normally requires insincere assertion. A true sentence used to implicate a
+falsehood may mislead without lying.</p>
+<p>Where assertion ends therefore matters to classification. Minimalists and
+contextualists may disagree whether enriched content was asserted.</p>
+<p>See <a href="../08-pragmatics/06-lying-misleading-and-bullshit.html">Lying, Misleading, and
+Bullshit</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>No proposed norm captures every evaluative dimension:</p>
+<div class="table-wrapper"><table><thead><tr><th>Norm</th><th>Captures</th><th>Pressure</th></tr></thead><tbody>
+<tr><td>Truth</td><td>objective correctness</td><td>lucky guesses and permission</td></tr>
+<tr><td>Knowledge</td><td>challenge and epistemic authority</td><td>reasonable uncertainty</td></tr>
+<tr><td>Justified belief</td><td>fallible practice</td><td>false but proper assertion</td></tr>
+<tr><td>Contextual warrant</td><td>stakes and purpose</td><td>unity of assertion</td></tr>
+<tr><td>Commitment</td><td>public responsibility</td><td>needs independent correctness norms</td></tr>
+</tbody></table>
+</div>
+<p>Assertion may have a constitutive commitment structure and several governing norms.
+Truth evaluates content, knowledge or warrant regulates permission, relevance governs
+conversation, and sincerity distinguishes honest from deceptive performance.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/01-doing-things-with-words.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/03-promising-ordering-questioning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/01-doing-things-with-words.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/03-promising-ordering-questioning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

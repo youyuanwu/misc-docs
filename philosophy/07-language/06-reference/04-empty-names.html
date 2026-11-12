@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Empty Names and Reference Failure - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/04-empty-names.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="empty-names-and-reference-failure"><a class="header" href="#empty-names-and-reference-failure">Empty Names and Reference Failure</a></h1>
+<p>"Vulcan does not exist" appears meaningful and true. "Sherlock Holmes is a detective"
+appears meaningful and true in some sense. "Nineteen is prime" is straightforwardly
+true despite disagreement about what numbers are. These cases show that understanding
+a name does not always require encountering an ordinary concrete bearer.</p>
+<p>An <strong>empty name</strong> is a singular term that fails to refer within the relevant domain.
+Empty names create a dilemma for direct reference: if a name contributes only its
+bearer, and there is no bearer, what content does it contribute? Yet ordinary speakers
+reason with empty names, distinguish claims involving them, and discover that some
+apparently successful names were empty.</p>
+<p>This page compares semantic responses. It does not decide whether nonexistent or
+fictional objects belong in reality's inventory. That ontological dispute remains in
+<a href="../../04-ontology/05-existence/03-fictional-objects.html">Fictional and Intentional
+Objects</a> and
+<a href="../../04-ontology/05-existence/02-meinongianism.html">Meinongianism</a>.</p>
+<hr />
+<h2 id="three-kinds-of-apparent-emptiness"><a class="header" href="#three-kinds-of-apparent-emptiness">Three kinds of apparent emptiness</a></h2>
+<p>Cases should be separated before choosing a theory.</p>
+<h3 id="failed-theoretical-posits"><a class="header" href="#failed-theoretical-posits">Failed theoretical posits</a></h3>
+<p>"Vulcan" was introduced for a planet hypothesized to explain Mercury's orbit. No such
+planet exists. The name arose within serious empirical inquiry, not fiction.</p>
+<h3 id="fictional-names"><a class="header" href="#fictional-names">Fictional names</a></h3>
+<p>"Sherlock Holmes" belongs to stories whose practice supplies rich, stable claims. The
+name may fail to refer to a concrete person while participating in fictional and
+external discourse.</p>
+<h3 id="deliberate-or-accidental-inventions"><a class="header" href="#deliberate-or-accidental-inventions">Deliberate or accidental inventions</a></h3>
+<p>A fabricated person in a deception, a name introduced through a mistaken report, or a
+label from a corrupted transmission chain may lack a bearer without belonging to an
+established fiction.</p>
+<p>A theory that handles one class may not handle all. Pretense naturally fits fiction
+but less naturally a failed scientific hypothesis. Abstract artifacts may fit authored
+characters but not every accidental empty name.</p>
+<h2 id="the-negative-existential-puzzle"><a class="header" href="#the-negative-existential-puzzle">The negative existential puzzle</a></h2>
+<p>Consider:</p>
+<blockquote>
+<p>Vulcan does not exist.</p>
+</blockquote>
+<p>Three plausible claims conflict:</p>
+<ol>
+<li>The sentence is meaningful and true.</li>
+<li>A meaningful subject-predicate sentence requires its subject to contribute
+something.</li>
+<li>"Vulcan" has no referent.</li>
+</ol>
+<p>If the name contributes nothing, composition seems to fail. If it contributes an
+object, the negative existential appears false. Theories escape by revising the
+semantic role of the name, the logic of denotation, the ontology, or the analysis of
+the utterance.</p>
+<h2 id="russellian-elimination"><a class="header" href="#russellian-elimination">Russellian elimination</a></h2>
+<p>Russell treats ordinary names as disguised definite descriptions. "Vulcan" might
+abbreviate:</p>
+<blockquote>
+<p>the unique planet causing the anomalous precession of Mercury.</p>
+</blockquote>
+<p>Then "Vulcan does not exist" becomes:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> expresses the descriptive condition. The sentence is true because nothing
+uniquely satisfies it. No empty singular term remains in logical form.</p>
+<p>Advantages:</p>
+<ul>
+<li>negative existentials receive ordinary truth-conditions;</li>
+<li>understanding comes from descriptive content;</li>
+<li>classical quantification is preserved; and</li>
+<li>no nonexistent object is required.</li>
+</ul>
+<p>Costs:</p>
+<ul>
+<li>proper names generally are not synonymous with descriptions;</li>
+<li>speakers may associate different or mistaken descriptions;</li>
+<li>causal-historical practices can persist after a theory changes; and</li>
+<li>fictional names do not always have one uniquely identifying descriptive package.</li>
+</ul>
+<p>Russellian analysis remains powerful for genuine descriptions even if it fails as a
+universal theory of names.</p>
+<h2 id="fregean-sense-without-reference"><a class="header" href="#fregean-sense-without-reference">Fregean sense without reference</a></h2>
+<p>A Fregean can allow a name to express a <strong>sense</strong> that determines no reference. Speakers
+understand the mode of presentation even though nothing answers to it.</p>
+<p>This distinguishes "Vulcan" from an unrelated empty name: each has a different sense.
+It also explains cognitive significance and the possibility of rational reasoning.</p>
+<p>The remaining problem is sentence value. If a component lacks reference, Frege's
+principle that the reference of a whole depends on the references of its parts suggests
+that the sentence lacks a truth value. Negative existentials then risk becoming gappy
+rather than true.</p>
+<p>Possible repairs include:</p>
+<ul>
+<li>special semantic clauses for existence;</li>
+<li>treating existence claims as about concepts rather than objects;</li>
+<li>assigning a conventional dummy referent;</li>
+<li>partial logics; or</li>
+<li>letting sense determine structured content even without objectual reference.</li>
+</ul>
+<p>Each modifies the simple Fregean architecture.</p>
+<h2 id="free-logic"><a class="header" href="#free-logic">Free logic</a></h2>
+<p><strong>Free logic</strong> permits singular terms that denote nothing. It rejects the classical
+assumption that every name designates an object in the domain.</p>
+<p>An explicit existence predicate can be defined:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">!</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight" style="margin-right:0.07778em;">df</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Then:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">!</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span></span></p>
+<p>expresses that Vulcan does not exist without implying that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> denotes.</p>
+<p>Free logics differ over atomic sentences containing empty terms:</p>
+<ul>
+<li><strong>negative:</strong> every such atomic sentence is false;</li>
+<li><strong>positive:</strong> some may be true;</li>
+<li><strong>neutral:</strong> they lack a truth value.</li>
+</ul>
+<p>The formal choice affects fictional predication and inference. Free logic shows how
+reasoning with empty terms can be consistent; it does not by itself say what semantic
+content the empty name contributes.</p>
+<p>The logical details and ontological implications are introduced in
+<a href="../../04-ontology/05-existence/01-existence-and-quantification.html">Existence and the
+Quantifier</a>.</p>
+<h2 id="gappy-propositions"><a class="header" href="#gappy-propositions">Gappy propositions</a></h2>
+<p>On a direct-reference theory, a sentence containing an empty name may express a
+<strong>gappy proposition</strong>: a structured content with an unfilled position.</p>
+<p>Schematically:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mopen">⟨</span><span class="mord" style="margin-right:0.02778em;">__</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">is a planet</span></span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>Different empty names may be associated with different representational histories even
+if the object position is empty. The structure explains why the sentence appears
+incomplete from the standpoint of singular content.</p>
+<p>Objections include:</p>
+<ul>
+<li>two empty names may generate the same gap despite clear cognitive differences;</li>
+<li>it is unclear how a gappy proposition is true or false;</li>
+<li>compositional operations on gaps require special rules; and</li>
+<li>speakers appear to express determinate fictional claims.</li>
+</ul>
+<p>Gappy accounts fit failed reference better than rich fictional discourse unless
+supplemented by modes of presentation or pretense.</p>
+<h2 id="meinongian-and-noneist-approaches"><a class="header" href="#meinongian-and-noneist-approaches">Meinongian and noneist approaches</a></h2>
+<p>A Meinongian denies that emptiness entails no object. "Vulcan" or "Pegasus" can denote
+an object that lacks existence. The negative existential says of that object that it
+does not exist.</p>
+<p>This gives transparent subject-predicate structure and permits true characterization
+of nonexistent objects. It must distinguish:</p>
+<ul>
+<li>being from existence;</li>
+<li>properties an object has in its characterization from properties it exemplifies;</li>
+<li>incomplete and impossible objects;</li>
+<li>identity among nonexistent objects; and</li>
+<li>quantification over what there is from quantification over what exists.</li>
+</ul>
+<p>The semantic elegance purchases substantial ontology. Whether that price is acceptable
+cannot be decided by linguistic data alone.</p>
+<h2 id="pretense-theories"><a class="header" href="#pretense-theories">Pretense theories</a></h2>
+<p>On a <strong>pretense</strong> or make-believe account, fictional discourse operates within a
+practice of imagining according to prescribed rules. In the Holmes stories:</p>
+<blockquote>
+<p>Holmes is a detective</p>
+</blockquote>
+<p>is fictionally true. The utterance need not refer to a concrete or nonexistent person;
+it is licensed by the relevant pretense.</p>
+<p>External claims require further analysis:</p>
+<ul>
+<li>Holmes is more famous than any real detective.</li>
+<li>Holmes was created by Conan Doyle.</li>
+<li>Some fictional detectives are admired by real readers.</li>
+</ul>
+<p>These compare fictional and real discourse or appear to quantify over characters.
+Responses treat them as claims about representations, roles in pretense, or abstract
+artifacts.</p>
+<p>Pretense explains internal fictional truth and authorial practice well. It is less
+natural for failed scientific names whose users intended literal reference.</p>
+<h2 id="fictional-artifacts"><a class="header" href="#fictional-artifacts">Fictional artifacts</a></h2>
+<p>An <strong>abstract-artifact</strong> theory holds that authors create abstract entities: fictional
+characters. "Sherlock Holmes" then refers to an abstract artifact created through
+Doyle's literary activity.</p>
+<p>This supports external claims:</p>
+<ul>
+<li>Holmes was created in the nineteenth century.</li>
+<li>Holmes appears in four novels.</li>
+<li>Holmes is more famous than many real detectives.</li>
+</ul>
+<p>Internal claims such as "Holmes lives at Baker Street" cannot be literally true of an
+abstract object. They are analysed under an implicit story operator:</p>
+<blockquote>
+<p>According to the Holmes stories, Holmes lives at Baker Street.</p>
+</blockquote>
+<p>The view gives fictional names genuine referents but does not make those referents the
+concrete people represented in stories. It also depends on an ontology of created
+abstracta.</p>
+<h2 id="metalinguistic-and-representational-accounts"><a class="header" href="#metalinguistic-and-representational-accounts">Metalinguistic and representational accounts</a></h2>
+<p>"Vulcan does not exist" can be interpreted as:</p>
+<blockquote>
+<p>The name or representational practice "Vulcan" has no bearer.</p>
+</blockquote>
+<p>This avoids an empty object-language name by ascending to talk about words, files,
+dossiers, or naming practices.</p>
+<p>The account fits contexts of correction:</p>
+<blockquote>
+<p>There is no such person as Santa Claus.</p>
+</blockquote>
+<p>But object-level and metalinguistic claims can differ. The name might never have been
+introduced, yet Vulcan still would not have existed. A purely metalinguistic analysis
+can therefore have the wrong modal profile.</p>
+<p>The best version may treat metalinguistic content as what speakers pragmatically
+communicate while leaving the literal semantics to another theory.</p>
+<h2 id="truth-in-fiction"><a class="header" href="#truth-in-fiction">Truth in fiction</a></h2>
+<p>Empty-name theories must explain how fictional claims can be correct or incorrect.
+Holmes is a detective but not a dentist; both predicates are equally non-instantiated by
+a concrete Holmes.</p>
+<p>Sources of fictional truth include:</p>
+<ul>
+<li>explicit statements in a work;</li>
+<li>consequences licensed by genre and background knowledge;</li>
+<li>authorial prescriptions to imagine;</li>
+<li>facts about an abstract character's encoded properties; and</li>
+<li>truths at worlds most similar to the story as described.</li>
+</ul>
+<p>Each faces cases of inconsistency, incompleteness, unreliable narrators, and truths not
+explicitly stated. Fictional truth is therefore not simply ordinary truth with an empty
+name inserted.</p>
+<h2 id="anaphora-and-discourse"><a class="header" href="#anaphora-and-discourse">Anaphora and discourse</a></h2>
+<p>Empty names participate in cross-sentence anaphora:</p>
+<blockquote>
+<p>A detective named Holmes lives at Baker Street. He plays the violin.</p>
+</blockquote>
+<p>Dynamic semantics can introduce a discourse referent without committing to a concrete
+object in the ordinary domain. The discourse marker supports later pronouns while its
+ontological interpretation remains open.</p>
+<p>This separates discourse coherence from successful worldly reference. A semantic
+representation can track an introduced role even when no real individual fills it.</p>
+<p>The lesson generalizes to hypothetical and conditional discourse:</p>
+<blockquote>
+<p>If Vulcan existed, it would affect Mercury's orbit.</p>
+</blockquote>
+<p>Reference-like continuity need not imply actual denotation.</p>
+<h2 id="comparing-the-options"><a class="header" href="#comparing-the-options">Comparing the options</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Account</th><th>What the name contributes</th><th>Negative existential</th><th>Best case</th><th>Main cost</th></tr></thead><tbody>
+<tr><td><strong>Russellian</strong></td><td>descriptive quantifier structure</td><td>true</td><td>failed descriptive posit</td><td>names are not generally descriptions</td></tr>
+<tr><td><strong>Fregean</strong></td><td>sense, no reference</td><td>gap or special clause</td><td>cognitive significance</td><td>truth-value problem</td></tr>
+<tr><td><strong>Free logic</strong></td><td>possibly empty term</td><td>true</td><td>formal inference</td><td>leaves content underexplained</td></tr>
+<tr><td><strong>Gappy proposition</strong></td><td>unfilled object position</td><td>theory-dependent</td><td>failed direct reference</td><td>poor differentiation</td></tr>
+<tr><td><strong>Meinongian</strong></td><td>nonexistent object</td><td>true</td><td>transparent predication</td><td>enlarged ontology</td></tr>
+<tr><td><strong>Pretense</strong></td><td>role in make-believe</td><td>external correction</td><td>internal fiction</td><td>embedding and external claims</td></tr>
+<tr><td><strong>Abstract artifact</strong></td><td>created abstract object</td><td>ordinary denial of concrete existence</td><td>authorial/external discourse</td><td>dual treatment of internal predication</td></tr>
+<tr><td><strong>Metalinguistic</strong></td><td>name or practice</td><td>no bearer for the name</td><td>correction</td><td>modal mismatch</td></tr>
+</tbody></table>
+</div>
+<p>Pluralism is plausible because the cases differ. A failed astronomical posit, a
+deliberate fictional character, and a corrupted report need not receive identical
+semantics merely because none names an ordinary concrete object.</p>
+<h2 id="division-of-labour-with-ontology"><a class="header" href="#division-of-labour-with-ontology">Division of labour with ontology</a></h2>
+<p>Semantic evidence constrains ontology but does not settle it. The fact that speakers
+quantify over fictional characters does not by itself prove that abstract artifacts
+exist; paraphrase or pretense may explain the discourse. Conversely, a prior refusal to
+countenance abstracta should not decide the linguistic analysis without argument.</p>
+<p>The language-level question is:</p>
+<blockquote>
+<p>What structure best explains understanding, composition, inference, and use when
+ordinary reference fails?</p>
+</blockquote>
+<p>The ontological question is:</p>
+<blockquote>
+<p>Which entities, if any, must exist for that explanation to be true?</p>
+</blockquote>
+<p>Keeping them distinct prevents a preferred inventory from being smuggled into semantic
+premises while allowing successful semantics to provide genuine evidence.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/03-proper-names.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/05-natural-kind-terms.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/03-proper-names.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/05-natural-kind-terms.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

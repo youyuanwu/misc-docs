@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Theories of Reference - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/01-theories-of-reference.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="theories-of-reference"><a class="header" href="#theories-of-reference">Theories of Reference</a></h1>
+<p>Language reaches beyond itself. A speaker can use "Venus" to discuss a planet, "water"
+to classify a substance, "that tree" to direct attention, and "the author of
+<em>Middlemarch</em>" to identify a person through a condition. The general problem of
+<strong>reference</strong> is to explain how expressions connect to objects, kinds, properties, and
+other semantic values.</p>
+<p>Reference is not one uniform relation. Names, descriptions, indexicals, predicates,
+and natural-kind terms behave differently. Nor is reference the whole of meaning:
+co-referring expressions can differ in cognitive significance, and complete sentences
+do more than list their referents. A theory of reference is one component of a theory
+of language.</p>
+<p>This page compares the principal families of account and establishes distinctions used
+throughout the folder. The following pages examine
+<a href="02-definite-descriptions.html">definite descriptions</a>,
+<a href="03-proper-names.html">proper names</a>, <a href="04-empty-names.html">empty names</a>,
+<a href="05-natural-kind-terms.html">natural-kind terms</a>,
+<a href="06-indexicals-demonstratives.html">indexicals and demonstratives</a>, and
+<a href="07-reference-indeterminacy.html">reference indeterminacy</a>.</p>
+<hr />
+<h2 id="semantic-reference-speaker-reference-and-identification"><a class="header" href="#semantic-reference-speaker-reference-and-identification">Semantic reference, speaker reference, and identification</a></h2>
+<p>Three relations are easily conflated.</p>
+<p><strong>Semantic reference</strong> is the referent an expression has according to the language,
+construction, and context. On a direct-reference account, "Venus" semantically refers
+to Venus.</p>
+<p><strong>Speaker reference</strong> is the object a speaker intends to talk about on an occasion. A
+speaker who points to Ada while mistakenly saying "the person drinking a martini" may
+intend Ada even if she is drinking water.</p>
+<p><strong>Successful identification</strong> is an audience's recognition of the intended object. A
+speaker can refer successfully despite using a false description, or fail to direct an
+audience despite using a semantically correct name.</p>
+<p>The distinctions allow mixed verdicts:</p>
+<ul>
+<li>the expression has one semantic value;</li>
+<li>the speaker intends another object;</li>
+<li>the audience identifies a third;</li>
+<li>the utterance may nevertheless communicate enough for the practical purpose.</li>
+</ul>
+<p>A theory should say which relation it explains rather than use "refers" for all four.</p>
+<h2 id="denotation-extension-and-satisfaction"><a class="header" href="#denotation-extension-and-satisfaction">Denotation, extension, and satisfaction</a></h2>
+<p>Formal semantics generalizes reference through category-sensitive notions.</p>
+<ul>
+<li>A singular term may <strong>denote</strong> an object.</li>
+<li>A one-place predicate has an <strong>extension</strong>, the objects satisfying it.</li>
+<li>An <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-place predicate has an extension of ordered <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-tuples.</li>
+<li>A sentence receives a truth value relative to an interpretation and circumstance.</li>
+</ul>
+<p>For a model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2312em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">Ada</span></span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9812em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight">M</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2312em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">runs</span></span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9812em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight">M</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> runs in </span></span><span class="mord mathcal">M</span><span class="mclose">}</span><span class="mord">.</span></span></span></span></span></p>
+<p>Then "Ada runs" is true just in case:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2312em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">runs</span></span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9812em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathcal mtight">M</span></span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>This explains composition once an interpretation is supplied. It does not explain why
+the name used by a community denotes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> or why the predicate has that extension. That
+is the metasemantic problem.</p>
+<h2 id="descriptive-theories"><a class="header" href="#descriptive-theories">Descriptive theories</a></h2>
+<p>A <strong>descriptive theory</strong> holds that reference is fixed by descriptive material
+associated with an expression. A name might refer to whichever object uniquely
+satisfies a description or cluster of descriptions competent speakers associate with
+it.</p>
+<p>The theory explains:</p>
+<ul>
+<li>how a speaker identifies the referent;</li>
+<li>why co-referring names can differ cognitively;</li>
+<li>how names can be introduced by description; and</li>
+<li>why an empty name can remain intelligible.</li>
+</ul>
+<p>Its characteristic problems are:</p>
+<ul>
+<li>speakers can refer despite ignorance or false belief;</li>
+<li>different speakers associate different descriptions;</li>
+<li>names and descriptions differ modally;</li>
+<li>a description may identify the wrong object while the name retains its bearer; and</li>
+<li>reference transmission often depends on other speakers rather than independent
+identification.</li>
+</ul>
+<p>Russell's quantificational analysis of descriptions need not imply that every genuine
+name is descriptive. The relation between the two claims is examined in the next two
+pages.</p>
+<h2 id="causal-historical-theories"><a class="header" href="#causal-historical-theories">Causal-historical theories</a></h2>
+<p>A <strong>causal-historical</strong> picture begins with an introduction or <strong>baptism</strong> and a chain
+of later uses. Speakers intend to use a name as members of the community from whom they
+received it use it. Reference can therefore survive widespread ignorance and error.</p>
+<p>The picture explains why someone who knows only that Gödel was a mathematician can
+still refer to Gödel. It also supports social division of linguistic labour: speakers
+depend on others who can identify the bearer or kind more reliably.</p>
+<p>Causal connection alone is too permissive. Many objects causally affect a use without
+being its referent. A chain must be structured by intentions to preserve or defer to a
+practice.</p>
+<p>Further questions include:</p>
+<ul>
+<li>What counts as a baptism?</li>
+<li>Can reference shift gradually?</li>
+<li>What happens when a chain branches?</li>
+<li>Can a speaker intentionally break from inherited use?</li>
+<li>How are reference errors distinguished from new naming?</li>
+</ul>
+<p>Kripke presented a picture rather than a complete algorithm, leaving these as central
+metasemantic problems.</p>
+<h2 id="direct-reference-theories"><a class="header" href="#direct-reference-theories">Direct-reference theories</a></h2>
+<p>On a <strong>direct-reference</strong> theory, the semantic contribution of a proper name or
+demonstrative is its referent, not a descriptive sense. The object itself enters the
+proposition expressed.</p>
+<p>This explains rigidity: a name designates the same object across possible
+circumstances in which that object exists. "Aristotle might not have taught Alexander"
+concerns Aristotle in counterfactual worlds, not whoever happens there to satisfy a
+description.</p>
+<p>Direct reference faces the cognitive problems identified by
+<a href="../05-meaning/02-sense-and-reference.html">Sense and Reference</a>:</p>
+<ul>
+<li>informative identities between co-referring names;</li>
+<li>belief reports in which substitution fails;</li>
+<li>apparently meaningful empty names; and</li>
+<li>differences in understanding among speakers using the same name.</li>
+</ul>
+<p>Responses distinguish semantic content from modes of presentation, mental files,
+pragmatic information, or acquaintance relations. The gain is a simple account of
+truth-conditional contribution; the cost is relocating cognitive significance.</p>
+<h2 id="intention-based-accounts"><a class="header" href="#intention-based-accounts">Intention-based accounts</a></h2>
+<p>Speaker intentions help determine reference, especially for demonstratives and local
+uses. A pointing gesture can be ambiguous among an object, its colour, its owner, or a
+part. What the speaker intends the audience to attend to matters.</p>
+<p>Intention cannot be sufficient without constraint. A speaker cannot refer to an
+arbitrary distant object merely by privately intending it while using an unrelated
+name. Successful reference depends on recognizable context, conventions, causal
+relations, and the audience's reasonable interpretation.</p>
+<p>The relevant intention is also difficult to specify without circularity:</p>
+<blockquote>
+<p>The speaker intends "that" to refer to the object they intend to refer to.</p>
+</blockquote>
+<p>A substantive account must characterize attention, demonstration, perceptual relation,
+or communicative plan without presupposing the reference relation being explained.</p>
+<h2 id="use-and-social-practice"><a class="header" href="#use-and-social-practice">Use and social practice</a></h2>
+<p>Use-based accounts locate reference in public practices of applying, correcting,
+teaching, and deferring. A term's referent is constrained by how a community interacts
+with objects and treats applications as correct or mistaken.</p>
+<p>This explains:</p>
+<ul>
+<li>partial competence;</li>
+<li>reference sustained across individuals;</li>
+<li>expert correction;</li>
+<li>historically changing classifications; and</li>
+<li>the difference between private association and public meaning.</li>
+</ul>
+<p>The risk is circularity or relativism. If correct use is defined only by communal use,
+the community cannot be systematically wrong. If external reality corrects the
+practice, the theory must specify the world-link in causal, informational, or
+truth-conditional terms.</p>
+<p>Social practice is therefore often combined with causal history and environmental
+contact rather than offered as a self-contained replacement.</p>
+<h2 id="reference-fixing-and-meaning"><a class="header" href="#reference-fixing-and-meaning">Reference fixing and meaning</a></h2>
+<p>An expression can have its reference <strong>fixed</strong> by a description without that
+description giving its meaning.</p>
+<p>Suppose one metre is introduced as the length of a particular bar at a specified time.
+The description identifies a reference standard. It does not follow that "one metre"
+means <em>the length of that bar at that time</em> in every sentence. The bar could have been
+longer or shorter under different conditions, while one metre remains one metre.</p>
+<p>Similarly, "Neptune" was introduced through theoretical description, but later uses
+can directly refer to the planet even if the original theory contained errors.</p>
+<p>This distinction allows descriptive introductions within a non-descriptive semantics.
+It also separates epistemology from semantic contribution: a way of finding the
+referent need not be what the term contributes to propositions.</p>
+<h2 id="reference-and-cognitive-significance"><a class="header" href="#reference-and-cognitive-significance">Reference and cognitive significance</a></h2>
+<p>A semantic theory must decide how much cognitive difference belongs inside content.</p>
+<p>If names contribute only objects, "Hesperus is Phosphorus" and "Hesperus is Hesperus"
+express the same singular proposition. Their difference must lie in presentation,
+pragmatics, or the cognitive route by which the proposition is entertained.</p>
+<p>If names contribute senses, the propositions differ, but reference becomes mediated by
+fine-grained entities whose identity is difficult to state.</p>
+<p>Two-factor views combine:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">mode of presentation</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">referent</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The mode explains rational perspective; the referent fixes ordinary truth-conditions.
+The question is whether both factors are semantic or whether one belongs to thought or
+pragmatics.</p>
+<h2 id="reference-failure"><a class="header" href="#reference-failure">Reference failure</a></h2>
+<p>What happens when no object meets the conditions for reference?</p>
+<p>Options include:</p>
+<ul>
+<li>the expression lacks a semantic value;</li>
+<li>the containing sentence lacks a truth value;</li>
+<li>the term contributes a descriptive condition rather than an object;</li>
+<li>a free logic permits an empty term;</li>
+<li>the discourse operates under pretense;</li>
+<li>the name refers to an abstract fictional artifact; or</li>
+<li>the utterance is metalinguistically about a name or practice.</li>
+</ul>
+<p>Reference failure tests a theory's architecture. A view designed only for successful
+ordinary naming may assign no content where speakers plainly reason and disagree.</p>
+<p>The language-level alternatives are compared in
+<a href="04-empty-names.html">Empty Names and Reference Failure</a>; the ontology of fictional and
+nonexistent objects remains in
+<a href="../../04-ontology/05-existence/03-fictional-objects.html">Ontology</a>.</p>
+<h2 id="reference-change"><a class="header" href="#reference-change">Reference change</a></h2>
+<p>Reference can shift over time. "Madagascar" appears to have moved from part of the
+African mainland in an earlier use to the island now bearing the name. Scientific terms
+are retained while their extensions or associated theories change. Personal names can
+be transferred intentionally or confused across chains.</p>
+<p>A rigid designator is rigid across counterfactual worlds at a time; rigidity does not
+imply immunity to historical semantic change.</p>
+<p>Theories explain change differently:</p>
+<ul>
+<li>descriptions change until a new object best fits;</li>
+<li>causal chains are redirected or replaced;</li>
+<li>communal correction establishes a new practice;</li>
+<li>speaker intentions initiate a new convention; or</li>
+<li>interpretation balances continuity against explanatory fit.</li>
+</ul>
+<p>Hard cases may have no uniquely precise transition point. That does not show there was
+never a fact of reference; it may show that social practices change gradually.</p>
+<h2 id="criteria-for-comparing-theories"><a class="header" href="#criteria-for-comparing-theories">Criteria for comparing theories</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Question</th></tr></thead><tbody>
+<tr><td><strong>Ignorance and error</strong></td><td>Can speakers refer while knowing little or believing falsely?</td></tr>
+<tr><td><strong>Modal stability</strong></td><td>Does the term track the same object across counterfactual circumstances?</td></tr>
+<tr><td><strong>Cognitive significance</strong></td><td>Can the theory explain informative identities and belief reports?</td></tr>
+<tr><td><strong>Public transmission</strong></td><td>How is reference shared across speakers and generations?</td></tr>
+<tr><td><strong>Empty cases</strong></td><td>What content remains when reference fails?</td></tr>
+<tr><td><strong>Change</strong></td><td>How can reference shift without every use becoming equivocal?</td></tr>
+<tr><td><strong>Composition</strong></td><td>What value does the expression contribute to larger constructions?</td></tr>
+<tr><td><strong>Non-circular grounding</strong></td><td>What fixes reference without presupposing it?</td></tr>
+</tbody></table>
+</div>
+<p>No single theory dominates every row. Descriptive accounts illuminate identification
+and cognition; direct reference captures modal and truth-conditional behaviour;
+causal-historical and social accounts explain transmission; intentions explain local
+demonstration; formal semantics explains composition. The central question is whether
+these are rivals at one level or components at different levels.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/08-meaning-scepticism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/02-definite-descriptions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/08-meaning-scepticism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/02-definite-descriptions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

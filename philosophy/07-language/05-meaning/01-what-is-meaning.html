@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Meaning? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/01-what-is-meaning.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-meaning"><a class="header" href="#what-is-meaning">What Is Meaning?</a></h1>
+<p>A stain can indicate a leak, smoke can indicate fire, and a tree's rings can carry
+information about its age. Words also carry information, but they do more. They can be
+used correctly or incorrectly, combined into new sentences, understood when their
+claims are false, and deployed to refer to things that are absent or nonexistent. A
+theory of linguistic meaning must explain these capacities without treating every
+correlation or association as semantic.</p>
+<p>The first task is therefore not to choose between truth, use, intention, or convention.
+It is to identify what each is being asked to explain. Some theories assign semantic
+values to expressions; some explain how those values combine; some explain how
+speakers communicate; and some explain what makes a particular assignment correct.
+Calling all four a "theory of meaning" conceals differences that matter.</p>
+<p>This page states the explanatory targets and separates meaning from neighbouring
+relations. The following pages examine <a href="02-sense-and-reference.html">sense and reference</a>,
+<a href="03-truth-conditional-semantics.html">truth-conditional semantics</a>,
+<a href="04-use-and-language-games.html">meaning as use</a>, and
+<a href="05-intention-and-convention.html">intention and convention</a>.</p>
+<hr />
+<h2 id="four-explanatory-projects"><a class="header" href="#four-explanatory-projects">Four explanatory projects</a></h2>
+<p>At least four projects travel under the name <strong>theory of meaning</strong>.</p>
+<h3 id="semantic-value"><a class="header" href="#semantic-value">Semantic value</a></h3>
+<p>A theory may say what contribution an expression makes to larger constructions. A
+proper name might contribute an object, a predicate a function from objects to truth
+values, and a sentence a truth-condition or proposition. This is a theory of
+<strong>semantic values</strong>.</p>
+<p>Different grammatical categories need different kinds of value. Treating every word
+as naming an object leaves no plausible account of "not," "every," or "quickly."
+Formal semantics therefore assigns values by type and specifies how they compose.</p>
+<h3 id="compositional-interpretation"><a class="header" href="#compositional-interpretation">Compositional interpretation</a></h3>
+<p>A theory may explain how the meaning of a complex expression depends on its parts and
+their arrangement. "Ada admires Ben" and "Ben admires Ada" contain the same names and
+verb but differ because syntax assigns different roles.</p>
+<p>This project addresses productivity: finite speakers understand indefinitely many new
+sentences because they need not memorize each as an independent unit. They know
+repeatable expressions and modes of combination.</p>
+<h3 id="communication"><a class="header" href="#communication">Communication</a></h3>
+<p>A theory may explain how speakers use expressions to make intentions recognizable to
+audiences. The conventional content of "It is late" does not by itself determine
+whether an utterance is an observation, a reason to leave, a reproach, or a reminder.
+Communication depends on common knowledge, context, purposes, and inference.</p>
+<p>This project is developed through the distinction between
+<a href="../02-semantics-pragmatics.html">semantics and pragmatics</a>. It cannot simply replace a
+semantic theory, because speakers exploit relatively stable expression meanings when
+they communicate indirectly.</p>
+<h3 id="metasemantics"><a class="header" href="#metasemantics">Metasemantics</a></h3>
+<p>A theory may ask why an expression has one semantic value rather than another. Why
+does "water" refer to water rather than to a superficially similar liquid? Why does a
+speaker's "and" express conjunction rather than an unfamiliar function? Answers appeal
+to causal history, environment, convention, public practice, inference, rational
+interpretation, or speaker intentions.</p>
+<p>This is <strong>metasemantics</strong>: an account of the facts that ground semantic facts. A
+model-theoretic interpretation can assign values without answering what makes that
+assignment the interpretation of English.</p>
+<p>The projects interact but should not be collapsed. A truth-conditional theory might
+give semantic values and composition while relying on convention or interpretation
+for its metasemantics and on Gricean inference for communication.</p>
+<h2 id="what-an-adequate-theory-must-explain"><a class="header" href="#what-an-adequate-theory-must-explain">What an adequate theory must explain</a></h2>
+<h3 id="understanding"><a class="header" href="#understanding">Understanding</a></h3>
+<p>To understand an expression is not merely to react reliably to it. A person who
+understands "triangle" can recognize new applications, explain some errors, combine it
+with other expressions, and follow discourse about triangles that do not exist.</p>
+<p>Understanding need not be conscious possession of a theory. Most speakers cannot state
+the grammatical or semantic rules they competently follow. A theory must therefore
+distinguish <strong>tacit competence</strong> from explicit knowledge while explaining why the
+competence is systematic.</p>
+<h3 id="correctness-and-error"><a class="header" href="#correctness-and-error">Correctness and error</a></h3>
+<p>Words can be misapplied and sentences can be false. A child may call every animal a
+"dog"; an adult may falsely say that Venus is a star. Error is possible only if
+meaning sets a standard not reducible to whatever the speaker happens to do.</p>
+<p>This creates a normative pressure. If actual disposition alone fixes meaning, then a
+systematic mistake threatens to become correct by definition. If ideal disposition
+fixes meaning, the theory must explain which idealization is relevant and why.</p>
+<h3 id="public-shareability"><a class="header" href="#public-shareability">Public shareability</a></h3>
+<p>Speakers with different beliefs, experiences, and abilities can mean the same thing
+well enough to agree, disagree, teach, and correct one another. Meaning must be stable
+across some differences among individuals.</p>
+<p>Publicity does not require perfect uniformity. Dialects, technical sublanguages,
+partial competence, and semantic change are real. The explanatory task is to say
+which differences preserve shared content and which amount to a change of meaning.</p>
+<h3 id="productivity-and-systematicity"><a class="header" href="#productivity-and-systematicity">Productivity and systematicity</a></h3>
+<p>Understanding is <strong>productive</strong> because speakers can interpret novel sentences, and
+<strong>systematic</strong> because capacities come in patterns. Someone who understands "Ada
+admires Ben" normally understands "Ben admires Ada." A theory that assigns meanings
+independently to whole sentences misses this structure.</p>
+<p>Compositionality is the standard explanation, but its strength is disputed. Idioms,
+context-sensitive constructions, and lexical modulation show that the contribution of
+a part may depend on more than an isolated dictionary entry.</p>
+<h3 id="world-involvement-and-misrepresentation"><a class="header" href="#world-involvement-and-misrepresentation">World-involvement and misrepresentation</a></h3>
+<p>Language is answerable to how things are. A meaningful claim can be true or false, a
+name can fail to refer, and a classification can be inaccurate. A theory must explain
+both connection to the world and the possibility of getting it wrong.</p>
+<p>Pure covariance is insufficient. "Fire" can be used meaningfully when no fire is
+present, and smoke can correlate with fire without meaning fire in a language.
+Semantic representation is detachable from its normal cause.</p>
+<h3 id="cognitive-significance"><a class="header" href="#cognitive-significance">Cognitive significance</a></h3>
+<p>Co-reference does not guarantee sameness of meaning. "Hesperus" and "Phosphorus" both
+refer to Venus, but learning that Hesperus is Phosphorus can increase knowledge. A
+theory must explain why substituting co-referring expressions can change what a speaker
+learns or believes.</p>
+<p>This is the central motivation for <a href="02-sense-and-reference.html">Fregean sense</a> and a
+central challenge for views on which a name's semantic contribution is only its
+referent.</p>
+<h2 id="meaning-is-not-reference"><a class="header" href="#meaning-is-not-reference">Meaning is not reference</a></h2>
+<p>Reference is one semantic relation, not a complete theory of meaning.</p>
+<ul>
+<li>Different expressions can share a referent while differing cognitively.</li>
+<li>Some meaningful expressions, such as "and" or "perhaps," are not naturally treated
+as names of objects.</li>
+<li>Empty names and fictional discourse appear meaningful despite reference failure.</li>
+<li>Complete sentences can be meaningful regardless of whether they are true.</li>
+</ul>
+<p>A referential theory may still explain important categories, especially names,
+demonstratives, and natural-kind terms. It must be embedded in a broader account of
+sentence structure, cognitive role, and non-referring vocabulary.</p>
+<h2 id="meaning-is-not-information-alone"><a class="header" href="#meaning-is-not-information-alone">Meaning is not information alone</a></h2>
+<p>In one technical sense, a signal carries information about whatever reliably covaries
+with it. Tree rings carry information about age, and a fuel gauge carries information
+about a tank. This relation can exist without users, conventions, or understanding.</p>
+<p>Linguistic meaning differs in at least three ways:</p>
+<ol>
+<li>A sentence can represent a condition that does not obtain.</li>
+<li>The same information can be expressed by semantically different sentences.</li>
+<li>Accidental correlation does not establish what an expression means.</li>
+</ol>
+<p>Information theory can measure alternatives reduced by a signal without supplying its
+content. Richer informational semantics adds causal or counterfactual conditions, but
+then must explain error, abstraction, and convention.</p>
+<h2 id="meaning-is-not-association"><a class="header" href="#meaning-is-not-association">Meaning is not association</a></h2>
+<p>Words evoke images, emotions, stereotypes, and memories. These associations affect
+processing and communication, but they vary too freely to constitute all meaning. One
+speaker associates "dog" with fear and another with affection while both use the word
+for dogs.</p>
+<p>Associations can become conventionally significant, and some expressions carry
+evaluative or expressive dimensions not captured by reference. The point is not that
+association is irrelevant. It is that a theory needs criteria for distinguishing
+semantic contribution from personal or culturally common accompaniment.</p>
+<h2 id="meaning-is-not-use-frequency"><a class="header" href="#meaning-is-not-use-frequency">Meaning is not use frequency</a></h2>
+<p>Use theories make linguistic practice central, but <strong>meaning as use</strong> is not the claim
+that meaning equals a frequency distribution. Rare and novel uses can be correct;
+frequent mistakes can remain mistakes; and two expressions with similar distributions
+can differ in inferential or referential role.</p>
+<p>"Use" in a philosophical theory includes rule-governed possibilities, standards of
+correction, inferential consequences, and place within a practice. Corpus frequencies
+are evidence about that practice, not a definition of it.</p>
+<h2 id="meaning-is-not-one-occasions-intention"><a class="header" href="#meaning-is-not-one-occasions-intention">Meaning is not one occasion's intention</a></h2>
+<p>A speaker can intend a familiar word to mean something idiosyncratic, but intention
+alone does not guarantee success. Secretly intending "bank" to mean <em>oak tree</em> does not
+make an unprepared audience understand "The bank is tall" accordingly.</p>
+<p>One-off speaker meaning depends on a background of shared expression meaning and
+recognizable communicative purposes. Intention-based theories must explain how stable
+conventions arise and how speakers can exploit, bend, or violate them.</p>
+<h2 id="meaning-is-not-causal-covariance"><a class="header" href="#meaning-is-not-causal-covariance">Meaning is not causal covariance</a></h2>
+<p>A thermometer covaries with temperature and a footprint with a foot. Neither relation
+alone establishes linguistic content. Covariance theories face the <strong>disjunction
+problem</strong>: if a token is caused by horses in good conditions and cows in poor
+conditions, does it mean <em>horse</em>, <em>horse-or-cow</em>, or something else?</p>
+<p>Causal history is nevertheless important to reference. The lesson is narrower:
+causation must be structured by learning, function, convention, or historical chains
+before it can distinguish content from every reliable indicator.</p>
+<h2 id="three-dimensions-of-evaluation"><a class="header" href="#three-dimensions-of-evaluation">Three dimensions of evaluation</a></h2>
+<p>Theories are easier to compare when three questions are asked separately:</p>
+<div class="table-wrapper"><table><thead><tr><th>Dimension</th><th>Question</th><th>Typical candidates</th></tr></thead><tbody>
+<tr><td><strong>Semantic</strong></td><td>What value does the expression contribute?</td><td>object, sense, extension, intension, proposition, inferential role</td></tr>
+<tr><td><strong>Metasemantic</strong></td><td>What fixes that value?</td><td>causal history, convention, use, intention, interpretation, environment</td></tr>
+<tr><td><strong>Epistemic/psychological</strong></td><td>What enables a speaker to understand it?</td><td>tacit knowledge, recognitional skill, inference, simulation, social learning</td></tr>
+</tbody></table>
+</div>
+<p>A theory may be strong on one dimension and silent on another. Direct-reference theory
+may assign an object to a name while leaving cognitive significance to a distinct mode
+of presentation. Formal semantics may derive truth-conditions while leaving their
+metasemantic grounding to social practice.</p>
+<h2 id="a-pluralist-working-hypothesis"><a class="header" href="#a-pluralist-working-hypothesis">A pluralist working hypothesis</a></h2>
+<p>The explanatory targets suggest a division of labour rather than one universal
+relation:</p>
+<ul>
+<li>reference and truth-conditions connect language to the world;</li>
+<li>compositional rules explain productivity;</li>
+<li>sense or cognitive role explains how content is presented;</li>
+<li>convention and use explain public stability;</li>
+<li>intention and pragmatic inference explain occasion-specific communication; and</li>
+<li>causal and social history help fix reference.</li>
+</ul>
+<p>This is a hypothesis, not a conclusion. A unified theory would be preferable if it
+explained the same range without equivocation. The burden on any monistic account is
+to show that its favoured relation can recover the work apparently done by the others.</p>
+<p>The <a href="../03-theories-overview.html">overview of theories</a> maps the main candidates. The
+rest of this folder tests them one at a time.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/04-method-and-evidence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/02-sense-and-reference.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/04-method-and-evidence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/02-sense-and-reference.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

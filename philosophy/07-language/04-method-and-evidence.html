@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Method and Evidence in Philosophy of Language - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/04-method-and-evidence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="method-and-evidence-in-philosophy-of-language"><a class="header" href="#method-and-evidence-in-philosophy-of-language">Method and Evidence in Philosophy of Language</a></h1>
+<p>Philosophy of language draws on unusually varied evidence. A philosopher judges
+whether two sentences could differ in meaning, a linguist tests which readings a
+construction permits, a corpus records how expressions are used, an experiment
+measures interpretation under controlled conditions, a historian reconstructs a
+reference chain, and a formal semanticist compares models for compositional adequacy.
+Each source constrains theory. None by itself reveals what meaning is.</p>
+<p>Two methodological errors sit at opposite extremes. <strong>Armchair isolation</strong> treats a
+small set of intuitions about invented English sentences as decisive and ignores
+variation among speakers, contexts, and languages. <strong>Uninterpreted empiricism</strong> treats
+counts or response times as though they arrived already classified as evidence about
+semantic content, pragmatic inference, processing difficulty, or social convention.
+A better method identifies the target claim, the observation, and the assumptions
+connecting them.</p>
+<p>This page explains the principal sources of evidence and gives a common framework for
+using them. It presupposes the distinctions introduced in
+<a href="02-semantics-pragmatics.html">Semantics and Pragmatics</a>.</p>
+<hr />
+<h2 id="evidence-is-theory-mediated"><a class="header" href="#evidence-is-theory-mediated">Evidence is theory-mediated</a></h2>
+<p>Suppose speakers tend to interpret "Some students passed" as suggesting that not all
+passed. The observation is compatible with several explanations:</p>
+<ol>
+<li>"some" semantically means <em>some but not all</em>;</li>
+<li>"some" means <em>at least one</em>, while a conversational inference excludes all;</li>
+<li>the enriched reading is a learned default that can be overridden;</li>
+<li>the response reflects task design rather than ordinary interpretation.</li>
+</ol>
+<p>The data do not label themselves. A disciplined inference has the form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">observation</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">bridge assumptions</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">claim about language</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The bridge may concern what a task measures, which alternatives speakers considered,
+whether context was sufficiently specified, or how syntax constrains composition.
+Making it explicit turns disagreement over "what the evidence says" into disagreement
+over premises that can be compared.</p>
+<h2 id="judgments-about-cases"><a class="header" href="#judgments-about-cases">Judgments about cases</a></h2>
+<p>Philosophers and linguists routinely ask whether an expression is meaningful, whether
+a sentence can be true in a described case, what a pronoun can refer to, whether an
+inference is cancellable, or whether two utterances say the same thing. Such judgments
+are valuable because competent speakers are themselves sensitive to linguistic
+structure.</p>
+<p>They are not infallible reports of semantic facts. A judgment can be influenced by:</p>
+<ul>
+<li>ambiguity left unresolved by the prompt;</li>
+<li>implausible or underspecified context;</li>
+<li>processing difficulty;</li>
+<li>theoretical training;</li>
+<li>prescriptive norms;</li>
+<li>dialect and idiolect;</li>
+<li>demand characteristics; or</li>
+<li>confusion between what is said and what is merely suggested.</li>
+</ul>
+<p>The response should not be to discard judgments, since experiments also rely on
+participants' linguistic responses. It is to improve them: vary context, compare
+minimal pairs, separate different questions, test multiple speakers, and look for a
+stable pattern rather than a verdict from one sentence.</p>
+<h2 id="ordinary-use-and-attested-examples"><a class="header" href="#ordinary-use-and-attested-examples">Ordinary use and attested examples</a></h2>
+<p>Appeals to "what we say" are stronger when they concern attested practice rather than a
+philosopher's memory of it. Dictionaries, recordings, transcripts, historical texts,
+and naturally occurring exchanges can reveal:</p>
+<ul>
+<li>which uses actually occur;</li>
+<li>how interpretations vary by setting;</li>
+<li>when a construction emerged or changed;</li>
+<li>whether an allegedly anomalous use is systematic; and</li>
+<li>how speakers repair misunderstanding.</li>
+</ul>
+<p>Attestation does not equal semantic correctness or theoretical importance. A frequent
+use may be an error, a quotation, a joke, or a performance tailored to a platform.
+Rare constructions may still reveal grammatical competence. Corpus evidence also
+inherits sampling biases: published writing, searchable websites, and recorded speech
+do not represent every community equally.</p>
+<p>Ordinary-language evidence is most effective when paired with an explicit claim. If a
+theory predicts that a purported implication is cancellable, naturally occurring
+cancellations matter. If it predicts a reading is impossible, robust attestation of
+that reading is more damaging than mere frequency differences.</p>
+<h2 id="corpora-and-quantitative-patterns"><a class="header" href="#corpora-and-quantitative-patterns">Corpora and quantitative patterns</a></h2>
+<p>A <strong>corpus</strong> permits reproducible searches across many tokens. It can show collocation,
+distribution across genres, changes over time, and associations between linguistic
+forms and contexts. Quantitative evidence helps correct selective examples and can
+generate cases a theory did not anticipate.</p>
+<p>But corpus counts underdetermine interpretation. Strings do not arrive with their
+scope, referent, force, or irony marked. Annotation introduces theoretical judgment,
+and automated classification introduces a model with its own errors. Absence from a
+finite corpus is weak evidence of impossibility.</p>
+<p>Useful practice includes:</p>
+<ul>
+<li>publishing search and exclusion criteria;</li>
+<li>inspecting concordance lines rather than relying on totals;</li>
+<li>separating author, genre, period, and dialect;</li>
+<li>checking annotation agreement;</li>
+<li>distinguishing tokens from independent speakers or documents; and</li>
+<li>reporting uncertainty instead of treating a count as a semantic law.</li>
+</ul>
+<h2 id="experiments"><a class="header" href="#experiments">Experiments</a></h2>
+<p>Experimental methods can vary context while holding wording fixed, compare populations,
+measure reading time, track eye movements, elicit paraphrase, or ask participants to
+judge truth in a scenario. They are especially useful when a theory predicts graded,
+context-sensitive, or processing-dependent effects.</p>
+<p>Different tasks answer different questions:</p>
+<div class="table-wrapper"><table><thead><tr><th>Task</th><th>Directly measures</th><th>Does not by itself establish</th></tr></thead><tbody>
+<tr><td>Acceptability rating</td><td>judged naturalness in a presented context</td><td>grammaticality or meaning alone</td></tr>
+<tr><td>Truth-value judgment</td><td>whether a sentence is judged true of a case</td><td>why that reading was selected</td></tr>
+<tr><td>Paraphrase or selection</td><td>an available interpretation</td><td>the full set of possible interpretations</td></tr>
+<tr><td>Reading time</td><td>processing difficulty at a point</td><td>semantic content without a processing model</td></tr>
+<tr><td>Production task</td><td>what speakers choose to say</td><td>all forms they understand</td></tr>
+<tr><td>Memory task</td><td>what representation is retained</td><td>what was initially encoded</td></tr>
+</tbody></table>
+</div>
+<p>Order effects, wording, forced choices, inattentive responses, population differences,
+and statistical flexibility can distort results. Replication and converging tasks are
+more informative than one significant contrast.</p>
+<h2 id="cross-linguistic-evidence"><a class="header" href="#cross-linguistic-evidence">Cross-linguistic evidence</a></h2>
+<p>A theory of human language should not mistake properties of familiar European
+languages for universals. Languages vary in how they mark tense, evidential source,
+honorific status, definiteness, number, gender, topic, switch reference, and many other
+categories. Some meanings expressed lexically in one language are grammaticalized in
+another or left to context in a third.</p>
+<p>Cross-linguistic comparison can reveal whether a proposed category is:</p>
+<ul>
+<li>universal in function but variable in form;</li>
+<li>one strategy among several;</li>
+<li>an artifact of a translation;</li>
+<li>specific to a language family; or</li>
+<li>a theoretical distinction with no required surface marker.</li>
+</ul>
+<p>Translation must not erase the phenomenon. Asking whether another language has "the
+word for" an English item is different from asking how its speakers perform the same
+referential, inferential, or communicative work. Reliable comparison requires
+descriptive grammars, consultation with speakers, and awareness of variation within a
+language.</p>
+<h2 id="formal-modelling"><a class="header" href="#formal-modelling">Formal modelling</a></h2>
+<p>A formal model earns its place by making commitments explicit. It may specify semantic
+types, denotations, composition rules, possible circumstances, information states, or
+update operations. From those assumptions it derives predictions about truth,
+entailment, ambiguity, scope, anaphora, or discourse.</p>
+<p>Three virtues are especially important:</p>
+<ul>
+<li><strong>coverage:</strong> the model handles the relevant constructions and readings;</li>
+<li><strong>constraint:</strong> it does not generate arbitrary unattested readings;</li>
+<li><strong>explanation:</strong> related phenomena follow from shared principles rather than separate
+stipulations.</li>
+</ul>
+<p>Mathematical elegance is evidence of organization, not automatically evidence of
+linguistic truth. Two empirically equivalent formalisms may encode different
+explanations, and a powerful formalism can model many interpretations without showing
+which one speakers use. <a href="../../logic/07-model-theory.html">Model Theory</a> explains
+satisfaction once an interpretation is given; metasemantics asks why that
+interpretation is the correct one.</p>
+<p>Formalization is most useful when it exposes a choice that prose conceals: whether a
+description denotes an object or introduces quantificational structure, whether a
+presupposition is a definedness condition or a context requirement, or whether a
+contextual value occupies a syntactic position.</p>
+<h2 id="interpretation-and-charity"><a class="header" href="#interpretation-and-charity">Interpretation and charity</a></h2>
+<p>Evidence about an unfamiliar speaker is behavioural and contextual: assent, dissent,
+action, correction, inference, and interaction with a shared environment. Radical
+interpretation asks how meanings and beliefs can be assigned together without first
+possessing a translation manual.</p>
+<p>Principles of <strong>charity</strong> favour interpretations that make speakers broadly coherent
+and responsive to shared circumstances. Charity is not the assumption that speakers
+agree with the interpreter about everything. An assignment that made every utterance
+wildly false would undermine the evidence that the utterances have been translated
+correctly at all. Some shared pattern is a condition of locating disagreement.</p>
+<p>The method can be overused. Too much charity risks defining deep conceptual
+disagreement out of existence, imposing the interpreter's logic, or ignoring
+historical and practical differences. Interpretation should balance coherence,
+causal contact, speakers' own corrections, successful coordination, and the
+possibility of error.</p>
+<h2 id="history-and-reference-chains"><a class="header" href="#history-and-reference-chains">History and reference chains</a></h2>
+<p>Some semantic claims depend on diachronic facts. Causal-historical theories of names
+and natural-kind terms appeal to introductions, transmission, deference, and later
+uses. Evidence may include naming practices, scientific reclassification, borrowing
+between communities, and cases where associated descriptions changed while reference
+appeared stable.</p>
+<p>Historical evidence can discriminate between a theory on which reference is fixed by
+current descriptions and one on which it is inherited through a practice. It also
+complicates simple chains: names split, merge, shift referents, are reintroduced
+independently, or persist through widespread error. A usable causal account must say
+which intentions and social relations preserve a chain.</p>
+<h2 id="thought-experiments"><a class="header" href="#thought-experiments">Thought experiments</a></h2>
+<p>Twin Earth, radical translation, the private diarist, and other thought experiments
+isolate dependencies that ordinary cases entangle. Their conclusion is conditional:
+if the scenario is coherent and the judgment stable, then a proposed analysis faces a
+specified pressure.</p>
+<p>Three questions should be asked:</p>
+<ol>
+<li><strong>Coherence:</strong> does the scenario describe a genuine possibility, or conceal an
+inconsistent combination?</li>
+<li><strong>Diagnosis:</strong> is the response semantic, pragmatic, metaphysical, or merely verbal?</li>
+<li><strong>Robustness:</strong> does the judgment survive changes to irrelevant details and
+presentation?</li>
+</ol>
+<p>Thought experiments are strongest when they organize subsequent evidence rather than
+replace it. Twin Earth, for example, directs attention to environmental dependence and
+division of linguistic labour; actual scientific and linguistic practices then show
+how such dependence works.</p>
+<h2 id="reflective-equilibrium"><a class="header" href="#reflective-equilibrium">Reflective equilibrium</a></h2>
+<p>No single method has automatic priority. A good theory seeks <strong>reflective equilibrium</strong>
+among:</p>
+<ul>
+<li>clear judgments about well-specified cases;</li>
+<li>attested and cross-linguistic use;</li>
+<li>experimental patterns;</li>
+<li>compositional and explanatory virtues;</li>
+<li>compatibility with plausible psychology;</li>
+<li>historical facts about linguistic practices; and</li>
+<li>fit with neighbouring theories of mind, logic, and ontology.</li>
+</ul>
+<p>When these conflict, revision is local and explicit. A theorist may reject a judgment
+as a processing artifact, revise a formal rule, distinguish dialects, or conclude that
+an ordinary category combines several phenomena. The cost must be stated rather than
+hidden by redescribing the evidence.</p>
+<h2 id="a-checklist-for-evaluating-a-claim"><a class="header" href="#a-checklist-for-evaluating-a-claim">A checklist for evaluating a claim</a></h2>
+<p>For any substantive claim about language, ask:</p>
+<ol>
+<li>What is the target: expression meaning, utterance content, implication, force,
+processing, or effect?</li>
+<li>What is the observation, and can it be reproduced or independently checked?</li>
+<li>Which bridge assumptions connect the observation to the target?</li>
+<li>What rival semantic, pragmatic, or psychological explanations remain?</li>
+<li>Does the account generalize beyond one construction, context, speaker group, and
+language?</li>
+<li>What does the formalization predict, forbid, or leave unspecified?</li>
+<li>Which result would count against the account?</li>
+</ol>
+<p>This discipline does not eliminate philosophical disagreement. It makes clear whether
+the disagreement concerns data, interpretation, formal architecture, or the deeper
+question of what meaning consists in.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/07-language/03-theories-overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/07-language/05-meaning/01-what-is-meaning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/07-language/03-theories-overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/07-language/05-meaning/01-what-is-meaning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

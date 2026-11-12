@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Philosophy of Language - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/00-README.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="philosophy-of-language"><a class="header" href="#philosophy-of-language">Philosophy of Language</a></h1>
+<p>Philosophy of language asks how marks, sounds, and gestures come to mean anything; how
+words refer to things; how sentence meanings depend on their parts; how context affects
+what is said; and how speakers use language to communicate and act. These questions
+meet whenever someone understands a sentence they have never heard, refers to an absent
+object, says something false but meaningful, implies more than their words encode, or
+uses familiar words in a new setting.</p>
+<p>No single relation called "meaning" answers all of them. A name may contribute an
+object to what a sentence says while presenting that object under a cognitively
+significant mode. A sentence may have truth-conditions while its utterance also carries
+an implication, presupposition, tone, or force. A speaker may use a sentence literally,
+ironically, deceptively, or fictionally without changing the language overnight.
+Philosophy of language therefore studies a connected set of relations among
+expressions, speakers, audiences, practices, and the world.</p>
+<p>The section treats <strong>formal semantics</strong> as an integral part of the subject.
+Model-theoretic, intensional, typed, and dynamic methods make claims about composition,
+scope, reference, context, and truth precise. They do not replace the philosophical
+question what makes one interpretation rather than another the meaning of a public
+language. Formal semantics supplies models of linguistic content; metasemantics asks
+what fixes those models as correct for a community of speakers.</p>
+<blockquote>
+<p><strong>Status.</strong> Complete as planned. The four-page spine and all thematic folders are
+written, published, cross-linked, and validated.</p>
+</blockquote>
+<h2 id="boundaries"><a class="header" href="#boundaries">Boundaries</a></h2>
+<p>Several neighbouring sections own parts of the terrain:</p>
+<ul>
+<li><a href="../../logic/00-README.html">Logic</a> develops formal languages, proof systems,
+interpretations, model theory, and metalogical results. This section uses that
+machinery to analyse natural-language meaning and explains its philosophical limits.</li>
+<li><a href="../06-mind/07-intentionality/01-aboutness.html">Intentionality and Aboutness</a> asks how
+mental states represent. Here the focus is public language and communication. The two
+subjects constrain one another without being assumed to have the same source.</li>
+<li><a href="../04-ontology/08-abstracta/04-propositions.html">Propositions and Other Abstracta</a>,
+<a href="../04-ontology/10-modality/02-possible-worlds.html">Possible Worlds</a>, and
+<a href="../04-ontology/05-existence/03-fictional-objects.html">Fictional and Intentional Objects</a>
+ask what candidate contents and referents are. This section asks what semantic work
+they perform.</li>
+<li><a href="../02-religion/10-language/01-religious-language.html">Religious Language</a> is a
+regional application involving analogy, verification, metaphor, and realism. The
+general theories belong here.</li>
+<li>Linguistics, psychology, and communication science provide indispensable evidence,
+but the section is not a substitute for a grammar, a history of a language, or an
+experimental methods course.</li>
+</ul>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<h3 id="the-spine"><a class="header" href="#the-spine">The spine</a></h3>
+<ul>
+<li><a href="01-introduction.html">What Is Philosophy of Language?</a> - five central questions,
+basic distinctions, recurring test cases, and the relation among language, thought,
+and the world.</li>
+<li><a href="02-semantics-pragmatics.html">Semantics and Pragmatics</a> - expression, sentence,
+utterance, and speaker meaning; context dependence, implicature, presupposition, and
+the disputed boundary between what is encoded and what is communicated.</li>
+<li><a href="03-theories-overview.html">Theories of Meaning: An Overview</a> - Fregean sense and
+reference, truth-conditional semantics, use, inferential role, verification,
+causal-historical reference, externalism, and the role of formal semantics.</li>
+<li><a href="04-method-and-evidence.html">Method and Evidence in Philosophy of Language</a> -
+judgments about cases, ordinary and attested use, corpora, experiments,
+cross-linguistic evidence, formal virtues, interpretation, and reflective
+equilibrium.</li>
+</ul>
+<h3 id="meaning"><a class="header" href="#meaning">Meaning</a></h3>
+<ul>
+<li><a href="05-meaning/01-what-is-meaning.html">What Is Meaning?</a> - semantic value, composition,
+communication, and metasemantics; understanding, correctness, publicity,
+productivity, misrepresentation, and cognitive significance.</li>
+<li><a href="05-meaning/02-sense-and-reference.html">Sense and Reference</a> - Frege's identity puzzle,
+modes of presentation, sentence reference, opacity, empty names, direct reference,
+and fine-grained content.</li>
+<li><a href="05-meaning/03-truth-conditional-semantics.html">Truth-Conditional Semantics</a> -
+truth-conditions, Tarski and Davidson, finite axiomatization, radical interpretation,
+context sensitivity, hyperintensionality, and non-declaratives.</li>
+<li><a href="05-meaning/04-use-and-language-games.html">Meaning as Use and Language-Games</a> -
+language-games, forms of life, family resemblance, rule-following, private language,
+public standards, composition, and reference.</li>
+<li><a href="05-meaning/05-intention-and-convention.html">Intention and Convention</a> - Gricean
+speaker meaning, reflexive intentions, Lewisian coordination, signaling systems,
+conventional meaning, circularity, and normativity.</li>
+<li><a href="05-meaning/06-inferentialism.html">Inferentialism</a> - Sellars and the space of reasons,
+Brandomian commitments and entitlements, proof-theoretic meaning, material inference,
+holism, composition, reference, and semantic normativity.</li>
+<li><a href="05-meaning/07-verificationism.html">Verificationism and Manifestation</a> - the
+verification principle, operationalism, Dummett's manifestation argument, semantic
+anti-realism, proof-conditional meaning, and intuitionistic logic.</li>
+<li><a href="05-meaning/08-meaning-scepticism.html">Meaning Scepticism and Rule-Following</a> -
+Kripke's quus case, dispositions, inner instructions, primitive facts, the sceptical
+solution, community standards, and the distinction between Wittgenstein and
+"Kripkenstein."</li>
+</ul>
+<h3 id="reference"><a class="header" href="#reference">Reference</a></h3>
+<ul>
+<li><a href="06-reference/01-theories-of-reference.html">Theories of Reference</a> - semantic and
+speaker reference, identification, descriptive, causal-historical, direct,
+intention-based, and social-practice accounts.</li>
+<li><a href="06-reference/02-definite-descriptions.html">Definite Descriptions</a> - Russellian
+quantificational analysis, scope, Strawsonian presupposition, Donnellan's distinction,
+and incomplete descriptions.</li>
+<li><a href="06-reference/03-proper-names.html">Proper Names</a> - Millianism, Fregean and cluster
+descriptivism, Kripke's arguments, rigidity, baptism, causal transmission, belief
+reports, and reference change.</li>
+<li><a href="06-reference/04-empty-names.html">Empty Names and Reference Failure</a> - negative
+existentials, free logic, gappy propositions, Meinongianism, pretense, fictional
+artifacts, and metalinguistic analyses.</li>
+<li><a href="06-reference/05-natural-kind-terms.html">Natural-Kind Terms and Semantic Externalism</a> -
+Twin Earth, samples, division of linguistic labour, social externalism, rigidity,
+necessary a posteriori identities, and scientific change.</li>
+<li><a href="06-reference/06-indexicals-demonstratives.html">Indexicals and Demonstratives</a> -
+character, content, contexts, direct reference, demonstrative intention, the
+essential indexical, de se attitudes, and indexical shift.</li>
+<li><a href="06-reference/07-reference-indeterminacy.html">Reference Indeterminacy</a> - radical
+translation, inscrutability, proxy functions, model-theoretic permutation, causal and
+naturalness constraints, charity, and structuralism.</li>
+</ul>
+<h3 id="content-and-composition"><a class="header" href="#content-and-composition">Content and composition</a></h3>
+<ul>
+<li><a href="07-content-and-composition/01-compositionality.html">Compositionality and Productivity</a>
+<ul>
+<li>strong and weak compositionality, syntax, idioms, context sensitivity, coercion,
+constructions, quotation, holism, and psychological processing.</li>
+</ul>
+</li>
+<li><a href="07-content-and-composition/02-propositions.html">Propositions and Truth-Bearers</a> -
+propositions as meanings, assertion contents, attitude objects, and truth-bearers;
+alternatives involving sentences, utterances, and formal representations.</li>
+<li><a href="07-content-and-composition/03-structured-and-unstructured-content.html">Structured and Unstructured Content</a>
+<ul>
+<li>possible-worlds content, Russellian and Fregean structures, modes of presentation,
+proposition unity, attitudes, and content identity.</li>
+</ul>
+</li>
+<li><a href="07-content-and-composition/04-intensionality.html">Intensionality and Possible-Worlds Content</a>
+<ul>
+<li>extensions, intensions, modality, rigidity, scope, attitudes, context and index,
+tense, conditionals, and intensional types.</li>
+</ul>
+</li>
+<li><a href="07-content-and-composition/05-hyperintensionality.html">Hyperintensionality</a> -
+necessarily equivalent contents, impossible worlds, belief, grounding, explanation,
+subject matter, proof, truthmakers, and fine-grained composition.</li>
+<li><a href="07-content-and-composition/06-semantic-externalism.html">Semantic Externalism</a> -
+environmental, social, and historical dependence; deference, contested expertise,
+self-knowledge, switching, change, and narrow content.</li>
+<li><a href="07-content-and-composition/07-semantic-normativity.html">The Normativity of Meaning</a> -
+correctness, reasons, obligations, commitments, rule-following, assertion, belief,
+convention, function, interpretation, and semantic change.</li>
+</ul>
+<h3 id="pragmatics"><a class="header" href="#pragmatics">Pragmatics</a></h3>
+<ul>
+<li><a href="08-pragmatics/01-speaker-meaning.html">Speaker Meaning</a> - reflexive communicative
+intentions, audience design, open audiences, failed communication, covert influence,
+non-cooperation, and conventional acts.</li>
+<li><a href="08-pragmatics/02-conversational-implicature.html">Conversational Implicature</a> -
+cooperative reasoning, maxims, scalar inference, cancellation, detachability,
+reinforcement, conventional implicature, embedding, and irony.</li>
+<li><a href="08-pragmatics/03-presupposition.html">Presupposition</a> - triggers, constancy under
+negation, projection, semantic and pragmatic accounts, accommodation, common ground,
+dynamic semantics, and factives.</li>
+<li><a href="08-pragmatics/04-context-and-conversation.html">Context and Conversation</a> - formal
+context, common ground, conversational score, salience, questions under discussion,
+discourse referents, repair, and commitments.</li>
+<li><a href="08-pragmatics/05-relevance-and-neo-gricean-theories.html">Relevance and Neo-Gricean Theories</a>
+<ul>
+<li>optimal relevance, explicature, loose talk, Horn's principles, Levinson's defaults,
+alternatives, and processing.</li>
+</ul>
+</li>
+<li><a href="08-pragmatics/06-lying-misleading-and-bullshit.html">Lying, Misleading, and Bullshit</a> -
+insincere assertion, truthful misleading, paltering, indifference to truth,
+presuppositional deception, omission, and institutional speakers.</li>
+<li><a href="08-pragmatics/07-semantics-pragmatics-boundary.html">The Semantics-Pragmatics Boundary</a>
+<ul>
+<li>minimalism, indexicalism, contextualism, weather reports, domain restriction,
+gradability, enrichment, modulation, embedding, and cancellation.</li>
+</ul>
+</li>
+</ul>
+<h3 id="speech-acts"><a class="header" href="#speech-acts">Speech acts</a></h3>
+<ul>
+<li><a href="09-speech-acts/01-doing-things-with-words.html">Doing Things with Words</a> - constatives,
+performatives, locution, illocution, perlocution, felicity, force, Searle's rules,
+direction of fit, convention, and uptake.</li>
+<li><a href="09-speech-acts/02-assertion.html">Assertion and Its Norms</a> - assertion, truth,
+knowledge, justification, commitment, common ground, presupposition, conjecture,
+fiction, irony, and online posting.</li>
+<li><a href="09-speech-acts/03-promising-ordering-questioning.html">Promising, Ordering, and Questioning</a>
+<ul>
+<li>commitments, authority, requests, advice, consent, question types, answerhood,
+direction of fit, and multiple acts.</li>
+</ul>
+</li>
+<li><a href="09-speech-acts/04-indirect-speech-acts.html">Indirect Speech Acts</a> - primary and
+secondary acts, request questions, conventionalization, politeness, hints, indirect
+refusal, and cultural variation.</li>
+<li><a href="09-speech-acts/05-performativity.html">Performativity and Social Constitution</a> -
+explicit performatives, institutional facts, authority, iterability, convention,
+performed stance, misfire, and contest.</li>
+<li><a href="09-speech-acts/06-uptake-and-speech-act-failure.html">Uptake and Speech-Act Failure</a> -
+failures of production, reference, content, force, authority, procedure, recognition,
+compliance, and effect.</li>
+</ul>
+<h3 id="interpretation"><a class="header" href="#interpretation">Interpretation</a></h3>
+<ul>
+<li><a href="10-interpretation/01-radical-interpretation.html">Radical Interpretation</a> -
+Davidsonian truth theories, belief-meaning interdependence, charity, humanity,
+triangulation, error, circularity, and indeterminacy.</li>
+<li><a href="10-interpretation/02-radical-translation.html">Radical Translation</a> - Quine's field
+linguist, stimulus meaning, analytical hypotheses, translation indeterminacy, and
+inscrutability.</li>
+<li><a href="10-interpretation/03-rule-following.html">Rule-Following and Private Language</a> -
+interpretation regress, practice, agreement, criteria, private ostension, solitary
+speakers, and normativity.</li>
+<li><a href="10-interpretation/04-hermeneutics.html">Hermeneutics and the Hermeneutic Circle</a> -
+part and whole, fore-understanding, tradition, application, horizons, intention, and
+constraints.</li>
+<li><a href="10-interpretation/05-testimony-and-understanding.html">Testimony and Understanding</a> -
+testimonial acts, reductionism, default entitlement, speaker authority, trust,
+disagreement, and interpretive dependence.</li>
+<li><a href="10-interpretation/06-translation.html">Translation and Conceptual Schemes</a> -
+equivalence, loss, incommensurability, scheme-content dualism, theory change,
+historical interpretation, and machine translation.</li>
+</ul>
+<h3 id="truth-and-formal-semantics"><a class="header" href="#truth-and-formal-semantics">Truth and formal semantics</a></h3>
+<ul>
+<li><a href="11-truth-and-formal-semantics/01-truth-and-meaning.html">Truth and Meaning</a> -
+truth-aptness, explanatory priority, correspondence, coherence, pragmatism,
+deflationism, realism, and formal truth values.</li>
+<li><a href="11-truth-and-formal-semantics/02-tarski-and-truth-theories.html">Tarski and Truth Theories</a>
+<ul>
+<li>object language, metalanguage, Convention T, recursive satisfaction, undefinability,
+Davidsonian interpretation, and context.</li>
+</ul>
+</li>
+<li><a href="11-truth-and-formal-semantics/03-models-and-interpretation.html">Models and Interpretation</a>
+<ul>
+<li>structures, interpretation assignments, intended models, permutations, scientific
+models, internal/external perspectives, and metasemantics.</li>
+</ul>
+</li>
+<li><a href="11-truth-and-formal-semantics/04-intensional-semantics.html">Intensional Semantics</a> -
+types, world-indexed functions, modality, tense, lambda abstraction, generalized
+quantifiers, attitudes, and context.</li>
+<li><a href="11-truth-and-formal-semantics/05-dynamic-semantics.html">Dynamic Semantics</a> -
+information-state update, discourse referents, donkey sentences, presupposition,
+questions, and conditionals.</li>
+<li><a href="11-truth-and-formal-semantics/06-deflationism-and-minimalism.html">Deflationism and Minimalism about Truth</a>
+<ul>
+<li>disquotation, expressive utility, redundancy, prosententialism, minimalism,
+truth-conditional meaning, truthmakers, and norms.</li>
+</ul>
+</li>
+<li><a href="11-truth-and-formal-semantics/07-semantic-paradoxes.html">Semantic Paradoxes</a> - Liar
+families, revenge, hierarchies, gaps, gluts, revision, Curry, and non-classical
+responses.</li>
+</ul>
+<h3 id="difficult-phenomena"><a class="header" href="#difficult-phenomena">Difficult phenomena</a></h3>
+<ul>
+<li><a href="12-difficult-phenomena/01-vagueness.html">Vagueness</a> - borderline cases, sorites,
+epistemicism, supervaluationism, degree and gap theories, contextualism, and
+higher-order vagueness.</li>
+<li><a href="12-difficult-phenomena/02-metaphor.html">Metaphor and Non-Literal Meaning</a> -
+comparison, substitution, interaction, Gricean and relevance accounts, conceptual
+metaphor, truth, paraphrase, and dead metaphor.</li>
+<li><a href="12-difficult-phenomena/03-fictional-discourse.html">Fictional Discourse</a> - internal,
+external, and mixed claims; story operators, pretense, fictional names, artifacts,
+truth in fiction, inconsistency, and cross-fiction comparison.</li>
+<li><a href="12-difficult-phenomena/04-modals-and-conditionals.html">Modals and Conditionals</a> -
+modal bases, material and strict implication, closest worlds, indicative and
+counterfactual conditionals, restriction, and impossible antecedents.</li>
+<li><a href="12-difficult-phenomena/05-generics-and-stereotypes.html">Generics and Stereotypes</a> -
+exception tolerance, prevalence, normality, strikingness, characteristic dimensions,
+context, learning, and default inference.</li>
+<li><a href="12-difficult-phenomena/06-context-sensitive-expressions.html">Pervasive Context Sensitivity</a>
+<ul>
+<li>gradability, taste, quantifier domains, relational expressions, incomplete
+predicates, modulation, binding, and contextual disagreement.</li>
+</ul>
+</li>
+<li><a href="12-difficult-phenomena/07-non-declarative-language.html">Questions, Imperatives, and Exclamatives</a>
+<ul>
+<li>issues and answers, directive content, satisfaction, conditional imperatives,
+expressive meaning, mood, force, and embedding.</li>
+</ul>
+</li>
+</ul>
+<h3 id="language-and-mind"><a class="header" href="#language-and-mind">Language and mind</a></h3>
+<ul>
+<li><a href="13-language-and-mind/01-thought-and-language.html">Thought and Language</a> -
+non-linguistic cognition, language of thought, language-dependent thought, inner
+speech, concepts, communication, and reciprocal development.</li>
+<li><a href="13-language-and-mind/02-private-language.html">Private Language and the Private-Language Argument</a>
+<ul>
+<li>varieties of privacy, private ostension, the sensation diary, memory and
+correctness, pain language and avowals, the beetle, solitary speakers, Kripke,
+competing interpretations, objections, qualia, and the argument's limits.</li>
+</ul>
+</li>
+<li><a href="13-language-and-mind/03-linguistic-relativity.html">Linguistic Relativity</a> -
+determinism, colour, space, time, number, evidentiality, thinking for speaking, and
+methodological confounds.</li>
+<li><a href="13-language-and-mind/04-innateness-and-acquisition.html">Innateness and Acquisition</a> -
+poverty of stimulus, Universal Grammar, statistical learning, construction grammar,
+social-pragmatic learning, word learning, and negative evidence.</li>
+<li><a href="13-language-and-mind/05-understanding-and-competence.html">Understanding and Linguistic Competence</a>
+<ul>
+<li>tacit knowledge, know-how, dispositions, error, partial competence,
+interpretation, explanation, and processing.</li>
+</ul>
+</li>
+<li><a href="13-language-and-mind/06-artificial-language-users.html">Artificial Language Users</a> -
+public meaning, composition, grounding, speaker meaning, commitment, understanding,
+original intentionality, agency, and consciousness.</li>
+</ul>
+<h3 id="domains-and-applications"><a class="header" href="#domains-and-applications">Domains and applications</a></h3>
+<ul>
+<li><a href="14-domains-and-applications/01-scientific-language.html">Scientific Language</a> -
+observation and theory, operations, Ramsey sentences, causal reference, theory
+change, models, idealization, and realism.</li>
+<li><a href="14-domains-and-applications/02-mathematical-language.html">Mathematical Language</a> -
+abstract reference, structuralism, proof conditions, categoricity, metatheory, and
+mathematical explanation.</li>
+<li><a href="14-domains-and-applications/03-moral-language.html">Moral Language</a> - cognitivism,
+non-cognitivism, expressivism, quasi-realism, disagreement, motivation, and thick
+terms.</li>
+<li><a href="14-domains-and-applications/04-legal-language.html">Legal Language and Interpretation</a>
+<ul>
+<li>textual meaning, intention, purpose, precedent, open texture, drafting pragmatics,
+and institutional speech acts.</li>
+</ul>
+</li>
+<li><a href="14-domains-and-applications/05-religious-language.html">Religious Language</a> -
+verification, analogy, apophasis, metaphor, language-games, and realism, with links
+to the full Philosophy of Religion treatment.</li>
+<li><a href="14-domains-and-applications/06-social-language.html">Social Uses of Language</a> - a
+deliberately limited treatment of register, social indexing, pejoratives,
+reclamation, uptake, and quotation.</li>
+<li><a href="14-domains-and-applications/07-digital-communication.html">Digital and Multimodal Communication</a>
+<ul>
+<li>interface acts, emoji, forwarding, memes, context collapse, persistence,
+algorithmic mediation, and multimodality.</li>
+</ul>
+</li>
+</ul>
+<h3 id="history-methods-and-traditions"><a class="header" href="#history-methods-and-traditions">History, methods, and traditions</a></h3>
+<ul>
+<li><a href="15-context/01-history.html">A History of Philosophy of Language</a> - ancient naming and
+predication, medieval semantics, early modern ideas, the logical and linguistic
+turns, ordinary language, formal semantics, pragmatics, and contemporary methods.</li>
+<li><a href="15-context/02-ordinary-language-philosophy.html">Ordinary-Language Philosophy</a> -
+therapy, category mistakes, Austin, Strawson, Cavell, method, conservatism, and the
+relation to formal semantics.</li>
+<li><a href="15-context/03-hermeneutic-and-continental-traditions.html">Hermeneutic and Continental Traditions</a>
+<ul>
+<li>Schleiermacher, Heidegger, Gadamer, Ricoeur, structuralism, post-structuralism,
+discourse, and analytic comparison.</li>
+</ul>
+</li>
+<li><a href="15-context/04-comparative-traditions.html">Comparative Traditions on Language</a> -
+Indian sentence-meaning debates, sphota, Nyaya, Buddhist apoha, Chinese naming and
+distinctions, Daoist perspective, and Islamic signification.</li>
+<li><a href="15-context/05-key-figures.html">Key Figures in Philosophy of Language</a> - compact
+profiles keyed to the arguments and frameworks developed throughout the section.</li>
+</ul>
+<p>The full publication plan and dependency order are maintained outside the book in the
+roadmap.</p>
+<h2 id="suggested-reading-paths"><a class="header" href="#suggested-reading-paths">Suggested reading paths</a></h2>
+<p><strong>First orientation</strong></p>
+<ol>
+<li><a href="01-introduction.html">What Is Philosophy of Language?</a></li>
+<li><a href="02-semantics-pragmatics.html">Semantics and Pragmatics</a></li>
+<li><a href="03-theories-overview.html">Theories of Meaning: An Overview</a></li>
+<li><a href="04-method-and-evidence.html">Method and Evidence</a></li>
+<li><a href="05-meaning/01-what-is-meaning.html">What Is Meaning?</a></li>
+</ol>
+<p><strong>From logic and mathematics</strong></p>
+<ol>
+<li><a href="../../logic/07-model-theory.html">Model Theory</a></li>
+<li><a href="../../logic/11-remarks/02-models-truth-and-metalanguage.html">Models, Truth, and Metalanguage</a></li>
+<li><a href="02-semantics-pragmatics.html">Semantics and Pragmatics</a></li>
+<li><a href="03-theories-overview.html">Theories of Meaning: An Overview</a></li>
+<li><a href="05-meaning/03-truth-conditional-semantics.html">Truth-Conditional Semantics</a></li>
+</ol>
+<p><strong>From philosophy of mind</strong></p>
+<ol>
+<li><a href="../06-mind/07-intentionality/01-aboutness.html">Intentionality and Aboutness</a></li>
+<li><a href="../06-mind/07-intentionality/06-original-and-derived-content.html">Original and Derived Intentionality</a></li>
+<li><a href="01-introduction.html">What Is Philosophy of Language?</a></li>
+<li><a href="03-theories-overview.html">Theories of Meaning: An Overview</a></li>
+<li><a href="05-meaning/04-use-and-language-games.html">Meaning as Use and Language-Games</a></li>
+</ol>
+<h2 id="recurring-distinctions"><a class="header" href="#recurring-distinctions">Recurring distinctions</a></h2>
+<p>The section will use the following terms consistently:</p>
+<div class="table-wrapper"><table><thead><tr><th>Term</th><th>Question</th></tr></thead><tbody>
+<tr><td><strong>Semantics</strong></td><td>What stable content does an expression or construction contribute?</td></tr>
+<tr><td><strong>Pragmatics</strong></td><td>How do context and communicative reasoning shape an utterance's interpretation?</td></tr>
+<tr><td><strong>Metasemantics</strong></td><td>In virtue of what do expressions have their semantic values?</td></tr>
+<tr><td><strong>Reference</strong></td><td>How does an expression pick out an object, kind, property, or other value?</td></tr>
+<tr><td><strong>Truth-condition</strong></td><td>What would the world have to be like for a sentence or proposition to be true?</td></tr>
+<tr><td><strong>Speaker meaning</strong></td><td>What does a speaker intend an audience to recognize by an utterance?</td></tr>
+<tr><td><strong>Force</strong></td><td>What act is performed: assertion, question, command, promise, and so on?</td></tr>
+<tr><td><strong>Effect</strong></td><td>What does the utterance cause in an audience, whether intended or not?</td></tr>
+</tbody></table>
+</div>
+<p>These are distinctions among explanatory roles, not assumptions that language divides
+into perfectly sealed components. Much of the subject concerns where the boundaries
+should be drawn.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/06-mind/15-context/04-key-figures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/07-language/01-introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/06-mind/15-context/04-key-figures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/07-language/01-introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

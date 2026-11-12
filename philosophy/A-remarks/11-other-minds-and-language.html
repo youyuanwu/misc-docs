@@ -1,0 +1,655 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Other Minds and Language - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/A-remarks/11-other-minds-and-language.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="other-minds-and-language"><a class="header" href="#other-minds-and-language">Other Minds and Language</a></h1>
+<p>The problem of other minds is often presented as an inference across an unbridgeable
+gap. I encounter my own mind directly, encounter only the bodies of others, and must
+infer an invisible mental life from visible behaviour. Since the behaviour might occur
+without the mental life, the inference appears permanently insecure.</p>
+<p>The private-language argument challenges the semantic picture presupposed by this
+construction. If psychological concepts acquired their meanings from objects available
+only to one subject, it would be unclear how those concepts could have standards of
+correct application, including standards for reidentifying the subject's own states.
+Language about pain, thought, and consciousness is instead learned and exercised within
+practices that already include first-person expression, third-person attribution,
+correction, concealment, testimony, and response.</p>
+<p>This does not prove that every apparent person has a mind. It changes the philosophical
+burden. Ordinary uncertainty about particular people remains, as do difficult questions
+about animals, impaired patients, and artificial systems. What is threatened is the
+global sceptical demand for a proof of all other minds from premises that contain no
+psychological criteria. Under a Wittgensteinian analysis, that demand is not answered by
+a stronger inference; it is dissolved by rejecting the conception of meaning and
+privacy that made the inference seem necessary.</p>
+<p>The scope of this dissolution must be stated carefully. A semantic argument can expose
+an unstable formulation without deciding every metaphysical question about
+consciousness. In particular, it does not establish behaviourism, eliminate experience,
+or by itself refute every truth-conditional account on which an undetectable mindless
+duplicate is intelligible.</p>
+<hr />
+<h2 id="1-four-distinctions"><a class="header" href="#1-four-distinctions">1. Four distinctions</a></h2>
+<p>The word <em>private</em> can mark several different claims:</p>
+<div class="table-wrapper"><table><thead><tr><th>Claim</th><th>Content</th><th>Consequence</th></tr></thead><tbody>
+<tr><td><strong>Experiential privacy</strong></td><td>Only the subject undergoes this subject's pain in the first-person way</td><td>My knowing that you hurt is not my having your hurt</td></tr>
+<tr><td><strong>Epistemic asymmetry</strong></td><td>Self-ascription and other-ascription normally have different grounds</td><td>"I am in pain" is not ordinarily inferred from my behaviour</td></tr>
+<tr><td><strong>Semantic privacy</strong></td><td>The meaning and correctness of a sign are fixed solely by what only one speaker can identify</td><td>No one else could in principle understand or correct the sign</td></tr>
+<tr><td><strong>Practical secrecy</strong></td><td>A public language or code is concealed from an audience</td><td>The language remains learnable and rule-governed in principle</td></tr>
+</tbody></table>
+</div>
+<p>The private-language argument targets semantic privacy. It does not infer from the
+failure of semantically private rules that experiential privacy is unreal. A secret
+code, an idiolect, or the record of a solitary speaker is not private in the relevant
+sense if its signs remain governed by repeatable procedures.</p>
+<p>The contrast between public and private is also normative rather than merely
+sociological. <em>Public</em> does not mean that another person is currently watching. It
+means that correctness is not exhausted by whatever presently seems right to the user.
+A solitary calculator can follow an established algorithm because intermediate results,
+records, and later checks can count against present inclination. A sign whose only
+standard is the user's current impression has no corresponding distinction between
+correctness and apparent correctness.</p>
+<p>Two further distinctions structure the other-minds problem:</p>
+<ol>
+<li>The <strong>conceptual question</strong> asks what it means to attribute a mental state to
+another subject.</li>
+<li>The <strong>epistemological question</strong> asks what justifies a particular attribution.</li>
+</ol>
+<p>A third, metaphysical question asks what mental states are and whether a physical or
+functional duplicate without experience is possible. An account of meaning can
+constrain that question without settling it.</p>
+<hr />
+<h2 id="2-the-private-language-argument"><a class="header" href="#2-the-private-language-argument">2. The private-language argument</a></h2>
+<h3 id="the-proposed-language"><a class="header" href="#the-proposed-language">The proposed language</a></h3>
+<p>Wittgenstein asks whether there could be a language whose words refer to immediate
+private sensations and can be understood only by the person who has them. This is
+stronger than saying that sensations are privately undergone. The proposal makes a
+private item perform the foundational semantic work: the speaker identifies it inwardly,
+associates a sign with it, and later uses that item as the standard for correct
+application.</p>
+<p>The canonical diarist resolves to write "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>" whenever a certain sensation occurs. On
+the first occasion, the diarist concentrates attention on the sensation and inwardly
+associates the sign with it. On a later occasion, the diarist must decide whether the
+same sensation has returned.</p>
+<p>The difficulty can be reconstructed as follows:</p>
+<ol>
+<li>A rule-governed sign must permit a distinction between applying the sign correctly
+and merely taking oneself to have applied it correctly.</li>
+<li>In the proposed case, the only criterion for whether the present sensation is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>
+is that it seems to the diarist to match the remembered sample.</li>
+<li>The remembered sample cannot independently adjudicate the judgment, because what
+counts as remembering it correctly is itself fixed by the same present seeming.</li>
+<li>Therefore the proposal has not supplied a standard by which correct applications of
+"<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>" differ from apparent applications.</li>
+</ol>
+<p>This is not the crude claim that memory is always unreliable or that a second observer
+must certify every use. Public language also relies on memory, and communities can be
+mistaken. The problem is the proposed identity of correctness with an impression of
+correctness. Fallible checking is possible only where something can count as checking
+rather than as another unchallengeable impression.</p>
+<h3 id="why-inner-ostension-is-insufficient"><a class="header" href="#why-inner-ostension-is-insufficient">Why inner ostension is insufficient</a></h3>
+<p>Pointing does not determine its own interpretation. When someone points to a red square
+and says "red," the gesture alone does not determine whether the word names the colour,
+shape, material, location, or an individual object. Public ostension succeeds against a
+background of learned attention, classification, correction, and expected continuation.</p>
+<p>An inward act of attention does not remove this underdetermination. Concentrating on a
+sensation while writing "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>" does not establish:</p>
+<ul>
+<li>which feature of the occasion the sign records;</li>
+<li>what degree of similarity is sufficient for recurrence;</li>
+<li>whether duration, intensity, location, or qualitative character is relevant;</li>
+<li>how a later apparent memory is to be assessed.</li>
+</ul>
+<p>The private object therefore cannot, merely by being privately attended to, make its
+own interpretation determinate.</p>
+<h3 id="the-beetle"><a class="header" href="#the-beetle">The beetle</a></h3>
+<p>Wittgenstein's beetle comparison imagines each person possessing a box whose contents
+only that person can inspect. If the public use of <em>beetle</em> continues without comparison
+among the boxes, whatever is inside cannot determine the word's shared role. The boxes
+need not be empty. The point is that an inaccessible object cannot perform the semantic
+function assigned to it.</p>
+<p>Applied to sensation-language, this yields a limited conclusion:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">private sample</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">inner ostension</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">self-sufficient standard of meaning</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>It does not yield:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">public standards of meaning</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">no privately undergone experience</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The first implication concerns the conditions for rule-governed representation. The
+second would be an unsupported ontological conclusion.</p>
+<hr />
+<h2 id="3-the-reflexivity-of-the-analysis"><a class="header" href="#3-the-reflexivity-of-the-analysis">3. The reflexivity of the analysis</a></h2>
+<p>The expressions <em>experience</em>, <em>private</em>, and <em>privately undergone</em> are themselves parts
+of public language. The analysis cannot step outside every linguistic practice, inspect
+an unconceptualized private object, and compare that object with the public concept of
+experience. If "the private experience" were introduced as something independently
+identifiable only beyond all public criteria, the analysis would reproduce the model
+that the private-language argument contests.</p>
+<p>A more consistent account treats experiential privacy as an internal distinction within
+public psychological discourse. The practice distinguishes:</p>
+<ul>
+<li>undergoing pain from observing pain behaviour;</li>
+<li>avowing one's pain from attributing pain to another;</li>
+<li>feeling another person's pain from knowing that the person is in pain;</li>
+<li>expressing a state from concealing or pretending it;</li>
+<li>knowing the presence of pain from knowing its exact qualitative character.</li>
+</ul>
+<p>These distinctions are public: speakers can learn, contest, and apply them. What they
+classify is asymmetric: only the subject occupies the first-person role for that
+subject's episode. There is no contradiction in a public practice containing
+subject-relative positions.</p>
+<p>Consequently, the safest formulation is not:</p>
+<blockquote>
+<p>A public concept represents a separately identified private object.</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p>Public psychological language contains an irreducible grammatical and epistemic
+asymmetry between first-person expression and third-person attribution.</p>
+</blockquote>
+<p>This formulation neither reduces an experience to its linguistic role nor pretends to
+describe its nature from outside every possible mode of description. It states how
+experience enters discourse and marks the limit of what semantic analysis alone can
+establish.</p>
+<hr />
+<h2 id="4-how-the-traditional-problem-is-constructed"><a class="header" href="#4-how-the-traditional-problem-is-constructed">4. How the traditional problem is constructed</a></h2>
+<p>The strongest sceptical problem combines a private-object semantics with an
+observational model of knowledge:</p>
+<ol>
+<li>In my own case, I identify a private inner item and call it <em>pain</em> or
+<em>consciousness</em>.</li>
+<li>Other people present only publicly observable bodies, utterances, and movements.</li>
+<li>Those public facts are contingently correlated with the private item in my case.</li>
+<li>I project the item into other cases by analogy.</li>
+<li>The correlation might fail everywhere outside my case.</li>
+<li>Therefore I cannot know whether any other mind exists.</li>
+</ol>
+<p>The argument contains both a semantic and an epistemic gap. Semantically, it assumes
+that the psychological concept is complete before it is applied to another person.
+Epistemically, it treats another person's expression as neutral movement from which an
+invisible cause must be inferred.</p>
+<p>The two gaps reinforce one another. The more completely the concept is grounded in my
+inaccessible item, the less clear it becomes how "the same state in another" is
+determinate. The more another person's body is stripped of psychological significance,
+the more attribution looks like a hazardous projection.</p>
+<p>The resulting scepticism is global. It is not the ordinary possibility that one person
+is pretending, that a patient is unresponsive despite being conscious, or that a
+machine produces misleading reports. It asks whether every apparent case other than
+one's own could lack mentality while all publicly available facts remain fixed.</p>
+<hr />
+<h2 id="5-applying-the-private-language-argument"><a class="header" href="#5-applying-the-private-language-argument">5. Applying the private-language argument</a></h2>
+<h3 id="the-concept-is-not-completed-in-isolation"><a class="header" href="#the-concept-is-not-completed-in-isolation">The concept is not completed in isolation</a></h3>
+<p>Pain-language is learned amid injury, crying, withdrawal, protection, comfort,
+testimony, treatment, concealment, and recovery. The practice includes both
+"I am in pain" and "she is in pain." First- and third-person applications are not two
+independently constructed languages later joined by an analogical hypothesis.</p>
+<p>This point reverses the traditional order of explanation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">private sample</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">self-concept</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">analogical projection</span></span></span></span></span></span></p>
+<p>is replaced by:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">shared practice</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">first-person avowal</span></span><span class="mpunct">,</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">third-person attribution</span></span><span class="mord">.</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>The two branches remain asymmetric. A person normally avows pain by undergoing and
+expressing it, not by observing that person's own behaviour. Another person relies on
+expression, circumstances, testimony, history, and sometimes physiology. Different
+routes of application do not by themselves create two meanings of <em>pain</em>.</p>
+<h3 id="criteria-are-not-symptoms-or-definitions"><a class="header" href="#criteria-are-not-symptoms-or-definitions">Criteria are not symptoms or definitions</a></h3>
+<p>Wittgensteinian accounts commonly distinguish <strong>criteria</strong> from merely inductive
+symptoms. Smoke may be a symptom of fire because the two are contingently correlated.
+By contrast, crying after injury, protecting a wound, accepting relief, and reporting
+pain belong to the circumstances through which the concept of pain is learned and
+applied.</p>
+<p>Calling these features criteria does not entail:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">pain</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">overt pain behaviour</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Pretence, stoicism, paralysis, confusion, and deception are intelligible within the
+practice. No isolated movement is necessary or sufficient in every case. Criteria are
+defeasible standards embedded in a structured pattern, not a mechanical checklist.
+Their defeasibility permits error; their conceptual role prevents every application
+from being an inference from semantically neutral motion.</p>
+<p>The difference matters. If a person writhes after an injury, we do not normally first
+identify bodily geometry and then infer an occult object behind it. We see suffering
+in the expression. Reflection, unusual cases, and conflicting evidence can turn this
+recognition into an explicit inference, but inferential reconstruction is not the
+foundation of every ordinary attribution.</p>
+<h3 id="knowing-is-not-undergoing"><a class="header" href="#knowing-is-not-undergoing">Knowing is not undergoing</a></h3>
+<p>The sceptical demand also equivocates between two standards:</p>
+<ol>
+<li>knowing that another person is in pain;</li>
+<li>undergoing that person's pain as that person does.</li>
+</ol>
+<p>The second is not the ideal form of the first. It is a different relation. Requiring
+first-person acquaintance for third-person knowledge would make other-mind knowledge
+impossible by definition, not show it to be unsupported.</p>
+<p>Likewise, knowing that someone is in pain need not settle:</p>
+<ul>
+<li>exactly how intense the pain feels;</li>
+<li>whether its qualitative character matches one's own;</li>
+<li>whether every self-description is accurate;</li>
+<li>which physical or functional property constitutes it.</li>
+</ul>
+<p>The presence, type, and exact qualitative character of an experience impose different
+evidential demands. Failure to establish the strongest claim does not erase warrant for
+the weaker ones.</p>
+<hr />
+<h2 id="6-what-dissolution-amounts-to"><a class="header" href="#6-what-dissolution-amounts-to">6. What dissolution amounts to</a></h2>
+<p>A philosophical problem is <strong>solved</strong> when its question is accepted and an answer is
+established. It is <strong>dissolved</strong> when analysis shows that the question depends on a
+misapplication of its concepts or on requirements that cannot coherently be imposed.
+The Wittgensteinian treatment aims at the latter.</p>
+<h3 id="the-global-demand-loses-its-foundation"><a class="header" href="#the-global-demand-loses-its-foundation">The global demand loses its foundation</a></h3>
+<p>The traditional sceptic demands a proof that moves from facts described without any
+psychological significance to the existence of wholly private mental objects. But the
+concepts required to state the conclusion were not acquired from such a neutral base.
+They already operate through expressive and interpersonal practices.</p>
+<p>The demand is therefore unstable:</p>
+<ul>
+<li>If expression, testimony, context, and responsiveness count as psychological
+criteria, other-mind attribution is not a leap from a completely mindless
+description.</li>
+<li>If no possible public fact is allowed to count, the sceptic has detached the alleged
+contrast from the standards through which <em>mind</em> and <em>consciousness</em> are applied.</li>
+<li>If first-person access is required for knowledge, the impossibility of knowing others
+has been stipulated rather than discovered.</li>
+</ul>
+<p>Universal doubt also borrows contrasts from local doubt. We understand pretending
+because most expression is not treated as pretence; concealment because there is
+something to conceal; misattribution because attribution is ordinarily answerable to
+criteria. Extending a possibility of error to every case does not automatically
+preserve the conditions that made the error-description intelligible.</p>
+<p>The conclusion is not:</p>
+<blockquote>
+<p>It is certain that every apparent person is conscious.</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p>The absence of first-person access to another is not a general defeater of
+other-mind knowledge, because first-person access was never the criterion governing
+third-person attribution.</p>
+</blockquote>
+<h3 id="the-proposition-only-i-am-conscious"><a class="header" href="#the-proposition-only-i-am-conscious">The proposition "only I am conscious"</a></h3>
+<p>"Only I am conscious" has at least two readings.</p>
+<p>On an <strong>empirical reading</strong>, <em>conscious</em> retains its ordinary interpersonal criteria,
+and the speaker claims that every other apparent case is misleading. The claim is
+meaningful, but it owes an account of why all convergent criteria should be rejected.
+Merely repeating that the speaker lacks first-person access to others supplies no such
+account.</p>
+<p>On a <strong>private-definitional reading</strong>, <em>conscious</em> means whatever is available in the
+speaker's uniquely immediate way. Then the word applies only to the speaker by
+stipulation. "Only I am conscious" no longer reports a discovery; it restates the
+definition, and the ordinary contrast expressed by <em>only</em> has been lost.</p>
+<p>The dilemma does not deductively refute solipsism. It distinguishes an evidentially
+unsupported hypothesis from a verbal construction that cannot perform the metaphysical
+work assigned to it.</p>
+<h3 id="the-body-is-not-a-screen"><a class="header" href="#the-body-is-not-a-screen">The body is not a screen</a></h3>
+<p>On the rejected picture, the body is an external screen behind which a mind is either
+present or absent. In ordinary psychological understanding, a living body is also the
+medium in which attention, hesitation, pleasure, grief, and pain are expressed.</p>
+<p>This is not the claim that every appearance is veridical. It is the claim that
+appearance and expression cannot first be deprived of all psychological content and
+then required to reconstruct that content by inference. Other people enter the
+language-game as minded participants, not as physical objects to which mentality is
+added only after a philosophical proof.</p>
+<hr />
+<h2 id="7-what-remains-after-dissolution"><a class="header" href="#7-what-remains-after-dissolution">7. What remains after dissolution</a></h2>
+<p>The dissolution is neither total nor theory-neutral.</p>
+<h3 id="local-epistemology"><a class="header" href="#local-epistemology">Local epistemology</a></h3>
+<p>Particular attributions remain fallible. Someone may pretend, suppress expression,
+misreport, confabulate, or be unable to respond. Evidence can conflict. These cases
+require ordinary epistemic methods:</p>
+<ul>
+<li>testimony and its credibility;</li>
+<li>expressive behaviour in context;</li>
+<li>biological and causal similarity;</li>
+<li>longitudinal patterns of action and learning;</li>
+<li>intervention and physiological evidence;</li>
+<li>inference to the best explanation.</li>
+</ul>
+<p>The <a href="../06-mind/10-self-and-other-minds/04-problem-of-other-minds.html">general problem of other minds</a>
+therefore becomes most substantial at the boundaries of established practice rather
+than as a universal doubt about familiar persons.</p>
+<h3 id="unfamiliar-minds"><a class="header" href="#unfamiliar-minds">Unfamiliar minds</a></h3>
+<p>Animals, severely impaired patients, unfamiliar forms of life, and artificial systems
+can separate criteria that coincide in ordinary adult humans. Fluent report may occur
+without shared biology; biological similarity may occur without report; responsiveness
+may be blocked despite preserved awareness.</p>
+<p>The private-language argument does not decide these cases. It requires that proposed
+extensions or revisions of <em>conscious</em> have standards of application, but it does not
+dictate which biological, functional, behavioural, or organizational standards are
+correct. A new case may require conceptual development rather than mechanical
+application of an old checklist.</p>
+<h3 id="qualitative-sameness"><a class="header" href="#qualitative-sameness">Qualitative sameness</a></h3>
+<p>Evidence that another person is in pain can be strong while evidence that the pain
+feels exactly like one's own remains weak. The following questions must not be
+collapsed:</p>
+<ol>
+<li>Is any experience present?</li>
+<li>What general kind of experience is it?</li>
+<li>Is its precise qualitative character the same as mine?</li>
+</ol>
+<p>An inverted-spectrum hypothesis concerns the third question and does not by itself
+undermine the first. Public criteria may underdetermine exact qualitative identity
+without making all attribution of experience unintelligible.</p>
+<h3 id="metaphysical-zombies"><a class="header" href="#metaphysical-zombies">Metaphysical zombies</a></h3>
+<p>A realist truth-conditional theory may hold that "she is conscious" has a determinate
+truth value even if no available evidence decides it. On such an account, a physical or
+functional duplicate without experience may remain semantically describable. Whether it
+is metaphysically possible depends on further arguments about consciousness, modality,
+and reference.</p>
+<p>Meaning-as-use places pressure on a contrast that can make no difference to any
+practice or judgment. It does not follow without additional premises that use exhausts
+the property referred to. The semantic diagnosis therefore blocks an easy route to the
+zombie hypothesis; it does not by itself prove physicalism or logical behaviourism.</p>
+<h3 id="acknowledgment"><a class="header" href="#acknowledgment">Acknowledgment</a></h3>
+<p>The demand for certainty can also obscure the practical relation involved. Responding
+to another person's suffering is not merely accepting a theoretical proposition about
+an interior object. It is acknowledging a claim made upon us by another person.
+Scepticism can persist as a refusal of acknowledgment even after its general
+epistemological argument has been diagnosed.</p>
+<p>This point prevents dissolution from becoming indifference. The absence of a deductive
+proof does not cancel responsibility, and semantic clarification does not replace the
+ethical task of responding to another.</p>
+<hr />
+<h2 id="8-objections-and-limits"><a class="header" href="#8-objections-and-limits">8. Objections and limits</a></h2>
+<h3 id="public-criteria-are-only-evidence-for-a-private-reality"><a class="header" href="#public-criteria-are-only-evidence-for-a-private-reality">"Public criteria are only evidence for a private reality"</a></h3>
+<p>A critic may accept public criteria as evidence while denying that they contribute to
+meaning. The mental fact, on this view, is wholly distinct from every criterion and can
+vary while all criteria remain fixed.</p>
+<p>The private-language argument asks how the critic identifies the relevant property and
+its recurrence if every public and inferential role is excluded. But this challenge is
+not automatically decisive. Causal or externalist theories may allow reference to
+outrun a speaker's identifying descriptions. The dispute then concerns the theory of
+reference, not merely the existence of experience.</p>
+<h3 id="the-account-is-behaviourism"><a class="header" href="#the-account-is-behaviourism">"The account is behaviourism"</a></h3>
+<p>It is not, unless criteria are equated with necessary and sufficient behavioural
+conditions. A criterial account can distinguish the state from its expression and
+allow concealment, pretence, incapacity, and error. Its thesis is that expression and
+circumstances belong to the grammar of attribution, not that an experience is a set of
+movements.</p>
+<h3 id="the-argument-presupposes-other-minds"><a class="header" href="#the-argument-presupposes-other-minds">"The argument presupposes other minds"</a></h3>
+<p>Public language is learned among apparent speakers, so using that fact as a deductive
+proof of their consciousness would beg the question against a radical sceptic. The
+Wittgensteinian response should not be presented as such a proof. Its claim is
+diagnostic: the sceptic's psychological vocabulary derives its standards from the very
+interpersonal practices that the sceptical picture redescribes as semantically neutral.</p>
+<p>A sceptic can continue to say that all apparent teachers were mindless automata. The
+question is then what contrast this hypothesis preserves, what evidence could bear on
+it, and what explanatory role it plays. The burden shifts; it is not eliminated by
+fiat.</p>
+<h3 id="all-talk-of-privacy-is-public-and-therefore-contradictory"><a class="header" href="#all-talk-of-privacy-is-public-and-therefore-contradictory">"All talk of privacy is public and therefore contradictory"</a></h3>
+<p>The fact that <em>private experience</em> is a public expression does not make its application
+contradictory. Public rules can encode subject-relative roles. The contradiction arises
+only if the expression is required both to participate in public standards and to
+derive its entire meaning from something excluded in principle from every such
+standard.</p>
+<p>The analysis therefore does not compare public language with an independently
+described, wholly extra-linguistic object. It clarifies distinctions internal to the
+practice and refuses to convert those distinctions into an unsupported two-realm
+ontology.</p>
+<hr />
+<h2 id="9-verdict"><a class="header" href="#9-verdict">9. Verdict</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>Wittgensteinian result</th></tr></thead><tbody>
+<tr><td>How can a sign obtain meaning solely from a private sample?</td><td>The proposed sample does not supply an independent standard of correct use</td></tr>
+<tr><td>How can public language concern first-person experience?</td><td>One public practice contains asymmetric first- and third-person applications</td></tr>
+<tr><td>Is pain identical with pain behaviour?</td><td>No; criteria for attribution are not an ontological reduction</td></tr>
+<tr><td>Can another person's state be known without being undergone?</td><td>Yes; undergoing and knowing are different relations</td></tr>
+<tr><td>Can a particular attribution be mistaken?</td><td>Yes; criteria are defeasible and evidence can conflict</td></tr>
+<tr><td>Can all other people be doubted at once?</td><td>The unrestricted doubt destabilizes the criteria and contrasts it borrows</td></tr>
+<tr><td>Has the existence of other minds been proved?</td><td>No; the demand for a proof has been diagnosed rather than satisfied</td></tr>
+<tr><td>Are zombies or inverted qualia thereby impossible?</td><td>Not by semantic analysis alone</td></tr>
+</tbody></table>
+</div>
+<p>The problem of other minds therefore divides. Its <strong>local epistemological form</strong>
+survives: difficult cases require evidence, theory, and judgment. Its <strong>global
+sceptical form</strong> is substantially dissolved: it depends on treating mental concepts as
+names privately fixed in one case and treating embodied expression as external evidence
+for a hidden realm. Once psychological language is understood as an interpersonal,
+rule-governed practice with asymmetric positions, the absence of another person's
+first-person access is no longer a missing proof.</p>
+<p>The final lesson is methodological. Privacy of undergoing does not entail privacy of
+meaning; publicity of meaning does not entail publicity of undergoing; and neither
+semantic thesis alone settles the metaphysics of consciousness. The dissolution works
+by keeping those claims apart.</p>
+<p>Related discussions:
+<a href="../07-language/13-language-and-mind/02-private-language.html">Private Language</a>,
+<a href="../06-mind/10-self-and-other-minds/04-problem-of-other-minds.html">The Problem of Other Minds</a>,
+<a href="../06-mind/10-self-and-other-minds/03-self-knowledge.html">Self-Knowledge and Introspection</a>,
+<a href="../../../unpublished/philosophy/A-remarks/06-consciousness-and-semantics.html">Consciousness and Semantics</a>, and
+<a href="../../../unpublished/philosophy/A-remarks/07-consciousness-private-language-and-the-hard-problem.html">Consciousness, Private Language, and the Hard Problem</a>.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Austin, J. L. <em>Sense and Sensibilia</em> (1962).</li>
+<li>Avramides, Anita. <em>Other Minds</em> (2001).</li>
+<li>Cavell, Stanley. <em>The Claim of Reason</em> (1979).</li>
+<li>Malcolm, Norman. "Knowledge of Other Minds" (1958).</li>
+<li>Mill, J. S. <em>An Examination of Sir William Hamilton's Philosophy</em> (1865).</li>
+<li>Strawson, P. F. <em>Individuals</em> (1959), chapter 3.</li>
+<li>Wittgenstein, Ludwig. <em>Philosophical Investigations</em> (1953), especially §§243–315.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/A-remarks/05-analytic-synthetic-distinction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../logic/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/A-remarks/05-analytic-synthetic-distinction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../logic/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

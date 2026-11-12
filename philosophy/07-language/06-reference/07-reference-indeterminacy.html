@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reference Indeterminacy - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/07-reference-indeterminacy.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="reference-indeterminacy"><a class="header" href="#reference-indeterminacy">Reference Indeterminacy</a></h1>
+<p>Suppose every observation, assent, behavioural disposition, and theoretical sentence
+in a community is known. Does that evidence uniquely determine what its words refer to?
+Quine, Putnam, and related arguments suggest it may not. Systematic reinterpretations
+can preserve all observable and formal relations while assigning different objects as
+referents.</p>
+<p><strong>Reference indeterminacy</strong> is stronger than ordinary uncertainty caused by incomplete
+evidence. The claim is that no further fact of the relevant kind selects one assignment
+over empirically equivalent alternatives. The conclusion ranges from modest
+underdetermination of translation to global <strong>inscrutability of reference</strong>.</p>
+<p>The arguments force a metasemantic choice. Reference may be fixed by causal history,
+naturalness, rational interpretation, communal use, or primitive word-world relations.
+If every candidate is itself representable inside the theory being permuted, the
+indeterminacy can reappear at a higher level.</p>
+<hr />
+<h2 id="radical-translation"><a class="header" href="#radical-translation">Radical translation</a></h2>
+<p>Quine imagines a linguist encountering an unfamiliar language without a bilingual
+manual. A native speaker says:</p>
+<blockquote>
+<p>Gavagai!</p>
+</blockquote>
+<p>when a rabbit appears. The evidence supports translating "gavagai" as <em>rabbit</em>. But it
+also appears compatible with:</p>
+<ul>
+<li>undetached rabbit part;</li>
+<li>temporal stage of a rabbit;</li>
+<li>rabbit fusion;</li>
+<li>manifestation of rabbithood; or</li>
+<li>something systematically related to rabbits.</li>
+</ul>
+<p>Pointing does not settle the matter. The same stimulus prompts assent under each
+translation, provided surrounding expressions and identity criteria are adjusted
+systematically.</p>
+<p>The example begins with field linguistics but targets a philosophical assumption:
+behavioural evidence may determine patterns of use without uniquely decomposing them
+into familiar objects and reference relations.</p>
+<h2 id="stimulus-meaning"><a class="header" href="#stimulus-meaning">Stimulus meaning</a></h2>
+<p>Quine grounds translation initially in dispositions to assent or dissent under sensory
+stimulation. A sentence's <strong>stimulus meaning</strong> is roughly the range of stimulations
+that would prompt assent or dissent.</p>
+<p>Observation sentences shared under similar circumstances provide a foothold.
+Translation then extends through logical particles, theoretical sentences, and
+connections across the speaker's total web of belief.</p>
+<p>Stimulus meaning is too coarse to determine reference. Different ontologies can produce
+the same assent patterns. It also abstracts from internal structure: agreement on whole
+sentences need not uniquely determine which subexpression refers to which component of
+the world.</p>
+<p>Quine's holism makes this expected. Translation is evaluated globally, not word by
+word.</p>
+<h2 id="indeterminacy-versus-underdetermination"><a class="header" href="#indeterminacy-versus-underdetermination">Indeterminacy versus underdetermination</a></h2>
+<p><strong>Underdetermination</strong> says available evidence supports more than one theory, although
+one may still be correct because of facts not captured by the evidence.</p>
+<p><strong>Indeterminacy</strong> says there is no further fact selecting among equally adequate
+translation manuals. The alternatives are not rival hypotheses about a hidden semantic
+reality; they are different schemes for organizing the same dispositions and theory.</p>
+<p>The step from underdetermination to indeterminacy requires argument. A realist can
+accept that translators lack evidence while maintaining that causal history,
+intentions, natural properties, or primitive reference facts make one manual correct.</p>
+<p>Quine's naturalism resists such facts if they make no difference within empirical
+theory. A non-naturalist need not accept that constraint.</p>
+<h2 id="inscrutability-of-reference"><a class="header" href="#inscrutability-of-reference">Inscrutability of reference</a></h2>
+<p>Reference becomes <strong>inscrutable</strong> when systematic transformations preserve the
+truth-values and inferential structure of an entire theory while changing what terms
+refer to.</p>
+<p>Suppose a function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span> maps each object in a domain to another object. Interpret each
+name <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> and transform predicate extensions accordingly:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1418em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose"><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8918em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mclose">}</span><span class="mord">.</span></span></span></span></span></p>
+<p>For a suitable permutation, every sentence retains its truth value. The formal theory
+cannot distinguish the original interpretation from the permuted one.</p>
+<p>If all evidence is expressible through those sentences, reference assignments appear
+underdetermined. One manual says "rabbit" refers to rabbits; another says it refers to
+their proxies, with every predicate adjusted to compensate.</p>
+<h2 id="proxy-functions"><a class="header" href="#proxy-functions">Proxy functions</a></h2>
+<p>Quine's <strong>proxy-function</strong> argument maps objects to systematic proxies, such as their
+singleton sets or space-time complements. Quantification and predication can be
+reinterpreted so that total theory remains true.</p>
+<p>The point is not that ordinary speakers secretly refer to singleton rabbits. It is that
+reference may be relative to a translation or coordinate scheme. What stays invariant
+is global structure rather than object-by-object pairing.</p>
+<p>A critic can say the proxy manual is less natural, more complex, or causally
+inappropriate. Quine asks whether these responses identify objective reference facts
+or merely express preferences internal to our home scheme.</p>
+<h2 id="putnams-model-theoretic-argument"><a class="header" href="#putnams-model-theoretic-argument">Putnam's model-theoretic argument</a></h2>
+<p>Putnam argues that even an ideal total theory can have multiple models. If the theory
+is consistent and sufficiently expressive, model-theoretic results and permutation
+constructions allow interpretations that satisfy all its sentences while assigning
+unexpected referents.</p>
+<p>The rough structure is:</p>
+<ol>
+<li>Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> contain every theoretical and observational sentence accepted under ideal
+conditions.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> has a model <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span></span></span></span>.</li>
+<li>Systematic reinterpretation yields other models satisfying <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>.</li>
+<li>Nothing stated inside <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> selects one as intended.</li>
+<li>Therefore truth defined merely as satisfaction in an intended model presupposes the
+very reference relation it was meant to explain.</li>
+</ol>
+<p>The argument targets <strong>metaphysical realism</strong> understood as a fixed, theory-independent
+correspondence between language and a ready-made world.</p>
+<p>It does not follow simply from the existence of non-isomorphic models that natural
+language is indeterminate. The crucial premise is that every admissible constraint on
+reference can be represented within the theory and permuted with it.</p>
+<h2 id="the-metalanguage-response"><a class="header" href="#the-metalanguage-response">The metalanguage response</a></h2>
+<p>One can say:</p>
+<blockquote>
+<p>"Rabbit" refers to rabbits, not to singleton rabbits.</p>
+</blockquote>
+<p>But the argument can ascend. What fixes "rabbit" in the metalanguage? If a further
+metatheory states the constraint, that theory too admits reinterpretation.</p>
+<p>The regress resembles the object-language/metalanguage hierarchy described in
+<a href="../../../logic/11-remarks/02-models-truth-and-metalanguage.html">Models, Truth, and
+Metalanguage</a>.
+Formal semantics always operates from an interpreted metalanguage; it does not generate
+its own intended interpretation.</p>
+<p>This is not a contradiction. It shows that model-theoretic satisfaction cannot by
+itself be the full metasemantics. A defender must ground the metalanguage through use,
+causal contact, naturalness, or a primitive relation.</p>
+<h2 id="causal-constraints"><a class="header" href="#causal-constraints">Causal constraints</a></h2>
+<p>A causal theorist replies that words refer to the objects causally responsible for
+their use through appropriate historical chains. Rabbits, not singleton sets of
+rabbits, cause ordinary "rabbit" tokens.</p>
+<p>The indeterminist can transform causal predicates too, but this may appear to miss the
+explanatory role of real causal interaction. Reference is not constrained only by which
+sentences are true; it is embedded in perception, action, learning, and intervention.</p>
+<p>Problems remain:</p>
+<ul>
+<li>causes are numerous and grain-sensitive;</li>
+<li>deviant causal chains can connect the wrong object;</li>
+<li>abstract terms lack simple causal sources;</li>
+<li>causal descriptions require interpreted vocabulary; and</li>
+<li>a permutation can preserve relational structure.</li>
+</ul>
+<p>Causation narrows eligible interpretations without transparently selecting one in every
+case.</p>
+<h2 id="naturalness-and-eligibility"><a class="header" href="#naturalness-and-eligibility">Naturalness and eligibility</a></h2>
+<p>Lewis and other realists appeal to <strong>natural properties</strong> or <strong>eligibility</strong>.
+Interpretations assigning reasonably simple, joint-carving properties are better than
+gerrymandered alternatives.</p>
+<p>"Rabbit" refers to rabbits because rabbithood is more natural than a disjunctive or
+proxy property. Overall interpretation balances:</p>
+<ul>
+<li>fit with use;</li>
+<li>simplicity;</li>
+<li>naturalness of assigned properties;</li>
+<li>compositional coherence; and</li>
+<li>explanatory integration.</li>
+</ul>
+<p>This blocks bizarre permutation manuals if naturalness is objective.</p>
+<p>The cost is substantive metaphysics. The account presupposes privileged joints in
+reality and must explain how naturalness applies to social, mathematical, normative,
+and context-sensitive vocabulary.</p>
+<h2 id="davidsonian-charity"><a class="header" href="#davidsonian-charity">Davidsonian charity</a></h2>
+<p>Davidson approaches interpretation through speakers' attitudes and shared environment.
+A correct interpretation should make speakers broadly coherent, largely right about
+salient surroundings, and responsive to common causes.</p>
+<p><strong>Triangulation</strong> among speaker, interpreter, and shared object constrains reference.
+The object causing convergent responses anchors their words.</p>
+<p>Charity does not require maximal agreement about every claim. It supplies the
+background needed to identify disagreement as disagreement about a common topic.</p>
+<p>This reduces radical indeterminacy by embedding reference in rational and causal
+interpretation. Multiple equally good total interpretations may remain, but Davidson
+can treat differences lacking explanatory consequences as no genuine semantic
+difference.</p>
+<h2 id="speaker-intention-and-community-practice"><a class="header" href="#speaker-intention-and-community-practice">Speaker intention and community practice</a></h2>
+<p>Intentions can constrain which object a speaker means, while community practice
+constrains which intentions are linguistically effective. Historical transmission and
+correction distinguish inherited reference from arbitrary private assignment.</p>
+<p>These resources are resistant to a purely formal permutation because they include:</p>
+<ul>
+<li>embodied attention;</li>
+<li>practical success and failure;</li>
+<li>deference;</li>
+<li>correction;</li>
+<li>ostension;</li>
+<li>intervention; and</li>
+<li>continuity through time.</li>
+</ul>
+<p>The sceptic asks whether describing these factors already assumes determinate
+reference. The realist answers that metasemantic explanation can be holistic without
+being viciously circular: causal, intentional, and semantic facts may be mutually
+constrained rather than reduced in one direction.</p>
+<h2 id="structuralism-about-reference"><a class="header" href="#structuralism-about-reference">Structuralism about reference</a></h2>
+<p>One response accepts that object-level reference is not absolute. What is determinate
+is structural position: patterns of relations, inference, and interaction.</p>
+<p>If two interpretations are related by an isomorphism preserving all relevant
+structure, there may be no substantive question which object assignment is "really"
+correct. Reference functions like coordinates: different assignments represent the
+same invariant structure.</p>
+<p>Structuralism is attractive in mathematics and physics, where objects can be
+individuated by relational role. It is less obviously adequate for demonstrative
+contact with a particular object or historically grounded names.</p>
+<p>A moderate view allows structural equivalence in some domains and determinate
+objectual reference in others.</p>
+<h2 id="ontological-relativity"><a class="header" href="#ontological-relativity">Ontological relativity</a></h2>
+<p>Quine generalizes inscrutability to <strong>ontological relativity</strong>. Questions about which
+objects a theory quantifies over are answerable only relative to a background
+translation manual.</p>
+<p>This does not mean any interpretation is as good as any other. Manuals must preserve
+the total pattern of assent, inference, prediction, and action. The claim is that
+several manuals can satisfy all those constraints.</p>
+<p>The ontological consequences are developed in
+<a href="../../04-ontology/15-meta-ontology/02-quantifier-variance.html">Quantifier Variance and
+Deflationism</a>.
+The semantic argument should be assessed before assuming that a preferred ontology can
+simply select the intended interpretation.</p>
+<h2 id="local-versus-global-indeterminacy"><a class="header" href="#local-versus-global-indeterminacy">Local versus global indeterminacy</a></h2>
+<p>Global permutation arguments can distract from ordinary local indeterminacy. Reference
+may be unsettled because:</p>
+<ul>
+<li>a baptism was ambiguous;</li>
+<li>a historical chain split;</li>
+<li>expert communities disagree;</li>
+<li>a term is vague or polysemous;</li>
+<li>a fictional or theoretical posit failed;</li>
+<li>context does not identify one demonstratum; or</li>
+<li>a classification is undergoing change.</li>
+</ul>
+<p>These cases do not require the conclusion that all reference is inscrutable. They show
+that determinacy can vary by expression, context, and explanatory purpose.</p>
+<p>A theory should distinguish:</p>
+<ul>
+<li>exact unique reference;</li>
+<li>partial or disjunctive reference;</li>
+<li>reference fixed only relative to a scheme;</li>
+<li>genuine ambiguity;</li>
+<li>vagueness; and</li>
+<li>complete failure.</li>
+</ul>
+<h2 id="what-survives-the-indeterminacy-arguments"><a class="header" href="#what-survives-the-indeterminacy-arguments">What survives the indeterminacy arguments</a></h2>
+<p>The arguments establish several durable lessons:</p>
+<ol>
+<li>Formal satisfaction alone does not select an intended interpretation.</li>
+<li>Behavioural evidence may determine less than object-by-object reference.</li>
+<li>Reference claims require a metasemantics, not merely a model.</li>
+<li>Causal, social, intentional, and naturalness constraints must be stated rather than
+assumed.</li>
+<li>Some differences among interpretation manuals may be representational rather than
+factual.</li>
+<li>Determinacy should be argued locally rather than presumed globally.</li>
+</ol>
+<p>They do not straightforwardly establish that words refer to nothing, that all
+translations are equal, or that ordinary reference is an illusion. The live dispute is
+whether the best total explanation uniquely selects referents, selects them only up to
+structural equivalence, or leaves no fact beyond equally good interpretive schemes.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Response</th><th>What constrains reference</th><th>Main pressure</th></tr></thead><tbody>
+<tr><td><strong>Quinean relativity</strong></td><td>total translation scheme and use</td><td>truth and disagreement across schemes</td></tr>
+<tr><td><strong>Causal theory</strong></td><td>historical and current causal contact</td><td>deviant chains and interpreted causation</td></tr>
+<tr><td><strong>Naturalness</strong></td><td>eligible, joint-carving properties</td><td>metaphysical cost and non-natural domains</td></tr>
+<tr><td><strong>Davidsonian interpretation</strong></td><td>charity, coherence, and triangulation</td><td>multiple equally good interpretations</td></tr>
+<tr><td><strong>Social-practice account</strong></td><td>public correction and deference</td><td>systematic communal error</td></tr>
+<tr><td><strong>Structuralism</strong></td><td>invariant relational structure</td><td>particular demonstrative and historical reference</td></tr>
+<tr><td><strong>Primitivism</strong></td><td>irreducible reference facts</td><td>explanatory and epistemic mystery</td></tr>
+</tbody></table>
+</div>
+<p>Reference indeterminacy is best understood as a stress test for metasemantics. Any
+theory can write down a reference relation. The challenge is to explain why that
+relation, rather than a systematically transformed alternative, belongs to the
+language speakers actually use.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/06-indexicals-demonstratives.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/01-compositionality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/06-indexicals-demonstratives.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/01-compositionality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

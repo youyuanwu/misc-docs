@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Uptake and Speech-Act Failure - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/09-speech-acts/06-uptake-and-speech-act-failure.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="uptake-and-speech-act-failure"><a class="header" href="#uptake-and-speech-act-failure">Uptake and Speech-Act Failure</a></h1>
+<p>A speaker can utter meaningful words, intend a recognizable act, and still fail to
+perform it successfully. The audience may not hear, may misunderstand the force, may
+lack required standing, or may refuse participation. Different failures occur at
+different layers.</p>
+<p><strong>Uptake</strong> is audience recognition of an utterance's content and force. It is distinct
+from agreement, belief, compliance, and perlocutionary effect. Whether uptake is
+required for the existence of an act varies by act and theory.</p>
+<hr />
+<h2 id="a-failure-map"><a class="header" href="#a-failure-map">A failure map</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Layer</th><th>Success condition</th><th>Example failure</th></tr></thead><tbody>
+<tr><td>Production</td><td>meaningful token is produced</td><td>slip or unintelligible sound</td></tr>
+<tr><td>Reference</td><td>intended objects are identified</td><td>ambiguous "that"</td></tr>
+<tr><td>Content</td><td>proposition is recovered</td><td>scope misunderstanding</td></tr>
+<tr><td>Force</td><td>act type is recognized</td><td>warning heard as joke</td></tr>
+<tr><td>Felicity</td><td>authority/procedure obtains</td><td>unauthorized verdict</td></tr>
+<tr><td>Uptake</td><td>audience recognizes act</td><td>unheard request</td></tr>
+<tr><td>Compliance</td><td>requested action occurs</td><td>recognized refusal</td></tr>
+<tr><td>Effect</td><td>intended consequence occurs</td><td>warning causes panic</td></tr>
+</tbody></table>
+</div>
+<p>Calling all of these "miscommunication" hides theoretically important differences.</p>
+<h2 id="uptake-without-compliance"><a class="header" href="#uptake-without-compliance">Uptake without compliance</a></h2>
+<p>A hearer can understand an order and refuse. The order achieved uptake but not
+compliance.</p>
+<p>Likewise, an audience can recognize an assertion and reject it, or recognize a promise
+and distrust fulfilment.</p>
+<p>Uptake concerns recognition, not success in changing belief or action.</p>
+<h2 id="is-uptake-constitutive"><a class="header" href="#is-uptake-constitutive">Is uptake constitutive?</a></h2>
+<p>For some acts, a publicly available attempt may suffice. A warning left on a sign can
+remain a warning even if no one reads it.</p>
+<p>For conversational acts such as accepting an offer, securing agreement, or answering,
+audience recognition appears more central. A private acceptance unknown to the offerer
+may not complete the transaction.</p>
+<p>A moderate view makes required uptake act-relative:</p>
+<ul>
+<li>communicative attempts can exist without actual recognition;</li>
+<li>some conventional consequences require receipt;</li>
+<li>some joint acts require reciprocal acknowledgment.</li>
+</ul>
+<h2 id="misunderstanding-content"><a class="header" href="#misunderstanding-content">Misunderstanding content</a></h2>
+<p>An audience may recognize force while misidentifying content:</p>
+<blockquote>
+<p>Put it there.</p>
+</blockquote>
+<p>They understand a directive but choose the wrong object or location.</p>
+<p>Reference resolution, ambiguity, and presupposition can each fail while the act type is
+clear. Repair should target the content rather than force.</p>
+<h2 id="misunderstanding-force"><a class="header" href="#misunderstanding-force">Misunderstanding force</a></h2>
+<p>The words may be understood while the act is not:</p>
+<ul>
+<li>irony taken literally;</li>
+<li>warning heard as prediction;</li>
+<li>request heard as optional remark;</li>
+<li>joke heard as assertion;</li>
+<li>rehearsal heard as promise.</li>
+</ul>
+<p>Force indicators can conflict. Grammar, tone, context, relationship, and convention
+must be integrated.</p>
+<h2 id="authority-failure"><a class="header" href="#authority-failure">Authority failure</a></h2>
+<p>A person can be understood perfectly yet lack authority. An unauthorized "You are
+fired" may be an attempted dismissal without institutional effect.</p>
+<p>Authority failure differs from misunderstanding:</p>
+<ul>
+<li>content and force are recognized;</li>
+<li>the conventional consequence does not follow;</li>
+<li>the utterance may still threaten, deceive, or communicate intention.</li>
+</ul>
+<p>Speech-act theory should distinguish illocutionary attempt from successful
+institutional act.</p>
+<h2 id="defective-procedure"><a class="header" href="#defective-procedure">Defective procedure</a></h2>
+<p>A procedure can be attempted but incomplete:</p>
+<ul>
+<li>missing witness;</li>
+<li>wrong formula;</li>
+<li>expired deadline;</li>
+<li>improper sequence;</li>
+<li>ambiguous scope.</li>
+</ul>
+<p>Some defects void the act; others make it contestable or repairable. The practice's
+rules determine consequences.</p>
+<h2 id="refusal-of-uptake"><a class="header" href="#refusal-of-uptake">Refusal of uptake</a></h2>
+<p>An audience can strategically refuse to recognize intended force:</p>
+<blockquote>
+<p>I am not treating that as an apology.</p>
+</blockquote>
+<p>This may mean:</p>
+<ul>
+<li>the act lacked sincerity;</li>
+<li>required acknowledgment was absent;</li>
+<li>the form was insufficient;</li>
+<li>the audience refuses reconciliation despite recognizing an attempted apology.</li>
+</ul>
+<p>The last case shows that refusing consequences is not always failure to understand.
+Speakers and audiences can disagree about whether felicity conditions were met.</p>
+<h2 id="repair"><a class="header" href="#repair">Repair</a></h2>
+<p>Repair mechanisms include:</p>
+<ul>
+<li>repetition;</li>
+<li>paraphrase;</li>
+<li>explicit performative;</li>
+<li>clarification of reference;</li>
+<li>checking understanding;</li>
+<li>metalinguistic negotiation;</li>
+<li>institutional correction.</li>
+</ul>
+<p>Repair provides evidence about where failure occurred:</p>
+<blockquote>
+<p>I heard the words, but was that a request?</p>
+</blockquote>
+<p>targets force.</p>
+<blockquote>
+<p>Which report?</p>
+</blockquote>
+<p>targets reference.</p>
+<blockquote>
+<p>Are you authorized to decide?</p>
+</blockquote>
+<p>targets standing.</p>
+<h2 id="overhearing-and-unintended-audiences"><a class="header" href="#overhearing-and-unintended-audiences">Overhearing and unintended audiences</a></h2>
+<p>An overhearer can recognize a speech act not addressed to them. They achieve
+understanding without being the act's intended participant.</p>
+<p>Public statements can also affect unintended audiences. Uptake by them does not
+retroactively make them addressees.</p>
+<p>Audience roles should distinguish:</p>
+<ul>
+<li>addressee;</li>
+<li>intended hearer;</li>
+<li>ratified participant;</li>
+<li>overhearer;</li>
+<li>later interpreter.</li>
+</ul>
+<h2 id="recorded-and-delayed-communication"><a class="header" href="#recorded-and-delayed-communication">Recorded and delayed communication</a></h2>
+<p>A recording separates production from uptake. A warning recorded today may be heard
+tomorrow. A will or contract can take effect later.</p>
+<p>This shows that speaker and audience need not be co-present. Conventions can preserve
+force across media and time, while context must determine which coordinates belong to
+production and which to reception.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Speech-act failure is not binary. A speaker may succeed at locution, reference, and
+force while failing institutionally or perlocutionarily.</p>
+<p>A useful diagnosis asks:</p>
+<ol>
+<li>Were meaningful words produced?</li>
+<li>What content and referents were available?</li>
+<li>What force was intended and publicly indicated?</li>
+<li>Did the speaker have standing?</li>
+<li>Did the audience recognize the act?</li>
+<li>Was acknowledgment or compliance required?</li>
+<li>Which conventional consequence followed?</li>
+</ol>
+<p>Only after locating the layer can correction be appropriate. More explicit words fix
+some failures; authority, procedure, or reciprocal participation fix others.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/05-performativity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/10-interpretation/01-radical-interpretation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/05-performativity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/10-interpretation/01-radical-interpretation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Performativity and Social Constitution - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/09-speech-acts/05-performativity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="performativity-and-social-constitution"><a class="header" href="#performativity-and-social-constitution">Performativity and Social Constitution</a></h1>
+<p>Some utterances do not merely represent an existing institutional fact; under suitable
+conditions they help create one. Naming, marrying, sentencing, resigning, voting, and
+contracting can be performed through words because established practices assign
+normative consequences to recognized forms.</p>
+<p><strong>Performativity</strong> concerns this capacity of signs and acts to constitute statuses.
+It depends on repeatable conventions, authority, context, and uptake. Speaker intention
+matters, but private intention alone cannot create an institutional fact.</p>
+<hr />
+<h2 id="explicit-performatives"><a class="header" href="#explicit-performatives">Explicit performatives</a></h2>
+<p>An explicit performative contains a first-person present-tense act verb:</p>
+<blockquote>
+<p>I promise to pay.</p>
+</blockquote>
+<blockquote>
+<p>I apologize.</p>
+</blockquote>
+<blockquote>
+<p>I resign.</p>
+</blockquote>
+<p>Under ordinary conditions, saying the words performs the named act. The utterance can
+also describe itself, but its central function is practical.</p>
+<p>The formula is neither necessary nor sufficient. A promise can be made without "I
+promise," and an actor on stage can utter the formula without making a real promise.</p>
+<h2 id="institutional-facts"><a class="header" href="#institutional-facts">Institutional facts</a></h2>
+<p>Institutional acts depend on constitutive rules of the form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord text"><span class="mord"> counts as </span></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mord text"><span class="mord"> in context </span></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">.</span></span></span></span></span></p>
+<p>A marked ballot counts as a vote; an authorized pronouncement counts as a verdict.
+Language helps represent and execute the rule.</p>
+<p>The physical event alone does not create the status. The same sound outside the
+practice lacks its institutional effect.</p>
+<h2 id="authority"><a class="header" href="#authority">Authority</a></h2>
+<p>Declarations require standing. An unauthorized spectator cannot adjourn a court or
+name someone else's child by using the correct words.</p>
+<p>Authority can derive from:</p>
+<ul>
+<li>office;</li>
+<li>delegated role;</li>
+<li>ownership;</li>
+<li>consent;</li>
+<li>procedure;</li>
+<li>recognized participation.</li>
+</ul>
+<p>The conditions can be contested, but the linguistic point is that force depends on a
+normative background not encoded in the sentence alone.</p>
+<h2 id="iterability-and-citation"><a class="header" href="#iterability-and-citation">Iterability and citation</a></h2>
+<p>A performative formula must be repeatable across occasions. Its conventional force
+depends on recognizable citation of prior forms.</p>
+<p>The same repeatability permits:</p>
+<ul>
+<li>theatrical quotation;</li>
+<li>parody;</li>
+<li>rehearsal;</li>
+<li>forgery;</li>
+<li>failed or unauthorized use.</li>
+</ul>
+<p>Context determines whether a token participates in the institution or merely cites its
+language. Repeatability therefore enables both successful performance and detachment
+from ordinary force.</p>
+<h2 id="intention-and-convention"><a class="header" href="#intention-and-convention">Intention and convention</a></h2>
+<p>Intention is often necessary:</p>
+<ul>
+<li>a promise requires undertaking;</li>
+<li>an apology normally requires presenting regret;</li>
+<li>a vote requires intentional participation.</li>
+</ul>
+<p>But convention constrains what intention can achieve. Privately intending "I object"
+to create a marriage does not make it a marriage formula.</p>
+<p>Conversely, some highly formal acts can succeed despite reluctance or hidden
+insincerity if procedure and outward intention are adequate.</p>
+<h2 id="performed-identity-and-stance"><a class="header" href="#performed-identity-and-stance">Performed identity and stance</a></h2>
+<p>Repeated linguistic practices can present and sustain roles, relationships, and
+stances. Address forms, titles, registers, and self-descriptions position speakers
+within social interaction.</p>
+<p>This is not the claim that words create every underlying fact. A linguistic act can
+constitute an institutional status or public stance while depending on bodies,
+histories, and practices it does not create.</p>
+<p>The roadmap keeps broader political and social theory outside this section; the relevant
+point is the mechanism by which repeatable signs acquire constitutive force.</p>
+<h2 id="misfire-and-abuse"><a class="header" href="#misfire-and-abuse">Misfire and abuse</a></h2>
+<p>Performatives fail in different ways:</p>
+<ul>
+<li>no accepted procedure;</li>
+<li>wrong participants;</li>
+<li>defective execution;</li>
+<li>missing authority;</li>
+<li>insincerity;</li>
+<li>later breach.</li>
+</ul>
+<p>An unauthorized declaration may be void. An insincere promise may be valid but abused.
+A breached promise was still made.</p>
+<p>These distinctions prevent all defects from being treated as absence of the act.</p>
+<h2 id="retrospective-contest"><a class="header" href="#retrospective-contest">Retrospective contest</a></h2>
+<p>Participants can dispute whether a performative succeeded:</p>
+<ul>
+<li>Was consent informed?</li>
+<li>Was the official authorized?</li>
+<li>Was the formula complete?</li>
+<li>Was the act coerced?</li>
+<li>Did all required parties receive it?</li>
+</ul>
+<p>Such disputes concern facts and norms constituting the procedure. They show that
+institutional reality can be determinate, vague, or contested depending on the rule.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Performativity requires a layered explanation:</p>
+<ol>
+<li>meaningful form;</li>
+<li>conventional procedure;</li>
+<li>appropriate context;</li>
+<li>authority or standing;</li>
+<li>recognizable intention;</li>
+<li>execution and uptake;</li>
+<li>institutional consequence.</li>
+</ol>
+<p>Language is constitutive where practices make saying count as doing. This is neither
+magic nor mere description: repeatable signs operate within normative structures that
+participants maintain.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/04-indirect-speech-acts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/06-uptake-and-speech-act-failure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/09-speech-acts/04-indirect-speech-acts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/06-uptake-and-speech-act-failure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Doing Things with Words - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/09-speech-acts/01-doing-things-with-words.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="doing-things-with-words"><a class="header" href="#doing-things-with-words">Doing Things with Words</a></h1>
+<p>Uttering a sentence can change the world without describing it. A speaker can promise,
+order, apologize, name, warn, ask, consent, or pronounce a verdict. These acts depend
+on meaningful words, but their success also depends on authority, convention,
+circumstance, intention, and audience uptake.</p>
+<p>Austin's theory of <strong>speech acts</strong> begins by challenging the contrast between factual
+statements and meaningless or merely expressive utterances. It develops distinctions
+among locutionary, illocutionary, and perlocutionary acts. Searle systematizes
+illocutionary force through rules, direction of fit, and classifications.</p>
+<hr />
+<h2 id="constatives-and-performatives"><a class="header" href="#constatives-and-performatives">Constatives and performatives</a></h2>
+<p>A <strong>constative</strong> appears to describe and be evaluated as true or false:</p>
+<blockquote>
+<p>The meeting has begun.</p>
+</blockquote>
+<p>An explicit <strong>performative</strong> appears to perform the act it names:</p>
+<blockquote>
+<p>I promise to return.</p>
+</blockquote>
+<blockquote>
+<p>I apologize.</p>
+</blockquote>
+<blockquote>
+<p>I name this ship <em>Endeavour</em>.</p>
+</blockquote>
+<p>The performative is not merely a report that the act occurs. Under suitable conditions,
+uttering it is part of performing the act.</p>
+<p>Austin eventually rejects a sharp division. Assertions too are acts, and performatives
+can misfire or be assessed for truth-related commitments. The important contrast is
+among dimensions of an utterance, not two classes of sentence.</p>
+<h2 id="locution-illocution-and-perlocution"><a class="header" href="#locution-illocution-and-perlocution">Locution, illocution, and perlocution</a></h2>
+<p>The <strong>locutionary act</strong> is producing meaningful words with a certain sense and
+reference.</p>
+<p>The <strong>illocutionary act</strong> is what is done in saying them: asserting, promising,
+warning, ordering, asking.</p>
+<p>The <strong>perlocutionary act</strong> is what is achieved by saying them: persuading, frightening,
+amusing, causing someone to leave.</p>
+<p>One locution can carry different forces:</p>
+<blockquote>
+<p>The dog is outside.</p>
+</blockquote>
+<p>It can assert, warn, remind, or reassure. One illocution can have different effects: a
+warning may frighten one listener and reassure another.</p>
+<p>Force and effect must therefore be separated.</p>
+<h2 id="felicity-conditions"><a class="header" href="#felicity-conditions">Felicity conditions</a></h2>
+<p>Speech acts can <strong>misfire</strong> when conditions are absent.</p>
+<p>For a conventional procedure:</p>
+<ul>
+<li>an accepted procedure must exist;</li>
+<li>persons and circumstances must be appropriate;</li>
+<li>the procedure must be executed correctly and completely;</li>
+<li>relevant participants must have required intentions or commitments;</li>
+<li>subsequent conduct may need to conform.</li>
+</ul>
+<p>A person lacking authority cannot pronounce a legal verdict merely by using the
+judge's words. A promise about an action outside the speaker's control may be defective.
+An insincere promise can be successfully made yet abused.</p>
+<p>Austin distinguishes failure to perform the act from successful performance followed
+by insincerity or breach.</p>
+<h2 id="force-indicators"><a class="header" href="#force-indicators">Force indicators</a></h2>
+<p>Illocutionary force can be indicated by:</p>
+<ul>
+<li>grammatical mood;</li>
+<li>performative verbs;</li>
+<li>word order;</li>
+<li>intonation;</li>
+<li>particles;</li>
+<li>institutional setting;</li>
+<li>gesture;</li>
+<li>conversational position.</li>
+</ul>
+<p>No indicator works alone. An interrogative can function as a request; a declarative as
+an order; an explicit "I promise" as theatrical quotation rather than a real promise.</p>
+<p>Force is conventionally and contextually determined.</p>
+<h2 id="searles-rules"><a class="header" href="#searles-rules">Searle's rules</a></h2>
+<p>Searle analyses acts through several kinds of condition.</p>
+<p>For promising:</p>
+<ul>
+<li><strong>propositional-content condition:</strong> the content concerns a future act by the
+speaker;</li>
+<li><strong>preparatory conditions:</strong> the hearer wants the act, and it is not obvious it would
+occur anyway;</li>
+<li><strong>sincerity condition:</strong> the speaker intends to perform it;</li>
+<li><strong>essential condition:</strong> the utterance counts as undertaking an obligation.</li>
+</ul>
+<p>The essential condition identifies the act's conventional point. Sincerity is not
+required for successful but insincere performance.</p>
+<p>This framework generalizes to requests, assertions, questions, and declarations.</p>
+<h2 id="direction-of-fit"><a class="header" href="#direction-of-fit">Direction of fit</a></h2>
+<p>Speech acts differ in how words and world are supposed to align.</p>
+<ul>
+<li><strong>Word-to-world:</strong> assertions aim to fit words to how things are.</li>
+<li><strong>World-to-word:</strong> orders and promises aim to make the world fit the words.</li>
+<li><strong>Double direction:</strong> declarations alter institutional reality by representing it as
+altered.</li>
+<li><strong>Null direction:</strong> expressives such as thanks or apologies primarily express an
+attitude toward a presupposed situation.</li>
+</ul>
+<p>Direction of fit clarifies why falsity is central to assertion but non-fulfilment is
+central to promises.</p>
+<h2 id="searles-classification"><a class="header" href="#searles-classification">Searle's classification</a></h2>
+<p>Five broad families:</p>
+<ul>
+<li><strong>assertives:</strong> commit the speaker to truth;</li>
+<li><strong>directives:</strong> attempt to get the hearer to act;</li>
+<li><strong>commissives:</strong> commit the speaker to future action;</li>
+<li><strong>expressives:</strong> express an attitude;</li>
+<li><strong>declarations:</strong> bring about an institutional state through authorized utterance.</li>
+</ul>
+<p>The taxonomy is useful but not exhaustive. An utterance can perform several acts, and
+categories overlap. A warning asserts danger and directs precaution; an offer creates
+a conditional commitment.</p>
+<h2 id="convention-and-intention"><a class="header" href="#convention-and-intention">Convention and intention</a></h2>
+<p>Some speech acts appear highly conventional: verdicts, baptisms, resignations. Others,
+such as hints and warnings, can be performed without a fixed formula.</p>
+<p>Intention-based theories emphasize recognizable communicative purposes. Conventional
+theories emphasize rules making an utterance count as an act.</p>
+<p>A hybrid distinguishes:</p>
+<ul>
+<li>communicative acts whose force is inferred from intention;</li>
+<li>conventional acts whose success depends on established procedure;</li>
+<li>institutional acts requiring authority;</li>
+<li>indirect acts exploiting both sentence form and inference.</li>
+</ul>
+<p>No one mechanism explains every case.</p>
+<h2 id="uptake"><a class="header" href="#uptake">Uptake</a></h2>
+<p><strong>Uptake</strong> is an audience's recognition of force and content. If a warning is heard as
+a joke, has the speaker successfully warned?</p>
+<p>For some acts, intended and publicly available force may suffice despite
+misunderstanding. For others, uptake is partly constitutive: consent, agreement, and
+conversational proposals depend on recognition.</p>
+<p>Uptake should be distinguished from compliance. A hearer can recognize an order and
+refuse it.</p>
+<p>The varieties of failure are developed in
+<a href="06-uptake-and-speech-act-failure.html">Uptake and Speech-Act Failure</a>.</p>
+<h2 id="speech-acts-and-truth-conditions"><a class="header" href="#speech-acts-and-truth-conditions">Speech acts and truth-conditions</a></h2>
+<p>Knowing the proposition expressed does not determine force:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">orce</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>The same <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> can be asserted, questioned, supposed, or commanded in suitable form.</p>
+<p>Force does not eliminate truth-conditional content. Assertions, warnings, and promises
+often contain propositions whose truth or satisfaction matters. Formal semantics and
+speech-act theory model different dimensions.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Speech-act theory establishes that linguistic meaning participates in action. A full
+account must identify:</p>
+<ol>
+<li>locutionary content;</li>
+<li>illocutionary force;</li>
+<li>felicity conditions;</li>
+<li>speaker intention;</li>
+<li>convention and authority;</li>
+<li>audience uptake;</li>
+<li>perlocutionary effect.</li>
+</ol>
+<p>Collapsing these dimensions obscures both success and failure. Words can be meaningful
+without performing the intended act, an act can be performed insincerely, and a
+successful act can fail to produce its intended effect.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/07-semantics-pragmatics-boundary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/02-assertion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/07-semantics-pragmatics-boundary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/02-assertion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

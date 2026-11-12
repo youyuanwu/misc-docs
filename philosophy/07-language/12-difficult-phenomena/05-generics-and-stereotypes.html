@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Generics and Stereotypes - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/12-difficult-phenomena/05-generics-and-stereotypes.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="generics-and-stereotypes"><a class="header" href="#generics-and-stereotypes">Generics and Stereotypes</a></h1>
+<p>"Birds fly," "Tigers are striped," and "Mosquitoes carry malaria" are generic
+statements. They do not mean that every member has the property, nor can they be reduced
+uniformly to "most." Penguins are birds, and few mosquitoes carry malaria, yet the
+generics can be accepted.</p>
+<p>Generics express patterns of normality, characteristic function, prevalence, or
+strikingness. Their flexibility makes them useful for learning and dangerous when
+applied to human groups.</p>
+<hr />
+<h2 id="not-universal-quantification"><a class="header" href="#not-universal-quantification">Not universal quantification</a></h2>
+<p>The universal:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">Fl</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">))</span></span></span></span></span></p>
+<p>is false because of penguins and injured birds. The generic tolerates exceptions.</p>
+<p>Exceptions can be systematic rather than accidental. Female birds may not lay eggs,
+yet "Birds lay eggs" can be acceptable.</p>
+<h2 id="not-simple-majority"><a class="header" href="#not-simple-majority">Not simple majority</a></h2>
+<p>"Mosquitoes carry malaria" can be acceptable even when a small proportion do.
+"Books are paperbacks" can be false despite many paperbacks.</p>
+<p>Frequency matters but is filtered through:</p>
+<ul>
+<li>danger or strikingness;</li>
+<li>biological function;</li>
+<li>characteristic life cycle;</li>
+<li>explanatory relevance;</li>
+<li>comparison class.</li>
+</ul>
+<h2 id="normality"><a class="header" href="#normality">Normality</a></h2>
+<p>A normality account evaluates ideal or normal members. "Birds fly" says normal birds
+fly.</p>
+<p>The notion can be:</p>
+<ul>
+<li>statistical;</li>
+<li>biological-functional;</li>
+<li>normative;</li>
+<li>stereotypical;</li>
+<li>contextually selected.</li>
+</ul>
+<p>Without clarification, "normal" simply restates the generic.</p>
+<h2 id="prevalence"><a class="header" href="#prevalence">Prevalence</a></h2>
+<p>Prevalence theories set context-sensitive thresholds. Different properties require
+different proportions depending on alternatives and characteristic distribution.</p>
+<p>This captures frequency effects while allowing "Mosquitoes carry malaria" a low
+threshold because the property is striking.</p>
+<p>The threshold mechanism risks overfitting unless independently constrained.</p>
+<h2 id="strikingness"><a class="header" href="#strikingness">Strikingness</a></h2>
+<p>Dangerous or memorable properties license generics at low prevalence:</p>
+<blockquote>
+<p>Sharks attack swimmers.</p>
+</blockquote>
+<p>Such generics guide precaution. They can distort probability judgments and reinforce
+stereotypes.</p>
+<p>Strikingness belongs partly to cognition and conversational purpose, not only extension.</p>
+<h2 id="characteristic-dimensions"><a class="header" href="#characteristic-dimensions">Characteristic dimensions</a></h2>
+<p>Some generics concern functions or dispositions:</p>
+<ul>
+<li>Knives cut.</li>
+<li>Bees make honey.</li>
+<li>Ducks lay eggs.</li>
+</ul>
+<p>They describe characteristic capacities or roles even when not currently manifested by
+every instance.</p>
+<h2 id="context"><a class="header" href="#context">Context</a></h2>
+<p>"Dogs are pets" varies across social and ecological settings. Generic acceptability
+depends on:</p>
+<ul>
+<li>domain;</li>
+<li>contrast class;</li>
+<li>purpose;</li>
+<li>time and place;</li>
+<li>standards of exception.</li>
+</ul>
+<p>This contextuality does not make generics arbitrary. World patterns and established
+classifications constrain them.</p>
+<h2 id="stereotypes"><a class="header" href="#stereotypes">Stereotypes</a></h2>
+<p>Generics about social groups can:</p>
+<ul>
+<li>obscure within-group variation;</li>
+<li>imply explanatory essences;</li>
+<li>make exceptions seem deviant;</li>
+<li>transmit expectations despite weak evidence.</li>
+</ul>
+<p>These effects can occur even when a generic is interpreted descriptively. A semantic
+account should explain tolerance and normality without treating stereotypes as natural
+kind essences.</p>
+<p>The section keeps broader political evaluation minimal; the linguistic issue is how a
+form supports robust generalization without explicit quantifier thresholds.</p>
+<h2 id="acquisition-and-inference"><a class="header" href="#acquisition-and-inference">Acquisition and inference</a></h2>
+<p>Children learn categories from generic statements and may generalize properties more
+strongly than from quantified claims. Generics invite inductive expectations.</p>
+<p>Inference is defeasible:</p>
+<blockquote>
+<p>Birds fly; Tweety is a bird; therefore Tweety probably flies.</p>
+</blockquote>
+<p>Exceptions and subkind information can defeat it.</p>
+<h2 id="formal-approaches"><a class="header" href="#formal-approaches">Formal approaches</a></h2>
+<p>Candidates include:</p>
+<ul>
+<li>generic operator <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">GEN</span></span></span></span>;</li>
+<li>normal-world quantification;</li>
+<li>probabilistic thresholds;</li>
+<li>kind predication;</li>
+<li>default logic;</li>
+<li>causal/explanatory accounts.</li>
+</ul>
+<p>No one analysis covers all biological, artifact, striking, and social generics without
+contextual parameters.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Generics are neither disguised universals nor vague versions of "most." They encode
+defeasible generalization shaped by prevalence, normality, function, and relevance.</p>
+<p>A successful theory must predict:</p>
+<ul>
+<li>tolerated exceptions;</li>
+<li>low-prevalence striking generics;</li>
+<li>contrasts among properties;</li>
+<li>subkind defeat;</li>
+<li>context shifts;</li>
+<li>inferential and stereotype effects.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/12-difficult-phenomena/04-modals-and-conditionals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/06-context-sensitive-expressions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/12-difficult-phenomena/04-modals-and-conditionals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/12-difficult-phenomena/06-context-sensitive-expressions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compositionality and Productivity - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/07-content-and-composition/01-compositionality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="compositionality-and-productivity"><a class="header" href="#compositionality-and-productivity">Compositionality and Productivity</a></h1>
+<p>Speakers routinely understand sentences they have never encountered. Someone who knows
+"Ada admires Ben" can understand "Ben admires Ada," although the same words now assign
+different roles. A finite vocabulary and finite grammar support an unbounded range of
+meaningful expressions.</p>
+<p>The standard explanation is <strong>compositionality</strong>: the meaning of a complex expression
+is determined by the meanings of its parts and how they are combined. The principle is
+central to formal semantics, but its strength and scope are disputed. Idioms,
+context-sensitive expressions, quotation, coercion, and constructional meaning show
+that composition is not always simple function application over context-free word
+meanings.</p>
+<p>Compositionality is primarily a constraint on semantic theory. It should not be
+identified without argument with a claim about the sequence or architecture of
+psychological processing.</p>
+<hr />
+<h2 id="productivity-and-systematicity"><a class="header" href="#productivity-and-systematicity">Productivity and systematicity</a></h2>
+<p><strong>Productivity</strong> is the capacity to produce and understand indefinitely many sentences
+from finite resources. Recursive constructions make this visible:</p>
+<blockquote>
+<p>Ada believes that Ben said that Chandra suspects that ...</p>
+</blockquote>
+<p>No speaker has memorized every possible completion.</p>
+<p><strong>Systematicity</strong> is the patterned relation among capacities. Understanding "Ada
+admires Ben" normally accompanies understanding "Ben admires Ada." A theory assigning
+unrelated meanings to whole sentences would not explain the connection.</p>
+<p>Compositionality explains both:</p>
+<ol>
+<li>lexical items contribute reusable semantic values;</li>
+<li>syntax specifies modes of combination;</li>
+<li>recursive rules generate complex meanings; and</li>
+<li>related structures reuse the same components.</li>
+</ol>
+<p>This is an explanatory proposal, not a consequence of the mere fact that speakers are
+productive. Alternative architectures might model the capacity differently.</p>
+<h2 id="strong-and-weak-principles"><a class="header" href="#strong-and-weak-principles">Strong and weak principles</a></h2>
+<p>A strong formulation says:</p>
+<blockquote>
+<p>The meaning of every complex expression is fully determined by the context-independent
+meanings of its immediate parts and their syntactic mode of combination.</p>
+</blockquote>
+<p>This is likely too strict for natural language.</p>
+<p>A weaker formulation allows contextual parameters:</p>
+<blockquote>
+<p>The semantic value of a complex expression in a context is determined by the semantic
+values of its parts in that context and their mode of combination.</p>
+</blockquote>
+<p>Still weaker accounts allow lexical values to be modulated or constructions to
+contribute meaning not localized in individual words.</p>
+<p>The weaker the principle, the easier it is to preserve; the stronger, the more
+explanatory work it performs. A useful theory must specify what counts as a part,
+which syntactic structure matters, and what contextual inputs are permitted.</p>
+<h2 id="homomorphism-and-semantic-algebra"><a class="header" href="#homomorphism-and-semantic-algebra">Homomorphism and semantic algebra</a></h2>
+<p>In a formal setting, compositionality can be represented as a homomorphism from
+syntactic structure to semantic structure. If a syntactic operation combines
+expressions <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>, a corresponding semantic operation combines their
+values:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mop"><span class="mord mathrm">Combine</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>For predicate application:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">Ada runs</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">runs</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mopen">(</span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">Ada</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Typed lambda calculus generalizes the pattern. Expressions receive semantic types, and
+composition proceeds only when input and output types fit.</p>
+<p>The formalism makes dependencies explicit. It does not by itself determine the correct
+syntax, primitive values, or operation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> for a natural language.</p>
+<h2 id="the-granularity-of-syntax"><a class="header" href="#the-granularity-of-syntax">The granularity of syntax</a></h2>
+<p>Surface word order can underdetermine semantic structure:</p>
+<blockquote>
+<p>Every student read a book.</p>
+</blockquote>
+<p>One reading has universal scope over existential scope; another allows one book to be
+read by every student. A compositional theory may posit different logical forms despite
+one surface string.</p>
+<p>This flexibility creates a methodological risk. Whenever a semantic reading is
+difficult to derive, a theorist can add hidden structure. Independent syntactic,
+cross-linguistic, and processing evidence should constrain the proposal.</p>
+<p>Compositionality is relative to a syntactic analysis. It cannot adjudicate that
+analysis without supplementary evidence.</p>
+<h2 id="idioms"><a class="header" href="#idioms">Idioms</a></h2>
+<p>"Kick the bucket" can mean <em>die</em>, although the ordinary meanings of "kick," "the," and
+"bucket" do not compositionally yield that interpretation.</p>
+<p>Responses include:</p>
+<ul>
+<li>treating the whole idiom as one lexical unit;</li>
+<li>allowing an idiomatic construction with its own meaning;</li>
+<li>deriving degrees of transparency from internal syntax; and</li>
+<li>distinguishing literal composition from a conventional non-literal reading.</li>
+</ul>
+<p>Idioms do not refute every compositional theory. They challenge an assumption that the
+smallest written words are always the semantic atoms.</p>
+<p>The cost of lexicalizing every exception is loss of explanation. Productive idiom
+families and partially flexible expressions require internal structure.</p>
+<h2 id="context-sensitivity"><a class="header" href="#context-sensitivity">Context sensitivity</a></h2>
+<p>"I," "here," and "now" have stable characters that map contexts to contents.
+Compositionality can operate on those characters before context supplies a referent.</p>
+<p>Harder examples include:</p>
+<ul>
+<li>"ready" for an unstated activity;</li>
+<li>"tall" relative to a comparison class;</li>
+<li>"everyone" restricted to a salient domain;</li>
+<li>"It is raining" with a relevant location; and</li>
+<li>"The table" relative to a situation.</li>
+</ul>
+<p>An <strong>indexicalist</strong> posits contextual variables in semantic structure. A
+<strong>contextualist</strong> permits pragmatic enrichment without a syntactic slot.</p>
+<p>Both can preserve a generalized compositionality if contextually modulated values
+become inputs. The dispute is whether that move explains interpretation or makes the
+principle vacuous by allowing context to supply anything.</p>
+<h2 id="coercion-and-type-shifting"><a class="header" href="#coercion-and-type-shifting">Coercion and type shifting</a></h2>
+<p>An expression can receive an interpretation that changes its ordinary semantic type:</p>
+<blockquote>
+<p>Ada began the book.</p>
+</blockquote>
+<p>"Begin" ordinarily combines with an event, while "the book" denotes an object. The
+sentence is understood as Ada beginning to read, write, or otherwise engage with the
+book.</p>
+<p><strong>Coercion</strong> or <strong>type shifting</strong> supplies an event-related interpretation. It may be
+licensed by lexical information, construction, world knowledge, or context.</p>
+<p>A compositional account can include systematic type-shifting operators. The challenge
+is predicting which shifts are available and avoiding unconstrained insertion of
+whatever makes the sentence interpretable.</p>
+<h2 id="construction-meaning"><a class="header" href="#construction-meaning">Construction meaning</a></h2>
+<p>Some meaning appears tied to a syntactic pattern:</p>
+<blockquote>
+<p>The more you read, the more you learn.</p>
+</blockquote>
+<blockquote>
+<p>What's this fly doing in my soup?</p>
+</blockquote>
+<p>Individual words do not exhaust the conventional contribution. Construction grammar
+treats pairings of form and meaning at many sizes as basic.</p>
+<p>This need not abandon compositionality. Constructions can be semantic parts alongside
+lexical items. It does challenge a strictly word-driven lexicon-plus-rules picture.</p>
+<p>The general lesson is that semantic atoms are theoretical, not automatically identical
+to orthographic words.</p>
+<h2 id="quotation"><a class="header" href="#quotation">Quotation</a></h2>
+<p>Quotation creates a difficult case:</p>
+<blockquote>
+<p>"Snow" has four letters.</p>
+</blockquote>
+<p>Inside quotation, the expression appears to refer to itself or to a type/token related
+to it. Substitution of an ordinarily synonymous expression fails:</p>
+<blockquote>
+<p>"Schnee" has four letters.</p>
+</blockquote>
+<p>Quotation may be treated as:</p>
+<ul>
+<li>a name-forming operator;</li>
+<li>a demonstrative construction referring to the displayed token;</li>
+<li>a syntactic operation producing an expression-denoting value; or</li>
+<li>a mixed use-mention device.</li>
+</ul>
+<p>Whichever analysis is chosen, ordinary semantic values are not enough. Composition
+must be sensitive to linguistic form.</p>
+<h2 id="compositionality-versus-holism"><a class="header" href="#compositionality-versus-holism">Compositionality versus holism</a></h2>
+<p>Inferential and conceptual-role theories often make an expression's content depend on
+a broad network. If changing any belief changes every meaning, stable lexical
+contribution becomes difficult to isolate.</p>
+<p>Possible reconciliations include:</p>
+<ul>
+<li>local or molecular inferential roles compose;</li>
+<li>reference and syntax remain stable while broader cognitive role varies;</li>
+<li>composition yields minimal content enriched by holistic interpretation; and</li>
+<li>meaning similarity replaces strict identity across speakers.</li>
+</ul>
+<p>A theory needs enough local stability for productivity and enough network sensitivity
+for conceptual relations. Neither extreme automatically supplies both.</p>
+<h2 id="semantic-theory-versus-processing"><a class="header" href="#semantic-theory-versus-processing">Semantic theory versus processing</a></h2>
+<p>A compositional derivation states dependencies among meanings. It does not necessarily
+describe the temporal order in which a hearer processes a sentence.</p>
+<p>Human interpretation may be:</p>
+<ul>
+<li>incremental rather than waiting for a complete parse;</li>
+<li>predictive;</li>
+<li>influenced by plausibility and discourse from the start;</li>
+<li>revised after ambiguity; and</li>
+<li>implemented by distributed representations rather than explicit symbolic rules.</li>
+</ul>
+<p>A semantic theory can be psychologically informative without being an algorithm. To
+claim that the mind literally computes the formal derivation requires independent
+evidence.</p>
+<p>Conversely, non-symbolic implementation does not show that the represented content
+lacks compositional structure.</p>
+<h2 id="is-compositionality-trivial"><a class="header" href="#is-compositionality-trivial">Is compositionality trivial?</a></h2>
+<p>Formal representation results suggest that almost any assignment of meanings to a
+countable language can be made compositional by choosing sufficiently artificial
+semantic values. If so, bare existence of a compositional mapping is weak.</p>
+<p>Explanatory compositionality requires further constraints:</p>
+<ul>
+<li>semantic values should be independently motivated;</li>
+<li>combination operations should recur across constructions;</li>
+<li>the theory should predict unavailable readings;</li>
+<li>primitive values should not encode entire sentence meanings;</li>
+<li>the analysis should support learnability and generalization; and</li>
+<li>context dependence should be constrained.</li>
+</ul>
+<p>The important question is not whether some compositional encoding exists, but whether
+the right one explains linguistic competence.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Compositionality remains the leading explanation of productivity and systematicity.
+Its defensible form is neither an exceptionless slogan about words nor an unconstrained
+permission to hide every difficulty in context.</p>
+<p>A successful account should:</p>
+<ol>
+<li>identify independently motivated syntactic constituents;</li>
+<li>assign reusable semantic values;</li>
+<li>define constrained modes of combination;</li>
+<li>represent ambiguity and context without ad hoc duplication;</li>
+<li>handle idioms and constructions at appropriate grain;</li>
+<li>distinguish semantic architecture from processing claims; and</li>
+<li>explain why some interpretations are impossible.</li>
+</ol>
+<p>The principle is strongest when it restricts theory. If every whole can be declared a
+part and every contextual effect inserted as an input, compositionality becomes true
+but uninformative.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/07-reference-indeterminacy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/02-propositions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/07-reference-indeterminacy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/02-propositions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

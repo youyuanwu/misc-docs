@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Semantics-Pragmatics Boundary - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/08-pragmatics/07-semantics-pragmatics-boundary.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-semantics-pragmatics-boundary"><a class="header" href="#the-semantics-pragmatics-boundary">The Semantics-Pragmatics Boundary</a></h1>
+<p>Every theory agrees that words constrain interpretation and context matters. The
+dispute is where semantic determination ends and pragmatic contribution begins.</p>
+<p><strong>Minimalism</strong> restricts truth-conditional context sensitivity to grammatically
+controlled elements. <strong>Indexicalism</strong> posits more hidden variables. <strong>Contextualism</strong>
+allows pragmatic processes to help determine what is said even without a syntactic
+slot. <strong>Truth-conditional pragmatics</strong> makes this dependence systematic.</p>
+<p>The boundary matters for compositionality, learnability, assertion, disagreement, and
+the classification of lying versus merely misleading.</p>
+<hr />
+<h2 id="three-contents"><a class="header" href="#three-contents">Three contents</a></h2>
+<p>It helps to distinguish:</p>
+<ol>
+<li><strong>sentence meaning:</strong> conventional meaning before occasion-specific values;</li>
+<li><strong>what is said:</strong> truth-evaluable content expressed in context;</li>
+<li><strong>what is communicated:</strong> asserted content plus implications, presuppositions,
+force, and other conveyed material.</li>
+</ol>
+<p>Minimalists keep (2) close to encoded structure. Contextualists allow pragmatic
+enrichment inside (2). Everyone allows pragmatics to affect (3).</p>
+<h2 id="semantic-minimalism"><a class="header" href="#semantic-minimalism">Semantic minimalism</a></h2>
+<p>Minimalism supplies context only to a short list:</p>
+<ul>
+<li>indexicals;</li>
+<li>demonstratives;</li>
+<li>tense;</li>
+<li>overt ambiguity;</li>
+<li>perhaps a small number of syntactic variables.</li>
+</ul>
+<p>After those values are fixed, the sentence expresses a minimal proposition.</p>
+<p>Advantages:</p>
+<ul>
+<li>stable compositional semantics;</li>
+<li>clear distinction between saying and implying;</li>
+<li>shared content across contexts;</li>
+<li>resistance to unconstrained intuition.</li>
+</ul>
+<p>Pressure arises when the minimal proposition seems incomplete or unlike what speakers
+judge was said.</p>
+<h2 id="indexicalism"><a class="header" href="#indexicalism">Indexicalism</a></h2>
+<p>Indexicalism preserves semantic determination by positing hidden contextual variables.</p>
+<blockquote>
+<p>It is raining.</p>
+</blockquote>
+<p>may contain a location variable:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm" style="margin-right:0.01389em;">Raining</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>"Everyone is here" contains a restricted domain; "Ada is ready" an activity argument.</p>
+<p>The view explains truth-evaluable specificity compositionally. Its burden is evidence:
+hidden structure cannot be introduced solely because an interpretation needs it.</p>
+<h2 id="contextualism"><a class="header" href="#contextualism">Contextualism</a></h2>
+<p>Contextualism permits <strong>free enrichment</strong>:</p>
+<blockquote>
+<p>Ada has eaten.</p>
+</blockquote>
+<p>may express that Ada has eaten recently or today, although no lexical item supplies the
+restriction.</p>
+<p>Interpretation is guided by relevance, shared purposes, and world knowledge. The
+resulting content is what the speaker said, not merely implicated.</p>
+<p>The challenge is constraint. If pragmatic enrichment can add arbitrary material,
+compositional meaning no longer predicts content or disagreement.</p>
+<h2 id="weather-reports"><a class="header" href="#weather-reports">Weather reports</a></h2>
+<p>"It is raining" is the standard case.</p>
+<ul>
+<li>Minimalism: expresses that it is raining, without a place.</li>
+<li>Indexicalism: grammar contains a location parameter.</li>
+<li>Contextualism: pragmatic processes enrich the content with a relevant location.</li>
+</ul>
+<p>Tests include:</p>
+<ul>
+<li>whether a locationless proposition is evaluable;</li>
+<li>syntactic evidence for an argument;</li>
+<li>cross-linguistic marking;</li>
+<li>embedding and anaphora;</li>
+<li>intuitions about what was said;</li>
+<li>cancellation.</li>
+</ul>
+<p>No single test is decisive.</p>
+<h2 id="quantifier-domains"><a class="header" href="#quantifier-domains">Quantifier domains</a></h2>
+<blockquote>
+<p>Everyone arrived.</p>
+</blockquote>
+<p>Ordinarily means everyone in a relevant group, not every person in existence.</p>
+<p>Options:</p>
+<ul>
+<li>quantifiers are semantically restricted by a contextual domain;</li>
+<li>a covert restrictor occurs in logical form;</li>
+<li>the unrestricted content is pragmatically understood relative to the QUD;</li>
+<li>ordinary "everyone" conventionally ranges over salient domains.</li>
+</ul>
+<p>Domain restriction is pervasive, but whether it is semantic or pragmatic affects
+logical form and compositional entailment.</p>
+<h2 id="gradable-adjectives"><a class="header" href="#gradable-adjectives">Gradable adjectives</a></h2>
+<p>"Ada is tall" depends on a comparison class and standard. Ada can be tall for a child
+and not tall for a basketball player.</p>
+<p>A formal semantics may include:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Height</span></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">St</span><span class="mord mathnormal">an</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">d</span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Contextualists may instead treat the adjective's content as modulated in use.</p>
+<p>Gradability provides evidence for structured contextual parameters, though standards
+can depend on purpose and precision in ways not reducible to one number.</p>
+<h2 id="ready-and-unarticulated-constituents"><a class="header" href="#ready-and-unarticulated-constituents">"Ready" and unarticulated constituents</a></h2>
+<p>"Ada is ready" prompts:</p>
+<blockquote>
+<p>Ready for what?</p>
+</blockquote>
+<p>The activity may be semantically required but unspoken, or freely supplied.</p>
+<p>Evidence for a hidden argument includes:</p>
+<ul>
+<li>selectional behaviour;</li>
+<li>anaphoric retrieval;</li>
+<li>cross-linguistic overt realization;</li>
+<li>constraints on possible enrichments.</li>
+</ul>
+<p>If any salient purpose can complete the sentence without syntactic trace, pragmatic
+completion becomes more plausible.</p>
+<h2 id="modulation"><a class="header" href="#modulation">Modulation</a></h2>
+<p>Lexical content can narrow or broaden:</p>
+<ul>
+<li>"The bottle is empty" tolerates residue.</li>
+<li>"France is hexagonal" uses approximation.</li>
+<li>"The city is asleep" applies a predicate non-literally to collective activity.</li>
+</ul>
+<p>Contextualists treat occasion-specific concepts as part of what is said. Minimalists
+retain literal content and explain acceptability pragmatically.</p>
+<p>The issue is whether literal minimal contents play an independent explanatory role in
+inference, denial, and embedding.</p>
+<h2 id="binding-and-embedding-tests"><a class="header" href="#binding-and-embedding-tests">Binding and embedding tests</a></h2>
+<p>Semantic variables can often be bound:</p>
+<blockquote>
+<p>Every room has a corner where it is quiet.</p>
+</blockquote>
+<p>If a contextual element varies systematically under quantification, grammar may
+represent it.</p>
+<p>Embedding also tests whether an enrichment contributes to truth conditions inside:</p>
+<blockquote>
+<p>If Ada has eaten today, she can take the medication.</p>
+</blockquote>
+<p>Local enrichment within antecedents is harder to explain as a global conversational
+afterthought.</p>
+<p>Pragmatic theories can allow local effects, so these tests constrain rather than settle
+the boundary.</p>
+<h2 id="cancellation"><a class="header" href="#cancellation">Cancellation</a></h2>
+<p>If enriched content can be cancelled without contradiction, it appears pragmatic:</p>
+<blockquote>
+<p>Ada has eaten - not today, but last week.</p>
+</blockquote>
+<p>Yet cancellation can target ambiguity, looseness, or metalinguistic correction.
+Conversely, some implicatures are awkward to cancel because context makes them highly
+expected.</p>
+<p>Cancellation is one diagnostic among several.</p>
+<h2 id="truth-conditional-pragmatics"><a class="header" href="#truth-conditional-pragmatics">Truth-conditional pragmatics</a></h2>
+<p>Truth-conditional pragmatics holds that pragmatic processes help determine the
+proposition expressed. Recanati distinguishes saturation required by linguistic slots
+from optional free enrichment.</p>
+<p>The view aligns semantic analysis with ordinary judgments about what speakers say.
+It must explain:</p>
+<ul>
+<li>constraints on enrichment;</li>
+<li>cross-speaker agreement;</li>
+<li>composition;</li>
+<li>embedded readings;</li>
+<li>distinction from implicature.</li>
+</ul>
+<p>Relevance theory supplies one constraint through optimal relevance, though critics find
+it too flexible.</p>
+<h2 id="methodological-stakes"><a class="header" href="#methodological-stakes">Methodological stakes</a></h2>
+<p>The dispute cannot be settled by asking speakers whether content "feels semantic."
+Evidence includes:</p>
+<ul>
+<li>syntax;</li>
+<li>cross-linguistic realization;</li>
+<li>anaphora and binding;</li>
+<li>projection and embedding;</li>
+<li>acquisition;</li>
+<li>processing;</li>
+<li>cancellation;</li>
+<li>disagreement and denial;</li>
+<li>formal economy.</li>
+</ul>
+<p>Different phenomena may fall on different sides. A single universal boundary need not
+classify indexicals, quantifier domains, coercion, and metaphor identically.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Strength</th><th>Main pressure</th></tr></thead><tbody>
+<tr><td>Minimalism</td><td>stable shared semantic core</td><td>thin or incomplete asserted content</td></tr>
+<tr><td>Indexicalism</td><td>compositional contextual values</td><td>proliferation of hidden variables</td></tr>
+<tr><td>Contextualism</td><td>tracks occasion-specific saying</td><td>constraint and learnability</td></tr>
+<tr><td>Truth-conditional pragmatics</td><td>integrates interpretation with truth</td><td>boundary with implicature</td></tr>
+</tbody></table>
+</div>
+<p>A productive question is not merely "semantic or pragmatic?" but:</p>
+<ol>
+<li>What linguistic material constrains the interpretation?</li>
+<li>Which contextual input is required?</li>
+<li>Is the result truth-conditionally embedded?</li>
+<li>Can it be denied or cancelled?</li>
+<li>Does grammar represent a variable?</li>
+<li>What explanatory work is lost if the contribution is moved?</li>
+</ol>
+<p>The boundary is theoretically substantive even if it is not one sharp line across all
+language.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/06-lying-misleading-and-bullshit.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/01-doing-things-with-words.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/08-pragmatics/06-lying-misleading-and-bullshit.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/09-speech-acts/01-doing-things-with-words.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

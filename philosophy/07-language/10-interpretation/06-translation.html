@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Translation and Conceptual Schemes - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/10-interpretation/06-translation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="translation-and-conceptual-schemes"><a class="header" href="#translation-and-conceptual-schemes">Translation and Conceptual Schemes</a></h1>
+<p>Translation seeks expressions in one language that preserve content, force, and use
+from another. Exact equivalence is often unavailable: words divide semantic space
+differently, grammar requires distinctions another language leaves optional, and texts
+depend on historical associations.</p>
+<p>Difficulty does not immediately imply untranslatability or radically different
+conceptual schemes. Translation can preserve some dimensions while explaining losses
+in others.</p>
+<hr />
+<h2 id="what-should-translation-preserve"><a class="header" href="#what-should-translation-preserve">What should translation preserve?</a></h2>
+<p>Candidates include:</p>
+<ul>
+<li>reference;</li>
+<li>truth-conditions;</li>
+<li>inferential role;</li>
+<li>cognitive significance;</li>
+<li>presupposition;</li>
+<li>tone and register;</li>
+<li>illocutionary force;</li>
+<li>literary form;</li>
+<li>practical effect.</li>
+</ul>
+<p>No translation maximizes all simultaneously. Technical translation prioritizes
+reference and inference; poetry may prioritize rhythm and association.</p>
+<p>Translation quality is purpose-relative without being arbitrary.</p>
+<h2 id="equivalence"><a class="header" href="#equivalence">Equivalence</a></h2>
+<p>Two expressions can be equivalent at different levels:</p>
+<ul>
+<li>extensionally co-referential;</li>
+<li>truth-conditionally equivalent;</li>
+<li>synonymous;</li>
+<li>pragmatically interchangeable;</li>
+<li>functionally equivalent in a genre.</li>
+</ul>
+<p>Replacing one by another may preserve truth while losing mode of presentation or social
+meaning. A translator should state the intended equivalence.</p>
+<h2 id="loss-and-compensation"><a class="header" href="#loss-and-compensation">Loss and compensation</a></h2>
+<p>Languages grammaticalize different information: evidential source, gender, aspect,
+honorific relation, definiteness, or social stance.</p>
+<p>A translation can:</p>
+<ul>
+<li>make implicit information explicit;</li>
+<li>omit a distinction;</li>
+<li>use paraphrase;</li>
+<li>add a note;</li>
+<li>compensate elsewhere;</li>
+<li>preserve ambiguity rather than resolve it.</li>
+</ul>
+<p>Loss in one dimension does not show that the source is unintelligible.</p>
+<h2 id="incommensurability"><a class="header" href="#incommensurability">Incommensurability</a></h2>
+<p>Scientific paradigms or cultures may organize concepts differently enough that
+sentence-by-sentence translation distorts their roles. <strong>Incommensurability</strong> can mean:</p>
+<ul>
+<li>no exact synonymy;</li>
+<li>different standards of evidence;</li>
+<li>different taxonomies;</li>
+<li>no neutral comparison vocabulary;</li>
+<li>partial failure of reference continuity.</li>
+</ul>
+<p>These claims vary in strength. Lack of perfect translation is ordinary; impossibility
+of rational comparison is much stronger.</p>
+<h2 id="conceptual-schemes"><a class="header" href="#conceptual-schemes">Conceptual schemes</a></h2>
+<p>A conceptual scheme is supposed to organize otherwise neutral experiential content.
+Different schemes may classify one world in incompatible ways.</p>
+<p>Davidson challenges the scheme-content dualism. To identify a scheme as a language, we
+must interpret it; interpretation requires substantial shared truth and rationality.
+A wholly untranslatable language cannot be recognized as expressing a radically
+different scheme.</p>
+<p>The conclusion targets total untranslatability, not local conceptual difference.</p>
+<h2 id="davidsons-argument"><a class="header" href="#davidsons-argument">Davidson's argument</a></h2>
+<p>If two schemes are largely translatable, their difference is local and describable.
+If not translatable at all, there is no basis for identifying the noises as assertions
+with contents radically unlike ours.</p>
+<p>Thus the metaphor of schemes organizing an uninterpreted content becomes unstable:</p>
+<ul>
+<li>interpreted content is already conceptually articulated;</li>
+<li>uninterpreted content cannot serve as a common comparison object.</li>
+</ul>
+<p>Critics reply that partial interaction, practice, and causal coordination can establish
+languagehood before full translation.</p>
+<h2 id="reference-across-theory-change"><a class="header" href="#reference-across-theory-change">Reference across theory change</a></h2>
+<p>Historical translation asks whether old scientific terms refer to current entities.
+"Mass," "planet," and "gene" changed theoretical roles.</p>
+<p>Continuity can depend on:</p>
+<ul>
+<li>causal contact;</li>
+<li>preserved samples;</li>
+<li>explanatory role;</li>
+<li>partial inferential overlap;</li>
+<li>retrospective reconstruction.</li>
+</ul>
+<p>Translation may be neither identity nor failure. A term can preserve reference while
+changing sense, or split into several later concepts.</p>
+<h2 id="hermeneutic-translation"><a class="header" href="#hermeneutic-translation">Hermeneutic translation</a></h2>
+<p>Translation across historical horizons requires reconstructing questions and practices,
+not substituting words mechanically. The interpreter moves between local passages and
+the wider form of life.</p>
+<p>This can expose presuppositions in both languages. It should not authorize unconstrained
+appropriation; textual and historical evidence remain constraints.</p>
+<h2 id="machine-translation"><a class="header" href="#machine-translation">Machine translation</a></h2>
+<p>Statistical and neural systems can produce fluent cross-language text through learned
+patterns. Performance demonstrates substantial structural regularity without by itself
+settling whether the system possesses human-like understanding.</p>
+<p>Evaluation should separate:</p>
+<ul>
+<li>adequacy of output;</li>
+<li>preservation of reference and force;</li>
+<li>robustness to context;</li>
+<li>calibration under ambiguity;</li>
+<li>internal representation;</li>
+<li>agency and communicative intention.</li>
+</ul>
+<p>Translation quality is measurable even when metaphysical questions about understanding
+remain open.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Translation is best treated as constrained plural optimization rather than perfect
+substitution. It can preserve truth while losing tone, preserve function while changing
+form, or explain a source distinction through paraphrase.</p>
+<p>Radical conceptual difference remains possible locally. The stronger claim of a wholly
+untranslatable language is difficult to state, because evidence that something is a
+language already supports some interpretation. The practical task is to map both
+equivalences and irreducible differences without treating either as total.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/10-interpretation/05-testimony-and-understanding.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/11-truth-and-formal-semantics/01-truth-and-meaning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/10-interpretation/05-testimony-and-understanding.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/11-truth-and-formal-semantics/01-truth-and-meaning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

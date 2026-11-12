@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Inferentialism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/06-inferentialism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="inferentialism"><a class="header" href="#inferentialism">Inferentialism</a></h1>
+<p>To understand "and" is to know that from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> one may infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, and that from
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> one may infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>. To understand "red" is partly to know that
+something red is coloured and cannot be wholly green in the same place at the same
+time. These examples suggest that meaning is constituted not only by what expressions
+refer to, but by the inferences their use licenses and forbids.</p>
+<p><strong>Inferentialism</strong> explains content through a role in reasoning. On its strongest
+versions, an expression means what it does because of the commitments, entitlements,
+consequences, and incompatibilities governing its use. This makes semantic normativity
+and rational practice central. It also creates familiar pressures: if total inferential
+role fixes meaning, differences in belief threaten shared content; if only selected
+inferences count, the theory needs a principled boundary.</p>
+<p>This page concerns inferentialism about <strong>public linguistic meaning</strong>. The related view
+that mental representations are individuated by their cognitive role is developed in
+<a href="../../06-mind/07-intentionality/04-functional-and-inferential-role.html">Functional and Inferential-Role
+Semantics</a>.</p>
+<hr />
+<h2 id="from-representation-to-inference"><a class="header" href="#from-representation-to-inference">From representation to inference</a></h2>
+<p>A referential picture begins with a relation between word and object. A
+truth-conditional picture begins with the circumstances in which a sentence is true.
+Inferentialism begins with the place an expression occupies in giving and asking for
+reasons.</p>
+<p>Consider the claim:</p>
+<blockquote>
+<p>The coin is copper.</p>
+</blockquote>
+<p>Competent use connects it to consequences such as:</p>
+<ul>
+<li>the coin is metallic;</li>
+<li>the coin conducts electricity under normal conditions;</li>
+<li>the coin is not made entirely of wood; and</li>
+<li>some observational and testimonial circumstances count in favour of applying
+"copper."</li>
+</ul>
+<p>Not every associated belief is meaning-constitutive. A speaker might falsely believe
+that every copper object is ancient. Inferentialism must distinguish the relations that
+articulate the concept from collateral commitments involving it.</p>
+<p>The central proposal can therefore be stated schematically:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Content</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Role</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">grounds</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">consequences</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">incompatibilities</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">practical transitions</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>The formula is not yet a theory until the relevant role and its norm are specified.</p>
+<h2 id="sellars-and-the-space-of-reasons"><a class="header" href="#sellars-and-the-space-of-reasons">Sellars and the space of reasons</a></h2>
+<p>Sellars distinguishes merely being caused to respond from occupying the <strong>logical
+space of reasons</strong>. A thermometer responds reliably to temperature, but it does not
+justify a claim, retract one, or infer a consequence. A speaker's assertion belongs to
+a network in which reasons can be requested and supplied.</p>
+<p>This does not make causal contact irrelevant. Perceptual reports have <strong>language-entry
+transitions</strong> from reliable environmental circumstances; actions have
+<strong>language-exit transitions</strong> from practical reasoning; and claims connect to one
+another through <strong>intra-language transitions</strong>.</p>
+<p>A linguistic token has conceptual content when it participates appropriately in this
+norm-governed network. The view explains why reliable discrimination alone is not yet
+the possession of a concept.</p>
+<h2 id="brandom-and-normative-pragmatics"><a class="header" href="#brandom-and-normative-pragmatics">Brandom and normative pragmatics</a></h2>
+<p>Brandom develops inferentialism through a social practice of <strong>discursive
+scorekeeping</strong>. Participants track:</p>
+<ul>
+<li><strong>commitments</strong> a speaker undertakes;</li>
+<li><strong>entitlements</strong> the speaker has to those commitments;</li>
+<li>consequences that follow from a commitment;</li>
+<li>incompatibilities among commitments; and</li>
+<li>changes produced by assertion, challenge, defence, and retraction.</li>
+</ul>
+<p>If Ada asserts that the metal is copper, she becomes committed to its being metallic.
+She may be entitled through observation or testimony. If she is also committed to its
+being wholly wooden, other participants can challenge the incompatible score.</p>
+<p>Content is articulated by these inferential relations. Assertion is not merely
+emission of a sentence with a truth-condition; it is entry into a normative practice.</p>
+<p>Scorekeeping need not be conscious bookkeeping. It models practical sensitivities
+displayed when speakers draw conclusions, request reasons, detect conflict, and revise
+claims.</p>
+<h2 id="formal-inference-and-logical-vocabulary"><a class="header" href="#formal-inference-and-logical-vocabulary">Formal inference and logical vocabulary</a></h2>
+<p>Logical connectives provide inferentialism's clearest cases. Natural-deduction rules
+can be read as specifying use:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:2em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord">∧</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2326em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord">∧</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:2em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2326em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord">∧</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Introduction rules state how a connective can be asserted; elimination rules state
+what follows from it. Proof-theoretic semantics proposes that appropriately related
+rules fix the connective's meaning.</p>
+<p>The qualification matters. Prior's invented connective <strong>tonk</strong> has rules allowing one
+to infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">tonk</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and then infer arbitrary <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> from
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">tonk</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>. If any stipulated rules automatically conferred meaning,
+tonk would trivialize inference.</p>
+<p>This motivates constraints such as:</p>
+<ul>
+<li><strong>harmony:</strong> elimination rules extract no more than introduction rules put in;</li>
+<li><strong>conservativeness:</strong> adding the connective does not create new consequences in the
+old vocabulary without justification;</li>
+<li><strong>normalization:</strong> detours through introduction followed by elimination can be
+reduced; and</li>
+<li><strong>stability:</strong> introduction and elimination rules determine one another in the
+relevant sense.</li>
+</ul>
+<p>Inferential role is therefore normative structure, not arbitrary transition.</p>
+<h2 id="material-inference"><a class="header" href="#material-inference">Material inference</a></h2>
+<p>Formal validity depends on logical form. <strong>Material inferences</strong> depend on non-logical
+content:</p>
+<blockquote>
+<p>It is scarlet; therefore it is red.</p>
+</blockquote>
+<blockquote>
+<p>The object is west of the tower; therefore the tower is east of the object.</p>
+</blockquote>
+<p>An inferentialist may treat these relations as constitutive of the concepts involved.
+They need not be made valid by inserting suppressed conditionals learned separately.</p>
+<p>Material inference gives the theory reach beyond logical constants. It also intensifies
+the analytic-synthetic problem. Is "Copper conducts electricity" constitutive of
+<em>copper</em>, or a revisable empirical discovery? If every accepted generalization enters
+meaning, false science becomes semantically correct and theory change becomes change
+of subject.</p>
+<h2 id="local-and-global-role"><a class="header" href="#local-and-global-role">Local and global role</a></h2>
+<p><strong>Global inferentialism</strong> lets an expression's content depend on its place in an entire
+network of commitments. It captures theoretical interdependence but produces
+<strong>holism</strong>: because no two speakers have exactly the same beliefs, they rarely mean
+exactly the same thing.</p>
+<p><strong>Local</strong> or <strong>molecular inferentialism</strong> selects a limited set of meaning-constitutive
+inferences. It protects communication and disagreement but owes a non-circular account
+of which inferences belong to the molecule.</p>
+<p>Possible boundaries include:</p>
+<ul>
+<li>conceptually basic introduction and elimination rules;</li>
+<li>inferences speakers treat as criterial;</li>
+<li>explanations central to learning the expression;</li>
+<li>counterfactual stability under ordinary belief revision;</li>
+<li>semantic deference to communal or expert practice; and</li>
+<li>roles fixed by a best overall interpretation.</li>
+</ul>
+<p>Each criterion can vary historically and socially. Molecularism reduces holism rather
+than automatically eliminating it.</p>
+<h2 id="communication-and-disagreement"><a class="header" href="#communication-and-disagreement">Communication and disagreement</a></h2>
+<p>If two scientists disagree about electrons, their inferential commitments differ.
+Global role theory risks concluding that they attach different meanings to "electron,"
+turning substantive disagreement into verbal difference.</p>
+<p>Inferentialists can preserve shared content in several ways:</p>
+<ol>
+<li>require similarity rather than identity of total role;</li>
+<li>identify a stable core of shared material inferences;</li>
+<li>appeal to common causal and historical reference;</li>
+<li>let conversational context select the relevant portion of role; or</li>
+<li>treat content attribution as an interpretive abstraction serving explanation.</li>
+</ol>
+<p>The third response yields a hybrid: world-linking keeps the topic stable while
+inferential role explains differences in conception. It parallels the division between
+reference and cognitive significance in
+<a href="02-sense-and-reference.html">Sense and Reference</a>.</p>
+<h2 id="compositionality"><a class="header" href="#compositionality">Compositionality</a></h2>
+<p>A language cannot assign an independent holistic role to every sentence and still
+explain productivity. The role of a complex expression must be generated from reusable
+parts and constructions.</p>
+<p>For logical vocabulary, proof rules supply a direct compositional architecture. For
+lexical items, matters are harder. The consequences of "red square" depend on <em>red</em>,
+<em>square</em>, their mode of combination, and background assumptions about predication.</p>
+<p>An inferentialist may distinguish:</p>
+<ul>
+<li><strong>lexical roles</strong> attached to expressions;</li>
+<li><strong>structural rules</strong> governing composition; and</li>
+<li><strong>pragmatic commitments</strong> supplied by context.</li>
+</ul>
+<p>This begins to resemble a pluralist semantics rather than an alternative to formal
+composition. Inferential role can be one kind of semantic value or metasemantic
+constraint within a typed formal theory.</p>
+<h2 id="reference-and-world-involvement"><a class="header" href="#reference-and-world-involvement">Reference and world-involvement</a></h2>
+<p>A coherent network can be systematically mistaken. Purely internal inferential role
+seems unable to determine whether "water" concerns water, twin water, or an imagined
+substance.</p>
+<p>Entry transitions connect language to perception, but causal input alone does not fix
+content without a theory of error. Social deference and historical chains connect
+speakers to kinds they cannot identify. Truth-conditions distinguish correct from
+incorrect world-directed applications.</p>
+<p>Inferentialists respond in three broad ways:</p>
+<ul>
+<li><strong>strong inferentialism:</strong> reference is derivative from the role a term plays in a
+sufficiently rich practice;</li>
+<li><strong>two-factor theory:</strong> inferential role supplies cognitive significance while
+external relations supply reference;</li>
+<li><strong>interpretivism:</strong> reference is part of the assignment that best makes the total
+practice intelligible.</li>
+</ul>
+<p>The strong view is most unified and bears the largest burden. Hybrid views sacrifice
+reduction in exchange for a clearer world-link.</p>
+<h2 id="normativity-and-error"><a class="header" href="#normativity-and-error">Normativity and error</a></h2>
+<p>Actual transitions cannot alone fix correct inference. A speaker may infer badly. If
+whatever the speaker does constitutes the rule, error disappears.</p>
+<p>Normative inferentialism instead appeals to what a speaker is <strong>committed</strong> or
+<strong>entitled</strong> to infer. The norms may be grounded in:</p>
+<ul>
+<li>constitutive rules of discursive practice;</li>
+<li>mutual recognition among participants;</li>
+<li>objective logical consequence;</li>
+<li>successful inquiry and environmental interaction;</li>
+<li>biological or practical function; or</li>
+<li>rational reconstruction.</li>
+</ul>
+<p>Each option faces a version of the rule-following question: what makes these rather
+than deviant transitions the correct ones? Inferentialism does not escape
+<a href="08-meaning-scepticism.html">meaning scepticism</a>; it provides a practice-based candidate
+answer.</p>
+<p>The distinction between commitment and entitlement also preserves error. A claim can
+commit a speaker to a consequence even when they fail to draw it, and a speaker can be
+committed without being entitled.</p>
+<h2 id="conservatism"><a class="header" href="#conservatism">Conservatism</a></h2>
+<p>If communal inferential practice constitutes meaning, entrenched prejudice or bad
+science might seem correct by definition. A community could license invalid or harmful
+inferences.</p>
+<p>The inferentialist should distinguish:</p>
+<ul>
+<li>what inferences currently articulate a concept;</li>
+<li>whether participants are entitled to those commitments;</li>
+<li>whether the practice achieves its own purposes;</li>
+<li>whether reference and evidence support its applications; and</li>
+<li>whether conceptual revision is recommended.</li>
+</ul>
+<p>The theory describes semantic commitments without endorsing every commitment. Yet the
+more external standards it invokes, the less inferential role alone explains.</p>
+<h2 id="relation-to-truth-conditional-semantics"><a class="header" href="#relation-to-truth-conditional-semantics">Relation to truth-conditional semantics</a></h2>
+<p>Inferential and truth-conditional theories need not be exclusive.</p>
+<ul>
+<li>Truth-conditions explain how claims answer to possible circumstances.</li>
+<li>Inferential roles explain what follows from claims and what counts as a reason.</li>
+<li>In a sound logic, truth preservation and inferential validity align.</li>
+<li>In non-classical settings, proof-theoretic and model-theoretic semantics can provide
+distinct but related characterizations.</li>
+</ul>
+<p>Conflict arises over explanatory priority. A truth-conditional theorist may define
+valid inference through truth in all models. An inferentialist may hold that the use of
+expressions in inference fixes their content and thereby constrains models.</p>
+<p>The dispute is developed especially sharply by verificationism and intuitionism, where
+assertibility or proof competes with verification-transcendent truth as the basis of
+meaning.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Strength</th><th>Corresponding pressure</th></tr></thead><tbody>
+<tr><td>Explains semantic normativity through reasons and commitments</td><td>Must ground the correct norms</td></tr>
+<tr><td>Handles logical vocabulary through rules</td><td>Arbitrary rules require harmony constraints</td></tr>
+<tr><td>Captures cognitive significance and conceptual relations</td><td>Fine-grained role threatens shared content</td></tr>
+<tr><td>Integrates meaning with assertion and justification</td><td>Not all language use is assertoric or inferential</td></tr>
+<tr><td>Explains error through commitment/entitlement distinctions</td><td>Actual practice and correct practice can diverge</td></tr>
+<tr><td>Models theoretical concepts as networked</td><td>Holism threatens composition and stable reference</td></tr>
+</tbody></table>
+</div>
+<p>Inferentialism's durable insight is that meaning is not exhausted by a mapping from
+words to objects. Competent speakers know what follows, what conflicts, what supports,
+and what practical difference a claim makes. Its open question is whether that role
+constitutes content by itself or works alongside truth, reference, convention, and
+causal history.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Brandom, Robert B. <em>Making It Explicit</em> (1994).</li>
+<li>Dummett, Michael. <em>The Logical Basis of Metaphysics</em> (1991).</li>
+<li>Gentzen, Gerhard. "Investigations into Logical Deduction" (1934-35).</li>
+<li>Prior, Arthur. "The Runabout Inference-Ticket" (1960).</li>
+<li>Sellars, Wilfrid. "Inference and Meaning" (1953).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/05-intention-and-convention.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/07-verificationism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/05-intention-and-convention.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/07-verificationism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

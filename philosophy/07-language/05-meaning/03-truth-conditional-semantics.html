@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Truth-Conditional Semantics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/05-meaning/03-truth-conditional-semantics.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="truth-conditional-semantics"><a class="header" href="#truth-conditional-semantics">Truth-Conditional Semantics</a></h1>
+<p>To understand a declarative sentence is, at least in part, to understand what the world
+would have to be like for the sentence to be true. A speaker may not know whether
+"There is life beneath Europa's ice" is true, yet can understand the claim by grasping
+the condition it places on the world. <strong>Truth-conditional semantics</strong> develops this
+idea: a theory of meaning should systematically state the truth-conditions of
+sentences.</p>
+<p>The program's attraction is explanatory economy. A finite theory can derive the
+contents of indefinitely many sentences from axioms for words and rules for
+composition. Its central challenge is that stating truth-conditions relative to an
+interpretation does not yet explain why the language has that interpretation, how
+speakers know it, or whether truth-conditions distinguish contents finely enough.</p>
+<hr />
+<h2 id="truth-conditions-are-not-truth-values"><a class="header" href="#truth-conditions-are-not-truth-values">Truth-conditions are not truth values</a></h2>
+<p>A truth value says whether a sentence is true or false. A truth-condition says under
+what conditions it would be true. "Snow is white" and "Grass is green" may share the
+truth value True while differing in truth-conditions.</p>
+<p>This distinction explains how false sentences remain meaningful. "Snow is black" is
+false, but its truth-condition is intelligible: it would be true just in case snow were
+black. Meaning does not require actual truth.</p>
+<p>Truth-conditions also support entailment. If every circumstance in which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span> is
+true is one in which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span> is true, then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span> semantically entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mord">.</span></span></span></span></span></p>
+<p>Formal model theory makes this relation exact. Natural-language semantics must also
+identify the relevant structure of expressions and the interpretations speakers use.</p>
+<h2 id="tarskis-formal-achievement"><a class="header" href="#tarskis-formal-achievement">Tarski's formal achievement</a></h2>
+<p>Tarski showed how to define truth recursively for a formal language in a richer
+metalanguage. Rather than treating truth as a simple list, a theory gives:</p>
+<ul>
+<li>satisfaction clauses for atomic formulas;</li>
+<li>recursive clauses for connectives;</li>
+<li>clauses for quantifiers relative to variable assignments; and</li>
+<li>a definition of truth for closed sentences.</li>
+</ul>
+<p>For conjunction:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.999em;vertical-align:-0.249em;"></span><span class="mord mathnormal">φ</span><span class="mord text"><span class="mord"> and </span></span><span class="mord mathcal">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊨</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mord">.</span></span></span></span></span></p>
+<p>The recursion mirrors syntactic construction. Once the interpretations of primitive
+expressions are supplied, the theory determines truth for every complex sentence in
+the formal language.</p>
+<p>This is a theory of truth for an already interpreted language, not automatically a
+theory of natural-language meaning. Tarski's aim was formal adequacy and avoidance of
+semantic paradox. The philosophical extension is Davidson's.</p>
+<h2 id="davidsons-proposal"><a class="header" href="#davidsons-proposal">Davidson's proposal</a></h2>
+<p>Davidson proposed that an empirically adequate Tarski-style truth theory could serve as
+a theory of meaning for a natural language. The theory should entail, for each
+object-language sentence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>, a theorem of the form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">“</span></span><span class="mord mathnormal">s</span><span class="mord text"><span class="mord">” is true iff </span></span><span class="mord mathnormal">p</span><span class="mord">.</span></span></span></span></span></p>
+<p>For example:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">“Snow is white” is true iff snow is white.</span></span></span></span></span></span></p>
+<p>The left side mentions an object-language sentence; the right side uses the
+metalanguage to state its condition of truth. Such a result is called a
+<strong>T-sentence</strong>.</p>
+<p>The proposal does not define meaning as an entity. It gives the work expected of a
+meaning theory to a finitely axiomatized system that derives interpretive theorems.
+This fits Davidson's suspicion of meanings conceived as abstract objects while
+preserving compositional explanation.</p>
+<h2 id="why-finite-axiomatization-matters"><a class="header" href="#why-finite-axiomatization-matters">Why finite axiomatization matters</a></h2>
+<p>A list pairing every sentence with a translation would be extensionally complete but
+explain nothing about competence. Natural languages permit indefinitely many
+sentences, so a learnable theory must derive their interpretations from finite
+resources.</p>
+<p>Suppose the theory contains axioms for names and a predicate:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm" style="margin-right:0.07778em;">Ref</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">“Ada”</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Ada</span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Sat</span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">“runs”</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> runs</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Together with a compositional clause, it derives:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">“Ada runs” is true iff Ada runs</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Real natural languages require treatments of ambiguity, tense, modality, context,
+attitudes, events, plurals, and non-declaratives. The architectural point remains:
+semantic competence is modelled by reusable axioms and rules rather than memorized
+sentence pairs.</p>
+<h2 id="convention-t-and-interpretive-adequacy"><a class="header" href="#convention-t-and-interpretive-adequacy">Convention T and interpretive adequacy</a></h2>
+<p>Tarski's <strong>Convention T</strong> requires a materially adequate truth definition to entail
+every instance of the schema:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">“</span></span><span class="mord mathnormal">p</span><span class="mord text"><span class="mord">” is true iff </span></span><span class="mord mathnormal">p</span><span class="mord">.</span></span></span></span></span></p>
+<p>For formal languages, translation between object language and metalanguage is assumed.
+For radical interpretation, that translation is precisely what must be discovered.
+A theory can derive true biconditionals for the wrong reasons:</p>
+<blockquote>
+<p>"Snow is white" is true iff grass is green.</p>
+</blockquote>
+<p>If both sides happen to be true, the biconditional is true but not interpretive. Mere
+extensional truth is insufficient.</p>
+<p>Davidsonian interpretation therefore constrains a whole theory through patterns of
+assent, circumstances, rational coherence, and compositional structure. Evidence for
+many sentences jointly rules out accidental pairings better than any isolated
+T-sentence.</p>
+<h2 id="radical-interpretation"><a class="header" href="#radical-interpretation">Radical interpretation</a></h2>
+<p>A radical interpreter begins without a dictionary and observes speakers interacting
+with a shared environment. Meaning and belief must be assigned together. Assent to a
+sentence may reflect what it means, what the speaker believes, or both.</p>
+<p>The interpreter uses a <strong>principle of charity</strong>: prefer assignments that make speakers
+broadly coherent and generally responsive to salient shared circumstances. This is not
+the claim that speakers are always correct. Some agreement is needed to identify
+stable subjects of disagreement and to treat behaviour as linguistic at all.</p>
+<p>Truth theory and interpretation are therefore connected:</p>
+<ol>
+<li>observable use constrains the candidate truth theory;</li>
+<li>the theory compositionally assigns truth-conditions;</li>
+<li>the assignments make speakers' attitudes intelligible;</li>
+<li>failures of interpretation lead to revision across the network.</li>
+</ol>
+<p>The <a href="../04-method-and-evidence.html">method page</a> explains why charity is a defeasible
+condition of interpretation rather than a guarantee of agreement.</p>
+<h2 id="semantic-theory-versus-metasemantics"><a class="header" href="#semantic-theory-versus-metasemantics">Semantic theory versus metasemantics</a></h2>
+<p>A truth theory states what sentences are true under. It need not explain what makes its
+axioms correct. If it assigns "water" to water, a further question remains: why does
+the community's word have that extension?</p>
+<p>Possible answers appeal to causal contact, historical transmission, conventions,
+expert deference, use, or optimal interpretation. These are metasemantic facts.</p>
+<p>The distinction parallels formal model theory:</p>
+<ul>
+<li>given a structure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">M</span></span></span></span>, recursive clauses determine satisfaction;</li>
+<li>the mathematics permits many structures;</li>
+<li>facts outside the formal recursion must select the interpretation relevant to a
+language.</li>
+</ul>
+<p>This is why <a href="../../../logic/11-remarks/02-models-truth-and-metalanguage.html">Models, Truth, and
+Metalanguage</a> is a
+prerequisite but not a complete philosophy of linguistic meaning.</p>
+<h2 id="does-a-speaker-know-truth-conditions"><a class="header" href="#does-a-speaker-know-truth-conditions">Does a speaker know truth-conditions?</a></h2>
+<p>If a theory of meaning represents competence, what relation do speakers have to it?
+Most cannot state semantic axioms, and no finite person surveys infinitely many
+T-sentences.</p>
+<p>The standard answer invokes <strong>tacit knowledge</strong> or practical competence. A speaker's
+interpretive capacities exhibit the structure captured by the theory without requiring
+conscious rehearsal. This resembles a grammar that models knowledge manifested in
+production and understanding.</p>
+<p>The answer creates two obligations:</p>
+<ul>
+<li>the theory should be learnable or psychologically realizable in some relevant sense;</li>
+<li>its derivations should explain systematic patterns in actual interpretation.</li>
+</ul>
+<p>An extensionally correct theory with arbitrary axioms may fail both, even if it assigns
+the right truth-condition to every sentence.</p>
+<h2 id="context-sensitivity"><a class="header" href="#context-sensitivity">Context sensitivity</a></h2>
+<p>A context-independent T-sentence for "I am tired" would be wrong. Its truth-condition
+depends on who utters it. One response relativizes truth:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">“I am tired” is true as uttered in </span></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">speaker</span></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mord text"><span class="mord"> is tired at </span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">time</span></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Indexicals can be handled through stable rules from contexts to contents. Harder cases
+include demonstratives, gradable adjectives, quantifier domains, and expressions whose
+interpretation depends on conversational purpose.</p>
+<p>The disagreement between minimalism, indexicalism, and contextualism concerns how much
+contextual contribution is represented in semantic structure. It does not show that
+truth-conditional modelling is impossible; it changes what the inputs to the truth
+theory must contain.</p>
+<h2 id="intensional-and-hyperintensional-content"><a class="header" href="#intensional-and-hyperintensional-content">Intensional and hyperintensional content</a></h2>
+<p>If truth-conditions are represented as sets of possible worlds, necessarily equivalent
+sentences receive the same content. But:</p>
+<ul>
+<li>"2+2=4" and Fermat's Last Theorem are true in the same possible worlds;</li>
+<li>a person may believe one without believing the other;</li>
+<li>one necessary truth may explain something that another does not.</li>
+</ul>
+<p>These are <strong>hyperintensional</strong> differences: distinctions finer than truth across
+possible worlds.</p>
+<p>Responses include:</p>
+<ul>
+<li>structured propositions;</li>
+<li>Fregean senses;</li>
+<li>impossible worlds;</li>
+<li>proof or procedure-sensitive content;</li>
+<li>subject-matter distinctions; and</li>
+<li>separating semantic content from cognitive mode of presentation.</li>
+</ul>
+<p>Truth-conditional semantics need not claim that possible-world intensions exhaust
+every explanatory notion of content. It must state which notion it models and how the
+remaining differences are handled.</p>
+<h2 id="non-declarative-language"><a class="header" href="#non-declarative-language">Non-declarative language</a></h2>
+<p>Questions, commands, and exclamations are meaningful without straightforwardly being
+true or false. A truth-conditional program can respond by:</p>
+<ul>
+<li>assigning them related propositional structures;</li>
+<li>modelling questions as sets of possible answers;</li>
+<li>treating imperatives through satisfaction or preference conditions;</li>
+<li>adding force as a separate layer; or</li>
+<li>generalizing meaning from truth conditions to context-change potential.</li>
+</ul>
+<p>The need for extension is not a refutation. Declarative truth-conditions may remain one
+central case within a broader formal semantics. It does show that a complete theory of
+language cannot identify every kind of meaning with ordinary truth-aptness.</p>
+<h2 id="strengths-and-limits"><a class="header" href="#strengths-and-limits">Strengths and limits</a></h2>
+<p>Truth-conditional semantics explains:</p>
+<ul>
+<li>how sentence meaning can be compositionally generated;</li>
+<li>why false sentences remain meaningful;</li>
+<li>semantic entailment and contradiction;</li>
+<li>scope and quantification;</li>
+<li>the relation between language and possible circumstances; and</li>
+<li>a rigorous interface with logic.</li>
+</ul>
+<p>Its characteristic limits are:</p>
+<ul>
+<li>it presupposes primitive interpretations or requires a metasemantics;</li>
+<li>extensionally adequate theories can be interpretively wrong;</li>
+<li>truth-conditions may be too coarse for cognition and explanation;</li>
+<li>context must be represented without unconstrained enrichment;</li>
+<li>speaker meaning and force require pragmatic theory; and</li>
+<li>non-declaratives require generalization.</li>
+</ul>
+<p>The right conclusion is not that truth-conditions are merely formal decoration. They
+capture a central dimension of declarative meaning. The mistake would be to treat that
+dimension as explaining by itself how language is learned, fixed, used, and understood.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/05-meaning/02-sense-and-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/04-use-and-language-games.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/05-meaning/02-sense-and-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/05-meaning/04-use-and-language-games.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

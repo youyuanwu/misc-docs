@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hyperintensionality - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/07-content-and-composition/05-hyperintensionality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="hyperintensionality"><a class="header" href="#hyperintensionality">Hyperintensionality</a></h1>
+<p>Two claims can be true in exactly the same possible worlds and still differ in meaning,
+belief, explanation, or subject matter. Every necessary truth is true at every possible
+world, yet understanding one theorem does not amount to understanding all mathematics.
+Every impossibility is true at no possible world, yet "There is a largest prime" and
+"Some square is circular" are different claims.</p>
+<p>Contexts that distinguish necessarily equivalent contents are
+<strong>hyperintensional</strong>. They require semantic structure finer than possible-world
+intensions.</p>
+<p>Hyperintensionality is not one phenomenon with one established solution. Belief,
+grounding, explanation, quotation, and subject matter may discriminate contents for
+different reasons. A theory should preserve exactly the distinctions relevant to its
+target rather than maximize fine grain without limit.</p>
+<hr />
+<h2 id="the-collapse-under-necessary-equivalence"><a class="header" href="#the-collapse-under-necessary-equivalence">The collapse under necessary equivalence</a></h2>
+<p>If propositions are sets of possible worlds:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord text"><span class="mord"> is true at </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mclose">}</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>then:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>All necessary truths become <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>, the set of all worlds. All impossible propositions
+become <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6633em;vertical-align:-0.0817em;"></span><span class="mord amsrm">∅</span></span></span></span>.</p>
+<p>This is acceptable for modal status but inadequate when the route, structure, grounds,
+or subject of truth matters.</p>
+<h2 id="mathematical-belief"><a class="header" href="#mathematical-belief">Mathematical belief</a></h2>
+<p>A person may know:</p>
+<blockquote>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></p>
+</blockquote>
+<p>without knowing:</p>
+<blockquote>
+<p>Every finite division ring is a field.</p>
+</blockquote>
+<p>Both are necessary if true. Possible-world content predicts identity and therefore
+logical omniscience for anyone related to the first proposition.</p>
+<p>Responses include:</p>
+<ul>
+<li>structured propositions with different constituents;</li>
+<li>proof-sensitive content;</li>
+<li>modes of presentation;</li>
+<li>impossible worlds representing incomplete theories;</li>
+<li>syntactic or algorithmic representations; and</li>
+<li>treating belief as more than relation to coarse propositions.</li>
+</ul>
+<p>The case shows that epistemic content tracks how truth is represented or established,
+not only where it is true.</p>
+<h2 id="impossible-contents"><a class="header" href="#impossible-contents">Impossible contents</a></h2>
+<p>Reasoners distinguish and compare impossibilities:</p>
+<ul>
+<li>If there were a largest prime, it would be odd or equal to 2.</li>
+<li>A square circle would have conflicting geometrical properties.</li>
+<li>If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> were 5, familiar arithmetic would change in particular ways.</li>
+</ul>
+<p>Counterpossible conditionals with impossible antecedents are not always judged
+vacuously true. Standard possible-world semantics treats every impossible antecedent as
+having no worlds and therefore cannot rank alternatives.</p>
+<p><strong>Impossible-world semantics</strong> adds worlds where logical, mathematical, or conceptual
+falsehoods hold. Different impossibilities can then have different truth sets.</p>
+<p>The cost is specifying impossible worlds without trivializing them. If contradiction
+entails everything at each world, distinctions collapse again. Non-classical logics or
+primitive impossible states are often used.</p>
+<h2 id="grounding"><a class="header" href="#grounding">Grounding</a></h2>
+<p>Grounding is hyperintensional. Even if:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span></span></p>
+<p>is necessary, the fact that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> may ground <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> while the fact that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> does not.</p>
+<p>For example, a set's singleton exists because the set exists, not because an unrelated
+necessary mathematical truth holds. Necessary equivalence does not preserve
+explanatory dependence.</p>
+<p>Truth sets record covariation across worlds; grounding records direction and basis.
+Adding worlds alone may not capture it unless worlds contain structured facts or
+grounding relations.</p>
+<p>The metaphysics of grounding remains in
+<a href="../../04-ontology/13-fundamentality/01-grounding.html">Grounding</a>. The semantic lesson is
+that "because" and "in virtue of" create contexts more discriminating than modality.</p>
+<h2 id="explanation"><a class="header" href="#explanation">Explanation</a></h2>
+<p>Explanations can differ despite equivalent explananda and explanantia.</p>
+<blockquote>
+<p>The flagpole's height and the sun's angle explain the shadow's length.</p>
+</blockquote>
+<p>The shadow's length and sun's angle may mathematically determine the pole's height, but
+the reverse derivation is not the same causal explanation.</p>
+<p>Explanatory vocabulary tracks direction, relevance, mechanism, and dependence.
+Replacing a statement by a necessary equivalent can destroy those relations.</p>
+<p>A hyperintensional semantics for "because" may use:</p>
+<ul>
+<li>structured facts;</li>
+<li>causal models;</li>
+<li>proof trees;</li>
+<li>relevance relations;</li>
+<li>grounding structures; or</li>
+<li>questions under discussion.</li>
+</ul>
+<p>No single truth-set contains all this information.</p>
+<h2 id="subject-matter"><a class="header" href="#subject-matter">Subject matter</a></h2>
+<p>Two necessary truths can be about different topics. "All bachelors are unmarried"
+concerns marital status; a theorem of group theory concerns algebra. Their modal
+profiles alone do not identify subject matter.</p>
+<p>Subject-matter theories represent content through:</p>
+<ul>
+<li>partitions of possibilities by relevant variables;</li>
+<li>sets of questions or issues;</li>
+<li>truthmakers and falsemakers;</li>
+<li>vocabularies and conceptual structures; or</li>
+<li>dimensions along which information varies.</li>
+</ul>
+<p>Topic matters for relevance, aboutness, and conversation. An answer can be true yet
+irrelevant because it addresses the wrong issue.</p>
+<h2 id="structured-propositions"><a class="header" href="#structured-propositions">Structured propositions</a></h2>
+<p>Structured propositions distinguish contents by constituents and arrangement:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal" style="margin-right:0.01968em;">Pl</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span><span class="mclose">⟩</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">G</span><span class="mord mathnormal">ro</span><span class="mord mathnormal">u</span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">im</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">yc</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>This handles many mathematical and belief cases. It also makes content sensitive to
+the semantic structure selected by analysis.</p>
+<p>Problems include:</p>
+<ul>
+<li>synonymous constituents can produce distinct structures;</li>
+<li>one claim can have multiple equivalent formulations;</li>
+<li>structure may be too syntactic;</li>
+<li>identity conditions for properties or senses remain difficult; and</li>
+<li>grounding or explanation may depend on more than constituent order.</li>
+</ul>
+<p>Structure is a family of solutions, not one granularity.</p>
+<h2 id="fregean-senses-and-modes-of-presentation"><a class="header" href="#fregean-senses-and-modes-of-presentation">Fregean senses and modes of presentation</a></h2>
+<p>Fregean senses distinguish necessarily coextensive expressions by how referents are
+presented. They naturally explain cognitive significance and belief.</p>
+<p>If senses are individuated by every possible difference in understanding, content
+becomes extremely fine-grained. If coarser, substitution problems reappear.</p>
+<p>A two-factor approach can retain:</p>
+<ul>
+<li>coarse truth-conditional content for public assertion;</li>
+<li>fine-grained modes for cognition and attitudes.</li>
+</ul>
+<p>This avoids requiring one proposition to serve incompatible identity criteria, but it
+must explain how the factors combine.</p>
+<h2 id="proof-and-procedure"><a class="header" href="#proof-and-procedure">Proof and procedure</a></h2>
+<p>For mathematics and computation, content can be tied to proof conditions or procedures.
+Two necessarily true formulas may require different proofs, algorithms, or
+normalization paths.</p>
+<p>Proof-theoretic semantics gives logical expressions meaning through introduction and
+elimination rules. Type theory distinguishes terms inhabiting the same proposition or
+type.</p>
+<p>Procedure-sensitive content explains cognitive effort and constructive information.
+It may over-distinguish proofs when ordinary speakers regard different derivations as
+establishing the same claim.</p>
+<p>The relevant equality can itself vary:</p>
+<ul>
+<li>syntactic identity;</li>
+<li>beta-eta equivalence;</li>
+<li>proof identity;</li>
+<li>homotopy or higher equality;</li>
+<li>interderivability.</li>
+</ul>
+<p>Fine grain must be chosen for purpose.</p>
+<h2 id="truthmakers-and-falsemakers"><a class="header" href="#truthmakers-and-falsemakers">Truthmakers and falsemakers</a></h2>
+<p>A proposition may be represented through what makes it true or false rather than the
+worlds where it is true.</p>
+<p>Truthmaker semantics can distinguish claims that are true at the same worlds but in
+virtue of different portions of reality. It can also model subject matter and relevance.</p>
+<p>Challenges include:</p>
+<ul>
+<li>not every truth has an obvious minimal truthmaker;</li>
+<li>negative and universal claims are difficult;</li>
+<li>truthmaker ontology is controversial;</li>
+<li>multiple independent truthmakers complicate identity; and</li>
+<li>semantic explanation inherits metaphysical commitments.</li>
+</ul>
+<p>Formal utility should be separated from realism about the represented truthmakers.</p>
+<h2 id="impossible-worlds"><a class="header" href="#impossible-worlds">Impossible worlds</a></h2>
+<p>Impossible worlds generalize possible-world semantics:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord text"><span class="mord"> is true at </span></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mclose">}</span><span class="mord">.</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> contains possible worlds and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> impossible worlds.</p>
+<p>They can model:</p>
+<ul>
+<li>inconsistent beliefs;</li>
+<li>counterpossibles;</li>
+<li>logical ignorance;</li>
+<li>distinct impossibilities;</li>
+<li>information states violating laws.</li>
+</ul>
+<p>The space is flexible enough to encode arbitrary distinctions. That is both strength
+and danger. Without constraints on impossible worlds and accessibility, explanatory
+content can be placed into the model by hand.</p>
+<h2 id="hyperintensional-operators"><a class="header" href="#hyperintensional-operators">Hyperintensional operators</a></h2>
+<p>Expressions creating hyperintensional contexts include:</p>
+<ul>
+<li>believes;</li>
+<li>knows;</li>
+<li>explains;</li>
+<li>because;</li>
+<li>grounds;</li>
+<li>is relevant to;</li>
+<li>is about;</li>
+<li>proves;</li>
+<li>means; and</li>
+<li>according to a theory.</li>
+</ul>
+<p>They need not share one semantics. "Believes" concerns cognitive representation,
+"grounds" metaphysical dependence, and "proves" formal derivation.</p>
+<p>The common label states a negative fact: substitution of necessary equivalents can
+fail. Positive theories should remain operator-sensitive.</p>
+<h2 id="compositionality"><a class="header" href="#compositionality">Compositionality</a></h2>
+<p>Hyperintensional content must still compose. If semantic values become arbitrarily
+fine-grained objects, combination rules may lose generality.</p>
+<p>Options include:</p>
+<ul>
+<li>typed structured meanings;</li>
+<li>algebraic operations on proof objects;</li>
+<li>compositional impossible-world intensions;</li>
+<li>syntax-sensitive quotation-like values;</li>
+<li>structured truthmaker conditions; and</li>
+<li>multi-dimensional semantics with coarse and fine components.</li>
+</ul>
+<p>A multi-dimensional value might be:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord text"><span class="mord">truth-condition</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">mode</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">subject matter</span></span><span class="mclose">⟩</span><span class="mord">.</span></span></span></span></span></p>
+<p>Different operators select different coordinates. This preserves structure but raises
+questions about which dimensions are conventional.</p>
+<h2 id="how-fine-is-fine-enough"><a class="header" href="#how-fine-is-fine-enough">How fine is fine enough?</a></h2>
+<p>No theory should distinguish contents merely because it can. Criteria include:</p>
+<ol>
+<li>Does the distinction affect truth, inference, explanation, or rational action?</li>
+<li>Is it stable across paraphrase and translation?</li>
+<li>Can speakers manifest sensitivity to it?</li>
+<li>Does it compose systematically?</li>
+<li>Does it predict substitution judgments?</li>
+<li>Is the added structure independently motivated?</li>
+</ol>
+<p>Maximal granularity makes every expression express a unique content and destroys
+generalization. Minimal granularity collapses cognition and explanation. The useful
+level depends on the explanatory task.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Hyperintensionality establishes that possible-world truth-conditions do not exhaust
+every notion of content. It does not establish one universal replacement.</p>
+<p>A disciplined pluralism uses:</p>
+<ul>
+<li>possible-world intensions for modality;</li>
+<li>structured content for composition;</li>
+<li>modes of presentation for cognition;</li>
+<li>proof objects for constructive reasoning;</li>
+<li>grounding or causal structures for explanation; and</li>
+<li>subject-matter representations for relevance.</li>
+</ul>
+<p>The remaining philosophical question is whether these are dimensions of one content,
+several related contents, or tools that model different practices without corresponding
+to a single semantic entity.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/04-intensionality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/06-semantic-externalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/04-intensionality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/07-content-and-composition/06-semantic-externalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

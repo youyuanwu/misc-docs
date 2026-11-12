@@ -1,0 +1,502 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Normativity of Meaning - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/07-content-and-composition/07-semantic-normativity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-normativity-of-meaning"><a class="header" href="#the-normativity-of-meaning">The Normativity of Meaning</a></h1>
+<p>If "red" means red, applying it to a blue object is incorrect. If "and" expresses
+conjunction, certain inferences are valid and others invalid. Understanding seems to
+set standards extending beyond what a speaker happens to do.</p>
+<p>This motivates the claim that meaning is <strong>normative</strong>. But several claims hide under
+that label. Meaning may supply standards of correctness without generating moral or
+all-things-considered obligations. Norms may govern assertion, belief, or inference
+rather than constitute meaning itself. Actual communal practice may sustain standards
+without making every common use correct.</p>
+<p>The debate asks both whether semantic facts are normative and whether normative facts
+can be explained naturalistically.</p>
+<hr />
+<h2 id="four-kinds-of-normativity"><a class="header" href="#four-kinds-of-normativity">Four kinds of normativity</a></h2>
+<h3 id="correctness"><a class="header" href="#correctness">Correctness</a></h3>
+<p>Meaning distinguishes correct from incorrect application:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">"red" applies correctly to </span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">iff</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> is red</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>This is the least controversial sense. Semantic content supplies correctness
+conditions.</p>
+<h3 id="reasons"><a class="header" href="#reasons">Reasons</a></h3>
+<p>If a speaker means conjunction by "and," they have a reason to infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> from
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>. Meaning may guide reasoning.</p>
+<h3 id="obligation"><a class="header" href="#obligation">Obligation</a></h3>
+<p>A stronger thesis says a speaker <strong>ought</strong> to use expressions according to their
+meanings. This can conflict with other reasons: someone may have prudential or moral
+reason to lie, remain silent, or deliberately misuse a word.</p>
+<h3 id="commitment"><a class="header" href="#commitment">Commitment</a></h3>
+<p>By asserting a sentence, a speaker undertakes inferential and justificatory
+commitments. These norms arise from an act performed with meaningful language, not
+necessarily from lexical meaning alone.</p>
+<p>Arguments often move illicitly from correctness to obligation. The distinctions should
+be preserved.</p>
+<h2 id="correctness-conditions"><a class="header" href="#correctness-conditions">Correctness conditions</a></h2>
+<p>Every representational content appears to permit correctness and error. A map can
+misrepresent a road, a belief can be false, and a word can be misapplied.</p>
+<p>One might say this normativity is merely classificatory:</p>
+<blockquote>
+<p>Given that "red" means red, red applications are correct and non-red applications
+incorrect.</p>
+</blockquote>
+<p>No categorical command follows. The relation resembles a standard of functional
+success rather than a moral requirement.</p>
+<p>If this thin normativity is all that meaning requires, many naturalistic theories can
+accommodate it by explaining how content determines satisfaction conditions.</p>
+<h2 id="kripkes-normativity-argument"><a class="header" href="#kripkes-normativity-argument">Kripke's normativity argument</a></h2>
+<p>Rule-following scepticism pressures dispositional accounts. A speaker may be disposed
+to make mistakes. If meaning were identical with actual disposition, whatever answer
+the speaker would give would become correct by definition.</p>
+<p>Meaning addition determines that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">68</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">57</span></span></span></span> should be 125 even if the speaker is disposed
+to answer 5. Semantic content appears to set a standard beyond behaviour.</p>
+<p>The argument shows:</p>
+<ul>
+<li>actual performance does not exhaust correctness;</li>
+<li>error must remain possible;</li>
+<li>idealization needs a non-circular standard; and</li>
+<li>finite dispositions underdetermine unbounded rules.</li>
+</ul>
+<p>It does not by itself establish irreducible obligations. A naturalistic account might
+explain correctness through function, history, or optimal interpretation rather than
+raw disposition.</p>
+<p>See <a href="../05-meaning/08-meaning-scepticism.html">Meaning Scepticism and
+Rule-Following</a>.</p>
+<h2 id="guidance"><a class="header" href="#guidance">Guidance</a></h2>
+<p>For a rule to guide, the speaker must in some sense be sensitive to it. A purely
+external relation that never affects reasoning may determine correctness without
+explaining competent action.</p>
+<p>Guidance can involve:</p>
+<ul>
+<li>explicit consultation of a rule;</li>
+<li>tacit practical mastery;</li>
+<li>dispositions shaped by training;</li>
+<li>sensitivity to correction;</li>
+<li>inferential integration;</li>
+<li>representation of goals and standards.</li>
+</ul>
+<p>Requiring explicit interpretation creates a regress, because the interpretation itself
+needs guidance. Practical competence must eventually operate without a further
+represented rule.</p>
+<p>Meaning can guide through acquired capacity rather than conscious instruction.</p>
+<h2 id="norms-of-assertion"><a class="header" href="#norms-of-assertion">Norms of assertion</a></h2>
+<p>Assertion is governed by proposed norms:</p>
+<ul>
+<li>assert only what is true;</li>
+<li>assert only what you know;</li>
+<li>assert only what you reasonably believe;</li>
+<li>assert only what is warranted enough for the context.</li>
+</ul>
+<p>These norms concern a speech act. They should not be confused with the meaning of the
+sentence asserted.</p>
+<p>A liar can use words with their ordinary meanings while violating a truth or knowledge
+norm. Semantic competence is compatible with assertoric misconduct.</p>
+<p>Conversely, a sentence can be meaningful even if never assertible, as in fiction,
+supposition, or quotation. Norms of assertion cannot define all linguistic meaning
+without extension.</p>
+<h2 id="norms-of-belief-and-inference"><a class="header" href="#norms-of-belief-and-inference">Norms of belief and inference</a></h2>
+<p>Beliefs are evaluated for truth, rationality, consistency, and evidential support.
+Inferences are evaluated for validity or strength.</p>
+<p>Inferentialism makes some of these relations content-constitutive. To mean conjunction
+is partly to accept its introduction and elimination rules. Other theories say meaning
+first determines content, while independent logical norms evaluate transitions among
+contents.</p>
+<p>The explanatory order matters:</p>
+<ol>
+<li><strong>Meaning-first:</strong> expressions have contents; logic states truth-preserving
+transitions.</li>
+<li><strong>Inference-first:</strong> rules of correct transition constitute the contents.</li>
+</ol>
+<p>Proof-theoretic and model-theoretic semantics embody the competing priorities while
+often validating the same logic.</p>
+<h2 id="constitutive-norms"><a class="header" href="#constitutive-norms">Constitutive norms</a></h2>
+<p>A <strong>constitutive norm</strong> helps make an activity the activity it is. Rules of chess do
+not merely regulate an independently existing practice; they partly constitute playing
+chess.</p>
+<p>Linguistic analogues might include:</p>
+<ul>
+<li>using assertions as commitments;</li>
+<li>preserving inferential roles;</li>
+<li>treating correction as answerable to shared standards;</li>
+<li>coordinating reference;</li>
+<li>distinguishing truth from falsity.</li>
+</ul>
+<p>If semantic norms are constitutive, systematic violation can mean failure to
+participate rather than merely poor participation.</p>
+<p>The analogy has limits. Natural languages evolve without a fixed rulebook, tolerate
+variation, and allow speakers to innovate. Constitutive norms may be multiple,
+defeasible, and reconstructed from practice.</p>
+<h2 id="community-practice"><a class="header" href="#community-practice">Community practice</a></h2>
+<p>Public correction appears to ground semantic standards. Learners are trained, mistakes
+are corrected, and competent speakers converge on patterns.</p>
+<p>Community accounts explain:</p>
+<ul>
+<li>publicity;</li>
+<li>shared standards;</li>
+<li>learning;</li>
+<li>norm transmission;</li>
+<li>correction of individual idiosyncrasy.</li>
+</ul>
+<p>They face the <strong>community error</strong> problem. A whole community can classify badly, reason
+invalidly, or revise its language. If whatever the group does is correct, systematic
+error disappears at the social level.</p>
+<p>A practice can contain internal standards that participants fail to satisfy. It can
+also be answerable to environmental success, evidence, and logical relations. Social
+constitution need not imply communal infallibility.</p>
+<h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
+<p>Conventions create expectations and conditional reasons to conform. If everyone uses
+"red" for red, each speaker has reason to do so when coordination matters.</p>
+<p>This explains some normative force:</p>
+<ul>
+<li>deviation impedes communication;</li>
+<li>shared practice creates reliance;</li>
+<li>explicit stipulations generate local obligations;</li>
+<li>participants can criticize unannounced changes.</li>
+</ul>
+<p>But conventional reasons are often instrumental. They depend on a desire to
+coordinate. Semantic correctness appears to remain even when a speaker wants to
+confuse.</p>
+<p>Convention explains why a standard is socially sustained more readily than why it has
+the specific extension it does or why truth matters.</p>
+<h2 id="biological-function"><a class="header" href="#biological-function">Biological function</a></h2>
+<p>Teleosemantic theories ground representational correctness in biological function. A
+state can misrepresent when it fails to indicate what its selected function is to
+indicate.</p>
+<p>For language, biological function may explain capacities for communication and
+learning, but particular lexical meanings are historically and culturally variable.
+"Electron" has no direct evolutionary function.</p>
+<p>Cultural selection and learning history can generalize the model:</p>
+<ul>
+<li>forms persist because they coordinate;</li>
+<li>correction stabilizes functions;</li>
+<li>conventions reproduce across speakers.</li>
+</ul>
+<p>Functional history supplies a natural standard beyond current disposition. It may
+underdescribe inferential and truth-conditional detail.</p>
+<h2 id="rational-interpretation"><a class="header" href="#rational-interpretation">Rational interpretation</a></h2>
+<p>Interpretivist theories assign meanings that best make speakers coherent, responsive
+to evidence, and largely correct about their environment.</p>
+<p>Norms enter the constitutive interpretation:</p>
+<ul>
+<li>logical consistency;</li>
+<li>rational action;</li>
+<li>charity;</li>
+<li>truthfulness;</li>
+<li>evidential sensitivity.</li>
+</ul>
+<p>This explains why radically irrational assignments are poor interpretations. It also
+risks idealizing away real irrationality or imposing the interpreter's norms.</p>
+<p>A constrained interpretation allows local error against a background of intelligible
+practice. The relevant norms need not be perfectly obeyed to help constitute content.</p>
+<h2 id="naturalism-and-the-open-question-pressure"><a class="header" href="#naturalism-and-the-open-question-pressure">Naturalism and the open-question pressure</a></h2>
+<p>A reductive naturalist seeks facts about:</p>
+<ul>
+<li>dispositions;</li>
+<li>causal covariance;</li>
+<li>biological function;</li>
+<li>social convention;</li>
+<li>training history;</li>
+<li>optimal interpretation.</li>
+</ul>
+<p>The normativist argues that none entails what a speaker <strong>ought</strong> to do without a
+normative premise.</p>
+<p>This resembles a general is-ought gap. The naturalist can reply that semantic
+correctness is not categorical obligation. Functional and relational facts can
+constitute standards in the same way facts about a heart's function distinguish normal
+from malfunctioning performance.</p>
+<p>The debate partly turns on how strong the target normativity is. Thin correctness is
+easier to naturalize than unconditional reasons.</p>
+<h2 id="meaning-without-obligation"><a class="header" href="#meaning-without-obligation">Meaning without obligation</a></h2>
+<p>One deflationary position says meaning is not intrinsically reason-giving:</p>
+<ul>
+<li>meaning determines truth or satisfaction conditions;</li>
+<li>agents have independent epistemic and practical reasons to pursue truth or
+communication;</li>
+<li>those reasons generate norms for use;</li>
+<li>no special semantic "ought" is required.</li>
+</ul>
+<p>If "red" means red, calling a blue thing red is semantically incorrect. Whether the
+speaker ought not do so depends on their purposes and circumstances.</p>
+<p>This preserves correctness while avoiding mysterious categorical prescriptions. Critics
+respond that correctness itself remains a normative relation in need of explanation.</p>
+<h2 id="semantic-change-and-innovation"><a class="header" href="#semantic-change-and-innovation">Semantic change and innovation</a></h2>
+<p>Speakers intentionally violate inherited use to create metaphor, technical terminology,
+or reform. At what point does incorrect use become a new meaning?</p>
+<p>Factors include:</p>
+<ul>
+<li>recognizability;</li>
+<li>uptake;</li>
+<li>persistence;</li>
+<li>systematic inferential role;</li>
+<li>explicit stipulation;</li>
+<li>practical success;</li>
+<li>integration into communal correction.</li>
+</ul>
+<p>Innovation shows that norms are not static. A speaker can violate an old standard while
+proposing a new one. Metalinguistic negotiation distinguishes:</p>
+<blockquote>
+<p>This is what the word currently means</p>
+</blockquote>
+<p>from:</p>
+<blockquote>
+<p>This is how we should use it.</p>
+</blockquote>
+<p>Semantic description and conceptual recommendation are different normative projects.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Source</th><th>Explains</th><th>Main pressure</th></tr></thead><tbody>
+<tr><td>Correctness conditions</td><td>true/false application</td><td>may be normativity only in a thin sense</td></tr>
+<tr><td>Inference rules</td><td>rational consequences</td><td>which rules are constitutive?</td></tr>
+<tr><td>Community practice</td><td>publicity and correction</td><td>communal error</td></tr>
+<tr><td>Convention</td><td>coordination and reliance</td><td>merely conditional reasons</td></tr>
+<tr><td>Function</td><td>error against historical purpose</td><td>lexical and abstract content</td></tr>
+<tr><td>Interpretation</td><td>rational intelligibility</td><td>idealization and circularity</td></tr>
+<tr><td>Primitive normativity</td><td>irreducible standards</td><td>explanatory mystery</td></tr>
+</tbody></table>
+</div>
+<p>The safest conclusion is plural:</p>
+<ol>
+<li>Meaning supplies standards of semantic correctness.</li>
+<li>Speech acts and beliefs are governed by additional epistemic and social norms.</li>
+<li>Correctness does not automatically generate categorical obligation.</li>
+<li>Public practice is essential to learning and correction but not infallible.</li>
+<li>Naturalistic facts can explain much of norm acquisition and function, while the
+reduction of every normative relation remains contested.</li>
+</ol>
+<p>Calling meaning "normative" should begin rather than end the analysis. The question is
+which norm, governing what act, with what force, and grounded by which facts.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/06-semantic-externalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/01-speaker-meaning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/07-content-and-composition/06-semantic-externalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/08-pragmatics/01-speaker-meaning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

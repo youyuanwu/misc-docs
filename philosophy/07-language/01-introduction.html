@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Philosophy of Language? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/01-introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-philosophy-of-language"><a class="header" href="#what-is-philosophy-of-language">What Is Philosophy of Language?</a></h1>
+<p>Language is at once familiar and theoretically puzzling. Children acquire a finite
+vocabulary and a finite set of constructions, yet speakers understand indefinitely
+many new sentences. A few sounds can concern a distant galaxy, a possible event, a
+number, or a person who never existed. The same sentence can be used to assert, joke,
+warn, insinuate, or deceive. Different expressions can pick out the same object while
+presenting it differently, and identical words can communicate different things in
+different contexts.</p>
+<p><strong>Philosophy of language</strong> asks what makes these achievements possible and what they
+show about thought, reality, and social practice. It does not begin by assuming that
+meaning is one kind of entity. Instead it separates the explanatory tasks hidden by
+ordinary talk of "what a sentence means."</p>
+<p>This page introduces five central questions, distinguishes the principal objects of
+study, and establishes recurring cases. The next pages examine the
+<a href="02-semantics-pragmatics.html">semantics-pragmatics distinction</a>, compare
+<a href="03-theories-overview.html">theories of meaning</a>, and assess the subject's
+<a href="04-method-and-evidence.html">methods and evidence</a>.</p>
+<hr />
+<h2 id="five-central-questions"><a class="header" href="#five-central-questions">Five central questions</a></h2>
+<h3 id="what-is-linguistic-meaning"><a class="header" href="#what-is-linguistic-meaning">What is linguistic meaning?</a></h3>
+<p>Competent speakers distinguish meaningful expressions from noise, understand new
+combinations, recognize some uses as mistakes, and often translate between different
+forms. A theory of meaning must explain at least:</p>
+<ul>
+<li><strong>productivity</strong> - finite speakers understand unboundedly many sentences;</li>
+<li><strong>systematicity</strong> - understanding related expressions comes in structured families;</li>
+<li><strong>compositionality</strong> - the meanings of complex expressions depend in some way on
+their parts and arrangement;</li>
+<li><strong>publicity</strong> - meanings can be shared, taught, corrected, and contested;</li>
+<li><strong>normativity</strong> - using an expression correctly is not merely using it frequently;</li>
+<li><strong>world-involvement</strong> - language can be true, false, accurate, or mistaken.</li>
+</ul>
+<p>Theories disagree over which feature is fundamental. Truth-conditional approaches
+begin with conditions under which sentences are true. Use theories begin with
+rule-governed practice. Intention-based theories begin with communicative intentions.
+Inferentialism begins with the role an expression plays in reasoning. These need not
+be exclusive at every level: one theory may describe semantic content while another
+explains how that content is fixed.</p>
+<h3 id="how-does-reference-work"><a class="header" href="#how-does-reference-work">How does reference work?</a></h3>
+<p>A name can be used to speak about a person, a demonstrative to pick out a visible
+object, and a natural-kind term to concern samples whose internal nature most speakers
+cannot identify. Reference raises several puzzles:</p>
+<ul>
+<li>Must a speaker know a uniquely identifying description of a referent?</li>
+<li>Can a name remain meaningful when nothing bears it?</li>
+<li>Does "water" refer by associated descriptions, causal history, deference to experts,
+or some combination?</li>
+<li>What fixes the referent of "I," "here," "that," or "today" on an occasion?</li>
+<li>Can two people refer to the same thing while thinking about it differently?</li>
+</ul>
+<p>Reference is not the whole of meaning. "The morning star" and "the evening star" both
+refer to Venus, but learning that the morning star is the evening star can be
+informative. Whatever else a theory says, it must account for this <strong>cognitive
+significance</strong>.</p>
+<h3 id="how-do-sentence-meanings-depend-on-their-parts"><a class="header" href="#how-do-sentence-meanings-depend-on-their-parts">How do sentence meanings depend on their parts?</a></h3>
+<p>Someone who knows the words in "every student read a book" can understand the sentence
+without having encountered that exact token. Yet its parts permit more than one scope
+reading: perhaps one book was read by every student, or perhaps each student read some
+book. Formal semantics tries to represent such structure precisely.</p>
+<p>A simple model assigns semantic values to expressions and rules for combining them.
+If a name denotes an object <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> and a predicate denotes a function from objects to
+truth values, composition yields:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">Socrates is wise</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">is wise</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mopen">(</span><span class="mopen"><span class="mopen">[</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mopen">[</span></span><span class="mord text"><span class="mord">Socrates</span></span><span class="mclose"><span class="mclose">]</span><span class="mspace" style="margin-right:-0.1778em;"></span><span class="mclose">]</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>The notation makes an explanatory claim visible: the whole is understood through the
+parts and their mode of combination. Natural language complicates that picture through
+ambiguity, context sensitivity, idiom, coercion, ellipsis, anaphora, and non-literal
+use. Those are tests of a compositional theory, not reasons to abandon precision.</p>
+<h3 id="how-does-context-affect-what-is-communicated"><a class="header" href="#how-does-context-affect-what-is-communicated">How does context affect what is communicated?</a></h3>
+<p>"I am here now" changes its truth-conditions with speaker, place, and time. "The
+meeting starts at noon" may communicate a warning to leave, although no warning is
+encoded in the sentence. "Sam stopped smoking" normally carries the background
+assumption that Sam smoked before. A complete account must distinguish:</p>
+<ul>
+<li>what the linguistic expression conventionally contributes;</li>
+<li>what context supplies to determine what is said;</li>
+<li>what the speaker intends the audience to infer;</li>
+<li>what the utterance presupposes or takes for granted;</li>
+<li>what act the speaker performs; and</li>
+<li>what effects the utterance has.</li>
+</ul>
+<p>The boundary between <strong>semantics</strong> and <strong>pragmatics</strong> is disputed because context can
+enter interpretation in more than one way. Some dependence is overtly triggered by
+words such as "I"; other enrichment appears to be supplied by conversational purposes.</p>
+<h3 id="what-makes-an-interpretation-correct"><a class="header" href="#what-makes-an-interpretation-correct">What makes an interpretation correct?</a></h3>
+<p>Formal semantics can define many interpretation functions. Only some correspond to
+what actual speakers mean. This raises a <strong>metasemantic</strong> question: what facts make
+"water" refer to water, make a conjunction express conjunction, or make one
+translation better than another?</p>
+<p>Candidate answers appeal to:</p>
+<ul>
+<li>individual intentions;</li>
+<li>causal relations to objects and environments;</li>
+<li>conventions sustained by coordination;</li>
+<li>patterns of use and correction;</li>
+<li>inferential roles;</li>
+<li>social deference and historical transmission;</li>
+<li>rational interpretation under principles of charity; or</li>
+<li>combinations of these.</li>
+</ul>
+<p>This question separates a formal assignment of values from an explanation of why the
+assignment is linguistically correct. <a href="../../logic/07-model-theory.html">Model theory</a>
+supplies the former for formal languages. Philosophy of language must also address the
+latter for languages used by communities.</p>
+<h2 id="levels-that-must-not-be-conflated"><a class="header" href="#levels-that-must-not-be-conflated">Levels that must not be conflated</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Level</th><th>Example</th><th>What is being explained?</th></tr></thead><tbody>
+<tr><td><strong>Expression type</strong></td><td>the English word "bank"</td><td>A repeatable linguistic item, possibly ambiguous</td></tr>
+<tr><td><strong>Sentence type</strong></td><td>"The bank is closed"</td><td>A grammatical form shared by many occurrences</td></tr>
+<tr><td><strong>Utterance token</strong></td><td>one person's use at a particular time</td><td>A concrete event in context</td></tr>
+<tr><td><strong>Semantic content</strong></td><td>roughly, that a salient bank is closed</td><td>What the interpreted utterance says</td></tr>
+<tr><td><strong>Speaker meaning</strong></td><td>perhaps, that the listener should return tomorrow</td><td>What the speaker intends to communicate</td></tr>
+<tr><td><strong>Illocutionary force</strong></td><td>assertion, warning, reminder</td><td>What act is performed</td></tr>
+<tr><td><strong>Perlocutionary effect</strong></td><td>the listener leaves</td><td>What the utterance causes</td></tr>
+</tbody></table>
+</div>
+<p>The distinctions prevent common invalid inferences. A sentence type may be ambiguous
+although a contextual utterance is not. A speaker can mean something without the words
+conventionally encoding it. An audience can be affected in a way the speaker did not
+intend. A theory explaining one row has not automatically explained the others.</p>
+<h2 id="language-thought-and-the-world"><a class="header" href="#language-thought-and-the-world">Language, thought, and the world</a></h2>
+<p>Language relates speakers to both thought and reality, but the direction of dependence
+is contested.</p>
+<p>One picture begins with thought. Speakers possess concepts and intentions, then use
+public symbols to express them. On this view linguistic content is at least partly
+derived from mental content. It explains why the same thought can be expressed in
+different languages, but it owes an account of how thought represents independently.
+That problem is developed in
+<a href="../06-mind/07-intentionality/01-aboutness.html">Intentionality and Aboutness</a>.</p>
+<p>A second picture begins with public practice. Possessing a concept requires mastery of
+rules for using words, drawing inferences, and correcting errors. Thought itself may
+depend on initiation into linguistic norms. This makes publicity and correction
+central, but it must accommodate infants, animals, imagery, and other apparently
+non-linguistic cognition.</p>
+<p>A third picture emphasizes direct relations to the environment and community. What a
+term means may depend on its causal history, the samples from which it was learned, and
+deference to other speakers. Meaning then is not wholly determined by anything inside
+an individual mind.</p>
+<p>None of these views implies that language mirrors the world without mediation.
+Grammar, conceptual schemes, practical interests, and conversational context shape
+what speakers can conveniently say. Nor does mediation imply that reference and truth
+are merely invented. The question is which contributions come from world, mind,
+language, and practice.</p>
+<h2 id="recurring-test-cases"><a class="header" href="#recurring-test-cases">Recurring test cases</a></h2>
+<p>The section repeatedly returns to a small set of cases:</p>
+<ul>
+<li><strong>"Hesperus is Phosphorus."</strong> The names co-refer, yet the identity is informative.
+The case tests sense, direct reference, and the objects of belief.</li>
+<li><strong>"The present king of France is bald."</strong> Nothing presently fits the description.
+The case tests reference failure, presupposition, and logical form.</li>
+<li><strong>"Water is H2O."</strong> Ordinary speakers historically lacked chemical knowledge. The
+case tests natural-kind reference, externalism, rigidity, and necessity.</li>
+<li><strong>"I am here now."</strong> Reference changes systematically with context. The case tests
+character, content, and the role of an utterance situation.</li>
+<li><strong>"Every student read a book."</strong> Scope affects truth-conditions without changing the
+words. The case tests syntax-semantics composition.</li>
+<li><strong>"Sam stopped smoking."</strong> The sentence presents prior smoking as background. The
+case tests presupposition and projection.</li>
+<li><strong>"Some students passed."</strong> In many contexts this suggests that not all passed,
+although classical semantics makes "some" compatible with "all." The case tests
+conversational implicature.</li>
+<li><strong>"Can you open the window?"</strong> A question about ability normally functions as a
+request. The case tests sentence type, speaker meaning, and force.</li>
+</ul>
+<p>No single intuition about one case should decide a theory. The point is comparative:
+which account handles the cases together, with the least arbitrary machinery and the
+clearest division of explanatory labour?</p>
+<h2 id="what-the-subject-can-establish"><a class="header" href="#what-the-subject-can-establish">What the subject can establish</a></h2>
+<p>Philosophy of language can clarify the commitments of theories, reveal distinctions
+hidden by ordinary terminology, construct formal models, and test explanations across
+cases. It cannot determine meanings by stipulation while pretending to report existing
+practice, infer metaphysics directly from grammar, or treat one speaker's reaction as
+the architecture of every language.</p>
+<p>Progress therefore requires several kinds of discipline: formal explicitness,
+attention to attested use, cross-linguistic caution, sensitivity to context, and clear
+separation of semantic, pragmatic, psychological, and metaphysical claims. The
+<a href="04-method-and-evidence.html">method page</a> develops those standards.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/07-language/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/07-language/02-semantics-pragmatics.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/07-language/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/07-language/02-semantics-pragmatics.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

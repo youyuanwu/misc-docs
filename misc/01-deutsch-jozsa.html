@@ -222,7 +222,7 @@
 <p>The value of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> has been moved from the <em>value</em> of the ancilla into a <strong>relative phase</strong> on the data register. This trick — <strong>phase kickback</strong> — is the engine of essentially every quantum query algorithm.</p>
 <h2 id="3-the-algorithm"><a class="header" href="#3-the-algorithm">3. The Algorithm</a></h2>
 <p>The circuit has three stages:</p>
-<pre><code>|0⟩^⊗n  ── H^⊗n ──┐                ┌── H^⊗n ── measure
+<pre><code class="language-text">|0⟩^⊗n  ── H^⊗n ──┐                ┌── H^⊗n ── measure
                   │      U_f       │
 |1⟩    ── H ─────┘                └── (discarded)
 </code></pre>

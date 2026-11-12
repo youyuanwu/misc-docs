@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Proper Names - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/07-language/06-reference/03-proper-names.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="proper-names"><a class="header" href="#proper-names">Proper Names</a></h1>
+<p>Proper names appear to be the simplest referring expressions. "Ada" picks out Ada;
+"Venus" picks out Venus. Yet names generate several of the deepest problems in
+semantics. How can a name refer when speakers know almost nothing about its bearer?
+Why are identities between names informative? What happens in belief reports? Can a
+name remain meaningful when its bearer does not exist? How does a naming practice
+persist or change?</p>
+<p>The modern debate moves from Millian direct reference through Fregean and Russellian
+descriptivism to Kripke's arguments for rigidity and a causal-historical picture.
+Contemporary views often combine direct truth-conditional contribution with separate
+resources for cognitive significance.</p>
+<hr />
+<h2 id="millianism"><a class="header" href="#millianism">Millianism</a></h2>
+<p>On a <strong>Millian</strong> view, a proper name contributes only its bearer to the proposition
+expressed. Names have denotation but no descriptive connotation.</p>
+<p>Thus:</p>
+<blockquote>
+<p>Ada runs.</p>
+</blockquote>
+<p>expresses a singular proposition containing Ada herself and the property of running.
+If "Ada" and "the morning runner" happen to identify the same person, the expressions
+can still differ semantically because the description contributes quantificational or
+descriptive structure while the name contributes the object.</p>
+<p>Millianism explains the apparent semantic simplicity and rigidity of names. It faces:</p>
+<ul>
+<li>informative identities between co-referring names;</li>
+<li>substitution failure in belief reports;</li>
+<li>differences in understanding;</li>
+<li>negative existentials; and</li>
+<li>empty fictional or mistaken names.</li>
+</ul>
+<p>The theory's usual strategy is to keep truth-conditional content coarse and explain
+cognitive differences elsewhere.</p>
+<h2 id="fregean-senses"><a class="header" href="#fregean-senses">Fregean senses</a></h2>
+<p>Frege distinguishes a name's <strong>reference</strong> from its <strong>sense</strong>, the mode under which the
+referent is presented. "Hesperus" and "Phosphorus" both refer to Venus but express
+different senses.</p>
+<p>This explains why:</p>
+<blockquote>
+<p>Hesperus is Phosphorus</p>
+</blockquote>
+<p>can be informative while:</p>
+<blockquote>
+<p>Hesperus is Hesperus</p>
+</blockquote>
+<p>is trivial. It also explains why a rational speaker may believe one corresponding
+sentence without believing another.</p>
+<p>The account raises identity conditions for senses. Different speakers can associate
+different information with a name while still communicating. If every cognitive
+difference is a difference in sense, shared content becomes excessively fine-grained.</p>
+<p>The general problem is developed in
+<a href="../05-meaning/02-sense-and-reference.html">Sense and Reference</a>.</p>
+<h2 id="russellian-descriptivism"><a class="header" href="#russellian-descriptivism">Russellian descriptivism</a></h2>
+<p>Russell treated ordinary names as disguised definite descriptions. A logically proper
+name would refer directly to an object with which the thinker is acquainted, but most
+ordinary names abbreviate descriptions.</p>
+<p>"Aristotle" might be analysed as:</p>
+<blockquote>
+<p>the pupil of Plato who taught Alexander and wrote the <em>Metaphysics</em>.</p>
+</blockquote>
+<p>The name then refers to whatever uniquely satisfies the description. If nothing does,
+the sentence containing it can still receive a quantificational analysis.</p>
+<p>Descriptivism explains cognitive significance and empty-name intelligibility in one
+framework. It also turns reference into something an individual could fix through
+their associated knowledge.</p>
+<p>The costs are ignorance, error, variation among speakers, and modal mismatch.</p>
+<h2 id="cluster-theories"><a class="header" href="#cluster-theories">Cluster theories</a></h2>
+<p>No single description is known or accepted by every competent speaker. A
+<strong>cluster theory</strong> instead associates a weighted family:</p>
+<ul>
+<li>pupil of Plato;</li>
+<li>teacher of Alexander;</li>
+<li>author of the <em>Metaphysics</em>;</li>
+<li>ancient Greek philosopher; and so on.</li>
+</ul>
+<p>The name refers to the object satisfying enough of the important descriptions. This
+allows some misinformation and individual variation.</p>
+<p>The theory must specify:</p>
+<ul>
+<li>which descriptions belong to the cluster;</li>
+<li>how they are weighted;</li>
+<li>how much satisfaction is enough;</li>
+<li>what happens when different objects satisfy different parts; and</li>
+<li>how a speaker with almost no identifying information refers.</li>
+</ul>
+<p>If the cluster is whatever best preserves ordinary reference judgments, explanatory
+circularity threatens.</p>
+<h2 id="kripkes-modal-argument"><a class="header" href="#kripkes-modal-argument">Kripke's modal argument</a></h2>
+<p>Names and descriptions behave differently under modality.</p>
+<blockquote>
+<p>Aristotle might not have taught Alexander.</p>
+</blockquote>
+<p>This is true. Aristotle could have pursued a different life.</p>
+<p>If "Aristotle" meant <em>the teacher of Alexander</em>, the sentence would become:</p>
+<blockquote>
+<p>The teacher of Alexander might not have taught Alexander.</p>
+</blockquote>
+<p>On the relevant de dicto reading, that is false or contradictory. The description
+selects whoever satisfies it in each world; the name continues to concern Aristotle.</p>
+<p>Kripke calls a term <strong>rigid</strong> if it designates the same object in every possible world
+in which that object exists. Proper names are rigid; ordinary identifying descriptions
+are usually non-rigid.</p>
+<p>The argument shows that a name is not synonymous with the description. A description
+may still fix its initial reference.</p>
+<h2 id="the-epistemic-argument"><a class="header" href="#the-epistemic-argument">The epistemic argument</a></h2>
+<p>If "Aristotle" meant <em>the teacher of Alexander</em>, then:</p>
+<blockquote>
+<p>Aristotle taught Alexander</p>
+</blockquote>
+<p>would be knowable a priori by anyone who understood the name. It is an empirical
+historical claim.</p>
+<p>Competence with a name does not generally include knowledge of a uniquely identifying
+description. Speakers can use "Feynman" while knowing only that Feynman was a famous
+physicist, a description satisfied by many people.</p>
+<p>The argument separates semantic competence from identifying knowledge. A speaker may
+depend on the linguistic community to preserve reference.</p>
+<h2 id="the-semantic-argument"><a class="header" href="#the-semantic-argument">The semantic argument</a></h2>
+<p>Suppose the incompleteness theorem was proved by Schmidt and stolen by Gödel. Speakers
+associate "Gödel" with <em>the prover of incompleteness</em>. Intuitively, their name still
+refers to Gödel, and their belief about him is false; it does not unknowingly refer to
+Schmidt.</p>
+<p>Reference survives massive descriptive error. A theory making the best-fitting
+description constitutive predicts the wrong bearer.</p>
+<p>Defenders of descriptivism can enrich the cluster with historical or causal
+descriptions, such as <em>the person called "Gödel" by the community</em>. But this concedes
+that reference depends on a naming practice not reducible to ordinary descriptive
+belief.</p>
+<h2 id="rigidity-and-necessary-identity"><a class="header" href="#rigidity-and-necessary-identity">Rigidity and necessary identity</a></h2>
+<p>If two names rigidly designate the same object, then a true identity between them is
+necessary:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord amsrm">□</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Hesperus could not have failed to be Phosphorus, because both are Venus. The empirical
+discovery concerns which object each name actually designates; once the identity is
+known, its necessity follows from the necessity of identity.</p>
+<p>This yields the <strong>necessary a posteriori</strong>: a claim necessary in modal status but known
+through empirical investigation.</p>
+<p>The argument depends on names being rigid and on cross-world identity. It does not show
+that every scientific identity has one unambiguous necessary reading. The broader
+modal cautions are developed in
+<a href="../../A-remarks/04-necessity-and-metaphysics.html">Necessity and Metaphysics</a>.</p>
+<h2 id="baptism-and-causal-transmission"><a class="header" href="#baptism-and-causal-transmission">Baptism and causal transmission</a></h2>
+<p>If descriptions do not determine reference, how is it fixed? Kripke sketches:</p>
+<ol>
+<li>A name is introduced through ostension or description.</li>
+<li>Later speakers acquire it through communication.</li>
+<li>Each intends to use it with the reference it has in the source practice.</li>
+<li>A causal-historical chain connects later tokens to the introduction.</li>
+</ol>
+<p>A baptism can be ostensive:</p>
+<blockquote>
+<p>Let this child be called "Ada."</p>
+</blockquote>
+<p>or descriptive:</p>
+<blockquote>
+<p>Let "Neptune" name the planet causing these perturbations.</p>
+</blockquote>
+<p>The description can fix reference without becoming synonymous with the name. Once the
+practice is established, the name directly designates the object.</p>
+<h2 id="the-qua-problem"><a class="header" href="#the-qua-problem">The qua problem</a></h2>
+<p>Ostension does not identify which aspect is named. Pointing at a person could introduce
+a name for the person, their body, a temporal stage, a role, or even a visible surface.
+The act occurs under a <strong>sortal</strong> or identifying intention.</p>
+<p>This gives descriptive or conceptual material a role in baptism. Direct reference does
+not mean reference is fixed without classification. The question is whether that
+material enters later semantic content or only explains the introduction.</p>
+<h2 id="reference-preserving-intention"><a class="header" href="#reference-preserving-intention">Reference-preserving intention</a></h2>
+<p>Causal contact by itself is insufficient. A speaker may hear "Feynman" from another
+person while deciding to use it as a new name for their dog. The new use is causally
+connected to physicist-directed uses but does not refer to the physicist.</p>
+<p>Transmission requires an intention to use the name as received. That intention cannot
+be specified merely as "intend to preserve the reference" without some circularity.
+It may instead involve deference to the source speaker or continuation of a public
+practice.</p>
+<p>Mistakes complicate the picture. Mishearing, conflating two people, or attaching a
+name to the wrong photograph can produce mixed chains whose reference is not obvious.</p>
+<h2 id="reference-change-and-branching"><a class="header" href="#reference-change-and-branching">Reference change and branching</a></h2>
+<p>Historical practices can redirect names. The standard example "Madagascar" may have
+shifted from a mainland region reported by earlier sources to the island now bearing
+the name. The later practice is causally linked to the earlier one but has a different
+referent.</p>
+<p>This shows that causal origin is not permanently decisive. Sustained communal
+intention, use, and interaction can establish a new reference.</p>
+<p>Chains can also branch:</p>
+<ul>
+<li>two people receive the same name;</li>
+<li>one historical figure is split into two legendary characters;</li>
+<li>two naming practices merge;</li>
+<li>an astronomical observation is misidentified and later corrected.</li>
+</ul>
+<p>A causal theory must explain when continuity preserves reference and when a new
+practice begins.</p>
+<h2 id="descriptive-names"><a class="header" href="#descriptive-names">Descriptive names</a></h2>
+<p>Some names are introduced by descriptions whose satisfaction seems central:</p>
+<ul>
+<li>"Jack the Ripper";</li>
+<li>"Deep Throat";</li>
+<li>a mathematical object named as the unique solution to a condition;</li>
+<li>an astronomical body predicted before observation.</li>
+</ul>
+<p>If no unique object satisfies the description, does the name fail to refer? If an
+unexpected object caused the evidence, does reference shift to it?</p>
+<p>These cases show that names can have different introduction histories. A uniform direct
+semantics may coexist with multiple reference-fixing mechanisms.</p>
+<h2 id="belief-reports"><a class="header" href="#belief-reports">Belief reports</a></h2>
+<p>Substitution of co-referring names can fail:</p>
+<blockquote>
+<p>Lois believes that Superman can fly.</p>
+</blockquote>
+<p>may be true while:</p>
+<blockquote>
+<p>Lois believes that Clark Kent can fly.</p>
+</blockquote>
+<p>is false, although Superman is Clark Kent.</p>
+<p>A Millian proposition contains the same person and property in both cases. Responses
+include:</p>
+<ul>
+<li>belief relates subjects to propositions under modes of presentation;</li>
+<li>reports pragmatically convey a way of identifying the object;</li>
+<li>names contribute guises or mental files in attitude contexts;</li>
+<li>attitude reports are context-sensitive in their standards of attribution; and</li>
+<li>the sentences express different fine-grained propositions.</li>
+</ul>
+<p>The choice affects both semantics and philosophy of mind. Direct reference keeps
+ordinary extensional content simple but requires extra structure for attitudes.</p>
+<h2 id="empty-names"><a class="header" href="#empty-names">Empty names</a></h2>
+<p>If a name contributes only its bearer, a bearerless name appears to contribute nothing.
+Yet speakers understand "Vulcan does not exist" and "Sherlock Holmes is a detective."</p>
+<p>Options include:</p>
+<ul>
+<li>the sentence lacks a complete proposition;</li>
+<li>the name contributes a descriptive sense;</li>
+<li>free logic admits empty terms;</li>
+<li>fiction introduces a pretense operator;</li>
+<li>a fictional artifact becomes the referent; or</li>
+<li>the utterance is about a name or representational practice.</li>
+</ul>
+<p>No solution follows from direct reference alone. The alternatives are compared in
+<a href="04-empty-names.html">Empty Names and Reference Failure</a>.</p>
+<h2 id="hybrid-theories"><a class="header" href="#hybrid-theories">Hybrid theories</a></h2>
+<p>Contemporary accounts often divide the work:</p>
+<ul>
+<li>the referent is the name's truth-conditional contribution;</li>
+<li>causal and social history fix that referent;</li>
+<li>a mode of presentation explains cognitive significance;</li>
+<li>speaker intentions guide local use;</li>
+<li>pragmatic context helps audiences identify the target; and</li>
+<li>free logic or pretense handles failure.</li>
+</ul>
+<p>The result lacks the elegance of one mechanism but matches the diversity of phenomena.
+The central dispute becomes where each factor belongs: public semantics, metasemantics,
+thought, or pragmatics.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Main strength</th><th>Main pressure</th></tr></thead><tbody>
+<tr><td><strong>Millian/direct reference</strong></td><td>rigidity and simple composition</td><td>cognition, attitudes, empty names</td></tr>
+<tr><td><strong>Fregean sense</strong></td><td>informative identity and opacity</td><td>identity and sharing of senses</td></tr>
+<tr><td><strong>Description theory</strong></td><td>identification and empty-name content</td><td>ignorance, error, modality</td></tr>
+<tr><td><strong>Cluster theory</strong></td><td>tolerates varied partial knowledge</td><td>weighting and circularity</td></tr>
+<tr><td><strong>Causal-historical</strong></td><td>transmission through community</td><td>deviant chains and reference change</td></tr>
+<tr><td><strong>Hybrid</strong></td><td>distributes explanatory tasks</td><td>boundaries among semantic levels</td></tr>
+</tbody></table>
+</div>
+<p>Proper names teach a general lesson: how an expression contributes to truth-conditions,
+how its reference is historically fixed, and how a speaker thinks about its bearer are
+distinct questions. A successful theory must connect them without pretending they are
+one relation.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/07-language/06-reference/02-definite-descriptions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/04-empty-names.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/07-language/06-reference/02-definite-descriptions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/07-language/06-reference/04-empty-names.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
